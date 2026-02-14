@@ -18,7 +18,7 @@ export default function Header() {
             <div className="bg-secondary text-white text-xs py-2">
                 <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
-                        <img src="/2.png" alt="Fista" className="h-4 w-auto" />
+                        <img src="/2.png" alt="Fista" className="h-5 w-auto min-w-[80px]" />
                         <span>•</span>
                         <span>{new Date().toLocaleDateString('en-IN', {
                             day: '2-digit',

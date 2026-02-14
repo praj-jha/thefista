@@ -113,7 +113,7 @@ export default function HeroSection({ featuredArticle, recentArticles }: HeroSec
 
                         {/* News List */}
                         <div className="space-y-5">
-                            {recentArticles.slice(0, 4).map((article, index) => (
+                            {recentArticles.slice(0, 4).map((article) => (
                                 <Link to={`/article/${article.id}`} key={article.id} className="flex gap-4 group cursor-pointer">
                                     <div className="w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden">
                                         <img

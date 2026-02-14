@@ -10,7 +10,7 @@ export default function Footer() {
                     {/* Brand Section */}
                     <div className="lg:col-span-1">
                         <Link to="/" className="flex items-center mb-4">
-                            <img src="/2.png" alt="The Fista" className="h-14 w-auto" />
+                            <img src="/2.png" alt="The Fista" className="h-14 w-auto -ml-9" />
                         </Link>
                         <p className="text-neutral-400 text-sm mb-6">
                             Your trusted source for the latest news from India and around the world. Stay informed with The Fista.

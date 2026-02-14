@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { Clock, User, ArrowLeft, Facebook, Twitter, Linkedin, Link2, Mail, MessageCircle, Calendar, BookOpen } from 'lucide-react';
+import { User, ArrowLeft, Facebook, Twitter, Linkedin, Link2, MessageCircle, Calendar, BookOpen } from 'lucide-react';
 import { articles, categories } from '../data/articles';
 import { useState } from 'react';
 
