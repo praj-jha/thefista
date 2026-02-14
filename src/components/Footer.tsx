@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Youtube, Mail, MapPin, Phone } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Mail, MapPin } from 'lucide-react';
 import { categories } from '../data/articles';
 
 export default function Footer() {
@@ -10,22 +10,22 @@ export default function Footer() {
                     {/* Brand Section */}
                     <div className="lg:col-span-1">
                         <Link to="/" className="flex items-center mb-4">
-                            <img src="/fista.png" alt="The Fista" className="h-14 w-auto" />
+                            <img src="/2.png" alt="The Fista" className="h-14 w-auto" />
                         </Link>
                         <p className="text-neutral-400 text-sm mb-6">
                             Your trusted source for the latest news from India and around the world. Stay informed with The Fista.
                         </p>
                         <div className="flex gap-3">
-                            <a href="#" className="w-10 h-10 bg-white/10 hover:bg-primary hover:text-secondary rounded-full flex items-center justify-center transition-colors">
+                            <a href="#" className="w-10 h-10 bg-white/10 hover:bg-white hover:text-secondary rounded-full flex items-center justify-center transition-colors">
                                 <Facebook className="w-5 h-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white/10 hover:bg-primary hover:text-secondary rounded-full flex items-center justify-center transition-colors">
+                            <a href="#" className="w-10 h-10 bg-white/10 hover:bg-white hover:text-secondary rounded-full flex items-center justify-center transition-colors">
                                 <Twitter className="w-5 h-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white/10 hover:bg-primary hover:text-secondary rounded-full flex items-center justify-center transition-colors">
+                            <a href="#" className="w-10 h-10 bg-white/10 hover:bg-white hover:text-secondary rounded-full flex items-center justify-center transition-colors">
                                 <Instagram className="w-5 h-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white/10 hover:bg-primary hover:text-secondary rounded-full flex items-center justify-center transition-colors">
+                            <a href="#" className="w-10 h-10 bg-white/10 hover:bg-white hover:text-secondary rounded-full flex items-center justify-center transition-colors">
                                 <Youtube className="w-5 h-5" />
                             </a>
                         </div>
@@ -39,7 +39,7 @@ export default function Footer() {
                                 <li key={cat.id}>
                                     <Link
                                         to={`/category/${cat.slug}`}
-                                        className="text-neutral-400 hover:text-primary transition-colors"
+                                        className="text-neutral-400 hover:text-white transition-colors"
                                     >
                                         {cat.name}
                                     </Link>
@@ -53,19 +53,19 @@ export default function Footer() {
                         <h3 className="font-bold text-lg mb-4">Quick Links</h3>
                         <ul className="space-y-2">
                             <li>
-                                <a href="#" className="text-neutral-400 hover:text-primary transition-colors">About Us</a>
+                                <a href="#" className="text-neutral-400 hover:text-white transition-colors">About Us</a>
                             </li>
                             <li>
-                                <a href="#" className="text-neutral-400 hover:text-primary transition-colors">Contact</a>
+                                <a href="#" className="text-neutral-400 hover:text-white transition-colors">Contact</a>
                             </li>
                             <li>
-                                <a href="#" className="text-neutral-400 hover:text-primary transition-colors">Privacy Policy</a>
+                                <a href="#" className="text-neutral-400 hover:text-white transition-colors">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="#" className="text-neutral-400 hover:text-primary transition-colors">Terms of Service</a>
+                                <a href="#" className="text-neutral-400 hover:text-white transition-colors">Terms of Service</a>
                             </li>
                             <li>
-                                <a href="#" className="text-neutral-400 hover:text-primary transition-colors">Advertise</a>
+                                <a href="#" className="text-neutral-400 hover:text-white transition-colors">Advertise</a>
                             </li>
                         </ul>
                     </div>
@@ -75,16 +75,12 @@ export default function Footer() {
                         <h3 className="font-bold text-lg mb-4">Contact Us</h3>
                         <ul className="space-y-3">
                             <li className="flex items-start gap-3 text-neutral-400">
-                                <MapPin className="w-5 h-5 flex-shrink-0 text-primary" />
-                                <span>Mumbai, Maharashtra, India</span>
+                                <MapPin className="w-5 h-5 flex-shrink-0 text-white" />
+                                <span>New Delhi, India</span>
                             </li>
                             <li className="flex items-center gap-3 text-neutral-400">
-                                <Phone className="w-5 h-5 flex-shrink-0 text-primary" />
-                                <span>+91 98765 43210</span>
-                            </li>
-                            <li className="flex items-center gap-3 text-neutral-400">
-                                <Mail className="w-5 h-5 flex-shrink-0 text-primary" />
-                                <span>hello@thefista.com</span>
+                                <Mail className="w-5 h-5 flex-shrink-0 text-white" />
+                                <span>info@fista.in</span>
                             </li>
                         </ul>
                     </div>

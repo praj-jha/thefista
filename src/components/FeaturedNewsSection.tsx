@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, Share2, Facebook, Twitter } from 'lucide-react';
+import { Share2, Facebook, Twitter } from 'lucide-react';
 import type { Article, Category } from '../types';
 import { categories } from '../data/articles';
 
@@ -44,38 +44,33 @@ export default function FeaturedNewsSection({ articles }: FeaturedNewsSectionPro
 
     return (
         <section className="max-w-7xl mx-auto px-4 py-8">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-                <h2 className="text-2xl font-bold text-secondary">Featured News</h2>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+                <div>
+                    <h2 className="text-2xl font-bold text-secondary">Featured News</h2>
+                    <p className="text-neutral-500 text-sm mt-1">Curated stories from our editors</p>
+                </div>
 
                 {/* Category Tabs */}
-                <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0">
+                <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-hide">
                     {categoryTabs.slice(0, 5).map((cat) => (
                         <button
                             key={cat.id}
                             onClick={() => setActiveCategory(cat.id)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${activeCategory === cat.id
-                                ? 'bg-secondary text-white'
+                            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-200 ${activeCategory === cat.id
+                                ? 'bg-primary text-white shadow-md'
                                 : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
                                 }`}
                         >
                             {cat.name}
                         </button>
                     ))}
-                    <div className="flex gap-1">
-                        <button className="w-8 h-8 border border-neutral-200 hover:border-primary rounded-full flex items-center justify-center">
-                            <ChevronLeft className="w-4 h-4 text-neutral-600" />
-                        </button>
-                        <button className="w-8 h-8 border border-neutral-200 hover:border-primary rounded-full flex items-center justify-center">
-                            <ChevronRight className="w-4 h-4 text-neutral-600" />
-                        </button>
-                    </div>
                 </div>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-6">
                 {/* Large Featured Card */}
                 {filteredArticles[0] && (
-                    <Link to={`/article/${filteredArticles[0].id}`} className="lg:row-span-2 card group cursor-pointer">
+                    <Link to={`/article/${filteredArticles[0].id}`} className="lg:row-span-2 rounded-2xl overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
                         <div className="relative h-64 lg:h-full overflow-hidden">
                             <img
                                 src={filteredArticles[0].imageUrl}
@@ -115,7 +110,7 @@ export default function FeaturedNewsSection({ articles }: FeaturedNewsSectionPro
                                         <span>•</span>
                                         <span>{article.publishedAt}</span>
                                     </div>
-                                    <h3 className="font-bold text-neutral-800 line-clamp-2 group-hover:text-primary transition-colors">
+                                    <h3 className="font-bold text-neutral-800 line-clamp-2 group-hover:text-secondary transition-colors">
                                         {article.title}
                                     </h3>
                                 </div>

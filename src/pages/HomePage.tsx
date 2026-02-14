@@ -10,15 +10,17 @@ export default function HomePage() {
     const trendingArticles = getTrendingArticles();
 
     return (
-        <div>
+        <div className="bg-neutral-50">
             {/* Hero Section */}
-            <HeroSection
-                featuredArticle={featuredArticle}
-                recentArticles={recentArticles}
-            />
+            <div className="bg-white">
+                <HeroSection
+                    featuredArticle={featuredArticle}
+                    recentArticles={recentArticles}
+                />
+            </div>
 
             {/* Trending + Live Score Section */}
-            <div className="max-w-7xl mx-auto px-4 py-8">
+            <div className="max-w-7xl mx-auto px-4 py-10">
                 <div className="grid lg:grid-cols-3 gap-8">
                     {/* Trending News */}
                     <div className="lg:col-span-2">
@@ -33,7 +35,9 @@ export default function HomePage() {
             </div>
 
             {/* Featured News Section */}
-            <FeaturedNewsSection articles={articles} />
+            <div className="bg-white py-8">
+                <FeaturedNewsSection articles={articles} />
+            </div>
         </div>
     );
 }

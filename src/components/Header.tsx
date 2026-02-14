@@ -18,7 +18,7 @@ export default function Header() {
             <div className="bg-secondary text-white text-xs py-2">
                 <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
                     <div className="flex items-center gap-4">
-                        <span>32°C</span>
+                        <img src="/2.png" alt="Fista" className="h-4 w-auto" />
                         <span>•</span>
                         <span>{new Date().toLocaleDateString('en-IN', {
                             day: '2-digit',
@@ -26,8 +26,8 @@ export default function Header() {
                             year: 'numeric'
                         })}</span>
                     </div>
-                    <a href="mailto:hello@thefista.com" className="hover:text-primary transition-colors">
-                        ✉ hello@thefista.com
+                    <a href="mailto:info@fista.in" className="hover:text-neutral-300 transition-colors">
+                        ✉ info@fista.in
                     </a>
                 </div>
             </div>
@@ -37,7 +37,7 @@ export default function Header() {
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link to="/" className="flex items-center">
-                        <img src="/fista.png" alt="The Fista" className="h-12 w-auto" />
+                        <img src="/1.png" alt="The Fista" className="h-9 md:h-11 lg:h-11 w-auto" />
                     </Link>
 
                     {/* Desktop Navigation */}
