@@ -164,6 +164,17 @@ export const articles: Article[] = [
 </blockquote>
 
 <p class="mb-6">The reunion at his village in Lohardaga district was attended by hundreds of villagers who had never given up hope. Ravi\'s story highlights both the vulnerabilities in India\'s child protection system and the power of persistent love and hope.</p>`,
+    category: 'politics',
+    imageUrl: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&auto=format&fit=crop',
+    author: 'Rajesh Kumar',
+    publishedAt: '2 hr',
+    readTime: '8 min read',
+    isTrending: true,
+  },
+  {
+    id: '3b',
+    title: 'AI Impact Summit 2026: Revolutionary Healthcare Solutions Unveiled',
+    excerpt: 'Major AI breakthroughs in healthcare announced at Bengaluru summit promise to transform diagnostic capabilities and preventive care across India.',
     content: `<p class="text-lg leading-relaxed mb-6">Bengaluru, February 19, 2026 - The AI Impact Summit 2026 has concluded with major announcements in AI-powered healthcare solutions that promise to revolutionize preventive care across India.</p>
 
 <h2 class="text-2xl font-bold mt-8 mb-4">Healthcare AI Breakthroughs</h2>
