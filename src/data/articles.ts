@@ -1,565 +1,439 @@
 import type { Article, LiveMatch, CategoryInfo } from '../types';
 
 export const categories: CategoryInfo[] = [
-  { id: 'cricket', name: 'Cricket', slug: 'cricket', color: '#22c55e' },
-  { id: 'politics', name: 'Politics', slug: 'politics', color: '#3b82f6' },
-  { id: 'health', name: 'Health', slug: 'health', color: '#ef4444' },
-  { id: 'bollywood', name: 'Bollywood', slug: 'bollywood', color: '#ec4899' },
-  { id: 'business', name: 'Business', slug: 'business', color: '#f59e0b' },
-  { id: 'education', name: 'Education', slug: 'education', color: '#8b5cf6' },
-  { id: 'technology', name: 'Technology', slug: 'technology', color: '#06b6d4' },
+  { id: 'cricket', name: 'Cricket', slug: 'cricket', color: '#16a34a' },
+  { id: 'politics', name: 'Politics', slug: 'politics', color: '#2563eb' },
+  { id: 'health', name: 'Health', slug: 'health', color: '#dc2626' },
+  { id: 'bollywood', name: 'Bollywood', slug: 'bollywood', color: '#db2777' },
+  { id: 'business', name: 'Business', slug: 'business', color: '#d97706' },
+  { id: 'education', name: 'Education', slug: 'education', color: '#7c3aed' },
+  { id: 'technology', name: 'Technology', slug: 'technology', color: '#0891b2' },
 ];
 
 export const articles: Article[] = [
-  // India Innovates 2026 - Featured Hero Article
+  // 1 — India Innovates 2026 (Featured Hero)
   {
     id: 'india-innovates-2026',
     title: 'India Innovates 2026: 5000+ Developers Set to Break Guinness World Record at Bharat Mandapam',
     excerpt: 'India is about to make history! Over 5000 engineers and developers will gather at Bharat Mandapam on March 28th to break the Guinness World Record, currently held by Saudi Arabia with 3921 developers.',
     content: `<p class="text-lg leading-relaxed mb-6">India is set to create history as <strong>India Innovates 2026</strong> prepares to break the <strong>Guinness World Record</strong> for the largest gathering of developers under one roof. The current record is held by <strong>Saudi Arabia</strong>, where 3921 developers assembled in Riyadh. On <strong>March 28, 2026</strong>, at the prestigious <strong>Bharat Mandapam</strong> in New Delhi, more than <strong>5000+ engineers and developers</strong> will come together, organized by <strong>Hansa AI Technologies Pvt. Ltd.</strong></p>
-
 <h2 class="text-2xl font-bold mt-8 mb-4">Breaking the World Record</h2>
-<p class="mb-6">The Guinness World Record for the largest gathering of software developers is currently held by Saudi Arabia, achieved during a tech event in Riyadh where 3921 developers participated. India Innovates 2026 aims to shatter this record by bringing together more than 5000 engineers, developers, and tech professionals from across the nation. This historic attempt will not only put India in the Guinness Book of World Records but also showcase the country's massive tech talent pool to the world.</p>
-
+<p class="mb-6">The Guinness World Record for the largest gathering of software developers is currently held by Saudi Arabia, achieved during a tech event in Riyadh where 3921 developers participated. India Innovates 2026 aims to shatter this record by bringing together more than 5000 engineers, developers, and tech professionals from across the nation.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">Distinguished Chief Guests</h2>
-<p class="mb-6">The event will be graced by some of the most prominent leaders and dignitaries:</p>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Shri Ashwini Vaishnaw</strong> - Union Minister of Railways, Electronics & IT</li>
-  <li><strong>Smt. Rekha Gupta</strong> - Chief Minister of Delhi</li>
-  <li><strong>Shri Parvesh Verma</strong> - Deputy Chief Minister of Delhi & PWD Minister</li>
-  <li><strong>Shri Manjinder Singh Sirsa</strong> - Environment Minister of Delhi</li>
-  <li><strong>Shri Kapil Mishra</strong> - Minister of Art and Culture of Delhi</li>
-  <li><strong>20+ IAS/IFS/IRS Officers</strong> - Senior bureaucrats from various ministries</li>
+  <li><strong>Shri Ashwini Vaishnaw</strong> — Union Minister of Railways, Electronics & IT</li>
+  <li><strong>Smt. Rekha Gupta</strong> — Chief Minister of Delhi</li>
+  <li><strong>Shri Parvesh Verma</strong> — Deputy Chief Minister of Delhi & PWD Minister</li>
+  <li><strong>20+ IAS/IFS/IRS Officers</strong> — Senior bureaucrats from various ministries</li>
 </ul>
-
 <h2 class="text-2xl font-bold mt-8 mb-4">What to Expect</h2>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>World Record Attempt:</strong> Be part of history as 5000+ developers assemble to break the Guinness World Record</li>
-  <li><strong>Keynote Sessions:</strong> Industry leaders and policy makers will share insights on India's tech future</li>
-  <li><strong>Networking Opportunities:</strong> Connect with thousands of fellow developers and tech enthusiasts</li>
-  <li><strong>Innovation Showcase:</strong> Witness cutting-edge technologies and innovations from Indian tech companies</li>
-  <li><strong>Career Fair:</strong> Top tech companies will be present for recruitment opportunities</li>
+  <li><strong>World Record Attempt:</strong> Be part of history as 5000+ developers assemble</li>
+  <li><strong>Keynote Sessions:</strong> Industry leaders and policy makers on India's tech future</li>
+  <li><strong>Innovation Showcase:</strong> Cutting-edge technologies from Indian companies</li>
+  <li><strong>Career Fair:</strong> Top tech companies recruiting on-site</li>
 </ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">About Hansa AI Technologies</h2>
-<p class="mb-6">Hansa AI Technologies Pvt. Ltd., the organizing force behind this historic event, has been at the forefront of AI innovation in India. Founded with a vision to democratize artificial intelligence, Hansa AI has taken the ambitious initiative to put India on the global map by breaking this prestigious world record.</p>
-
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"India has the world's largest pool of tech talent, and India Innovates 2026 is our opportunity to showcase this to the world. Breaking the Guinness World Record with 5000+ developers will be a proud moment for every Indian in the tech industry."<br/><span class="text-sm not-italic font-semibold">— CEO, Hansa AI Technologies Pvt. Ltd.</span></blockquote>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Venue: The Iconic Bharat Mandapam</h2>
-<p class="mb-6">Bharat Mandapam, India's largest convention center located at Pragati Maidan, New Delhi, is the perfect venue for this historic attempt. Spanning over 123,000 square meters, the state-of-the-art facility can comfortably accommodate the massive gathering of developers while providing world-class amenities.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">How to Participate</h2>
-<p class="mb-6">Registrations are now open for all software developers, engineers, and tech professionals who want to be part of this historic world record attempt. Whether you're a student, working professional, or startup founder - if you code, you're welcome to join!</p>
-
-<div class="bg-blue-50 p-6 rounded-xl my-8 border border-blue-200">
-  <h3 class="font-bold text-lg mb-2 text-blue-800">Register Now!</h3>
-  <p class="mb-3 text-blue-700">Secure your spot in history by registering for India Innovates 2026:</p>
-  <a href="https://unstop.com/conferences/india-innovates-2026-municipal-corporation-of-delhi-1625920?utm_medium=Share&utm_source=rishajai19112&utm_campaign=Conferences" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors" target="_blank" rel="noopener noreferrer">Register on Unstop →</a>
-</div>
-
-<div class="bg-neutral-100 p-6 rounded-xl my-8">
-  <h3 class="font-bold text-lg mb-2">Event Details at a Glance</h3>
-  <ul class="space-y-1">
-    <li><strong>Date:</strong> March 28, 2026</li>
-    <li><strong>Venue:</strong> Bharat Mandapam, Pragati Maidan, New Delhi</li>
-    <li><strong>Organizer:</strong> Hansa AI Technologies Pvt. Ltd.</li>
-    <li><strong>Expected Participants:</strong> 5000+ Developers</li>
-    <li><strong>World Record Target:</strong> Beat Saudi Arabia's 3921 developers</li>
-  </ul>
-</div>
-
-<p class="mb-6">This is not just an event; it's a movement to establish India as the global leader in technology. Join us on March 28, 2026, to be part of history and help India claim the Guinness World Record!</p>`,
+<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"India has the world's largest pool of tech talent, and India Innovates 2026 is our opportunity to showcase this to the world."<br/><span class="text-sm not-italic font-semibold">— CEO, Hansa AI Technologies Pvt. Ltd.</span></blockquote>
+<div class="bg-neutral-100 p-6 my-8"><h3 class="font-bold text-lg mb-2">Event Details</h3><ul class="space-y-1"><li><strong>Date:</strong> March 28, 2026</li><li><strong>Venue:</strong> Bharat Mandapam, Pragati Maidan, New Delhi</li><li><strong>Organizer:</strong> Hansa AI Technologies Pvt. Ltd.</li><li><strong>Target:</strong> 5000+ Developers (Beat Saudi Arabia's 3921)</li></ul></div>`,
     category: 'technology',
     imageUrl: '/poster.png',
     author: 'The Fista Tech Desk',
-    publishedAt: '30 min',
+    publishedAt: 'Feb 27, 2026',
     readTime: '6 min read',
     isFeatured: true,
     isTrending: true,
   },
-  // Featured/Hero Articles
+
+  // 2 — T20 World Cup: India Beat Zimbabwe
   {
-    id: '1',
-    title: 'ICC T20 World Cup: Varun Chakaravarthy\'s Magic Helps India Complete Group Stage Undefeated',
-    excerpt: 'Varun Chakaravarthy\'s stunning 4-wicket haul against Netherlands ensures India finish group stage with perfect record. Super 8s await.',
-    content: `<p class="text-lg leading-relaxed mb-6">Ahmedabad, February 19, 2026 - Varun Chakaravarthy produced a match-winning performance as India defeated Netherlands by 17 runs at the Narendra Modi Stadium to complete their group stage campaign with a perfect 4-0 record in the ICC T20 World Cup 2026.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Chakaravarthy\'s Masterclass</h2>
-<p class="mb-6">The Tamil Nadu spinner claimed 4/32 in his four overs, including the crucial wickets of Netherlands captain Scott Edwards and Max O\'Dowd. His mystery spin variations proved too difficult for the Dutch batters as they struggled to read his deliveries on a turning Ahmedabad track.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">India\'s Super 8 Qualification</h2>
-<p class="mb-6">Having posted 187/4 thanks to Shivam Dube\'s quickfire 47* and Virat Kohli\'s steady 54, India restricted Netherlands to 170/8. The victory ensures India top Group A with maximum points and excellent net run rate heading into the Super 8 stage.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Tournament Progress</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Group Stage:</strong> Won 4/4 matches with impressive margins</li>
-  <li><strong>Next Phase:</strong> Super 8s starting February 22nd</li>
-  <li><strong>Key Players:</strong> Chakaravarthy, Kohli, and Dube in excellent form</li>
-  <li><strong>Captain Rohit:</strong> Praised team\'s bowling depth and batting flexibility</li>
-</ul>
-
-<p class="mb-6">India will now face tougher opposition in the Super 8 stage as they aim for their third T20 World Cup title after 2007 and 2024 victories.</p>`,
-    category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&auto=format&fit=crop',
-    author: 'Rajesh Sharma',
-    publishedAt: '45 min',
-    readTime: '5 min read',
-    isFeatured: true,
-    isTrending: true,
-  },
-  {
-    id: '2',
-    title: 'Historic Moment: Jammu & Kashmir Reaches First-Ever Ranji Trophy Final',
-    excerpt: 'From cricket\'s punching bag to title contenders - J&K creates history by reaching their maiden Ranji Trophy final, breaking decades of struggle.',
-    content: `<p class="text-lg leading-relaxed mb-6">Chennai, February 19, 2026 - Jammu & Kashmir scripted a fairytale chapter in Indian cricket by reaching their first-ever Ranji Trophy final, defeating Jharkhand by 4 wickets in a thrilling semi-final at the M.A. Chidambaram Stadium.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">From Struggle to Glory</h2>
-<p class="mb-6">Once considered cricket\'s \'punching bag\', J&K\'s transformation has been remarkable. The team that struggled with basic facilities and often traveled 60km for training has now reached the pinnacle of domestic cricket. Their journey represents hope and determination against all odds.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Key Heroes of the Campaign</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Shubham Khajuria:</strong> Leading run-scorer with 912 runs in the tournament</li>
-  <li><strong>Auqib Nabi:</strong> 67 wickets this season, spearheading the bowling attack</li>
-  <li><strong>Abdul Samad:</strong> Aggressive middle-order batting and crucial wickets</li>
-  <li><strong>Paras Dogra:</strong> Veteran presence and leadership in crucial moments</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">The Final Challenge</h2>
-<p class="mb-6">J&K will now face defending champions Mumbai in the final, starting February 23rd. Despite being underdogs, their fearless approach and team unity have made them genuine title contenders. The entire region celebrates this historic achievement.</p>
-
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">
-"This is not just a cricket match for us. It\'s about representing a region that has faced immense challenges. Every ball we play is for our people."<br/><span class="text-sm not-italic font-semibold">— Shubham Khajuria, J&K Captain</span>
-</blockquote>`,
-    category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&auto=format&fit=crop',
-    author: 'Ravi Kumar',
-    publishedAt: '1 hr',
-    readTime: '7 min read',
-    isFeatured: true,
-    isTrending: true,
-  },
-  {
-    id: '3',
-    title: 'Lost Boy\'s 14-Year Journey: From Wrong Train at Age 6 to Home at 22',
-    excerpt: 'After 14 years of separation, a young man from Jharkhand finally returns home. His incredible journey of survival and hope captures the nation\'s heart.',
-    content: `<p class="text-lg leading-relaxed mb-6">Ranchi, February 19, 2026 - In an emotional reunion that has touched millions across India, 22-year-old Ravi Kumar finally returned home to his family in Jharkhand after being separated for 14 years when he boarded the wrong train as a 6-year-old child.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">The Wrong Turn</h2>
-<p class="mb-6">In 2012, young Ravi was supposed to board a train to visit his grandmother in a neighboring district. Confused and scared, he got on the wrong train that took him hundreds of kilometers away to West Bengal. Unable to communicate clearly due to his age and trauma, he spent years in various shelters and foster homes.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Years of Searching</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Family\'s Struggle:</strong> Parents never stopped searching, filing missing person reports across multiple states</li>
-  <li><strong>Police Efforts:</strong> Various state police departments worked on the case intermittently</li>
-  <li><strong>Social Workers:</strong> NGOs and child welfare organizations provided care and education</li>
-  <li><strong>Technology Aid:</strong> Recent facial recognition technology helped connect the dots</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">The Reunion</h2>
-<p class="mb-6">The breakthrough came when Ravi, now 22 and working as a mechanic in Kolkata, shared his story with a local NGO worker. Using advanced facial recognition software and cross-referencing with missing person databases, authorities finally matched him with his family\'s 14-year-old missing person report.</p>
-
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">
-"I never forgot my mother\'s face or my village. I always believed I would find my way back home someday. Today is that day."<br/><span class="text-sm not-italic font-semibold">— Ravi Kumar</span>
-</blockquote>
-
-<p class="mb-6">The reunion at his village in Lohardaga district was attended by hundreds of villagers who had never given up hope. Ravi\'s story highlights both the vulnerabilities in India\'s child protection system and the power of persistent love and hope.</p>`,
-    category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&auto=format&fit=crop',
-    author: 'Rajesh Kumar',
-    publishedAt: '2 hr',
-    readTime: '8 min read',
-    isTrending: true,
-  },
-  {
-    id: '3b',
-    title: 'AI Impact Summit 2026: Revolutionary Healthcare Solutions Unveiled',
-    excerpt: 'Major AI breakthroughs in healthcare announced at Bengaluru summit promise to transform diagnostic capabilities and preventive care across India.',
-    content: `<p class="text-lg leading-relaxed mb-6">Bengaluru, February 19, 2026 - The AI Impact Summit 2026 has concluded with major announcements in AI-powered healthcare solutions that promise to revolutionize preventive care across India.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Healthcare AI Breakthroughs</h2>
-<p class="mb-6">Leading tech companies unveiled new AI diagnostic tools that can detect cardiovascular diseases, diabetes, and certain cancers 90% faster than traditional methods. These innovations are expected to significantly improve early detection rates across rural and urban healthcare centers.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Key Announcements</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>AI Screening Tool:</strong> Detects diseases from simple blood tests in 15 minutes</li>
-  <li><strong>Telemedicine Platform:</strong> AI-powered remote consultation system for rural areas</li>
-  <li><strong>Drug Discovery:</strong> AI models to accelerate pharmaceutical research by 50%</li>
-  <li><strong>Mental Health:</strong> AI chatbots for initial psychological assessment and support</li>
-</ul>
-
-<p class="mb-6">Union Health Minister praised the initiative as a "game-changer for India's healthcare ecosystem" and announced government support for nationwide deployment of these AI solutions.</p>`,
-    category: 'health',
-    imageUrl: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&auto=format&fit=crop',
-    author: 'Dr. Anita Singh',
-    publishedAt: '3 hr',
-    readTime: '6 min read',
-    isTrending: true,
-  },
-  // Trending Articles
-  {
-    id: '4',
-    title: 'Maharashtra Village Makes History: Declares Itself Completely Caste-Free',
-    excerpt: 'Soundala village in Maharashtra passes groundbreaking resolution to end caste-based discrimination, setting example for rural India.',
-    content: `<p class="text-lg leading-relaxed mb-6">Pune, February 19, 2026 - In a groundbreaking move that has garnered national attention, Soundala village in Maharashtra\'s Solapur district has declared itself completely \'caste-free\' and implemented comprehensive measures to end all forms of social discrimination.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Historic Resolution</h2>
-<p class="mb-6">The village panchayat, led by Sarpanch Sunita Pawar, passed a unanimous resolution declaring that caste, religion, or race will no longer determine social interactions in the village. The 3,200-resident village has committed to creating an inclusive society where dignity and respect prevail.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Concrete Measures</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Social Mixing:</strong> Community events and festivals will be celebrated together regardless of background</li>
-  <li><strong>Economic Support:</strong> Equal access to development schemes and village resources</li>
-  <li><strong>Education:</strong> Special funds for education of children from all communities</li>
-  <li><strong>Women\'s Rights:</strong> Enhanced support for widow remarriage and women\'s empowerment</li>
-  <li><strong>Language Policy:</strong> Ban on derogatory language towards any community</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Community Response</h2>
-<p class="mb-6">The initiative has received overwhelming support from villagers across all communities. The village has also established a monitoring committee to ensure the resolution\'s implementation and address any violations.</p>
-
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">
-"We don\'t want hatred to reach our doorstep. Our village will be a model for unity and human dignity."<br/><span class="text-sm not-italic font-semibold">— Sunita Pawar, Village Sarpanch</span>
-</blockquote>
-
-<p class="mb-6">Social activists and government officials have praised Soundala\'s initiative, calling it a beacon of hope for rural India\'s social transformation. The village plans to share its model with other communities across Maharashtra.</p>`,
-    category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop',
-    author: 'Meera Joshi',
-    publishedAt: '35 min',
-    readTime: '6 min read',
-    isTrending: true,
-  },
-  {
-    id: '5',
-    title: 'Punjab Police Under Scanner: 34 Encounters in 3 Months Raise Serious Questions',
-    excerpt: 'Investigation reveals alarming frequency of police encounters in Punjab with one-third occurring while suspects were in custody. Rights groups demand inquiry.',
-    content: `<p class="text-lg leading-relaxed mb-6">Chandigarh, February 19, 2026 - An investigation by The Indian Express has revealed a concerning pattern of police encounters in Punjab, with 34 incidents reported between November 2025 and January 2026, resulting in 5 deaths and 45 injuries.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Alarming Statistics</h2>
-<p class="mb-6">The data shows Punjab Police reported more than one encounter every three days during this period. Most concerning is that approximately one-third of these encounters occurred while suspects were already in police custody, raising serious questions about the circumstances surrounding these incidents.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Pattern Analysis</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Frequency:</strong> 34 encounters in 92 days (one every 2.7 days)</li>
-  <li><strong>Casualties:</strong> 5 deaths and 45 people injured</li>
-  <li><strong>Custody Cases:</strong> 11 incidents while suspects were in police custody</li>
-  <li><strong>Geography:</strong> Incidents spread across multiple districts</li>
-  <li><strong>Cases:</strong> Mostly involving drug trafficking and weapons charges</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Rights Groups\'\' Concerns</h2>
-<p class="mb-6">Human rights organizations have expressed serious concerns about the frequency and circumstances of these encounters. They have demanded judicial inquiries into the incidents, particularly those involving suspects already in custody.</p>
-
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">
-"Such a high frequency of encounters suggests either a breakdown in police procedure or a deliberate pattern that needs immediate investigation."<br/><span class="text-sm not-italic font-semibold">— Senior Human Rights Lawyer</span>
-</blockquote>
-
-<p class="mb-6">The Punjab government has announced it will review the circumstances of these encounters and ensure all procedures were followed according to Supreme Court guidelines on police encounters.</p>`,
-    category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1551836022-dcea62de1068?w=800&auto=format&fit=crop',
-    author: 'Harpreet Singh',
-    publishedAt: '2 hr',
-    readTime: '7 min read',
-    isTrending: true,
-  },
-  {
-    id: '6',
-    title: 'AI Impact Summit 2026: IITs Showcase Revolutionary Healthcare and Agriculture Solutions',
-    excerpt: 'Indian Institutes of Technology present groundbreaking AI applications from flood prediction to cancer detection, demonstrating India\'s technological prowess.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 19, 2026 - The AI Impact Summit 2026 has become a showcase for Indian innovation as leading IITs presented breakthrough AI applications spanning healthcare, agriculture, and disaster management, demonstrating India\'s growing technological capabilities.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Healthcare Innovations</h2>
-<p class="mb-6">IIT researchers unveiled revolutionary low-cost AI tools for early disease detection. These include breath analyzers that can detect cancer markers, oral swab tests for kidney disease screening, and AI-powered microscopy for faster pathology diagnosis.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Agricultural Solutions</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Crop Monitoring:</strong> Satellite-based AI for real-time crop health assessment</li>
-  <li><strong>Pest Detection:</strong> Mobile apps that identify crop diseases from photos</li>
-  <li><strong>Weather Prediction:</strong> Hyper-local weather forecasting for farmers</li>
-  <li><strong>Yield Optimization:</strong> AI-driven recommendations for fertilizer and water usage</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Disaster Management</h2>
-<p class="mb-6">The summit highlighted AI systems for flood prediction, earthquake early warning, and disaster response coordination. These solutions are already being tested in various Indian states and have shown promising results in improving disaster preparedness.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Global Recognition</h2>
-<p class="mb-6">International delegates at the summit praised India\'s focus on practical, affordable AI solutions that address real-world problems. The innovations demonstrated showcase how AI can be leveraged for social good and sustainable development.</p>`,
-    category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&auto=format&fit=crop',
-    author: 'Dr. Priya Sharma',
-    publishedAt: '3 hr',
-    readTime: '5 min read',
-    isTrending: true,
-  },
-  {
-    id: '6',
-    title: 'TATA-Airbus Helicopter Manufacturing Facility Inaugurated in Hyderabad',
-    excerpt: 'TATA Group and Airbus officially inaugurate joint helicopter manufacturing facility in Hyderabad, marking major milestone in India\'s aerospace sector.',
-    content: `<p class="text-lg leading-relaxed mb-6">Hyderabad, February 19, 2026 - TATA Group and Airbus have officially inaugurated their joint helicopter manufacturing facility in Hyderabad, marking a major milestone in India's aerospace manufacturing sector.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Manufacturing Excellence</h2>
-<p class="mb-6">The state-of-the-art facility will produce H125 helicopters for both domestic and international markets. The plant has an initial capacity of manufacturing 36 helicopters annually, with plans to increase production to 50 units by 2028.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Economic Impact</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Job Creation:</strong> Over 5,000 direct and indirect jobs</li>
-  <li><strong>Investment:</strong> ₹2,000 crore facility investment</li>
-  <li><strong>Export Potential:</strong> 60% of production targeted for exports</li>
-  <li><strong>Local Content:</strong> 85% localization by 2027</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Strategic Importance</h2>
-<p class="mb-6">Defence Minister praised the initiative as strengthening India's defence manufacturing capabilities under the "Atmanirbhar Bharat" program. The helicopters will serve both civilian aviation and defence requirements.</p>`,
-    category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=800&auto=format&fit=crop',
-    author: 'Neha Gupta',
-    publishedAt: '6 hr',
-    readTime: '4 min read',
-    isTrending: true,
-  },
-  // More Articles
-  {
-    id: '7',
-    title: 'T20 World Cup 2026: India Maintains Perfect Record, Secures Super 8 Berth',
-    excerpt: 'India defeated Netherlands by 17 runs at Ahmedabad to maintain 100% record. Shivam Dube and Varun Chakravarthy star as India qualifies for Super 8.',
-    content: `<p class="text-lg leading-relaxed mb-6">Ahmedabad, February 19, 2026 - India defeated Netherlands by 17 runs at the Narendra Modi Stadium to maintain their 100% record in T20 World Cup 2026 and secure their place in the Super 8 stage.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Match Highlights</h2>
-<p class="mb-6">Batting first, India posted 193/6 with Shivam Dube's career-best knock being the standout performance. Netherlands fought hard but managed 176/7, falling short by 17 runs. Varun Chakravarthy's excellent bowling figures of 3/35 proved crucial.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Group A Final Standings</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>India:</strong> 8 points (4 wins) - Qualified</li>
-  <li><strong>Pakistan:</strong> 6 points (3 wins) - Qualified</li>
-  <li><strong>USA:</strong> 4 points (2 wins)</li>
-  <li><strong>Netherlands:</strong> 2 points (1 win)</li>
-  <li><strong>Namibia:</strong> 0 points (0 wins)</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Super 8 Preview</h2>
-<p class="mb-6">India's perfect group stage performance sets them as favorites heading into the Super 8. Pakistan also qualified after their emphatic 102-run victory over Namibia. The Super 8 stage begins February 22 with confirmed schedule and venues released.</p>`,
-    category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=800&auto=format&fit=crop',
-    author: 'Ravi Kumar',
-    publishedAt: '7 hr',
-    readTime: '5 min read',
-  },
-  {
-    id: '8',
-    title: 'Battle for 37 Rajya Sabha Seats: BJP and Congress Gear Up for Crucial Elections',
-    excerpt: 'Political parties intensify campaigns as elections for 37 Rajya Sabha seats across multiple states begin. Stakes high for both BJP and Congress.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 19, 2026 - Political parties are intensifying their campaigns as elections for 37 Rajya Sabha seats across multiple states are set to begin, with stakes particularly high for both BJP and Congress.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Electoral Battle</h2>
-<p class="mb-6">The elections are crucial as they could alter the balance of power in the upper house. Currently, BJP and allies hold 116 seats while the opposition has 108 seats in the 245-member house. These elections could significantly impact future legislation.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Key States in Focus</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Punjab:</strong> 3 seats with ongoing political realignments</li>
-  <li><strong>Maharashtra:</strong> 6 seats - intense three-way contest</li>
-  <li><strong>West Bengal:</strong> 4 seats - TMC vs BJP battle</li>
-  <li><strong>Karnataka:</strong> 4 seats - Congress stronghold at stake</li>
-  <li><strong>Gujarat:</strong> 3 seats - BJP bastion faces test</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Electoral Arithmetic</h2>
-<p class="mb-6">With cross-voting possibilities and regional party dynamics, the outcome remains uncertain. Both BJP and Congress have deployed senior leaders to ensure party unity and prevent defections during the voting process.</p>`,
-    category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&auto=format&fit=crop',
-    author: 'Sanjay Das',
-    publishedAt: '8 hr',
-    readTime: '6 min read',
-  },
-  {
-    id: '9',
-    title: 'Delhi Air Quality Improves to \'Moderate\' for First Time This Winter; AQI Drops to 150',
-    excerpt: 'Favorable wind patterns and successful implementation of GRAP measures bring relief to Delhi-NCR residents after months of severe pollution.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 19, 2026 - Delhi recorded its best air quality in four months as the Air Quality Index (AQI) dropped to 150 (Moderate category), providing relief to residents who have been battling severe pollution since October 2025.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Contributing Factors</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li>Strong westerly winds dispersing pollutants</li>
-  <li>Effective implementation of GRAP Stage-II measures</li>
-  <li>Reduced stubble burning in Punjab and Haryana</li>
-  <li>Increased adoption of electric vehicles in NCR</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Health Advisory</h2>
-<p class="mb-6">While the improvement is significant, health experts advise continued caution for vulnerable groups including children, elderly, and those with respiratory conditions. The Commission for Air Quality Management expects the AQI to remain in the moderate to satisfactory range for the next week.</p>`,
-    category: 'health',
-    imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop',
-    author: 'Dr. Maya Iyer',
-    publishedAt: '9 hr',
-    readTime: '7 min read',
-  },
-  {
-    id: '10',
-    title: 'Ranbir Kapoor\'s \'Ramayana\' Teaser Drops: Nitesh Tiwari\'s Epic Promises Visual Spectacle',
-    excerpt: 'The first teaser of the ₹700 crore mythological epic featuring Ranbir as Lord Ram and Sai Pallavi as Sita breaks viewership records.',
-    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, February 19, 2026 - The much-awaited teaser of Nitesh Tiwari's 'Ramayana' was released today, showcasing Ranbir Kapoor as Lord Ram in what is being called the most ambitious Indian film ever made.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Teaser Highlights</h2>
-<p class="mb-6">The 90-second teaser gives glimpses of the grandeur of Ayodhya, Ranbir Kapoor's transformation into Lord Ram, and stunning VFX sequences depicting Lanka. Sai Pallavi as Goddess Sita and Yash as Raavan have also generated massive excitement.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Record-Breaking Viewership</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li>50 million views in first 6 hours on YouTube</li>
-  <li>#RamayanaTeaser trending #1 in 42 countries</li>
-  <li>Highest-liked Indian film teaser ever</li>
-</ul>
-
-<p class="mb-6">The film, produced by Namit Malhotra's Prime Focus Studios, is planned as a two-part saga with Part 1 releasing during Diwali 2026.</p>`,
-    category: 'bollywood',
-    imageUrl: 'https://images.unsplash.com/photo-1522152302542-71a8e5172aa1?w=800&auto=format&fit=crop',
-    author: 'Pooja Sharma',
-    publishedAt: '10 hr',
-    readTime: '3 min read',
-  },
-  {
-    id: '11',
-    title: 'Tata Motors Electric Vehicle Sales Cross 1 Lakh Units in January 2026',
-    excerpt: 'The homegrown automaker achieves historic milestone as Nexon EV and Punch EV dominate the electric vehicle market with 72% share.',
-    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, February 19, 2026 - Tata Motors announced today that its electric vehicle sales crossed the 1 lakh units mark in January 2026, making it the first Indian automaker to achieve this milestone in a single month.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Sales Breakdown</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Nexon EV:</strong> 45,000 units</li>
-  <li><strong>Punch EV:</strong> 38,000 units</li>
-  <li><strong>Tiago EV:</strong> 12,000 units</li>
-  <li><strong>Curvv EV:</strong> 5,000 units</li>
-</ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Market Leadership</h2>
-<p class="mb-6">Tata Motors now commands a 72% market share in India's electric PV segment, followed by Mahindra (15%) and MG Motor (8%). The company attributed the growth to expanding charging infrastructure, competitive pricing, and increased consumer awareness.</p>
-
-<p class="mb-6">MD Shailesh Chandra announced plans to launch two new EV models in 2026 and expand production capacity at the Sanand facility.</p>`,
-    category: 'business',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop',
-    author: 'Amit Verma',
-    publishedAt: '11 hr',
-    readTime: '6 min read',
-  },
-  {
-    id: '12',
-    title: 'IIT Delhi Develops AI System That Can Predict Earthquakes 72 Hours in Advance',
-    excerpt: 'Groundbreaking research by IIT Delhi scientists uses machine learning to analyze seismic patterns; system achieves 85% accuracy in trials.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 19, 2026 - Scientists at the Indian Institute of Technology Delhi have developed an artificial intelligence system capable of predicting earthquakes up to 72 hours in advance, a breakthrough that could revolutionize disaster preparedness.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">How It Works</h2>
-<p class="mb-6">The AI system, named 'SeismoPredict', analyzes patterns in seismic data, ground deformation, and electromagnetic signals using deep learning algorithms. Trained on 50 years of global seismic data, the system has achieved 85% accuracy in predicting earthquakes of magnitude 5.0 and above.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Potential Impact</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li>Early warning systems for earthquake-prone regions</li>
-  <li>Evacuation planning with 72-hour window</li>
-  <li>Infrastructure protection measures</li>
-  <li>Reduced casualties in seismic events</li>
-</ul>
-
-<p class="mb-6">The research team, led by Prof. Amit Sharma, has received ₹50 crore funding from DST for pilot implementation across the Himalayan seismic belt.</p>`,
-    category: 'education',
-    imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&auto=format&fit=crop',
-    author: 'Kavita Reddy',
-    publishedAt: '12 hr',
-    readTime: '5 min read',
-  },
-  {
-    id: '13',
-    title: 'Women\'s T20 World Cup: India Defeats Australia by 7 Wickets to Reach Finals',
-    excerpt: 'Smriti Mandhana\'s unbeaten 89 guides India to a historic semi-final victory; team to face England in Sunday\'s final.',
-    content: `<p class="text-lg leading-relaxed mb-6">Dubai, February 19, 2026 - The Indian women's cricket team secured a historic victory over defending champions Australia in the T20 World Cup semi-final, winning by 7 wickets with 12 balls to spare.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Match Summary</h2>
-<p class="mb-6">Australia posted 156/6 in their 20 overs with Beth Mooney scoring 67. In response, Smriti Mandhana played a match-winning knock of 89* off 58 balls, while Shafali Verma contributed a quickfire 42.</p>
-
+    id: 'india-beat-zimbabwe-t20-wc',
+    title: 'T20 World Cup: Abhishek Sharma Shines as India Thrash Zimbabwe by 72 Runs, Set Up Virtual QF vs West Indies',
+    excerpt: 'India posted a record 256/4 — their highest T20 World Cup total — to demolish Zimbabwe at Chepauk. Abhishek Sharma, Hardik Pandya, and Brian Bennett star in a run-fest.',
+    content: `<p class="text-lg leading-relaxed mb-6">Chennai, February 26, 2026 — India produced a blistering batting performance to post 256/4, their highest-ever T20 World Cup total, before bowling Zimbabwe out for 184/6 at the MA Chidambaram Stadium. The 72-run victory sets up a virtual quarter-final against West Indies in Kolkata.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">India Rack Up Records</h2>
+<p class="mb-6">Abhishek Sharma smashed a quickfire fifty to set the tone, while Hardik Pandya blasted his way to a half-century in just 22 balls. Sanju Samson continued his red-hot form bringing flair in the middle overs. The 256-run total is the second-highest in T20 World Cup history and the combined 440 runs from both sides is the second-most in any T20 WC match ever.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">Key Performances</h2>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Smriti Mandhana:</strong> 89* (58) - Player of the Match</li>
-  <li><strong>Renuka Singh:</strong> 3/28 in 4 overs</li>
-  <li><strong>Deepti Sharma:</strong> 2/24 with crucial economy</li>
+  <li><strong>Abhishek Sharma:</strong> Explosive start, silencing critics with rare defensive and attacking play</li>
+  <li><strong>Hardik Pandya:</strong> Quickfire 50 anchoring the middle overs</li>
+  <li><strong>Brian Bennett (ZIM):</strong> Fought valiantly but Zimbabwe fell well short</li>
+  <li><strong>Arshdeep Singh:</strong> Key breakthroughs with the new ball</li>
 </ul>
-
-<p class="mb-6">India will now face England in the final on Sunday, February 22, aiming for their maiden T20 World Cup title.</p>`,
+<h2 class="text-2xl font-bold mt-8 mb-4">Super 8 Equation</h2>
+<p class="mb-6">With South Africa sealing a semi-final spot after beating West Indies by 9 wickets in Ahmedabad, India now need to beat West Indies in their final Super 8 game in Kolkata to progress. England vs New Zealand on Feb 27 could decide Pakistan's fate too.</p>
+<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"We want to show fear to the opposition. When we bat, we want to dominate."<br/><span class="text-sm not-italic font-semibold">— Tilak Varma, after India's victory</span></blockquote>`,
     category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&auto=format&fit=crop',
+    imageUrl: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&auto=format&fit=crop&q=80',
+    author: 'Rajesh Sharma',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '5 min read',
+    isFeatured: true,
+    isTrending: true,
+  },
+
+  // 3 — Ranji Trophy Final: J&K Dominating Karnataka
+  {
+    id: 'ranji-final-jk-karnataka',
+    title: 'Ranji Trophy Final: Jammu & Kashmir Seize Control, Lead Karnataka by 477 Runs on Day 4',
+    excerpt: 'J&K continue their fairytale Ranji run, amassing 584 in the first innings and 186/4 in the second to build a massive 477-run lead. Sourav Ganguly urges selectors to take Auqib Nabi to England.',
+    content: `<p class="text-lg leading-relaxed mb-6">Hubballi, February 27, 2026 — Jammu & Kashmir are on the verge of creating the biggest upset in Indian domestic cricket history. On Day 4 of the Ranji Trophy final against Karnataka, J&K extended their lead to a mammoth 477 runs with six second-innings wickets still in hand.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Dominance at Every Level</h2>
+<p class="mb-6">After bowling Karnataka out for 293 in response to their colossal first-innings total of 584, J&K batters continued their dominance with Shubham Pundir and KV Aneesh adding crucial runs. The game has been one-way traffic since Yawer Hassan's composed 88 and Pundir's century set the tone in the first innings.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Auqib Nabi's Star Rises</h2>
+<p class="mb-6">Former India captain Sourav Ganguly has backed J&K's pace spearhead Auqib Nabi for India selection, stating "Take Auqib Nabi to England." The Baramulla-born fast bowler has taken 67+ wickets this season and has been the standout bowler in the tournament.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Drama on the Field</h2>
+<p class="mb-6">The final has also been marred by a controversial head-butt incident — J&K captain Paras Dogra clashed helmets with a Karnataka fielder, but it was later brushed aside as "heat of the moment."</p>
+<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"This is not just about cricket for us. It's about representing a region that has faced immense challenges."<br/><span class="text-sm not-italic font-semibold">— Paras Dogra, J&K Captain</span></blockquote>`,
+    category: 'cricket',
+    imageUrl: 'https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=800&auto=format&fit=crop&q=80',
+    author: 'Ravi Kumar',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '7 min read',
+    isFeatured: true,
+    isTrending: true,
+  },
+
+  // 4 — Kejriwal Excise Case
+  {
+    id: 'kejriwal-excise-cleared',
+    title: "'No Overarching Conspiracy': Court Clears Arvind Kejriwal, Manish Sisodia in Delhi Excise Case",
+    excerpt: 'In a landmark judgment, a Delhi court has discharged AAP leaders Arvind Kejriwal and Manish Sisodia in the Delhi excise policy case. CBI has moved Delhi HC to challenge the order.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 27, 2026 — In what is being seen as one of the most significant political-legal developments this year, a Delhi court has discharged AAP national convenor Arvind Kejriwal and former Deputy CM Manish Sisodia in the Delhi excise policy case, ruling that there was "no overarching conspiracy or criminal intent."</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">The Verdict</h2>
+<p class="mb-6">The court found insufficient evidence of a wider conspiracy in the now-scrapped 2021-22 excise policy. Kejriwal, who spent over five months in judicial custody in 2024, broke down in tears after the judgment, declaring "I am kattar imaandaar" (deeply honest).</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Political Fallout</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Kejriwal's Response:</strong> "You need to kill me to stop me" — launched blistering attack on PM Modi and Amit Shah</li>
+  <li><strong>CBI Challenge:</strong> The CBI has moved Delhi High Court to challenge the lower court's discharge order</li>
+  <li><strong>BJP's Reaction:</strong> The ruling party maintains the policy was corrupt and promises to pursue legal remedies</li>
+  <li><strong>Congress:</strong> Called it "vindication of judiciary" while noting its own stance on the case</li>
+</ul>
+<p class="mb-6">Kejriwal has now challenged PM Modi to hold fresh Delhi elections, citing the court relief as proof of his innocence. The case had been a major political flashpoint between AAP and BJP throughout 2024 and 2025.</p>`,
+    category: 'politics',
+    imageUrl: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&auto=format&fit=crop&q=80',
+    author: 'Sanjay Das',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '6 min read',
+    isTrending: true,
+  },
+
+  // 5 — PM Modi Israel Visit
+  {
+    id: 'modi-israel-visit',
+    title: "PM Modi's Historic Israel Visit: India-Israel Ink Several Key MoUs, Upgrade Strategic Ties",
+    excerpt: 'PM Modi addresses Knesset, signs defence and tech agreements with Netanyahu. "Not good sign for Gandhi\'s India," say critics as PM visits Jewish state.',
+    content: `<p class="text-lg leading-relaxed mb-6">Jerusalem, February 27, 2026 — Prime Minister Narendra Modi concluded a landmark two-day visit to Israel, signing multiple Memoranda of Understanding with Israeli PM Benjamin Netanyahu across defence, agriculture, water technology, and artificial intelligence.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Key Agreements</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Defence Cooperation:</strong> Enhanced joint development of advanced weaponry and cyber security systems</li>
+  <li><strong>Agricultural Tech:</strong> Israel to set up 10 new Centers of Excellence in Indian states</li>
+  <li><strong>Water Innovation:</strong> ₹5,000 crore collaboration on desalination and drip irrigation</li>
+  <li><strong>AI Partnership:</strong> Joint AI research labs in both countries</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">Lighter Moments</h2>
+<p class="mb-6">PM Modi also met members of the popular Israeli TV series 'Fauda' cast, posting a selfie with the message "No undercover work!" — a reference to the show's Mossad storylines. Netanyahu linked his love story to India, recalling his first date at an Indian restaurant.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Domestic Criticism</h2>
+<p class="mb-6">The visit drew criticism from PDP leader Mehbooba Mufti, who called it "not a good sign for Gandhi's India," while opposition leaders Mehbooba and Tarigami formally opposed the visit in Parliament.</p>`,
+    category: 'politics',
+    imageUrl: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&auto=format&fit=crop&q=80',
+    author: 'Rakesh Mehta',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '6 min read',
+    isFeatured: true,
+    isTrending: true,
+  },
+
+  // 6 — India GDP Q3 FY26
+  {
+    id: 'india-gdp-q3-fy26',
+    title: "India's GDP Surges 7.8% in Q3 FY26, Among World's Fastest Growing Economies",
+    excerpt: 'Robust consumption growth and manufacturing rebound drive India\'s third-quarter GDP to 7.8%, beating economists\' consensus estimates of 7.2%.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 27, 2026 — India's gross domestic product grew at a robust 7.8% in the October-December quarter of FY26, beating market expectations and cementing India's position as the world's fastest-growing major economy.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Growth Drivers</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Manufacturing:</strong> Grew 9.1%, powered by the PLI scheme and Make in India push</li>
+  <li><strong>Private Consumption:</strong> Urban and rural demand both showed strong recovery</li>
+  <li><strong>Services:</strong> IT and financial services maintained double-digit momentum</li>
+  <li><strong>Agriculture:</strong> Normal monsoon boosted kharif output, rabi season looking strong</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">Global Comparison</h2>
+<p class="mb-6">At 7.8%, India outpaces China (4.9%), the US (2.3%), and the EU (0.8%) for the quarter. The IMF had projected India's full-year growth at 7.0% — the Q3 number suggests potential upward revision.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Market Reaction</h2>
+<p class="mb-6">Sensex rallied 450 points on the data release. CEA V. Anantha Nageswaran credited the government's infrastructure push and said India is ready for 270 GW peak power demand, with discoms urged to ensure reliable supply.</p>`,
+    category: 'business',
+    imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop&q=80',
+    author: 'Amit Verma',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '5 min read',
+    isTrending: true,
+  },
+
+  // 7 — HPV Vaccination Drive
+  {
+    id: 'hpv-vaccination-drive',
+    title: "PM Modi to Launch Nationwide HPV Vaccination Drive from Ajmer on February 28",
+    excerpt: 'The Health Ministry announces India\'s largest cervical cancer prevention programme, with PM Modi set to inaugurate it from Ajmer. 90 lakh girls to be vaccinated in Phase 1.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 27, 2026 — The Union Health Ministry announced that Prime Minister Narendra Modi will launch the nationwide HPV (Human Papillomavirus) vaccination drive from Ajmer, Rajasthan on February 28, 2026 — marking India's most ambitious cervical cancer prevention programme.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Programme Details</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Target:</strong> 90 lakh adolescent girls aged 9-14 in Phase 1</li>
+  <li><strong>Vaccine:</strong> India's indigenously developed quadrivalent HPV vaccine</li>
+  <li><strong>Coverage:</strong> All government schools and anganwadis nationwide</li>
+  <li><strong>Cost:</strong> Completely free under the Universal Immunisation Programme</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">Why It Matters</h2>
+<p class="mb-6">India accounts for nearly one-quarter of global cervical cancer deaths, with 1.25 lakh cases and 75,000 deaths annually. HPV vaccination can prevent over 90% of cervical cancers when administered before exposure to the virus. Health experts have hailed the move as potentially saving lakhs of lives over the coming decades.</p>
+<p class="mb-6">Health Secretary Apurva Chandra said the campaign would be supported by an extensive awareness drive across social media and grassroots health workers.</p>`,
+    category: 'health',
+    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=80',
+    author: 'Dr. Anita Singh',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '5 min read',
+    isTrending: true,
+  },
+
+  // 8 — Rashmika-Vijay Wedding
+  {
+    id: 'rashmika-vijay-wedding',
+    title: "Rashmika Mandanna & Vijay Deverakonda Tie the Knot: Inside the Dreamy Celebration",
+    excerpt: 'Bollywood and Tollywood unite as Rashmika Mandanna and Vijay Deverakonda exchange vows in a private ceremony. Ananya Panday shares her favourite photo.',
+    content: `<p class="text-lg leading-relaxed mb-6">Hyderabad, February 27, 2026 — In one of the most-awaited celebrity weddings of the year, actors Rashmika Mandanna and Vijay Deverakonda exchanged vows in a private ceremony at a luxury resort in Hyderabad, surrounded by close family and friends.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">The Dreamy Affair</h2>
+<p class="mb-6">The multi-day celebration combined South Indian traditions with modern elegance. Rashmika wore a breathtaking gold Kanjeevaram saree by Sabyasachi while Vijay opted for a classic off-white sherwani. The sangeet night featured surprise performances from industry friends.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Celebrity Reactions</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Ananya Panday:</strong> Shared her favourite photo, "can't stop gushing" over the couple</li>
+  <li><strong>Samantha Ruth Prabhu:</strong> "Couldn't be happier for you two"</li>
+  <li><strong>Allu Arjun:</strong> "Wishing you a lifetime of love and happiness"</li>
+</ul>
+<p class="mb-6">The couple, who starred together in Geetha Govindam (2018) and Dear Comrade (2019), had kept their relationship private for years despite persistent rumours. #RashmikaVijayWedding trended at #1 across all social media platforms.</p>`,
+    category: 'bollywood',
+    imageUrl: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&auto=format&fit=crop&q=80',
+    author: 'Pooja Sharma',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '4 min read',
+    isTrending: true,
+  },
+
+  // 9 — INS Anjadip Commissioned
+  {
+    id: 'ins-anjadip-commissioned',
+    title: "India Commissions INS Anjadip: The Shallow-Water Warship Built to Hunt Submarines",
+    excerpt: 'Indian Navy commissions INS Anjadip, a state-of-the-art Anti-Submarine Warfare Shallow Water Craft, strengthening coastal defence capabilities against adversaries.',
+    content: `<p class="text-lg leading-relaxed mb-6">Visakhapatnam, February 27, 2026 — The Indian Navy commissioned INS Anjadip, the latest Anti-Submarine Warfare Shallow Water Craft (ASW SWC) built by Garden Reach Shipbuilders & Engineers (GRSE) in Kolkata, bolstering India's coastal defence capabilities.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Strategic Significance</h2>
+<p class="mb-6">INS Anjadip is specifically designed for submarine detection and neutralisation in shallow waters along the Indian coastline and Exclusive Economic Zone. The vessel is equipped with advanced sonar systems, lightweight torpedoes, and rocket launchers for anti-submarine operations.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Key Specifications</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Displacement:</strong> 900 tonnes</li>
+  <li><strong>Length:</strong> 77.6 meters</li>
+  <li><strong>Speed:</strong> 25 knots</li>
+  <li><strong>Armament:</strong> Hull-mounted sonar, lightweight torpedoes, rocket launchers</li>
+  <li><strong>Built by:</strong> GRSE, Kolkata — under Atmanirbhar Bharat</li>
+</ul>
+<p class="mb-6">Earlier this week, President Droupadi Murmu flew in an indigenous Prachand Light Combat Helicopter near the India-Pakistan border, further underscoring the government's emphasis on self-reliance in defence manufacturing.</p>`,
+    category: 'technology',
+    imageUrl: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&auto=format&fit=crop&q=80',
+    author: 'Neha Gupta',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '5 min read',
+    isTrending: true,
+  },
+
+  // 10 — The Kerala Story 2
+  {
+    id: 'kerala-story-2-hc',
+    title: "'The Kerala Story 2' Gets Relief: Kerala HC Lifts Stay, Green-Lights Film Release",
+    excerpt: 'In a dramatic legal twist, the Kerala High Court division bench overturns the single judge\'s stay order on The Kerala Story 2, allowing the film\'s release to proceed.',
+    content: `<p class="text-lg leading-relaxed mb-6">Kochi, February 27, 2026 — In a dramatic reversal, the Kerala High Court division bench has paused the single judge's order that stayed the release of Vipul Shah's 'The Kerala Story 2' for 15 days, effectively allowing the controversial film's release to proceed.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Legal Timeline</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Feb 26:</strong> Single judge stayed the film's release for 15 days citing potential communal tensions</li>
+  <li><strong>Feb 27 (Morning):</strong> Producers appealed to division bench</li>
+  <li><strong>Feb 27 (Evening):</strong> Division bench paused the single judge's order for two weeks</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">Debate Rages On</h2>
+<p class="mb-6">Kerala has been sharply divided over the sequel. While critics see it as propaganda, supporters argue it raises legitimate concerns. The phrase "Is it propaganda? What Malayalis think of The Kerala Story 2" has been trending, with views divided along political and communal lines.</p>
+<p class="mb-6">The film's first part was a massive commercial success in 2023, earning over ₹300 crore. The sequel is expected to open big at the box office despite the controversy.</p>`,
+    category: 'bollywood',
+    imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&auto=format&fit=crop&q=80',
+    author: 'Simran Kaur',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '4 min read',
+    isTrending: true,
+  },
+
+  // 11 — DGCA Refund Rules
+  {
+    id: 'dgca-refund-rules',
+    title: "DGCA Issues New Refund Rules: Airlines Must Offer 48-Hour Look-In Period for Changes",
+    excerpt: 'India\'s aviation regulator mandates a 48-hour free change window for airline tickets and requires refunds to be processed within 14 days — a win for passenger rights.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 27, 2026 — The Directorate General of Civil Aviation (DGCA) has issued sweeping new regulations aimed at protecting airline passengers, including a mandatory 48-hour look-in period and 14-day refund timelines.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Key New Rules</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>48-Hour Window:</strong> Passengers can make changes or cancel tickets free of charge within 48 hours of booking</li>
+  <li><strong>14-Day Refund:</strong> Airlines must process all eligible refunds within 14 calendar days</li>
+  <li><strong>Transparent Pricing:</strong> All additional charges must be disclosed at the time of booking</li>
+  <li><strong>Compensation:</strong> Enhanced compensation for flight delays beyond 3 hours</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">Industry Impact</h2>
+<p class="mb-6">The rules apply to all domestic and international airlines operating in India. IndiGo, Air India, and SpiceJet have acknowledged the new regulations and are updating their booking systems accordingly. Consumer rights activists have praised the move as long overdue.</p>`,
+    category: 'business',
+    imageUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109db05?w=800&auto=format&fit=crop&q=80',
+    author: 'Amit Verma',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '4 min read',
+  },
+
+  // 12 — SC Remarks on NCERT
+  {
+    id: 'sc-ncert-graft-chapter',
+    title: "'They Fired the Gun & Judiciary is Bleeding': SC's Sharp Remarks on NCERT Over Graft Chapter",
+    excerpt: 'Supreme Court delivers scathing observations on NCERT for removing an anti-corruption chapter from textbooks, as Education Minister promises action.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 27, 2026 — The Supreme Court delivered stinging remarks aimed at NCERT over the removal of a chapter on corruption from school textbooks, saying "They fired the gun and the judiciary is bleeding."</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">The Controversy</h2>
+<p class="mb-6">NCERT had quietly dropped a chapter covering the concepts of corruption and governance reforms from its Class 12 Political Science textbook during a recent syllabus revision. The move came to light after teachers and civil society groups flagged it.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Court's Strong Words</h2>
+<p class="mb-6">A bench led by the Chief Justice questioned the rationale behind removing anti-corruption content from educational material, saying it sent the wrong signal to young citizens. The court asked NCERT to explain within four weeks.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Government Response</h2>
+<p class="mb-6">PM Modi questioned the NCERT lapse directly, while Education Minister Dharmendra Pradhan declared "We have utmost respect for the judiciary" and vowed swift corrective action. The episode has reignited debates about academic autonomy and political interference in education.</p>`,
+    category: 'education',
+    imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&auto=format&fit=crop&q=80',
+    author: 'Kavita Reddy',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '5 min read',
+  },
+
+  // 13 — Afghanistan-Pakistan Conflict
+  {
+    id: 'afghanistan-pakistan-conflict',
+    title: "Afghanistan-Pakistan Conflict Escalates: Airstrikes, Guerrilla Warfare, and a Regional Spiral",
+    excerpt: 'Pakistan\'s airstrikes on Afghan cities deepen the crisis along the Durand Line, with militants, missed diplomacy, and retaliatory attacks raising fears of a broader conflict.',
+    content: `<p class="text-lg leading-relaxed mb-6">Islamabad/Kabul, February 27, 2026 — Tensions between Pakistan and Taliban-ruled Afghanistan have reached a dangerous flashpoint, with Pakistan launching airstrikes on multiple Afghan cities in what Islamabad called "counter-terrorism operations."</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Escalation Timeline</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Feb 23:</strong> TTP militants attacked a Pakistan Army convoy in Waziristan, killing 12 soldiers</li>
+  <li><strong>Feb 25:</strong> Pakistan Air Force struck targets across the Durand Line in Paktika, Khost</li>
+  <li><strong>Feb 26:</strong> Afghan Taliban retaliated with cross-border shelling into Balochistan</li>
+  <li><strong>Feb 27:</strong> Diplomatic channels remain frozen; both sides reject mediation offers</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">India's Stance</h2>
+<p class="mb-6">At the UN, India slammed Pakistan's "incessant propaganda," calling Islamabad's claims "living in la-la land." India's permanent representative reiterated that Pakistan-based terror infrastructure remains the primary obstacle to regional peace.</p>
+<p class="mb-6">Indian Army's Northern Command also issued a stern warning: "They will be forced to accept defeat — Pakistan's nuclear rhetoric won't save it next time."</p>`,
+    category: 'politics',
+    imageUrl: 'https://images.unsplash.com/photo-1580086319619-3ed498161c77?w=800&auto=format&fit=crop&q=80',
+    author: 'Harpreet Singh',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '7 min read',
+    isTrending: true,
+  },
+
+  // 14 — Rinku Singh's Father Passes Away
+  {
+    id: 'rinku-singh-father',
+    title: "Rinku Singh's Father Passes Away: Virat Kohli, Cricket Fraternity Pour in Condolences",
+    excerpt: 'Indian cricketer Rinku Singh loses his father to cancer during the T20 World Cup. Virat Kohli pens emotional tribute; Rinku heads home from tournament.',
+    content: `<p class="text-lg leading-relaxed mb-6">Greater Noida, February 27, 2026 — Indian cricketer Rinku Singh's father breathed his last on Friday morning at Yatharth Hospital in Greater Noida, where he had been undergoing cancer treatment. The all-rounder has left the T20 World Cup squad to be with his family.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Cricket World Mourns</h2>
+<p class="mb-6">Virat Kohli penned a heartfelt tribute: "May you always find strength in his eternal blessings." The entire cricket community rallied behind Rinku, with former and current players sharing condolences.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Tributes Pour In</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Rohit Sharma:</strong> "Stay strong brother, we are all with you"</li>
+  <li><strong>Sunil Gavaskar:</strong> "No words feel enough at such times"</li>
+  <li><strong>BCCI:</strong> Extended full support and offered Rinku compassionate leave</li>
+</ul>
+<p class="mb-6">Rinku's father had been battling cancer since 2024 and the young cricketer had been managing his tournament commitments while keeping a close eye on his father's condition. The BCCI arranged a special flight for Rinku to return to Greater Noida.</p>`,
+    category: 'cricket',
+    imageUrl: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&auto=format&fit=crop&q=80',
     author: 'Suresh Nair',
-    publishedAt: '1 hr',
+    publishedAt: 'Feb 27, 2026',
     readTime: '4 min read',
     isFeatured: true,
   },
+
+  // 15 — Social Media Must Pay Creators: Vaishnaw
   {
-    id: '14',
-    title: 'G20 Foreign Ministers Meet in Mumbai: India Pushes for Global South Representation',
-    excerpt: 'External Affairs Minister leads discussions on UN Security Council reform and climate finance; joint statement expected tomorrow.',
-    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, February 19, 2026 - India hosted the G20 Foreign Ministers' Meeting today, with External Affairs Minister S. Jaishankar leading discussions on key global issues including UN Security Council reform and climate finance.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Key Agenda Items</h2>
+    id: 'social-media-pay-creators',
+    title: "Social Media Companies Must Pay Creators Fairly: Ashwini Vaishnaw at DNPA Conclave 2026",
+    excerpt: 'IT Minister Ashwini Vaishnaw calls out Big Tech at the DNPA Conclave, demanding fair revenue sharing for content creators and news publishers in India.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 27, 2026 — Union IT Minister Ashwini Vaishnaw made a powerful case for creator compensation at the DNPA (Digital News Publishers Association) Conclave 2026, saying social media companies must pay Indian content creators and news publishers fairly for the value they generate.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Key Remarks</h2>
+<p class="mb-6">"These platforms make billions from content created by Indian publishers and creators. It is only fair they share that revenue," Vaishnaw said, hinting at upcoming regulatory measures similar to Australia's News Media Bargaining Code.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">DNPA Conclave Highlights</h2>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li>Expansion of UNSC permanent membership to include India, Brazil, and African nations</li>
-  <li>$500 billion climate finance commitment for developing nations</li>
-  <li>Technology transfer frameworks for Global South</li>
-  <li>Counter-terrorism cooperation mechanisms</li>
+  <li><strong>Prasoon Joshi:</strong> Reflected on the intersection of AI, creativity, and human imagination</li>
+  <li><strong>S. Krishnan (IT Secretary):</strong> Outlined India's digital regulatory framework in the AI era</li>
+  <li><strong>Sudhir Chaudhary:</strong> Called for "rewriting the news playbook with purpose and clarity"</li>
+  <li><strong>Vineet Nayyar:</strong> Urged publishers to embrace AI as an opportunity</li>
 </ul>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Progress Made</h2>
-<p class="mb-6">Sources indicate broad consensus on the need for UNSC reform, with major powers showing flexibility on expansion models. The climate finance discussions saw constructive engagement from EU nations and the US.</p>
-
-<p class="mb-6">A joint ministerial statement is expected to be released tomorrow following the conclusion of bilateral meetings.</p>`,
-    category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800&auto=format&fit=crop',
-    author: 'Rakesh Mehta',
-    publishedAt: '13 hr',
-    readTime: '7 min read',
-  },
-  {
-    id: '15',
-    title: 'Zika Virus Cases Detected in Maharashtra: Health Ministry Issues Advisory',
-    excerpt: 'Five confirmed cases in Pune district prompt authorities to intensify surveillance; no cause for panic, says Health Secretary.',
-    content: `<p class="text-lg leading-relaxed mb-6">Pune, February 19, 2026 - The Maharashtra Health Department confirmed five cases of Zika virus infection in Pune district, prompting the Union Health Ministry to issue an advisory for enhanced surveillance and vector control measures.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Current Situation</h2>
-<p class="mb-6">All five patients are currently stable and recovering. The cases were detected through routine surveillance, and contact tracing is underway. Authorities have intensified fogging operations and mosquito breeding site elimination in affected areas.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">Health Ministry Advisory</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li>Enhanced surveillance in Maharashtra and neighboring states</li>
-  <li>Special attention to pregnant women in affected areas</li>
-  <li>Intensified vector control measures</li>
-  <li>Public awareness campaigns on prevention</li>
-</ul>
-
-<p class="mb-6">Health Secretary Apurva Chandra assured that there is no cause for panic and the situation is under control. Rapid response teams have been deployed to the affected areas.</p>`,
-    category: 'health',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop',
-    author: 'Dr. Rahul Saxena',
-    publishedAt: '14 hr',
+<p class="mb-6">The conclave also emphasized that India's digital public infrastructure positions media companies at the heart of civic innovation and sustainable journalism.</p>`,
+    category: 'technology',
+    imageUrl: 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&auto=format&fit=crop&q=80',
+    author: 'Dr. Priya Sharma',
+    publishedAt: 'Feb 27, 2026',
     readTime: '5 min read',
   },
+
+  // 16 — Maharashtra Digital Addiction Task Force
   {
-    id: '16',
-    title: 'Oscars 2026: Indian Film \'The Last Village\' Nominated for Best International Feature',
-    excerpt: 'Chaitanya Tamhane\'s Marathi film becomes the third Indian movie to receive Oscar nomination in this category after Mother India and Lagaan.',
-    content: `<p class="text-lg leading-relaxed mb-6">Los Angeles, February 19, 2026 - Indian cinema achieved a historic moment as Chaitanya Tamhane's Marathi film 'The Last Village' received an Oscar nomination for Best International Feature Film at the 98th Academy Awards.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">About the Film</h2>
-<p class="mb-6">'The Last Village' tells the story of a remote Himalayan village facing extinction due to climate change and migration. The film features a cast of non-professional actors from actual villages in Ladakh and has been praised for its stunning cinematography and authentic storytelling.</p>
-
-<h2 class="text-2xl font-bold mt-8 mb-4">India's Oscar Journey</h2>
+    id: 'maharashtra-digital-addiction',
+    title: "Maharashtra Forms Task Force to Study Digital Addiction's Impact on Children",
+    excerpt: 'The Maharashtra government constitutes an expert panel to study the adverse effects of screen time and social media on children\'s mental health and academic performance.',
+    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, February 27, 2026 — The Maharashtra government has constituted a task force of health experts, educators, and technology specialists to study the adverse impact of digital addiction on children and recommend policy measures.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Growing Concerns</h2>
+<p class="mb-6">The move comes after multiple studies showed Indian children spend an average of 4.5 hours daily on screens — up from 2 hours pre-pandemic. Paediatricians have reported a sharp rise in anxiety, sleep disorders, and attention deficits among school-age children.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Task Force Mandate</h2>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>1958:</strong> Mother India - Nominated</li>
-  <li><strong>2002:</strong> Lagaan - Nominated</li>
-  <li><strong>2026:</strong> The Last Village - Nominated</li>
+  <li>Study correlation between screen time and academic performance</li>
+  <li>Assess mental health impact of social media on adolescents</li>
+  <li>Recommend age-appropriate digital usage guidelines</li>
+  <li>Propose school-level interventions and parental awareness programmes</li>
 </ul>
-
-<p class="mb-6">Director Chaitanya Tamhane, previously known for 'Court' and 'The Disciple', expressed his gratitude saying, "This recognition belongs to the people of Ladakh who opened their hearts and homes to us."</p>
-
-<p class="mb-6">The Academy Awards ceremony is scheduled for March 2, 2026.</p>`,
-    category: 'bollywood',
-    imageUrl: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=800&auto=format&fit=crop',
-    author: 'Simran Kaur',
-    publishedAt: '15 hr',
+<p class="mb-6">The task force will submit its report within 90 days. Meanwhile, Maharashtra's pollution crackdown saw 88% of construction sites receive stop-work notices, as the state tackles both environmental and digital health challenges simultaneously.</p>`,
+    category: 'health',
+    imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80',
+    author: 'Dr. Maya Iyer',
+    publishedAt: 'Feb 27, 2026',
     readTime: '4 min read',
+  },
+
+  // 17 — Sunetra Pawar NCP President
+  {
+    id: 'sunetra-pawar-ncp',
+    title: "Sunetra Pawar Elected NCP National President, Succeeds Late Husband Ajit Pawar",
+    excerpt: 'Sunetra Pawar unanimously elected as NCP national president, vowing to fulfil Ajit Pawar\'s unfinished dreams for Maharashtra\'s development.',
+    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, February 27, 2026 — Sunetra Pawar was unanimously elected as the national president of the Nationalist Congress Party (NCP), succeeding her late husband Ajit Pawar. In an emotional address, she pledged to continue his legacy and work for Maharashtra's development.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Leadership Transition</h2>
+<p class="mb-6">"Will work to fulfil Ajit dada's dreams," Sunetra said during the election ceremony attended by NDA allies and senior party leaders. The BJP expressed confidence in the new leadership, terming it "continuity with strength."</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Political Significance</h2>
+<p class="mb-6">The move strengthens the NCP's alliance within the ruling Mahayuti coalition in Maharashtra. Sunetra Pawar, a Rajya Sabha MP, is seen as a unifying figure in the party. Her elevation also makes NCP one of the few major Indian parties led by a woman.</p>`,
+    category: 'politics',
+    imageUrl: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=800&auto=format&fit=crop&q=80',
+    author: 'Meera Joshi',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '3 min read',
+  },
+
+  // 18 — SBI Clerk Mains Result
+  {
+    id: 'sbi-clerk-mains-result',
+    title: "SBI Clerk Mains Result 2026 Out: Direct Link to Download Merit List PDF",
+    excerpt: 'State Bank of India has released the SBI Clerk Mains 2026 results at sbi.co.in. Candidates can check their scores and download the merit list PDF.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, February 27, 2026 — The State Bank of India has released the SBI Clerk Mains 2026 examination results on its official website sbi.co.in. Candidates who appeared for the exam can check their scores and download the merit list PDF.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">How to Check Results</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li>Visit the official SBI website at sbi.co.in</li>
+  <li>Click on 'Recruitment' under the Careers section</li>
+  <li>Look for 'SBI Clerk Mains Result 2026'</li>
+  <li>Enter your registration number and date of birth</li>
+  <li>Download the scorecard for future reference</li>
+</ul>
+<p class="mb-6">REET Mains 2026 answer keys for Primary and Upper Primary Teachers have also been released. Education remains a top focus as recruitment across banking, teaching, and government sectors accelerates in 2026.</p>`,
+    category: 'education',
+    imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&auto=format&fit=crop&q=80',
+    author: 'Kavita Reddy',
+    publishedAt: 'Feb 27, 2026',
+    readTime: '3 min read',
   },
 ];
 
@@ -567,127 +441,128 @@ export const liveMatches: LiveMatch[] = [
   {
     id: '1',
     sport: 'Cricket',
-    tournament: 'T20 World Cup 2026',
-    venue: "Eden Gardens",
-    innings: 'Group C',
+    tournament: 'T20 World Cup 2026 — Super 8',
+    venue: 'R. Premadasa Stadium, Colombo',
     team1: {
-      name: 'West Indies',
-      shortName: 'WI',
-      flag: '🏴‍☠️',
-      score: '198/4',
-      overs: '(20 ov)',
+      name: 'England',
+      shortName: 'ENG',
+      flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+      score: '—',
+      overs: '',
     },
     team2: {
-      name: 'Italy',
-      shortName: 'ITA',
-      flag: '🇮🇹',
-      score: '145/6',
-      overs: '(16.3 ov)',
+      name: 'New Zealand',
+      shortName: 'NZ',
+      flag: '🇳🇿',
+      score: '—',
+      overs: '',
     },
-    status: 'live',
+    status: 'upcoming',
   },
   {
     id: '2',
     sport: 'Cricket',
-    tournament: 'T20 World Cup 2026',
-    venue: 'Colombo',
+    tournament: 'T20 World Cup 2026 — Super 8',
+    venue: 'MA Chidambaram Stadium, Chennai',
     team1: {
-      name: 'Sri Lanka',
-      shortName: 'SL',
-      flag: '🇱🇰',
-      score: '0/0',
-      overs: '(0 ov)',
+      name: 'India',
+      shortName: 'IND',
+      flag: '🇮🇳',
+      score: '256/4',
+      overs: '(20 ov)',
     },
     team2: {
       name: 'Zimbabwe',
       shortName: 'ZIM',
       flag: '🇿🇼',
-      score: '0/0',
-      overs: '(0 ov)',
+      score: '184/6',
+      overs: '(20 ov)',
     },
-    status: 'upcoming',
+    status: 'completed',
   },
   {
     id: '3',
     sport: 'Cricket',
-    tournament: 'T20 World Cup 2026',
-    venue: 'Chennai',
+    tournament: 'T20 World Cup 2026 — Super 8',
+    venue: 'Narendra Modi Stadium, Ahmedabad',
     team1: {
-      name: 'Afghanistan',
-      shortName: 'AFG',
-      flag: '🇦🇫',
-      score: '0/0',
-      overs: '(0 ov)',
+      name: 'South Africa',
+      shortName: 'SA',
+      flag: '🇿🇦',
+      score: '177/1',
+      overs: '(16.1 ov)',
     },
     team2: {
-      name: 'Canada',
-      shortName: 'CAN',
-      flag: '🇨🇦',
-      score: '0/0',
-      overs: '(0 ov)',
+      name: 'West Indies',
+      shortName: 'WI',
+      flag: '🏴‍☠️',
+      score: '176/8',
+      overs: '(20 ov)',
     },
-    status: 'upcoming',
+    status: 'completed',
   },
   {
     id: '4',
-    sport: 'Football',
-    tournament: 'ISL - Match Day 12',
-    venue: 'Kolkata',
+    sport: 'Cricket',
+    tournament: 'Ranji Trophy Final — Day 4',
+    venue: 'KSCA Ground, Hubballi',
     team1: {
-      name: 'ATK Mohun Bagan',
-      shortName: 'ATKMB',
-      flag: '🟢',
-      score: '2',
+      name: 'J&K',
+      shortName: 'J&K',
+      flag: '🏔️',
+      score: '584 & 186/4',
+      overs: '(57 ov)',
     },
     team2: {
-      name: 'Mumbai City FC',
-      shortName: 'MCFC',
-      flag: '🔵',
-      score: '1',
+      name: 'Karnataka',
+      shortName: 'KAR',
+      flag: '🏏',
+      score: '293',
+      overs: '(All out)',
     },
     status: 'live',
   },
   {
     id: '5',
     sport: 'Cricket',
-    tournament: 'T20 World Cup 2026',
-    venue: 'Narendra Modi Stadium, Ahmedabad',
+    tournament: 'Women\'s ODI — India in Australia',
+    venue: 'Adelaide Oval',
     team1: {
-      name: 'India',
-      shortName: 'IND',
-      flag: '🇮🇳',
-      score: '187/4',
-      overs: '(20 ov)',
+      name: 'Australia',
+      shortName: 'AUS-W',
+      flag: '🇦🇺',
+      score: '252/5',
+      overs: '(36.1 ov)',
     },
     team2: {
-      name: 'Netherlands',
-      shortName: 'NED',
-      flag: '🇳🇱',
-      score: '170/8',
-      overs: '(20 ov)',
+      name: 'India',
+      shortName: 'IND-W',
+      flag: '🇮🇳',
+      score: '251/9',
+      overs: '(50 ov)',
     },
     status: 'completed',
   },
   {
     id: '6',
     sport: 'Cricket',
-    tournament: 'Ranji Trophy Final',
-    venue: 'M.A. Chidambaram Stadium, Chennai',
+    tournament: 'T20 World Cup 2026 — Super 8',
+    venue: 'Pallekele, Sri Lanka',
     team1: {
-      name: 'Jammu & Kashmir',
-      shortName: 'J&K',
-      flag: '🏔️',
-      score: '234/5',
-      overs: '(85 ov)',
+      name: 'Sri Lanka',
+      shortName: 'SL',
+      flag: '🇱🇰',
+      score: '—',
+      overs: '',
     },
     team2: {
-      name: 'Mumbai',
-      shortName: 'MUM',
-      flag: '🏙️',
-      score: '312',
-      overs: '(98.2 ov)',
+      name: 'Pakistan',
+      shortName: 'PAK',
+      flag: '🇵🇰',
+      score: '—',
+      overs: '',
     },
-    status: 'live',
+    status: 'upcoming',
   },
 ];
 

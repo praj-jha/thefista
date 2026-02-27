@@ -12,7 +12,7 @@ export default function HomePage() {
     return (
         <div className="bg-neutral-50">
             {/* Hero Section */}
-            <div className="bg-white">
+            <div className="bg-white border-b border-neutral-200">
                 <HeroSection
                     featuredArticle={featuredArticle}
                     recentArticles={recentArticles}
@@ -20,22 +20,24 @@ export default function HomePage() {
             </div>
 
             {/* Trending + Live Score Section */}
-            <div className="max-w-7xl mx-auto px-4 py-10">
-                <div className="grid lg:grid-cols-3 gap-8">
-                    {/* Trending News */}
-                    <div className="lg:col-span-2">
+            <div className="max-w-350 mx-auto px-6 py-12">
+                <div className="grid lg:grid-cols-12 gap-8">
+                    {/* Trending News — 8 cols */}
+                    <div className="lg:col-span-8">
                         <TrendingNewsSection articles={trendingArticles} />
                     </div>
 
-                    {/* Live Score Widget */}
-                    <div className="lg:col-span-1">
-                        <LiveScoreWidget matches={liveMatches} />
+                    {/* Live Score Widget — 4 cols */}
+                    <div className="lg:col-span-4">
+                        <div className="sticky top-32">
+                            <LiveScoreWidget matches={liveMatches} />
+                        </div>
                     </div>
                 </div>
             </div>
 
-            {/* Featured News Section */}
-            <div className="bg-white py-8">
+            {/* Featured/Editor's Picks Section */}
+            <div className="bg-white border-y border-neutral-200">
                 <FeaturedNewsSection articles={articles} />
             </div>
         </div>
