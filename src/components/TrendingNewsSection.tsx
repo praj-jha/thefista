@@ -125,28 +125,25 @@ export default function TrendingNewsSection({ articles }: TrendingNewsSectionPro
                                         className="bg-white border border-neutral-200 overflow-hidden group hover:border-neutral-300 hover:shadow-lg transition-all duration-300"
                                     >
                                         {/* Image */}
-                                        <div className="relative h-52 md:h-56 overflow-hidden">
+                                        <div className="aspect-[16/10] overflow-hidden bg-neutral-100">
                                             <img
                                                 src={article.imageUrl}
                                                 alt={article.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                                className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                                             />
-                                            <div className="absolute top-4 left-4">
-                                                <span className="category-badge">{article.category}</span>
-                                            </div>
                                         </div>
 
                                         {/* Content */}
                                         <div className="p-5">
-                                            {/* Source & Time */}
+                                            {/* Category & Time */}
                                             <div className="flex items-center gap-2 text-[11px] text-neutral-400 mb-3">
-                                                <span className="font-semibold text-secondary uppercase tracking-wider">The Fista</span>
-                                                <span className="text-neutral-300">|</span>
+                                                <span className="font-semibold text-primary uppercase tracking-wider">{article.category}</span>
+                                                <span className="text-neutral-300">·</span>
                                                 <span>{article.publishedAt}</span>
                                             </div>
 
                                             {/* Title */}
-                                            <h3 className="font-display font-bold text-lg text-secondary line-clamp-3 group-hover:text-primary transition-colors leading-snug mb-3">
+                                            <h3 className="font-display font-bold text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug mb-3">
                                                 {article.title}
                                             </h3>
 
@@ -157,7 +154,6 @@ export default function TrendingNewsSection({ articles }: TrendingNewsSectionPro
 
                                             {/* Footer */}
                                             <div className="flex items-center justify-between pt-3 border-t border-neutral-100">
-                                                <span className="text-[10px] font-bold uppercase tracking-widest text-primary">{article.category}</span>
                                                 <span className="text-neutral-400 text-xs">{article.readTime}</span>
                                             </div>
                                         </div>

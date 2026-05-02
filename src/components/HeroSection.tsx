@@ -29,63 +29,64 @@ export default function HeroSection({ featuredArticle, recentArticles }: HeroSec
     const currentArticle = featuredArticles[currentSlide];
 
     return (
-        <section className="max-w-350 mx-auto px-6 py-8">
-            <div className="grid lg:grid-cols-12 gap-6">
+        <section className="max-w-350 mx-auto px-6 py-10">
+            <div className="grid lg:grid-cols-12 gap-8">
                 {/* Main Featured Article — 8 cols */}
                 <div className="lg:col-span-8">
-                    <div className="relative h-72 sm:h-80 md:h-96 lg:h-[30rem] xl:h-[34rem] overflow-hidden group">
-                        <Link to={`/article/${currentArticle.id}`} className="block h-full">
+                    <Link to={`/article/${currentArticle.id}`} className="block group">
+                        {/* Image — clean, no overlay */}
+                        <div className="relative aspect-[16/9] overflow-hidden bg-neutral-100">
                             <img
                                 src={currentArticle.imageUrl}
                                 alt={currentArticle.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
                             />
-                            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
-                            <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="category-badge">
-                                        {currentArticle.category}
-                                    </span>
-                                    <div className="flex items-center gap-1.5 text-white/70 text-xs">
-                                        <Clock className="w-3.5 h-3.5" />
-                                        <span>{currentArticle.publishedAt}</span>
-                                    </div>
-                                </div>
-                                <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4 max-w-3xl">
-                                    {currentArticle.title}
-                                </h1>
-                                <p className="text-white/60 text-sm max-w-2xl line-clamp-2 hidden md:block">
-                                    {currentArticle.excerpt}
-                                </p>
-                            </div>
-                        </Link>
-
-                        {/* Navigation */}
-                        <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
-                            <button
-                                onClick={(e) => { e.preventDefault(); prevSlide(); }}
-                                className="pointer-events-auto w-10 h-10 bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center text-white transition-all"
-                            >
-                                <ChevronLeft className="w-5 h-5" />
-                            </button>
-                            <button
-                                onClick={(e) => { e.preventDefault(); nextSlide(); }}
-                                className="pointer-events-auto w-10 h-10 bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center text-white transition-all"
-                            >
-                                <ChevronRight className="w-5 h-5" />
-                            </button>
                         </div>
 
-                        {/* Slide Indicators */}
-                        <div className="absolute bottom-4 right-8 flex gap-1.5">
+                        {/* Text content below image */}
+                        <div className="pt-5">
+                            <div className="flex items-center gap-3 mb-3">
+                                <span className="text-[11px] font-semibold uppercase tracking-widest text-primary">
+                                    {currentArticle.category}
+                                </span>
+                                <span className="text-neutral-300">·</span>
+                                <div className="flex items-center gap-1.5 text-neutral-400 text-xs">
+                                    <Clock className="w-3.5 h-3.5" />
+                                    <span>{currentArticle.publishedAt}</span>
+                                </div>
+                            </div>
+                            <h1 className="font-display text-2xl md:text-3xl lg:text-[2.5rem] font-bold text-secondary leading-tight mb-3 group-hover:text-primary transition-colors">
+                                {currentArticle.title}
+                            </h1>
+                            <p className="text-neutral-500 text-[15px] leading-relaxed max-w-2xl line-clamp-2 hidden md:block">
+                                {currentArticle.excerpt}
+                            </p>
+                        </div>
+                    </Link>
+
+                    {/* Navigation & Indicators */}
+                    <div className="flex items-center gap-4 mt-5 pt-5 border-t border-neutral-200">
+                        <button
+                            onClick={prevSlide}
+                            className="w-9 h-9 border border-neutral-300 hover:border-primary hover:text-primary flex items-center justify-center transition-all"
+                        >
+                            <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <div className="flex gap-2">
                             {featuredArticles.map((_, i) => (
                                 <button
                                     key={i}
                                     onClick={() => setCurrentSlide(i)}
-                                    className={`h-1 transition-all duration-300 ${i === currentSlide ? 'bg-primary w-8' : 'bg-white/40 hover:bg-white/60 w-4'}`}
+                                    className={`h-1 rounded-full transition-all duration-300 ${i === currentSlide ? 'bg-primary w-8' : 'bg-neutral-300 hover:bg-neutral-400 w-4'}`}
                                 />
                             ))}
                         </div>
+                        <button
+                            onClick={nextSlide}
+                            className="w-9 h-9 border border-neutral-300 hover:border-primary hover:text-primary flex items-center justify-center transition-all"
+                        >
+                            <ChevronRight className="w-4 h-4" />
+                        </button>
                     </div>
                 </div>
 
