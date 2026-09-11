@@ -21,7 +21,7 @@ export default function FeaturedNewsSection({ articles }: FeaturedNewsSectionPro
     ];
 
     return (
-        <section className="max-w-350 mx-auto px-6 py-12">
+        <section className="container-page py-12">
             {/* Section Header */}
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
                 <div>

@@ -7,7 +7,7 @@ export default function Footer() {
         <footer className="bg-secondary text-white">
             {/* Newsletter Bar */}
             <div className="bg-primary">
-                <div className="max-w-350 mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="container-page py-8 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <h3 className="font-display text-xl font-bold text-white">Stay Informed</h3>
                         <p className="text-white/80 text-sm mt-1">Get breaking news delivered to your inbox</p>
@@ -26,7 +26,7 @@ export default function Footer() {
             </div>
 
             {/* Main Footer */}
-            <div className="max-w-350 mx-auto px-6 py-14">
+            <div className="container-page py-14">
                 <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-10">
                     {/* Brand */}
                     <div className="lg:col-span-4">

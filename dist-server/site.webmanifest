@@ -1,0 +1,16 @@
+{
+  "name": "The Fista — India's Trusted News Platform",
+  "short_name": "The Fista",
+  "description": "India's trusted news platform for cricket, politics, business, health, Bollywood, education and technology.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAF9F6",
+  "theme_color": "#0E1621",
+  "lang": "en-IN",
+  "categories": ["news", "magazines"],
+  "icons": [
+    { "src": "/2.png", "sizes": "any", "type": "image/png", "purpose": "any" },
+    { "src": "/1.png", "sizes": "any", "type": "image/png", "purpose": "maskable" }
+  ]
+}

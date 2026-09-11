@@ -48,14 +48,16 @@ export default function CategoryPage() {
 
     return (
         <div className="bg-neutral-50 min-h-screen">
+            <Seo {...buildCategorySeo(category, categoryArticles)} />
+
             {/* Breadcrumb */}
-            <div className="bg-white border-b border-neutral-200">
-                <div className="max-w-350 mx-auto px-6 py-3 flex items-center gap-2 text-[12px]">
+            <nav aria-label="Breadcrumb" className="bg-white border-b border-neutral-200">
+                <div className="container-page py-3 flex items-center gap-2 text-[12px]">
                     <Link to="/" className="text-neutral-400 hover:text-primary transition-colors font-medium">Home</Link>
                     <span className="text-neutral-300">/</span>
                     <span className="font-semibold text-secondary capitalize">{category.name}</span>
                 </div>
-            </div>
+            </nav>
 
             {/* Category Hero Banner */}
             <div className="relative bg-secondary overflow-hidden">
@@ -65,7 +67,7 @@ export default function CategoryPage() {
                         backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 80px)`,
                     }} />
                 </div>
-                <div className="max-w-350 mx-auto px-6 py-12 lg:py-16 relative z-10">
+                <div className="container-page py-12 lg:py-16 relative z-10">
                     <div className="flex items-start gap-6">
                         <div
                             className="w-1.5 h-16 shrink-0 mt-1"
@@ -96,7 +98,7 @@ export default function CategoryPage() {
 
             {/* Featured Lead Story */}
             {featuredArticle && (
-                <div className="max-w-350 mx-auto px-6 -mt-6 relative z-10 mb-10">
+                <div className="container-page -mt-6 relative z-10 mb-10">
                     <Link
                         to={`/article/${featuredArticle.id}`}
                         className="block group"
@@ -155,7 +157,7 @@ export default function CategoryPage() {
             )}
 
             {/* Main Content Area */}
-            <div className="max-w-350 mx-auto px-6 pb-14">
+            <div className="container-page pb-14">
                 <div className="grid lg:grid-cols-12 gap-8">
                     {/* Articles Grid */}
                     <div className="lg:col-span-8">

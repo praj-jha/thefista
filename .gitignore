@@ -37,4 +37,4 @@ Thumbs.db
 *.tsbuildinfo
 
 # Testing
-coverage
+coveragedist-server

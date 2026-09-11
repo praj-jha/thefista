@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
+import { StaticRouter } from 'react-router';
 import App from './App';
 import { SeoCollectorContext } from './seo/Seo';
 import { renderHeadToString } from './seo/head';
@@ -38,6 +38,15 @@ export function getRoutes(): string[] {
     ...categories.map((c) => `/category/${c.slug}`),
     ...articles.map((a) => `/article/${a.id}`),
   ];
+}
+
+// Article metadata for the Google News sitemap.
+export function getNewsEntries(): { path: string; title: string; publishedAt: string }[] {
+  return articles.map((a) => ({
+    path: `/article/${a.id}`,
+    title: a.title,
+    publishedAt: a.publishedAt,
+  }));
 }
 
 // Data the sitemap generator needs (path + last-modified display date).

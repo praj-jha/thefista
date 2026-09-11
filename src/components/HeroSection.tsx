@@ -29,7 +29,7 @@ export default function HeroSection({ featuredArticle, recentArticles }: HeroSec
     const currentArticle = featuredArticles[currentSlide];
 
     return (
-        <section className="max-w-350 mx-auto px-6 py-10">
+        <section className="container-page py-10">
             <div className="grid lg:grid-cols-12 gap-8">
                 {/* Main Featured Article — 8 cols */}
                 <div className="lg:col-span-8">

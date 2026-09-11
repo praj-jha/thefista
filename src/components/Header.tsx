@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from 'react';
 import { categories } from '../data/articles';
 
 const breakingHeadlines = [
-    "India Innovates 2026: 5000+ Developers to Break Guinness World Record at Bharat Mandapam on March 28",
-    "T20 World Cup Super 8: India Thrash Zimbabwe by 72 Runs, Virtual QF vs West Indies in Kolkata",
-    "Ranji Trophy Final: J&K Seize Control, Lead Karnataka by 477 Runs on Day 4 in Hubballi",
-    "Court Clears Kejriwal & Sisodia in Delhi Excise Case — CBI Moves High Court",
-    "PM Modi's Historic Israel Visit: Signs Key Defence, AI and AgroTech MoUs with Netanyahu",
-    "India's GDP Surges 7.8% in Q3 FY26 — Fastest Growing Major Economy",
+    "India Clinch Asia Cup 2026 Title with Nerveless Chase in the Dubai Final",
+    "GST 2.0 Goes Live: Simplified Two-Slab Structure Takes Effect Nationwide",
+    "ISRO Confirms Gaganyaan Crewed Flight Window After Successful Systems Review",
+    "Monsoon Session Wraps Up: Data Rules and Skilling Push Cleared in Parliament",
+    "India–EU Free Trade Agreement Clears Ratification, Set to Boost Exports",
+    "RBI Holds Repo Rate and Lifts Growth Outlook as Inflation Stays Benign",
 ];
 
 export default function Header() {
@@ -67,7 +67,7 @@ export default function Header() {
                     className={`border-b border-neutral-100 overflow-hidden transition-all duration-300 ease-in-out ${isScrolled ? 'max-h-0 opacity-0 border-transparent' : 'max-h-12 opacity-100'
                         }`}
                 >
-                    <div className="max-w-350 mx-auto px-6 py-2 flex justify-between items-center">
+                    <div className="container-page py-2 flex justify-between items-center">
                         <div className="flex items-center gap-4 text-[11px] text-neutral-500 uppercase tracking-wider">
                             <span className="font-semibold text-secondary">
                                 {new Date().toLocaleDateString('en-IN', {
@@ -87,7 +87,7 @@ export default function Header() {
                 </div>
 
                 {/* Logo + Navigation */}
-                <div className="max-w-350 mx-auto px-6">
+                <div className="container-page">
                     <div className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? 'py-2' : 'py-5'}`}>
                         {/* Logo */}
                         <Link to="/" className="flex items-center">
@@ -137,7 +137,7 @@ export default function Header() {
             {/* Mobile Navigation */}
             {isMenuOpen && (
                 <div className="lg:hidden bg-white border-t border-neutral-200 shadow-xl">
-                    <nav className="max-w-350 mx-auto px-6 py-6 flex flex-col">
+                    <nav className="container-page py-6 flex flex-col">
                         {navItems.map((item) => (
                             <Link
                                 key={item.path}
