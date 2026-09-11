@@ -1,20 +1,35 @@
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Compass } from 'lucide-react';
 import Seo from '../seo/Seo';
 import { buildNotFoundSeo } from '../seo/builders';
+import { categories } from '../data/articles';
 
 export default function NotFoundPage() {
   const { pathname } = useLocation();
   return (
     <div className="max-w-2xl mx-auto px-6 py-28 text-center">
       <Seo {...buildNotFoundSeo(pathname)} />
-      <span className="font-display text-7xl font-bold text-neutral-200">404</span>
-      <h1 className="font-display text-3xl font-bold text-secondary mt-4 mb-3">Page Not Found</h1>
+      <span className="inline-flex items-center gap-2 section-eyebrow">
+        <Compass className="w-4 h-4" /> Lost the trail
+      </span>
+      <div className="font-display text-[8rem] leading-none text-secondary mt-4">404</div>
+      <h1 className="font-display text-3xl text-secondary mt-2 mb-3">This page went off the record</h1>
       <p className="text-neutral-500 mb-8">The page you're looking for doesn't exist or may have been moved.</p>
-      <Link to="/" className="btn-primary inline-flex items-center gap-2">
+      <Link to="/" className="btn-primary inline-flex">
         <ArrowLeft className="w-4 h-4" />
         Back to Home
       </Link>
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+        {categories.map((cat) => (
+          <Link
+            key={cat.id}
+            to={`/category/${cat.slug}`}
+            className="px-4 py-2 rounded-full border border-neutral-200 bg-white text-[13px] font-bold text-secondary hover:border-secondary hover:bg-secondary hover:text-white transition-all"
+          >
+            {cat.name}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

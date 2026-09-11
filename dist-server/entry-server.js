@@ -1,37 +1,37 @@
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
-import { useState, useRef, useEffect, useCallback, createContext, useContext, StrictMode } from "react";
+import { useState, useEffect, useCallback, useRef, createContext, useContext, StrictMode } from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import { useLocation, Link, useParams, Routes, Route } from "react-router-dom";
-import { ChevronRight, Search, X, Menu, ArrowRight, Facebook, Twitter, Instagram, Youtube, MapPin, Mail, Clock, ChevronLeft, TrendingUp, Radio, ArrowLeft, User, Share2, Calendar, Linkedin, MessageCircle, Link2 } from "lucide-react";
+import { ChevronRight, Search, ArrowRight, X, Menu, Send, Facebook, Twitter, Instagram, Youtube, MapPin, Mail, Clock, ArrowUpRight, Flame, ChevronLeft, Radio, Compass, ArrowLeft, User, Share2, Calendar, Linkedin, MessageCircle, Check, Link2 } from "lucide-react";
 const categories = [
   { id: "cricket", name: "Cricket", slug: "cricket", color: "#0F766E" },
   { id: "politics", name: "Politics", slug: "politics", color: "#1D4ED8" },
-  { id: "health", name: "Health", slug: "health", color: "#B91C1C" },
-  { id: "bollywood", name: "Bollywood", slug: "bollywood", color: "#BE185D" },
+  { id: "health", name: "Health", slug: "health", color: "#DB2777" },
+  { id: "bollywood", name: "Bollywood", slug: "bollywood", color: "#9333EA" },
   { id: "business", name: "Business", slug: "business", color: "#B45309" },
-  { id: "education", name: "Education", slug: "education", color: "#6D28D9" },
-  { id: "technology", name: "Technology", slug: "technology", color: "#0E7490" }
+  { id: "education", name: "Education", slug: "education", color: "#0891B2" },
+  { id: "technology", name: "Technology", slug: "technology", color: "#EA580C" }
 ];
 const articles = [
   // 1 — Asia Cup Final (Featured Hero — Sep 11, 2026)
   {
     id: "india-asia-cup-2026-final-win",
     title: "India Clinch Asia Cup 2026 Title with Nerveless Chase in Dubai Final",
-    excerpt: "Chasing 182 under the Dubai lights, India held their composure through a tense final over to beat their arch-rivals and lift a record-extending Asia Cup crown, capping a flawless unbeaten campaign.",
-    content: `<p class="text-lg leading-relaxed mb-6">Dubai, September 11, 2026 — India were crowned champions of the <strong>Asia Cup 2026</strong> on Thursday night, chasing down 182 with two balls to spare in a final that swung on every delivery of a pulsating closing over at the Dubai International Stadium. The victory extended India's record as the most successful side in the tournament's history and completed an unbeaten run through the competition.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">A Chase Built on Cool Heads</h2>
-<p class="mb-6">Set a demanding target on a used surface, India lost an early wicket but were steadied by a composed half-century at the top of the order and a match-defining cameo in the death overs. With 14 needed off the final over, the middle order held its nerve, picking gaps and running hard to seal a title that had looked out of reach at the halfway stage.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Key Performers</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Opening stand:</strong> A brisk 74-run partnership set the platform for the chase</li>
-  <li><strong>Death-overs finishing:</strong> Two clean strikes in the 19th over swung momentum decisively</li>
-  <li><strong>Spin in the middle:</strong> Three wickets through the middle phase kept the target within reach</li>
-  <li><strong>Fielding:</strong> Two direct-hit run-outs proved the difference on the night</li>
+    excerpt: "Chasing 182 under the Dubai lights, India held their nerve through a pulsating final over to beat their arch-rivals and lift a record-extending Asia Cup crown, capping a flawless unbeaten campaign.",
+    content: `<p>Dubai, September 11, 2026 — India were crowned champions of the <strong>Asia Cup 2026</strong> on Thursday night, chasing down 182 with two balls to spare in a final that swung on every delivery of the closing over at the Dubai International Stadium. The win extended India's record as the most successful side in the tournament's history and completed an unbeaten run through the competition.</p>
+<h2>A Chase Built on Cool Heads</h2>
+<p>Set a demanding target on a used surface, India lost an early wicket but were steadied by a composed half-century at the top and a match-defining cameo in the death overs. With 14 needed off the final over, the middle order held firm, picking gaps and running hard to seal a title that had looked out of reach at the halfway stage.</p>
+<h2>Key Performers</h2>
+<ul>
+  <li><strong>Opening stand:</strong> A brisk 74-run partnership set the platform for the chase.</li>
+  <li><strong>Death-overs finishing:</strong> Two clean strikes in the 19th over swung momentum decisively.</li>
+  <li><strong>Spin in the middle:</strong> Three wickets through the middle phase kept the target within reach.</li>
+  <li><strong>Fielding:</strong> Two direct-hit run-outs proved the difference on the night.</li>
 </ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">What It Means</h2>
-<p class="mb-6">The triumph offers India valuable momentum heading into a packed home season and reaffirms the depth of a squad in transition. Selectors will take heart from the way younger players absorbed pressure on the biggest stage in the region.</p>
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"We spoke about staying in the present, ball by ball. The boys were fearless when it mattered — that's what makes this group special."<br/><span class="text-sm not-italic font-semibold">— India Captain, post-match presentation</span></blockquote>`,
+<h2>What It Means</h2>
+<p>The triumph gives India valuable momentum heading into a packed home season and reaffirms the depth of a squad in transition. Selectors will take heart from the way younger players absorbed pressure on the biggest stage in the region.</p>
+<blockquote>"We spoke about staying in the present, ball by ball. The boys were fearless when it mattered — that's what makes this group special." — India Captain, post-match presentation</blockquote>`,
     category: "cricket",
     imageUrl: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200&auto=format&fit=crop&q=80",
     author: "Rajesh Sharma",
@@ -40,23 +40,23 @@ const articles = [
     isFeatured: true,
     isTrending: true
   },
-  // 2 — GST 2.0 (Sep 11)
+  // 2 — GST 2.0 (Featured — Sep 11)
   {
     id: "gst-2-simplified-slabs-rollout",
     title: "GST 2.0 Goes Live: Simplified Two-Slab Structure Cheers Households and Small Business",
-    excerpt: "The next-generation Goods and Services Tax framework took effect this week, collapsing multiple rates into a cleaner structure that the government says will cut prices on everyday essentials and ease compliance for MSMEs.",
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 11, 2026 — The long-awaited overhaul of India's indirect tax system, popularly dubbed <strong>GST 2.0</strong>, came into force this week, rationalising a tangle of rates into a simpler structure aimed at lowering the tax burden on essentials and reducing paperwork for small businesses.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">What Changes for Consumers</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Everyday essentials:</strong> A wide basket of daily-use goods moves to a lower slab</li>
-  <li><strong>Simpler rates:</strong> Fewer categories mean less confusion at the point of sale</li>
-  <li><strong>Faster refunds:</strong> A streamlined process promises quicker input-credit settlement</li>
-  <li><strong>Sin and luxury goods:</strong> A special rate keeps high-end and demerit items separate</li>
+    excerpt: "The next-generation Goods and Services Tax framework took effect this week, collapsing multiple rates into a cleaner structure the government says will cut prices on everyday essentials and ease compliance for MSMEs.",
+    content: `<p>New Delhi, September 11, 2026 — The long-awaited overhaul of India's indirect tax system, popularly dubbed <strong>GST 2.0</strong>, came into force this week, rationalising a tangle of rates into a simpler structure aimed at lowering the burden on essentials and reducing paperwork for small businesses.</p>
+<h2>What Changes for Consumers</h2>
+<ul>
+  <li><strong>Everyday essentials:</strong> A wide basket of daily-use goods moves to a lower slab.</li>
+  <li><strong>Simpler rates:</strong> Fewer categories mean less confusion at the point of sale.</li>
+  <li><strong>Faster refunds:</strong> A streamlined process promises quicker input-credit settlement.</li>
+  <li><strong>Sin and luxury goods:</strong> A special rate keeps high-end and demerit items separate.</li>
 </ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Relief for Small Business</h2>
-<p class="mb-6">Trade bodies broadly welcomed the reform, saying the simplified filing requirements and clearer classification will cut compliance costs for micro, small and medium enterprises. Economists said the timing — ahead of the festive season — could give consumption a meaningful lift.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">The Fiscal Balance</h2>
-<p class="mb-6">Officials acknowledged a short-term hit to collections but argued that wider compliance and stronger demand would offset it over the medium term. Analysts will watch the first full month of data closely for early signals.</p>`,
+<h2>Relief for Small Business</h2>
+<p>Trade bodies broadly welcomed the reform, saying the simplified filing requirements and clearer classification will cut compliance costs for micro, small and medium enterprises. Economists said the timing — just ahead of the festive season — could give consumption a meaningful lift.</p>
+<h2>The Fiscal Balance</h2>
+<p>Officials acknowledged a short-term hit to collections but argued that wider compliance and stronger demand would offset it over the medium term. Analysts will watch the first full month of data closely for early signals.</p>`,
     category: "business",
     imageUrl: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80",
     author: "Amit Verma",
@@ -65,280 +65,321 @@ const articles = [
     isFeatured: true,
     isTrending: true
   },
-  // 3 — Monsoon Session concludes (Sep 10)
+  // 3 — ISRO Gaganyaan (Sep 11)
+  {
+    id: "isro-gaganyaan-crewed-window-confirmed",
+    title: "ISRO Confirms Gaganyaan Crewed Flight Window After Successful Systems Review",
+    excerpt: "India's space agency cleared a major integrated systems review this week, locking in a target window for the first crewed Gaganyaan mission and outlining the final uncrewed test that precedes it.",
+    content: `<p>Bengaluru, September 11, 2026 — The Indian Space Research Organisation confirmed a target window for its first crewed <strong>Gaganyaan</strong> mission after clearing a comprehensive integrated systems review, calling the milestone a decisive step toward putting Indian astronauts into low-Earth orbit aboard an indigenous vehicle.</p>
+<h2>The Road to Launch</h2>
+<p>Officials said one final uncrewed qualification flight — carrying a humanoid test payload — will validate life-support, abort and re-entry systems before crew are cleared to fly. The crew module, service module and human-rated launch vehicle have all completed their respective acceptance milestones.</p>
+<h2>Why It Matters</h2>
+<ul>
+  <li><strong>Sovereign capability:</strong> Gaganyaan would make India the fourth nation to independently fly humans to orbit.</li>
+  <li><strong>Ecosystem lift:</strong> Hundreds of domestic suppliers and startups feed the programme.</li>
+  <li><strong>Next steps:</strong> The mission is a building block toward a planned Indian space station later in the decade.</li>
+</ul>
+<h2>The Crew</h2>
+<p>The astronaut-designates have completed simulator and centrifuge training and are now in mission-specific rehearsals. ISRO said final crew assignment will be announced closer to the uncrewed test.</p>`,
+    category: "technology",
+    imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80",
+    author: "Dr. Neha Kulkarni",
+    publishedAt: "Sep 11, 2026",
+    readTime: "5 min read",
+    isTrending: true
+  },
+  // 4 — Monsoon Session concludes (Sep 10)
   {
     id: "monsoon-session-concludes-2026",
     title: "Monsoon Session Wraps Up: Data Rules, Skilling Push and Jobs Debate Dominate",
     excerpt: "Parliament concluded its Monsoon Session with the government clearing a clutch of economic bills, even as the Opposition pressed hard on employment and price rise in a series of sharp exchanges.",
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 10, 2026 — The Monsoon Session of Parliament drew to a close on Wednesday, with the treasury benches claiming a productive stretch of legislative business while the Opposition insisted key concerns on jobs and household budgets remained unanswered.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">On the Statute Book</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Digital data rules:</strong> Fresh regulations operationalising data protection and cross-border flows</li>
-  <li><strong>Skilling and apprenticeships:</strong> A package to widen formal training and gig-worker protections</li>
-  <li><strong>Infrastructure spending:</strong> Supplementary allocations for highways, railways and urban transit</li>
+    content: `<p>New Delhi, September 10, 2026 — The Monsoon Session of Parliament drew to a close on Wednesday, with the treasury benches claiming a productive stretch of legislative business while the Opposition insisted key concerns on jobs and household budgets remained unanswered.</p>
+<h2>On the Statute Book</h2>
+<ul>
+  <li><strong>Digital data rules:</strong> Fresh regulations operationalising data protection and cross-border flows.</li>
+  <li><strong>Skilling and apprenticeships:</strong> A package to widen formal training and gig-worker protections.</li>
+  <li><strong>Infrastructure spending:</strong> Supplementary allocations for highways, railways and urban transit.</li>
 </ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">The Opposition's Case</h2>
-<p class="mb-6">Floor leaders said they had used every available instrument to force debates on employment, rural distress and inflation. The government countered that its reform agenda — including this month's tax rationalisation — was already easing pressure on households.</p>
-<p class="mb-6">The Chair thanked members for a largely orderly session and noted that a long list of committee referrals would carry the work forward before the Winter Session.</p>`,
+<h2>The Opposition's Case</h2>
+<p>Floor leaders said they had used every available instrument to force debates on employment, rural distress and inflation. The government countered that its reform agenda — including this month's tax rationalisation — was already easing pressure on households.</p>
+<p>The Chair thanked members for a largely orderly session and noted a long list of committee referrals would carry the work forward before the Winter Session.</p>`,
     category: "politics",
     imageUrl: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&auto=format&fit=crop&q=80",
-    author: "Sanjay Das",
+    author: "Priya Nair",
     publishedAt: "Sep 10, 2026",
     readTime: "4 min read",
-    isFeatured: true,
     isTrending: true
   },
-  // 4 — ISRO Gaganyaan crewed timeline (Sep 10)
+  // 5 — RBI holds repo rate (Sep 10)
   {
-    id: "isro-gaganyaan-crew-timeline",
-    title: "ISRO Confirms Gaganyaan Crewed Flight Window After Successful Systems Review",
-    excerpt: "India moved a decisive step closer to its first human spaceflight as ISRO announced a firm window for the crewed Gaganyaan mission, following a clean bill of health from its final major systems review.",
-    content: `<p class="text-lg leading-relaxed mb-6">Bengaluru, September 10, 2026 — The Indian Space Research Organisation (ISRO) confirmed the target window for its historic crewed <strong>Gaganyaan</strong> mission after completing a comprehensive review of the human-rated launch vehicle, crew module and life-support systems.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Cleared for the Big Step</h2>
-<p class="mb-6">Officials said data from earlier uncrewed test flights had validated the critical safety architecture, including the crew escape system and splashdown recovery. The mission would make India only the fourth nation to independently send humans into orbit.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">On the Flight Card</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Human-rated vehicle:</strong> Final validation of the upgraded rocket stack</li>
-  <li><strong>Crew training:</strong> Astronaut-designates complete integrated mission simulations</li>
-  <li><strong>Recovery operations:</strong> Naval teams rehearse splashdown retrieval at sea</li>
-  <li><strong>Ground network:</strong> Tracking and communication links checked end to end</li>
+    id: "rbi-holds-repo-rate-growth-outlook",
+    title: "RBI Holds Repo Rate, Lifts Growth Outlook as Inflation Stays Benign",
+    excerpt: "The Monetary Policy Committee kept the policy rate unchanged for a fourth straight meeting and nudged up its GDP forecast, citing resilient demand, easing food prices and a stable rupee.",
+    content: `<p>Mumbai, September 10, 2026 — The Reserve Bank of India held its benchmark repo rate steady for a fourth consecutive review and raised its growth projection for the year, striking an optimistic tone on an economy it described as running "close to trend with inflation firmly anchored."</p>
+<h2>The Decision</h2>
+<p>The Monetary Policy Committee voted to keep the policy stance neutral, signalling comfort with the current level of rates. The Governor said the bar for further easing would be a durable undershoot of the inflation target, while any renewed price pressure would be watched closely.</p>
+<h2>Reading the Forecasts</h2>
+<ul>
+  <li><strong>Growth:</strong> The GDP estimate was revised modestly higher on strong investment and services.</li>
+  <li><strong>Inflation:</strong> Headline prices are seen staying inside the tolerance band, aided by a good monsoon.</li>
+  <li><strong>Rupee:</strong> Reserves near record highs give the central bank room to smooth volatility.</li>
 </ul>
-<p class="mb-6">ISRO said the programme would also feed directly into its longer-term ambitions, including a planned space station and a crewed lunar goal in the next decade.</p>`,
-    category: "technology",
-    imageUrl: "https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1200&auto=format&fit=crop&q=80",
-    author: "Neha Gupta",
+<h2>Market Reaction</h2>
+<p>Bond yields eased slightly and equities held gains after the announcement, with economists reading the commentary as a signal that rates will stay on hold well into next year barring a shock.</p>`,
+    category: "business",
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=80",
+    author: "Amit Verma",
     publishedAt: "Sep 10, 2026",
-    readTime: "5 min read",
-    isFeatured: true,
+    readTime: "4 min read",
     isTrending: true
   },
-  // 5 — Post-monsoon dengue (Sep 9)
+  // 6 — India-EU FTA (Sep 9)
   {
-    id: "post-monsoon-dengue-advisory",
-    title: "Post-Monsoon Health Watch: Dengue Cases Peak as North India Steps Up Fogging",
-    excerpt: "With the monsoon retreating, health departments have flagged the seasonal peak in dengue and chikungunya, urging citizens to clear stagnant water and watch for warning symptoms.",
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 9, 2026 — As the monsoon begins to withdraw from northern India, health authorities across several states have flagged the annual post-monsoon surge in vector-borne diseases, issuing fresh advisories on prevention and early testing.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Staying Safe This Season</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Eliminate breeding sites:</strong> Empty stagnant water from coolers, pots and containers weekly</li>
-  <li><strong>Use protection:</strong> Repellents, nets and full-sleeved clothing, especially at dawn and dusk</li>
-  <li><strong>Watch for symptoms:</strong> High fever, severe body ache, rash and fatigue warrant prompt testing</li>
-  <li><strong>Stay hydrated:</strong> Fluids are critical; avoid self-medication with certain painkillers</li>
+    id: "india-eu-fta-ratified-exports",
+    title: "India–EU Free Trade Agreement Clears Ratification, Set to Boost Exports",
+    excerpt: "A landmark trade pact between India and the European Union has cleared its final ratification hurdle, promising lower tariffs across textiles, autos, pharma and services once it enters into force.",
+    content: `<p>New Delhi, September 9, 2026 — The comprehensive free trade agreement between India and the European Union has completed ratification on both sides, clearing the way for one of the most consequential trade deals of the decade to take effect in phases.</p>
+<h2>What the Deal Covers</h2>
+<ul>
+  <li><strong>Goods:</strong> Phased elimination of duties on a large share of tariff lines, from textiles to engineering goods.</li>
+  <li><strong>Services and mobility:</strong> Easier movement for skilled professionals and mutual recognition provisions.</li>
+  <li><strong>Standards:</strong> A framework to align on sustainability, digital trade and food safety norms.</li>
 </ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Hospitals on Alert</h2>
-<p class="mb-6">Civic bodies have intensified fogging drives and door-to-door larvae checks, while hospitals have been asked to keep dedicated fever wards ready. Officials stressed that early diagnosis dramatically reduces the risk of complications.</p>
-<p class="mb-6">Doctors advised people not to ignore persistent fever and to seek medical attention rather than waiting it out at home.</p>`,
-    category: "health",
-    imageUrl: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&auto=format&fit=crop&q=80",
-    author: "Dr. Anita Singh",
+<h2>Winners at Home</h2>
+<p>Exporters in labour-intensive sectors — apparel, leather, gems and jewellery — are expected to gain the most, while consumers could see cheaper European automobiles and wines over time. Industry groups urged firms to prepare for tighter quality and traceability requirements.</p>
+<h2>The Bigger Picture</h2>
+<p>Officials framed the agreement as an anchor for supply-chain diversification, positioning India as a trusted manufacturing partner as global firms rebalance away from concentrated sourcing.</p>`,
+    category: "business",
+    imageUrl: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&auto=format&fit=crop&q=80",
+    author: "Sanjay Mehta",
     publishedAt: "Sep 9, 2026",
     readTime: "4 min read",
     isTrending: true
   },
-  // 6 — Bollywood festive release (Sep 9)
+  // 7 — Women's cricket (Sep 10)
   {
-    id: "bollywood-festive-season-blockbuster",
-    title: "Festive Season Roars In as Big Bollywood Release Posts Year-Best Opening",
-    excerpt: "The Hindi film industry kicked off the festive stretch in style, with a much-anticipated release drawing packed houses across the country and delivering the biggest opening weekend of 2026 so far.",
-    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, September 9, 2026 — Bollywood set the tone for a bumper festive season as one of the year's most-awaited releases opened to houseful boards nationwide, notching the biggest opening weekend for a Hindi film in 2026.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">A Weekend to Remember</h2>
-<p class="mb-6">Backed by a strong marketing push, an ensemble cast and warm early reviews, the film pulled large family audiences and packed late-night shows in metros and smaller towns alike. Trade analysts said the momentum points to a healthy extended run through the festival calendar.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Why It's Clicking</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Word of mouth:</strong> Social buzz quickly translating into repeat viewing</li>
-  <li><strong>Music that travels:</strong> A chart-topping soundtrack fuelling pre-release hype</li>
-  <li><strong>Wide release:</strong> A large screen count across single screens and multiplexes</li>
+    id: "india-women-series-win-australia",
+    title: "India Women Seal ODI Series Against Australia with Dominant Bengaluru Show",
+    excerpt: "A century stand up top and a disciplined spell in the middle overs powered India Women to a series-clinching win over Australia, underlining their credentials ahead of a home World Cup season.",
+    content: `<p>Bengaluru, September 10, 2026 — India Women wrapped up their ODI series against Australia with a commanding performance at the M. Chinnaswamy Stadium, blending top-order aggression with control in the field to beat one of the game's benchmark sides.</p>
+<h2>Building the Total</h2>
+<p>A fluent opening partnership laid the foundation before the middle order accelerated, posting a total that always looked beyond the visitors on a slowing surface. Two batters crossed fifty, with one converting into a composed hundred.</p>
+<h2>Squeezing in the Field</h2>
+<ul>
+  <li><strong>Spin control:</strong> Tight lines through overs 20–40 choked the run rate.</li>
+  <li><strong>Sharp catching:</strong> Two outstanding boundary grabs turned the innings.</li>
+  <li><strong>Death bowling:</strong> Yorkers at the end sealed a comfortable margin.</li>
 </ul>
-<p class="mb-6">Exhibitors, buoyed after a mixed first half of the year, said several more big titles lined up for the festive window could make this one of the strongest quarters in recent memory.</p>`,
-    category: "bollywood",
-    imageUrl: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&auto=format&fit=crop&q=80",
-    author: "Pooja Sharma",
+<h2>Eyes on the Prize</h2>
+<p>The result reinforces India's rise as genuine contenders in a home season packed with marquee fixtures. The captain praised the group's "clarity and calm" and said the bench strength on show was a healthy selection headache.</p>`,
+    category: "cricket",
+    imageUrl: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1200&auto=format&fit=crop&q=80",
+    author: "Rajesh Sharma",
+    publishedAt: "Sep 10, 2026",
+    readTime: "4 min read",
+    isTrending: true
+  },
+  // 8 — Health: dengue / monsoon health (Sep 9)
+  {
+    id: "dengue-surveillance-monsoon-2026",
+    title: "Health Ministry Steps Up Dengue Surveillance as Post-Monsoon Cases Rise",
+    excerpt: "With the retreating monsoon fuelling a seasonal spike, authorities have expanded fever clinics, ramped up mosquito-control drives and issued fresh advisories on early testing and hydration.",
+    content: `<p>New Delhi, September 9, 2026 — The Union Health Ministry has intensified surveillance and vector-control measures across several states as post-monsoon dengue cases climb, urging citizens to eliminate stagnant water and seek early testing at the first sign of high fever.</p>
+<h2>What Is Being Done</h2>
+<ul>
+  <li><strong>Fever clinics:</strong> Additional screening points opened in high-burden urban wards.</li>
+  <li><strong>Source reduction:</strong> Intensified fogging and larvae-control drives in hotspots.</li>
+  <li><strong>Testing capacity:</strong> More labs equipped for rapid antigen and confirmatory tests.</li>
+</ul>
+<h2>Advice for Households</h2>
+<p>Doctors stressed that most dengue cases are mild and manageable with rest and fluids, but warned against self-medicating with certain painkillers. Warning signs such as persistent vomiting, abdominal pain or bleeding warrant immediate hospital care.</p>
+<h2>The Outlook</h2>
+<p>Officials expect cases to peak over the coming weeks before tapering as temperatures fall, and appealed for continued community participation in weekly "dry day" clean-up efforts.</p>`,
+    category: "health",
+    imageUrl: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&auto=format&fit=crop&q=80",
+    author: "Dr. Meera Iyer",
     publishedAt: "Sep 9, 2026",
     readTime: "3 min read",
     isTrending: true
   },
-  // 7 — CBSE two board exams (Sep 8)
+  // 9 — Bollywood box office (Sep 10)
   {
-    id: "cbse-two-board-exams-rollout",
-    title: "CBSE Releases Guidelines for Twice-a-Year Class 10 Board Exams",
-    excerpt: "The board has published detailed guidelines for its landmark reform allowing Class 10 students two exam attempts a year, spelling out the exam windows, syllabus coverage and the best-of-two scoring rule.",
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 8, 2026 — The Central Board of Secondary Education (CBSE) released detailed operational guidelines for its landmark reform under which Class 10 students can appear for board examinations twice a year, in line with the National Education Policy's vision.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">How It Will Work</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Two attempts:</strong> Exams will be held in two phases, and students may appear in one or both</li>
-  <li><strong>Best score counts:</strong> The higher of the two scores will be retained</li>
-  <li><strong>Reduced pressure:</strong> The move aims to lower the stakes attached to a single high-stress exam</li>
-  <li><strong>Clear windows:</strong> The board has published the phase-wise schedule and syllabus split</li>
+    id: "festive-box-office-2026-lineup",
+    title: "Bollywood Bets Big on Festive Season with a Blockbuster-Heavy Release Calendar",
+    excerpt: "Studios have lined up a stacked slate of tentpole films for the festive window, betting that a return of the family audience and premium formats will drive one of the strongest box-office runs in years.",
+    content: `<p>Mumbai, September 10, 2026 — Bollywood is heading into its most important stretch of the year with a densely packed festive release calendar, as producers wager that big-screen spectacle and star power will pull audiences back to theatres in force.</p>
+<h2>The Slate</h2>
+<p>The lineup spans a period epic, a high-concept action thriller, a heartfelt family drama and an animated feature aimed at younger viewers — a spread designed to cover every demographic across the long holiday weekends.</p>
+<h2>What's Driving Optimism</h2>
+<ul>
+  <li><strong>Premium formats:</strong> Large-format and premium screens are commanding higher ticket yields.</li>
+  <li><strong>Music revival:</strong> Chart-topping soundtracks are fuelling pre-release buzz.</li>
+  <li><strong>Regional crossover:</strong> Dubbed and multilingual releases are widening the addressable audience.</li>
 </ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Educators React</h2>
-<p class="mb-6">School principals and teachers broadly welcomed the clarity, saying it aligns Indian assessment with global best practices and gives students a genuine second chance. Some flagged the need for careful scheduling so the two windows do not disrupt the academic calendar.</p>
-<p class="mb-6">The board said schools would receive orientation material to help students and parents plan for the new structure.</p>`,
-    category: "education",
-    imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&auto=format&fit=crop&q=80",
-    author: "Kavita Reddy",
-    publishedAt: "Sep 8, 2026",
-    readTime: "4 min read",
+<h2>The Caveat</h2>
+<p>Trade analysts cautioned that quality — not quantity — will decide the season, noting that word of mouth now travels faster than ever and unforgiving audiences reward only the films that deliver.</p>`,
+    category: "bollywood",
+    imageUrl: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&auto=format&fit=crop&q=80",
+    author: "Karan Malhotra",
+    publishedAt: "Sep 10, 2026",
+    readTime: "3 min read",
     isTrending: true
   },
-  // 8 — Women's cricket (Sep 8)
+  // 10 — Technology: India AI mission (Sep 9)
   {
-    id: "india-women-series-win-momentum",
-    title: "Smriti Mandhana Masterclass Powers India Women to Commanding Series Win",
-    excerpt: "A sublime century from Smriti Mandhana and a disciplined bowling effort handed India Women a series victory, sharpening their credentials ahead of a marquee home season.",
-    content: `<p class="text-lg leading-relaxed mb-6">Bengaluru, September 8, 2026 — Smriti Mandhana produced a batting masterclass, stroking a fluent century to power India Women to a series-clinching victory and cap an impressive run of white-ball form ahead of a busy home calendar.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Mandhana in Full Flow</h2>
-<p class="mb-6">Opening the innings, Mandhana timed the ball beautifully through the off side and paced her knock to perfection, bringing up her hundred with trademark elegance. Her stand with the middle order pushed India to a commanding total.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">All-Round Effort</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Smriti Mandhana:</strong> A chanceless century at the top of the order</li>
-  <li><strong>Deepti Sharma:</strong> Vital breakthroughs and tight, economical overs</li>
-  <li><strong>Renuka Singh:</strong> Early strikes with the new ball to set the tone</li>
+    id: "india-ai-mission-compute-expansion",
+    title: "India Expands National AI Compute Grid, Opens Access for Startups and Researchers",
+    excerpt: "A major expansion of subsidised GPU capacity under the national AI programme is opening affordable compute to startups, universities and public-interest projects, aiming to close the gap with global labs.",
+    content: `<p>New Delhi, September 9, 2026 — The government announced a sizeable expansion of its national AI compute grid, adding thousands of high-end accelerators and widening subsidised access for startups, academic labs and social-sector projects under a common cloud framework.</p>
+<h2>Lowering the Barrier</h2>
+<p>The programme offers pooled GPU capacity at concessional rates, along with curated Indian-language datasets and evaluation tooling. Officials said the goal is to let small teams train and fine-tune competitive models without prohibitive infrastructure costs.</p>
+<h2>Where It Will Be Used</h2>
+<ul>
+  <li><strong>Indian-language models:</strong> Speech and text systems spanning two dozen languages.</li>
+  <li><strong>Public services:</strong> Tools for healthcare triage, agriculture advisories and education.</li>
+  <li><strong>Deep-tech startups:</strong> Priority allocations for early-stage founders.</li>
 </ul>
-<p class="mb-6">The result offers Harmanpreet Kaur's side valuable momentum and selection clarity with a demanding season on the horizon.</p>`,
-    category: "cricket",
-    imageUrl: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1200&auto=format&fit=crop&q=80",
-    author: "Suresh Nair",
-    publishedAt: "Sep 8, 2026",
-    readTime: "4 min read",
-    isTrending: true
-  },
-  // 9 — RBI policy (Sep 7)
-  {
-    id: "rbi-policy-holds-rate-growth",
-    title: "RBI Holds Repo Rate, Lifts Growth Outlook as Inflation Stays Benign",
-    excerpt: "The Reserve Bank of India kept its benchmark rate unchanged and nudged up its growth forecast, striking an upbeat tone as a good monsoon and cooling prices brightened the outlook.",
-    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, September 7, 2026 — The Reserve Bank of India's Monetary Policy Committee voted to keep the benchmark repo rate unchanged while raising its growth projection for the year, reflecting confidence in a resilient economy and a well-behaved price environment.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Rate on hold:</strong> The repo rate stays put, in line with market expectations</li>
-  <li><strong>Inflation benign:</strong> Softer food prices and a good monsoon aid the outlook</li>
-  <li><strong>Growth upgraded:</strong> The RBI nudged up its GDP forecast for the fiscal year</li>
-  <li><strong>Stance:</strong> The central bank retained flexibility to act as data evolves</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">What It Means for Borrowers</h2>
-<p class="mb-6">For home and auto loan borrowers, the pause means EMIs are likely to stay stable in the near term. Economists said the combination of easing inflation and the fresh tax rationalisation keeps the door open for a softer stance later in the year.</p>
-<p class="mb-6">Markets took the announcement in stride, with rate-sensitive banking and real-estate stocks holding firm.</p>`,
-    category: "business",
-    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=80",
-    author: "Amit Verma",
-    publishedAt: "Sep 7, 2026",
-    readTime: "4 min read",
-    isTrending: true
-  },
-  // 10 — Prajwal Jha profile (evergreen, re-dated Sep 7)
-  {
-    id: "prajwal-jha-young-innovator",
-    title: "Prajwal Jha: The Young Innovator Redefining Student Entrepreneurship in Delhi",
-    excerpt: "Delhi Technological University student Prajwal Jha has been named among the Top 60 most innovative students in India by Delhi CM Rekha Gupta — capping a journey spanning solar-dryer research, youth governance, and organising one of the world’s biggest hackathons.",
-    content: `<p class="text-lg leading-relaxed mb-6">At a time when most undergraduates are still finding their footing, <strong>Prajwal Jha</strong>, a student at <strong>Delhi Technological University (DTU)</strong>, has built a track record that reads more like a seasoned changemaker's résumé than a college student's. From academic research to civic leadership and large-scale event organizing, Jha has emerged as one of Delhi's most talked-about young innovators — a reputation cemented when he was named among the <strong>Top 60 most innovative students in India</strong> by Delhi Chief Minister <strong>Rekha Gupta</strong>.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">A Researcher's Mindset</h2>
-<p class="mb-6">Jha's innovative streak isn't limited to entrepreneurship — it extends into academic research as well. He has published a research paper on solar dryers, a technology with real-world relevance to India's agricultural and food-processing sectors, where reducing post-harvest losses and cutting dependence on conventional energy sources remain pressing challenges. The work reflects a recurring theme in his output: taking a practical, engineering-driven approach to problems that matter at a national scale.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Leading from the Front in Youth Governance</h2>
-<p class="mb-6">Beyond the lab and the classroom, Jha has taken on a significant leadership role in civic life as Deputy Speaker of a National Youth Parliament. The role places him at the center of youth-led policy debate and democratic engagement, giving young Indians a structured platform to discuss governance, legislation, and public issues — training ground for the kind of civic-minded leadership India's youth movement increasingly champions.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Building Platforms for Innovation</h2>
-<p class="mb-6">Jha's organizing ability extends to the tech and startup ecosystem as well. He has been behind the organization of what is described as one of the world's biggest hackathons, bringing together developers, designers, and entrepreneurs to build and compete at scale. Events of this size require not just technical fluency but serious operational and leadership capability — skills that mirror the same entrepreneurial instinct he has applied across his other ventures.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Recognized by the Delhi Government</h2>
-<p class="mb-6">That instinct was formally recognized when Chief Minister Rekha Gupta named Jha among the Top 60 most innovative students in the country. The recognition came through <strong>Delhi Next – Code, Create & Change</strong>, the Delhi government's large-scale civic-tech innovation programme, which drew participation from students, developers, and young entrepreneurs across India and focused on building technology-driven solutions for urban challenges such as traffic congestion, waterlogging, air pollution, waste management, and citizen service delivery. Selected teams and innovators, after multiple rounds of evaluation, were invited to showcase their ideas before government officials, industry experts, and mentors — with an emphasis on real implementation through pilot projects with Delhi government departments, rather than recognition alone.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">A Pattern of Purposeful Innovation</h2>
-<p class="mb-6">What stands out across Jha's body of work — research, governance, and large-scale organizing — is a consistent focus on solving tangible problems rather than chasing accolades for their own sake. Whether it's sustainable technology through his solar dryer research, democratic participation through the National Youth Parliament, or ecosystem-building through hackathons, his work points toward a broader ambition: using innovation as a tool for public good.</p>
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">As Delhi's civic-tech and entrepreneurial ecosystem continues to grow, students like Prajwal Jha represent the kind of talent such initiatives are designed to surface — and a preview of the leadership the next generation of Indian innovation may look like.</blockquote>`,
-    category: "technology",
-    imageUrl: "/prj.png",
-    author: "The Fista Desk",
-    publishedAt: "Sep 7, 2026",
-    readTime: "5 min read",
-    isFeatured: true,
-    isTrending: true
-  },
-  // 11 — India-EU FTA ratification (Sep 6)
-  {
-    id: "india-eu-fta-ratification",
-    title: "India–EU Free Trade Agreement Clears Ratification, Set to Boost Exports",
-    excerpt: "The landmark India–European Union free trade agreement moved through its final ratification steps, opening one of the world’s largest markets to Indian exporters across textiles, pharma and IT services.",
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi/Brussels, September 6, 2026 — The comprehensive Free Trade Agreement between India and the European Union cleared its final ratification hurdles, marking one of the most significant trade breakthroughs for New Delhi in a decade and setting the stage for a phased reduction in tariffs.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">What the Deal Covers</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Market access:</strong> Sharp tariff reductions on textiles, leather, pharmaceuticals and engineering goods</li>
-  <li><strong>Services and mobility:</strong> Easier movement for professionals and mutual recognition of qualifications</li>
-  <li><strong>Investment:</strong> A parallel protection pact to boost European capital inflows</li>
-  <li><strong>Sustainability:</strong> Commitments on green-technology cooperation and supply-chain resilience</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Why It Matters</h2>
-<p class="mb-6">The EU is one of India's largest trading partners, and negotiators expect bilateral trade to expand significantly as the agreement is implemented. Exporters in labour-intensive sectors are set to be among the biggest beneficiaries.</p>
-<p class="mb-6">Officials said the two sides would now move to operationalise the agreement in phases, with early gains expected in the coming quarters.</p>`,
-    category: "business",
-    imageUrl: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&auto=format&fit=crop&q=80",
-    author: "Meera Joshi",
-    publishedAt: "Sep 6, 2026",
-    readTime: "5 min read",
-    isTrending: true
-  },
-  // 12 — India semiconductor (Sep 6)
-  {
-    id: "india-semiconductor-scale-up",
-    title: "India's Chip Mission Scales Up as Second Packaging Line Comes Online",
-    excerpt: "India’s semiconductor ambitions gathered pace as a second domestic packaging line began commercial output, a key step towards cutting import dependence and anchoring a homegrown electronics ecosystem.",
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 6, 2026 — India took another significant step in its semiconductor journey as a second domestically operated packaging line began commercial production, underscoring the momentum behind the country's electronics manufacturing push.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Why This Matters</h2>
-<p class="mb-6">Semiconductors sit at the heart of everything from smartphones and cars to defence systems and data centres. Building domestic capability reduces reliance on imports, strengthens supply-chain resilience, and creates high-skill jobs across the value chain.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">The Bigger Picture</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Ecosystem in the making:</strong> Fabrication, packaging and design capabilities taking shape</li>
-  <li><strong>Global partnerships:</strong> Tie-ups with leading international chip firms</li>
-  <li><strong>Talent pipeline:</strong> New courses and roles for engineers across the sector</li>
-  <li><strong>Downstream boost:</strong> Support for India's growing electronics and EV industries</li>
-</ul>
-<p class="mb-6">Industry leaders called the milestone significant, noting that scaling to advanced nodes will take sustained investment and policy support over the coming years.</p>`,
-    category: "technology",
-    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80",
-    author: "Dr. Priya Sharma",
-    publishedAt: "Sep 6, 2026",
-    readTime: "5 min read",
-    isTrending: true
-  },
-  // 13 — Preventive health / lifestyle (Sep 5)
-  {
-    id: "preventive-health-screening-push",
-    title: "Doctors Urge Annual Health Screening as Lifestyle Diseases Rise Among Young Indians",
-    excerpt: "Health experts are calling for wider adoption of preventive check-ups, warning that early screening and simple lifestyle changes can sharply cut the burden of diabetes, hypertension and heart disease.",
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 5, 2026 — Public-health specialists have renewed calls for annual preventive screening, cautioning that lifestyle-linked conditions are appearing in younger Indians and that early detection remains the single most effective tool to manage them.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Small Steps, Big Impact</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Know your numbers:</strong> Blood pressure, blood sugar and cholesterol checks once a year</li>
-  <li><strong>Move daily:</strong> At least 30 minutes of activity on most days of the week</li>
-  <li><strong>Eat mindfully:</strong> More whole foods and fibre, less ultra-processed and sugary intake</li>
-  <li><strong>Sleep and stress:</strong> Consistent sleep and stress management protect long-term health</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Prevention Over Cure</h2>
-<p class="mb-6">Doctors said the biggest gains come from catching risk factors early, long before they progress into serious illness. Employers and insurers, they added, are increasingly building preventive check-ups into wellness programmes.</p>
-<p class="mb-6">The message, experts stressed, is simple: routine screening is not a sign of illness but a habit that keeps people healthy.</p>`,
-    category: "health",
-    imageUrl: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&auto=format&fit=crop&q=80",
-    author: "Dr. Anita Singh",
-    publishedAt: "Sep 5, 2026",
-    readTime: "4 min read"
-  },
-  // 14 — India AI Mission (Sep 5)
-  {
-    id: "india-ai-mission-compute-push",
-    title: "India AI Mission Expands Public Compute Access for Startups and Researchers",
-    excerpt: "The government widened access to subsidised GPU compute under the India AI Mission, aiming to lower the entry barrier for startups, universities and researchers building homegrown AI models.",
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 5, 2026 — The government expanded access to subsidised high-performance computing under the <strong>India AI Mission</strong>, a move designed to help startups, universities and independent researchers train and deploy artificial-intelligence models at a fraction of commercial cost.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Lowering the Barrier</h2>
-<p class="mb-6">Access to large-scale compute has been one of the biggest constraints for India's AI builders. By pooling public GPU capacity and offering it at concessional rates, officials hope to unlock a wave of applications tailored to Indian languages, agriculture, healthcare and public services.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">What's on Offer</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Subsidised compute:</strong> Concessional GPU access for eligible teams</li>
-  <li><strong>Indian-language models:</strong> Priority support for multilingual and voice applications</li>
-  <li><strong>Datasets and tooling:</strong> Curated, privacy-compliant datasets for training</li>
-  <li><strong>Skilling:</strong> Fellowships and courses to widen the AI talent base</li>
-</ul>
-<p class="mb-6">Industry watchers said the initiative could meaningfully improve India's standing in applied AI, provided access is transparent and the ecosystem scales responsibly.</p>`,
+<h2>Guardrails</h2>
+<p>The framework pairs access with responsible-use commitments, including safety evaluation, transparency reporting and content-provenance requirements for generative systems.</p>`,
     category: "technology",
     imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&fit=crop&q=80",
-    author: "Neha Gupta",
-    publishedAt: "Sep 5, 2026",
-    readTime: "5 min read"
+    author: "Dr. Neha Kulkarni",
+    publishedAt: "Sep 9, 2026",
+    readTime: "4 min read",
+    isTrending: true
+  },
+  // 11 — Politics: state polls (Sep 8)
+  {
+    id: "assembly-elections-schedule-2026",
+    title: "Poll Panel Announces Assembly Election Schedule as Parties Shift Into Campaign Mode",
+    excerpt: "The Election Commission unveiled the multi-phase schedule for upcoming state assembly polls, triggering the model code of conduct and setting off a frenetic round of alliance-building and manifesto drafting.",
+    content: `<p>New Delhi, September 8, 2026 — The Election Commission announced the schedule for a fresh round of state assembly elections, immediately bringing the model code of conduct into force and firing the starting gun on an intense campaign season.</p>
+<h2>The Contest Ahead</h2>
+<p>Polling will be held in multiple phases, with counting on a single day. The Commission promised expanded accessibility measures, tighter monitoring of expenditure and a renewed push against misinformation during the campaign.</p>
+<h2>The Battle Lines</h2>
+<ul>
+  <li><strong>Jobs and welfare:</strong> Employment and direct-benefit schemes dominate early messaging.</li>
+  <li><strong>Local issues:</strong> Water, power and farm incomes are shaping constituency-level narratives.</li>
+  <li><strong>Alliances:</strong> Seat-sharing talks are testing the cohesion of rival coalitions.</li>
+</ul>
+<h2>What to Watch</h2>
+<p>Analysts said turnout among first-time voters and women could prove decisive, while the outcome will be read closely as a barometer ahead of the next general election cycle.</p>`,
+    category: "politics",
+    imageUrl: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1200&auto=format&fit=crop&q=80",
+    author: "Priya Nair",
+    publishedAt: "Sep 8, 2026",
+    readTime: "4 min read"
+  },
+  // 12 — Education: NEP / exam reform (Sep 8)
+  {
+    id: "board-exam-twice-a-year-reform",
+    title: "Twice-a-Year Board Exams Roll Out Nationwide as Reform Push Gathers Pace",
+    excerpt: "Students will now sit board examinations in two sittings a year and keep their best score, part of a broader shift toward reducing exam pressure and moving to competency-based assessment.",
+    content: `<p>New Delhi, September 8, 2026 — A flagship school-education reform took effect this academic year, allowing students to appear for board examinations twice annually and retain their better result, in a move officials say will lower the stakes attached to a single high-pressure exam.</p>
+<h2>How It Works</h2>
+<ul>
+  <li><strong>Two attempts:</strong> Students can sit exams in two windows and keep the higher score.</li>
+  <li><strong>Competency focus:</strong> Question papers lean toward application and reasoning over rote recall.</li>
+  <li><strong>Flexible subjects:</strong> Wider choice combinations blur the old streams divide.</li>
+</ul>
+<h2>The Reaction</h2>
+<p>Educators broadly welcomed the flexibility but flagged the need for teacher training, question-bank quality and logistical readiness in smaller districts. Parent groups urged clear communication so families understand the new scoring rules.</p>
+<h2>What Comes Next</h2>
+<p>The board said it will publish sample papers and a detailed assessment framework, and will review the first cycle's data before extending the model further.</p>`,
+    category: "education",
+    imageUrl: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80",
+    author: "Anjali Desai",
+    publishedAt: "Sep 8, 2026",
+    readTime: "3 min read",
+    isTrending: true
+  },
+  // 13 — Health: heart health study (Sep 8)
+  {
+    id: "indian-heart-health-study-2026",
+    title: "Large Indian Study Links Everyday Habits to Sharp Drop in Heart Risk",
+    excerpt: "A multi-city study tracking tens of thousands of adults finds that modest, sustained changes to diet, sleep and daily movement can cut cardiovascular risk substantially — even without medication.",
+    content: `<p>New Delhi, September 8, 2026 — One of the largest Indian cohort studies on cardiovascular health has reported that simple, sustained lifestyle changes are associated with a marked reduction in heart-disease risk, offering an accessible playbook for a country facing a rising burden of early heart attacks.</p>
+<h2>The Findings</h2>
+<ul>
+  <li><strong>Daily movement:</strong> Even short, regular walks were tied to meaningfully lower risk.</li>
+  <li><strong>Sleep:</strong> Consistent seven-to-eight-hour sleep correlated with better metabolic markers.</li>
+  <li><strong>Diet:</strong> Cutting ultra-processed foods and added sugar improved key indicators within months.</li>
+</ul>
+<h2>Why It Resonates</h2>
+<p>Cardiologists said the results are especially relevant for younger adults, among whom heart events are rising. The message, they stressed, is empowering: much of the risk is modifiable through everyday choices.</p>
+<h2>A Word of Caution</h2>
+<p>Researchers emphasised that lifestyle change complements — but does not replace — screening and prescribed treatment for those with existing conditions or strong family history.</p>`,
+    category: "health",
+    imageUrl: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&auto=format&fit=crop&q=80",
+    author: "Dr. Meera Iyer",
+    publishedAt: "Sep 8, 2026",
+    readTime: "4 min read"
+  },
+  // 14 — Cricket: Test squad / Australia tour (Sep 8)
+  {
+    id: "india-squad-australia-tour-2026",
+    title: "Selectors Name a Youthful Squad for India's Tour of Australia",
+    excerpt: "A blend of experience and fresh faces headlines the squad for the marquee tour Down Under, with selectors rewarding a strong domestic season and backing pace-bowling depth for testing conditions.",
+    content: `<p>Mumbai, September 8, 2026 — Selectors unveiled a youthful, well-balanced squad for India's upcoming tour of Australia, signalling faith in a new generation of players while retaining a core of senior campaigners for one of the toughest assignments in the sport.</p>
+<h2>The Big Calls</h2>
+<ul>
+  <li><strong>Pace depth:</strong> Multiple quicks capable of exploiting bounce and carry were included.</li>
+  <li><strong>Batting reshuffle:</strong> A domestic run-scorer earns a maiden call-up.</li>
+  <li><strong>All-round balance:</strong> Flexible options give the captain room to adapt to conditions.</li>
+</ul>
+<h2>The Reasoning</h2>
+<p>The chief selector said the group reflected both current form and long-term planning, adding that the tour would be a proving ground for players expected to anchor the side over the next cycle.</p>
+<h2>Fixtures</h2>
+<p>The tour opens with a white-ball leg before the red-ball series, giving the squad time to acclimatise. The captain welcomed the challenge, calling Australia "the ultimate test of a team's character."</p>`,
+    category: "cricket",
+    imageUrl: "https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=1200&auto=format&fit=crop&q=80",
+    author: "Rajesh Sharma",
+    publishedAt: "Sep 8, 2026",
+    readTime: "3 min read"
+  },
+  // 15 — Technology: EV / battery (Sep 9)
+  {
+    id: "india-ev-battery-gigafactory-2026",
+    title: "India's First Large-Scale Cell Gigafactory Begins Commercial Output",
+    excerpt: "A domestically built battery gigafactory has started commercial production, a milestone in the push to localise the EV supply chain, cut import dependence and bring down the cost of electric mobility.",
+    content: `<p>Bengaluru, September 9, 2026 — India took a significant step toward energy self-reliance as its first large-scale lithium-cell gigafactory began commercial output, promising to anchor a domestic supply chain for electric vehicles and grid storage.</p>
+<h2>Why It Matters</h2>
+<p>Cells are the single most expensive component of an electric vehicle, and localising their manufacture is central to lowering prices and reducing exposure to imports. The facility will scale output in phases as it qualifies customers across automotive and stationary storage.</p>
+<h2>The Ripple Effects</h2>
+<ul>
+  <li><strong>Cheaper EVs:</strong> Local cells could narrow the price gap with petrol models.</li>
+  <li><strong>Jobs:</strong> A cluster of component suppliers is expected to grow around the plant.</li>
+  <li><strong>Grid storage:</strong> Domestic cells will support renewable-energy firming.</li>
+</ul>
+<h2>The Road Ahead</h2>
+<p>Executives said the next challenge is securing raw materials and recycling capacity, and called for continued policy stability to attract the long-horizon investment the sector demands.</p>`,
+    category: "technology",
+    imageUrl: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&auto=format&fit=crop&q=80",
+    author: "Sanjay Mehta",
+    publishedAt: "Sep 9, 2026",
+    readTime: "4 min read"
+  },
+  // 16 — Bollywood: OTT / streaming (Sep 8)
+  {
+    id: "ott-regional-content-surge-2026",
+    title: "Streaming Platforms Double Down on Regional Originals as Audiences Fragment",
+    excerpt: "Streamers are pouring investment into regional-language originals, betting that authentic local storytelling — not big-budget spectacle alone — is what keeps subscribers hooked in a crowded market.",
+    content: `<p>Mumbai, September 8, 2026 — India's streaming platforms are sharply increasing their commissioning of regional-language originals, a strategic pivot that reflects how a maturing market rewards distinctive local voices over one-size-fits-all blockbusters.</p>
+<h2>The Shift</h2>
+<p>Executives said data consistently shows strong engagement and lower churn for well-crafted regional series, prompting a rebalancing of budgets toward stories rooted in specific cultures and dialects.</p>
+<h2>What's Fuelling It</h2>
+<ul>
+  <li><strong>Cheaper data:</strong> Deep smartphone penetration has expanded the small-town audience.</li>
+  <li><strong>Talent pipelines:</strong> Regional film industries are supplying fresh writers and directors.</li>
+  <li><strong>Discovery:</strong> Better recommendation systems surface niche hits to wide audiences.</li>
+</ul>
+<h2>The Takeaway</h2>
+<p>For creators, the trend opens doors long guarded by mainstream gatekeepers. For platforms, it is increasingly the difference between a subscriber who stays and one who cancels.</p>`,
+    category: "bollywood",
+    imageUrl: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1200&auto=format&fit=crop&q=80",
+    author: "Karan Malhotra",
+    publishedAt: "Sep 8, 2026",
+    readTime: "3 min read"
   }
 ];
 const liveMatches = [
@@ -458,15 +499,14 @@ const breakingHeadlines = [
   "India Clinch Asia Cup 2026 Title with Nerveless Chase in the Dubai Final",
   "GST 2.0 Goes Live: Simplified Two-Slab Structure Takes Effect Nationwide",
   "ISRO Confirms Gaganyaan Crewed Flight Window After Successful Systems Review",
-  "Monsoon Session Wraps Up: Data Rules and Skilling Push Cleared in Parliament",
+  "RBI Holds Repo Rate and Lifts Growth Outlook as Inflation Stays Benign",
   "India–EU Free Trade Agreement Clears Ratification, Set to Boost Exports",
-  "RBI Holds Repo Rate and Lifts Growth Outlook as Inflation Stays Benign"
+  "India Expands National AI Compute Grid, Opens Access for Startups"
 ];
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const lastScrollY = useRef(0);
   const navItems = [
     { name: "Home", path: "/" },
     ...categories.map((cat) => ({ name: cat.name, path: `/category/${cat.slug}` }))
@@ -474,9 +514,8 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
-      if (!isScrolled && y > 80) setIsScrolled(true);
-      else if (isScrolled && y < 20) setIsScrolled(false);
-      lastScrollY.current = y;
+      if (!isScrolled && y > 60) setIsScrolled(true);
+      else if (isScrolled && y < 12) setIsScrolled(false);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -485,109 +524,128 @@ function Header() {
     /* @__PURE__ */ jsx(
       "div",
       {
-        className: `bg-primary text-white overflow-hidden transition-all duration-300 ease-in-out ${isScrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"}`,
-        children: /* @__PURE__ */ jsxs("div", { className: "max-w-350 mx-auto flex items-center", children: [
-          /* @__PURE__ */ jsxs("div", { className: "bg-primary-dark px-4 py-2 flex items-center gap-2 shrink-0 z-10", children: [
-            /* @__PURE__ */ jsx("span", { className: "w-2 h-2 bg-white rounded-full breaking-pulse" }),
-            /* @__PURE__ */ jsx("span", { className: "text-[11px] font-bold uppercase tracking-widest whitespace-nowrap", children: "Breaking" })
+        className: `bg-secondary text-white overflow-hidden transition-all duration-300 ease-in-out ${isScrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"}`,
+        children: /* @__PURE__ */ jsxs("div", { className: "container-page flex items-center", children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 shrink-0 pr-4 py-2.5", children: [
+            /* @__PURE__ */ jsx("span", { className: "w-2 h-2 bg-primary rounded-full breaking-pulse" }),
+            /* @__PURE__ */ jsx("span", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary whitespace-nowrap", children: "Breaking" })
           ] }),
-          /* @__PURE__ */ jsx("div", { className: "overflow-hidden flex-1", children: /* @__PURE__ */ jsx("div", { className: "ticker-scroll flex items-center gap-12 py-2 px-4 whitespace-nowrap", children: [...breakingHeadlines, ...breakingHeadlines].map((headline, i) => /* @__PURE__ */ jsxs("span", { className: "text-[12px] font-medium flex items-center gap-3", children: [
-            /* @__PURE__ */ jsx(ChevronRight, { className: "w-3 h-3 opacity-60" }),
+          /* @__PURE__ */ jsx("div", { className: "ticker-track overflow-hidden flex-1 border-l border-white/10 pl-4", children: /* @__PURE__ */ jsx("div", { className: "ticker-scroll flex items-center gap-10 py-2.5 whitespace-nowrap", children: [...breakingHeadlines, ...breakingHeadlines].map((headline, i) => /* @__PURE__ */ jsxs("span", { className: "text-[12.5px] font-medium flex items-center gap-2.5 text-white/80", children: [
+            /* @__PURE__ */ jsx(ChevronRight, { className: "w-3 h-3 text-primary" }),
             headline
           ] }, i)) }) })
         ] })
       }
     ),
-    /* @__PURE__ */ jsxs("div", { className: `bg-white transition-all duration-300 ${isScrolled ? "shadow-md" : "border-b border-neutral-200"}`, children: [
-      /* @__PURE__ */ jsx(
-        "div",
+    /* @__PURE__ */ jsx("div", { className: `bg-white/90 backdrop-blur-xl transition-all duration-300 ${isScrolled ? "shadow-[0_8px_30px_-14px_rgba(10,14,20,0.25)] border-b border-neutral-200" : "border-b border-neutral-200"}`, children: /* @__PURE__ */ jsx("div", { className: "container-page", children: /* @__PURE__ */ jsxs("div", { className: `flex items-center justify-between gap-6 transition-all duration-300 ${isScrolled ? "py-3" : "py-4"}`, children: [
+      /* @__PURE__ */ jsx(Link, { to: "/", className: "flex items-center shrink-0", children: /* @__PURE__ */ jsx(
+        "img",
         {
-          className: `border-b border-neutral-100 overflow-hidden transition-all duration-300 ease-in-out ${isScrolled ? "max-h-0 opacity-0 border-transparent" : "max-h-12 opacity-100"}`,
-          children: /* @__PURE__ */ jsxs("div", { className: "container-page py-2 flex justify-between items-center", children: [
-            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 text-[11px] text-neutral-500 uppercase tracking-wider", children: [
-              /* @__PURE__ */ jsx("span", { className: "font-semibold text-secondary", children: (/* @__PURE__ */ new Date()).toLocaleDateString("en-IN", {
-                weekday: "long",
-                day: "2-digit",
-                month: "long",
-                year: "numeric"
-              }) }),
-              /* @__PURE__ */ jsx("span", { className: "text-neutral-300", children: "|" }),
-              /* @__PURE__ */ jsx("span", { children: "New Delhi, India" })
-            ] }),
-            /* @__PURE__ */ jsx("a", { href: "mailto:info@fista.in", className: "text-[11px] text-neutral-500 hover:text-primary transition-colors uppercase tracking-wider font-medium", children: "info@fista.in" })
-          ] })
+          src: "/2.png",
+          alt: "The Fista",
+          className: `w-auto transition-all duration-300 ${isScrolled ? "h-8" : "h-9 md:h-11"}`
         }
-      ),
-      /* @__PURE__ */ jsx("div", { className: "container-page", children: /* @__PURE__ */ jsxs("div", { className: `flex items-center justify-between transition-all duration-300 ${isScrolled ? "py-2" : "py-5"}`, children: [
-        /* @__PURE__ */ jsx(Link, { to: "/", className: "flex items-center", children: /* @__PURE__ */ jsx(
-          "img",
-          {
-            src: "/1.png",
-            alt: "The Fista",
-            className: `w-auto transition-all duration-300 ${isScrolled ? "h-8" : "h-10 md:h-12"}`
-          }
-        ) }),
-        /* @__PURE__ */ jsx("nav", { className: "hidden lg:flex items-center gap-1", children: navItems.map((item) => /* @__PURE__ */ jsx(
+      ) }),
+      /* @__PURE__ */ jsx("nav", { className: "hidden lg:flex items-center gap-1 mx-auto", children: navItems.map((item) => {
+        const active = location.pathname === item.path;
+        return /* @__PURE__ */ jsxs(
           Link,
           {
             to: item.path,
-            className: `px-4 py-2 text-[13px] font-semibold uppercase tracking-wider transition-all duration-200 border-b-2 ${location.pathname === item.path ? "text-primary border-primary" : "text-neutral-700 border-transparent hover:text-primary hover:border-primary/30"}`,
-            children: item.name
+            className: `relative px-3.5 py-2 text-[13.5px] font-semibold rounded-full transition-all duration-200 ${active ? "text-primary" : "text-neutral-600 hover:text-secondary hover:bg-neutral-100"}`,
+            children: [
+              item.name,
+              active && /* @__PURE__ */ jsx("span", { className: "absolute left-3.5 right-3.5 -bottom-0.5 h-0.5 bg-primary rounded-full" })
+            ]
           },
           item.path
-        )) }),
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3", children: [
-          /* @__PURE__ */ jsx("button", { className: "p-2.5 hover:bg-neutral-100 rounded-md transition-colors", children: /* @__PURE__ */ jsx(Search, { className: "w-4.5 h-4.5 text-neutral-600" }) }),
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              className: "lg:hidden p-2.5 hover:bg-neutral-100 rounded-md transition-colors",
-              onClick: () => setIsMenuOpen(!isMenuOpen),
-              children: isMenuOpen ? /* @__PURE__ */ jsx(X, { className: "w-5 h-5 text-neutral-700" }) : /* @__PURE__ */ jsx(Menu, { className: "w-5 h-5 text-neutral-700" })
-            }
-          )
-        ] })
-      ] }) })
-    ] }),
-    isMenuOpen && /* @__PURE__ */ jsx("div", { className: "lg:hidden bg-white border-t border-neutral-200 shadow-xl", children: /* @__PURE__ */ jsx("nav", { className: "container-page py-6 flex flex-col", children: navItems.map((item) => /* @__PURE__ */ jsx(
-      Link,
-      {
-        to: item.path,
-        onClick: () => setIsMenuOpen(false),
-        className: `py-3 text-sm font-semibold uppercase tracking-wider border-b border-neutral-100 last:border-0 transition-colors ${location.pathname === item.path ? "text-primary" : "text-neutral-700 hover:text-primary"}`,
-        children: item.name
-      },
-      item.path
-    )) }) })
+        );
+      }) }),
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 shrink-0", children: [
+        /* @__PURE__ */ jsx("button", { "aria-label": "Search", className: "p-2.5 hover:bg-neutral-100 rounded-full transition-colors", children: /* @__PURE__ */ jsx(Search, { className: "w-4.5 h-4.5 text-neutral-600" }) }),
+        /* @__PURE__ */ jsxs(
+          "a",
+          {
+            href: "#newsletter",
+            className: "hidden sm:inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dark text-white text-[13px] font-bold px-4 py-2.5 rounded-full transition-all duration-200 shadow-[0_8px_20px_-8px_rgba(240,38,60,0.6)]",
+            children: [
+              "Subscribe ",
+              /* @__PURE__ */ jsx(ArrowRight, { className: "w-3.5 h-3.5" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsx(
+          "button",
+          {
+            "aria-label": "Menu",
+            className: "lg:hidden p-2.5 hover:bg-neutral-100 rounded-full transition-colors",
+            onClick: () => setIsMenuOpen(!isMenuOpen),
+            children: isMenuOpen ? /* @__PURE__ */ jsx(X, { className: "w-5 h-5 text-neutral-700" }) : /* @__PURE__ */ jsx(Menu, { className: "w-5 h-5 text-neutral-700" })
+          }
+        )
+      ] })
+    ] }) }) }),
+    isMenuOpen && /* @__PURE__ */ jsx("div", { className: "lg:hidden bg-white border-t border-neutral-200 shadow-xl", children: /* @__PURE__ */ jsxs("nav", { className: "container-page py-4 flex flex-col", children: [
+      navItems.map((item) => /* @__PURE__ */ jsxs(
+        Link,
+        {
+          to: item.path,
+          onClick: () => setIsMenuOpen(false),
+          className: `py-3.5 text-[15px] font-bold border-b border-neutral-100 last:border-0 flex items-center justify-between transition-colors ${location.pathname === item.path ? "text-primary" : "text-neutral-700 hover:text-primary"}`,
+          children: [
+            item.name,
+            /* @__PURE__ */ jsx(ChevronRight, { className: "w-4 h-4 text-neutral-300" })
+          ]
+        },
+        item.path
+      )),
+      /* @__PURE__ */ jsxs("a", { href: "#newsletter", onClick: () => setIsMenuOpen(false), className: "btn-primary mt-4 w-full", children: [
+        "Subscribe ",
+        /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4" })
+      ] })
+    ] }) })
   ] });
 }
 function Footer() {
   return /* @__PURE__ */ jsxs("footer", { className: "bg-secondary text-white", children: [
-    /* @__PURE__ */ jsx("div", { className: "bg-primary", children: /* @__PURE__ */ jsxs("div", { className: "container-page py-8 flex flex-col md:flex-row items-center justify-between gap-6", children: [
-      /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("h3", { className: "font-display text-xl font-bold text-white", children: "Stay Informed" }),
-        /* @__PURE__ */ jsx("p", { className: "text-white/80 text-sm mt-1", children: "Get breaking news delivered to your inbox" })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex w-full md:w-auto", children: [
-        /* @__PURE__ */ jsx(
-          "input",
-          {
-            type: "email",
-            placeholder: "Enter your email",
-            className: "flex-1 md:w-72 px-5 py-3 bg-white/20 backdrop-blur-sm text-white placeholder-white/60 text-sm border border-white/30 focus:outline-none focus:border-white focus:bg-white/25 transition-all"
-          }
-        ),
-        /* @__PURE__ */ jsxs("button", { className: "px-6 py-3 bg-secondary hover:bg-secondary-light text-white text-sm font-bold uppercase tracking-widest transition-colors flex items-center gap-2", children: [
-          "Subscribe ",
-          /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4" })
+    /* @__PURE__ */ jsx("div", { id: "newsletter", className: "container-page pt-16 pb-14 lg:pt-20 lg:pb-16 scroll-mt-24", children: /* @__PURE__ */ jsxs("div", { className: "relative overflow-hidden rounded-[2rem] bg-linear-to-br from-primary to-primary-dark px-6 py-12 sm:px-12 lg:px-16 lg:py-16", children: [
+      /* @__PURE__ */ jsx("div", { className: "absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10" }),
+      /* @__PURE__ */ jsx("div", { className: "absolute -bottom-24 -left-10 w-72 h-72 rounded-full bg-white/5" }),
+      /* @__PURE__ */ jsxs("div", { className: "relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8", children: [
+        /* @__PURE__ */ jsxs("div", { className: "max-w-xl", children: [
+          /* @__PURE__ */ jsxs("span", { className: "inline-flex items-center gap-2 text-white/80 text-[11px] font-extrabold uppercase tracking-[0.18em]", children: [
+            /* @__PURE__ */ jsx(Send, { className: "w-3.5 h-3.5" }),
+            " The Fista Briefing"
+          ] }),
+          /* @__PURE__ */ jsx("h2", { className: "font-display text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.05] mt-3", children: "India's biggest stories, in your inbox by 8 AM." }),
+          /* @__PURE__ */ jsx("p", { className: "text-white/80 text-[15px] mt-3", children: "Join thousands of readers. Sharp, credible, and free — every morning." })
+        ] }),
+        /* @__PURE__ */ jsxs("form", { className: "w-full lg:w-auto shrink-0", onSubmit: (e) => e.preventDefault(), children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex flex-col sm:flex-row gap-3 lg:w-96", children: [
+            /* @__PURE__ */ jsx(
+              "input",
+              {
+                type: "email",
+                required: true,
+                placeholder: "Enter your email",
+                "aria-label": "Email address",
+                className: "flex-1 px-5 py-3.5 rounded-full bg-white text-secondary placeholder-neutral-400 text-sm focus:outline-none focus:ring-4 focus:ring-white/30 transition-all"
+              }
+            ),
+            /* @__PURE__ */ jsxs("button", { type: "submit", className: "inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-light text-white text-sm font-bold px-6 py-3.5 rounded-full transition-colors whitespace-nowrap", children: [
+              "Subscribe ",
+              /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx("p", { className: "text-white/60 text-[11px] mt-3 sm:pl-2", children: "No spam. Unsubscribe anytime." })
         ] })
       ] })
     ] }) }),
-    /* @__PURE__ */ jsxs("div", { className: "container-page py-14", children: [
-      /* @__PURE__ */ jsxs("div", { className: "grid md:grid-cols-2 lg:grid-cols-12 gap-10", children: [
+    /* @__PURE__ */ jsxs("div", { className: "container-page pb-14", children: [
+      /* @__PURE__ */ jsxs("div", { className: "grid md:grid-cols-2 lg:grid-cols-12 gap-10 pt-6 border-t border-white/10", children: [
         /* @__PURE__ */ jsxs("div", { className: "lg:col-span-4", children: [
-          /* @__PURE__ */ jsx(Link, { to: "/", className: "flex items-center mb-5", children: /* @__PURE__ */ jsx("img", { src: "/2.png", alt: "The Fista", className: "h-12 w-auto -ml-6" }) }),
-          /* @__PURE__ */ jsx("p", { className: "text-white/50 text-sm leading-relaxed mb-6 max-w-xs", children: "India's trusted news platform delivering credible journalism across cricket, politics, health, business, and more." }),
+          /* @__PURE__ */ jsx(Link, { to: "/", className: "flex items-center mb-5", children: /* @__PURE__ */ jsx("img", { src: "/2.png", alt: "The Fista", className: "h-11 w-auto -ml-6" }) }),
+          /* @__PURE__ */ jsx("p", { className: "text-white/50 text-sm leading-relaxed mb-6 max-w-xs", children: "India's trusted news platform — credible, in-depth coverage across cricket, politics, business, health, Bollywood, education and technology." }),
           /* @__PURE__ */ jsx("div", { className: "flex gap-2", children: [
             { icon: Facebook, label: "Facebook" },
             { icon: Twitter, label: "Twitter" },
@@ -597,7 +655,7 @@ function Footer() {
             "a",
             {
               href: "#",
-              className: "w-9 h-9 bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-200",
+              className: "w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-200",
               "aria-label": label,
               children: /* @__PURE__ */ jsx(Icon, { className: "w-4 h-4" })
             },
@@ -605,26 +663,19 @@ function Footer() {
           )) })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "lg:col-span-2", children: [
-          /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-bold uppercase tracking-widest text-white/40 mb-5", children: "Sections" }),
-          /* @__PURE__ */ jsx("ul", { className: "space-y-2.5", children: categories.map((cat) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            Link,
-            {
-              to: `/category/${cat.slug}`,
-              className: "text-white/60 hover:text-white text-sm transition-colors",
-              children: cat.name
-            }
-          ) }, cat.id)) })
+          /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/40 mb-5", children: "Sections" }),
+          /* @__PURE__ */ jsx("ul", { className: "space-y-2.5", children: categories.map((cat) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(Link, { to: `/category/${cat.slug}`, className: "text-white/60 hover:text-white text-sm transition-colors", children: cat.name }) }, cat.id)) })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "lg:col-span-2", children: [
-          /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-bold uppercase tracking-widest text-white/40 mb-5", children: "Company" }),
+          /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/40 mb-5", children: "Company" }),
           /* @__PURE__ */ jsx("ul", { className: "space-y-2.5", children: ["About Us", "Contact", "Careers", "Advertise"].map((item) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "#", className: "text-white/60 hover:text-white text-sm transition-colors", children: item }) }, item)) })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "lg:col-span-2", children: [
-          /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-bold uppercase tracking-widest text-white/40 mb-5", children: "Legal" }),
+          /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/40 mb-5", children: "Legal" }),
           /* @__PURE__ */ jsx("ul", { className: "space-y-2.5", children: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Disclaimer"].map((item) => /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx("a", { href: "#", className: "text-white/60 hover:text-white text-sm transition-colors", children: item }) }, item)) })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "lg:col-span-2", children: [
-          /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-bold uppercase tracking-widest text-white/40 mb-5", children: "Reach Us" }),
+          /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/40 mb-5", children: "Reach Us" }),
           /* @__PURE__ */ jsxs("ul", { className: "space-y-3", children: [
             /* @__PURE__ */ jsxs("li", { className: "flex items-start gap-2.5 text-white/60 text-sm", children: [
               /* @__PURE__ */ jsx(MapPin, { className: "w-4 h-4 shrink-0 text-primary mt-0.5" }),
@@ -649,120 +700,103 @@ function Footer() {
   ] });
 }
 function HeroSection({ featuredArticle, recentArticles }) {
-  const [activeTab, setActiveTab] = useState("recent");
   const [currentSlide, setCurrentSlide] = useState(0);
-  const featuredArticles = [featuredArticle, ...recentArticles.slice(0, 2)];
+  const slides = [featuredArticle, ...recentArticles.filter((a) => a.id !== featuredArticle.id).slice(0, 2)];
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % featuredArticles.length);
-  }, [featuredArticles.length]);
-  const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + featuredArticles.length) % featuredArticles.length);
-  }, [featuredArticles.length]);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5e3);
+    const interval = setInterval(nextSlide, 6e3);
     return () => clearInterval(interval);
   }, [nextSlide]);
-  const currentArticle = featuredArticles[currentSlide];
-  return /* @__PURE__ */ jsx("section", { className: "container-page py-10", children: /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 gap-8", children: [
+  const current = slides[currentSlide];
+  const railArticles = recentArticles.filter((a) => a.id !== current.id).slice(0, 5);
+  return /* @__PURE__ */ jsx("section", { className: "container-page pt-8 pb-12 lg:pt-10 lg:pb-16", children: /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 gap-6 lg:gap-8", children: [
     /* @__PURE__ */ jsxs("div", { className: "lg:col-span-8", children: [
-      /* @__PURE__ */ jsxs(Link, { to: `/article/${currentArticle.id}`, className: "block group", children: [
-        /* @__PURE__ */ jsx("div", { className: "relative aspect-[16/9] overflow-hidden bg-neutral-100", children: /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsx(Link, { to: `/article/${current.id}`, className: "block group rise-in", children: /* @__PURE__ */ jsxs("div", { className: "relative aspect-16/10 lg:aspect-video overflow-hidden rounded-3xl bg-neutral-100", children: [
+        /* @__PURE__ */ jsx(
           "img",
           {
-            src: currentArticle.imageUrl,
-            alt: currentArticle.title,
-            className: "w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+            src: current.imageUrl,
+            alt: current.title,
+            className: "w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-900 ease-out",
+            fetchPriority: "high"
           }
-        ) }),
-        /* @__PURE__ */ jsxs("div", { className: "pt-5", children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-3", children: [
-            /* @__PURE__ */ jsx("span", { className: "text-[11px] font-semibold uppercase tracking-widest text-primary", children: currentArticle.category }),
-            /* @__PURE__ */ jsx("span", { className: "text-neutral-300", children: "·" }),
-            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5 text-neutral-400 text-xs", children: [
+        ),
+        /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-linear-to-t from-secondary/90 via-secondary/25 to-transparent" }),
+        /* @__PURE__ */ jsxs("div", { className: "absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-10", children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mb-4", children: [
+            /* @__PURE__ */ jsx("span", { className: "chip", children: current.category }),
+            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5 text-white/70 text-xs font-medium", children: [
               /* @__PURE__ */ jsx(Clock, { className: "w-3.5 h-3.5" }),
-              /* @__PURE__ */ jsx("span", { children: currentArticle.publishedAt })
+              /* @__PURE__ */ jsx("span", { children: current.publishedAt })
             ] })
           ] }),
-          /* @__PURE__ */ jsx("h1", { className: "font-display text-2xl md:text-3xl lg:text-[2.5rem] font-bold text-secondary leading-tight mb-3 group-hover:text-primary transition-colors", children: currentArticle.title }),
-          /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-[15px] leading-relaxed max-w-2xl line-clamp-2 hidden md:block", children: currentArticle.excerpt })
+          /* @__PURE__ */ jsx("h1", { className: "font-display text-white text-2xl sm:text-4xl lg:text-[3.25rem] leading-[1.02] max-w-3xl", children: current.title }),
+          /* @__PURE__ */ jsx("p", { className: "text-white/80 text-[15px] leading-relaxed max-w-2xl mt-4 line-clamp-2 hidden sm:block", children: current.excerpt }),
+          /* @__PURE__ */ jsxs("span", { className: "mt-6 inline-flex items-center gap-2 bg-primary text-white text-[13px] font-bold px-5 py-3 rounded-full group-hover:bg-white group-hover:text-secondary transition-all duration-200", children: [
+            "Read the story ",
+            /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4" })
+          ] })
         ] })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 mt-5 pt-5 border-t border-neutral-200", children: [
-        /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: prevSlide,
-            className: "w-9 h-9 border border-neutral-300 hover:border-primary hover:text-primary flex items-center justify-center transition-all",
-            children: /* @__PURE__ */ jsx(ChevronLeft, { className: "w-4 h-4" })
-          }
-        ),
-        /* @__PURE__ */ jsx("div", { className: "flex gap-2", children: featuredArticles.map((_, i) => /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: () => setCurrentSlide(i),
-            className: `h-1 rounded-full transition-all duration-300 ${i === currentSlide ? "bg-primary w-8" : "bg-neutral-300 hover:bg-neutral-400 w-4"}`
-          },
-          i
-        )) }),
-        /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: nextSlide,
-            className: "w-9 h-9 border border-neutral-300 hover:border-primary hover:text-primary flex items-center justify-center transition-all",
-            children: /* @__PURE__ */ jsx(ChevronRight, { className: "w-4 h-4" })
-          }
-        )
-      ] })
+      ] }) }, current.id),
+      /* @__PURE__ */ jsx("div", { className: "flex items-center gap-2 mt-5", children: slides.map((_, i) => /* @__PURE__ */ jsx(
+        "button",
+        {
+          "aria-label": `Slide ${i + 1}`,
+          onClick: () => setCurrentSlide(i),
+          className: `h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? "bg-primary w-10" : "bg-neutral-300 hover:bg-neutral-400 w-5"}`
+        },
+        i
+      )) })
     ] }),
-    /* @__PURE__ */ jsx("div", { className: "lg:col-span-4", children: /* @__PURE__ */ jsxs("div", { className: "bg-white border border-neutral-200 h-full flex flex-col", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex border-b border-neutral-200", children: [
-        /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: () => setActiveTab("recent"),
-            className: `flex-1 py-3.5 text-[11px] font-bold uppercase tracking-widest transition-all ${activeTab === "recent" ? "text-primary border-b-2 border-primary bg-primary/5" : "text-neutral-500 hover:text-secondary"}`,
-            children: "Recent"
-          }
-        ),
-        /* @__PURE__ */ jsx(
-          "button",
-          {
-            onClick: () => setActiveTab("top"),
-            className: `flex-1 py-3.5 text-[11px] font-bold uppercase tracking-widest transition-all ${activeTab === "top" ? "text-primary border-b-2 border-primary bg-primary/5" : "text-neutral-500 hover:text-secondary"}`,
-            children: "Top Stories"
-          }
-        )
+    /* @__PURE__ */ jsx("div", { className: "lg:col-span-4", children: /* @__PURE__ */ jsxs("div", { className: "h-full flex flex-col", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between mb-4", children: [
+        /* @__PURE__ */ jsx("span", { className: "section-eyebrow", children: "Top Stories" }),
+        /* @__PURE__ */ jsx("span", { className: "w-2 h-2 rounded-full bg-primary breaking-pulse" })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "flex-1 divide-y divide-neutral-100", children: recentArticles.slice(0, 5).map((article, idx) => /* @__PURE__ */ jsxs(Link, { to: `/article/${article.id}`, className: "flex gap-4 p-4 group hover:bg-neutral-50 transition-colors", children: [
-        /* @__PURE__ */ jsx("span", { className: "text-3xl font-display font-bold text-neutral-200 group-hover:text-primary/30 transition-colors leading-none mt-0.5", children: String(idx + 1).padStart(2, "0") }),
-        /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", children: [
-          /* @__PURE__ */ jsx("span", { className: "text-[10px] font-bold uppercase tracking-widest text-primary", children: article.category }),
-          /* @__PURE__ */ jsx("h3", { className: "text-sm font-semibold text-neutral-800 line-clamp-2 group-hover:text-primary transition-colors leading-snug mt-1", children: article.title }),
-          /* @__PURE__ */ jsx("span", { className: "text-[11px] text-neutral-400 mt-1.5 block", children: article.publishedAt })
-        ] })
-      ] }, article.id)) }),
-      /* @__PURE__ */ jsxs(Link, { to: "/category/cricket", className: "flex items-center justify-center gap-2 py-3 border-t border-neutral-200 text-[11px] font-bold uppercase tracking-widest text-primary hover:bg-primary/5 transition-colors", children: [
-        "View All Stories ",
-        /* @__PURE__ */ jsx(ArrowRight, { className: "w-3.5 h-3.5" })
-      ] })
+      /* @__PURE__ */ jsx("div", { className: "flex flex-col divide-y divide-neutral-200 rounded-3xl border border-neutral-200 bg-neutral-50 overflow-hidden flex-1", children: railArticles.map((article, idx) => /* @__PURE__ */ jsxs(
+        Link,
+        {
+          to: `/article/${article.id}`,
+          className: "flex gap-4 p-4 lg:p-[1.1rem] group hover:bg-white transition-colors",
+          children: [
+            /* @__PURE__ */ jsx("span", { className: "font-display text-2xl text-neutral-300 group-hover:text-primary transition-colors leading-none pt-0.5", children: String(idx + 1).padStart(2, "0") }),
+            /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", children: [
+              /* @__PURE__ */ jsx("span", { className: "category-badge", children: article.category }),
+              /* @__PURE__ */ jsx("h3", { className: "text-[14.5px] font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug mt-1", children: article.title }),
+              /* @__PURE__ */ jsx("span", { className: "text-[11px] text-neutral-400 mt-1.5 block", children: article.publishedAt })
+            ] }),
+            /* @__PURE__ */ jsx(ArrowUpRight, { className: "w-4 h-4 text-neutral-300 group-hover:text-primary transition-colors shrink-0" })
+          ]
+        },
+        article.id
+      )) }),
+      /* @__PURE__ */ jsxs(
+        Link,
+        {
+          to: "/category/cricket",
+          className: "mt-3 flex items-center justify-center gap-2 py-3 rounded-full border border-neutral-200 text-[12px] font-bold uppercase tracking-[0.12em] text-secondary hover:bg-secondary hover:text-white transition-colors",
+          children: [
+            "View all stories ",
+            /* @__PURE__ */ jsx(ArrowRight, { className: "w-3.5 h-3.5" })
+          ]
+        }
+      )
     ] }) })
   ] }) });
 }
 function useItemsPerSlide() {
   const [itemsPerSlide, setItemsPerSlide] = useState(1);
   useEffect(() => {
-    const updateItemsPerSlide = () => {
-      if (window.innerWidth >= 1024) {
-        setItemsPerSlide(3);
-      } else if (window.innerWidth >= 768) {
-        setItemsPerSlide(2);
-      } else {
-        setItemsPerSlide(1);
-      }
+    const update = () => {
+      if (window.innerWidth >= 1024) setItemsPerSlide(3);
+      else if (window.innerWidth >= 768) setItemsPerSlide(2);
+      else setItemsPerSlide(1);
     };
-    updateItemsPerSlide();
-    window.addEventListener("resize", updateItemsPerSlide);
-    return () => window.removeEventListener("resize", updateItemsPerSlide);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
   return itemsPerSlide;
 }
@@ -770,13 +804,13 @@ function TrendingNewsSection({ articles: articles2 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const displayArticles = articles2.slice(0, 9);
   const itemsPerSlide = useItemsPerSlide();
-  const totalSlides = Math.ceil(displayArticles.length / itemsPerSlide);
+  const totalSlides = Math.max(1, Math.ceil(displayArticles.length / itemsPerSlide));
   const intervalRef = useRef(null);
   const startAutoSlide = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % totalSlides);
-    }, 5e3);
+    }, 5500);
   }, [totalSlides]);
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
@@ -796,45 +830,30 @@ function TrendingNewsSection({ articles: articles2 }) {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, [startAutoSlide]);
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [itemsPerSlide]);
-  return /* @__PURE__ */ jsxs("section", { className: "py-8", children: [
-    /* @__PURE__ */ jsxs("div", { className: "flex items-end justify-between mb-8", children: [
+  const activeIndex = Math.min(currentIndex, totalSlides - 1);
+  return /* @__PURE__ */ jsxs("section", { className: "py-2", children: [
+    /* @__PURE__ */ jsxs("div", { className: "flex items-end justify-between mb-7", children: [
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 mb-2", children: [
-          /* @__PURE__ */ jsx(TrendingUp, { className: "w-5 h-5 text-primary" }),
-          /* @__PURE__ */ jsx("span", { className: "text-[11px] font-bold uppercase tracking-widest text-primary", children: "Trending Now" })
+        /* @__PURE__ */ jsxs("span", { className: "section-eyebrow", children: [
+          /* @__PURE__ */ jsx(Flame, { className: "w-4 h-4" }),
+          " Trending Now"
         ] }),
-        /* @__PURE__ */ jsx("h2", { className: "font-display text-3xl font-bold text-secondary", children: "What's Hot" }),
+        /* @__PURE__ */ jsx("h2", { className: "section-heading mt-2", children: "What's Hot" }),
         /* @__PURE__ */ jsx("div", { className: "section-rule" })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3", children: [
         /* @__PURE__ */ jsx("div", { className: "hidden sm:flex gap-1.5", children: Array.from({ length: totalSlides }).map((_, i) => /* @__PURE__ */ jsx(
           "button",
           {
+            "aria-label": `Slide ${i + 1}`,
             onClick: () => goToSlide(i),
-            className: `h-1 transition-all duration-500 ${i === currentIndex ? "bg-primary w-8" : "bg-neutral-300 hover:bg-neutral-400 w-3"}`
+            className: `h-1.5 rounded-full transition-all duration-500 ${i === activeIndex ? "bg-primary w-8" : "bg-neutral-300 hover:bg-neutral-400 w-3"}`
           },
           i
         )) }),
         /* @__PURE__ */ jsxs("div", { className: "flex gap-1.5", children: [
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              onClick: prevSlide,
-              className: "w-9 h-9 border border-neutral-300 hover:border-primary hover:bg-primary hover:text-white flex items-center justify-center transition-all duration-200",
-              children: /* @__PURE__ */ jsx(ChevronLeft, { className: "w-4 h-4" })
-            }
-          ),
-          /* @__PURE__ */ jsx(
-            "button",
-            {
-              onClick: nextSlide,
-              className: "w-9 h-9 border border-neutral-300 hover:border-primary hover:bg-primary hover:text-white flex items-center justify-center transition-all duration-200",
-              children: /* @__PURE__ */ jsx(ChevronRight, { className: "w-4 h-4" })
-            }
-          )
+          /* @__PURE__ */ jsx("button", { onClick: prevSlide, "aria-label": "Previous", className: "w-10 h-10 rounded-full border border-neutral-300 hover:border-secondary hover:bg-secondary hover:text-white flex items-center justify-center transition-all duration-200", children: /* @__PURE__ */ jsx(ChevronLeft, { className: "w-4 h-4" }) }),
+          /* @__PURE__ */ jsx("button", { onClick: nextSlide, "aria-label": "Next", className: "w-10 h-10 rounded-full border border-neutral-300 hover:border-secondary hover:bg-secondary hover:text-white flex items-center justify-center transition-all duration-200", children: /* @__PURE__ */ jsx(ChevronRight, { className: "w-4 h-4" }) })
         ] })
       ] })
     ] }),
@@ -842,30 +861,36 @@ function TrendingNewsSection({ articles: articles2 }) {
       "div",
       {
         className: "flex transition-transform duration-700 ease-out",
-        style: { transform: `translateX(-${currentIndex * 100}%)` },
+        style: { transform: `translateX(-${activeIndex * 100}%)` },
         children: Array.from({ length: totalSlides }).map((_, slideIndex) => /* @__PURE__ */ jsx("div", { className: "w-full shrink-0", children: /* @__PURE__ */ jsx("div", { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-5", children: displayArticles.slice(slideIndex * itemsPerSlide, slideIndex * itemsPerSlide + itemsPerSlide).map((article) => /* @__PURE__ */ jsxs(
           Link,
           {
             to: `/article/${article.id}`,
-            className: "bg-white border border-neutral-200 overflow-hidden group hover:border-neutral-300 hover:shadow-lg transition-all duration-300",
+            className: "card group flex flex-col",
             children: [
-              /* @__PURE__ */ jsx("div", { className: "aspect-[16/10] overflow-hidden bg-neutral-100", children: /* @__PURE__ */ jsx(
-                "img",
-                {
-                  src: article.imageUrl,
-                  alt: article.title,
-                  className: "w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                }
-              ) }),
-              /* @__PURE__ */ jsxs("div", { className: "p-5", children: [
-                /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 text-[11px] text-neutral-400 mb-3", children: [
-                  /* @__PURE__ */ jsx("span", { className: "font-semibold text-primary uppercase tracking-wider", children: article.category }),
-                  /* @__PURE__ */ jsx("span", { className: "text-neutral-300", children: "·" }),
-                  /* @__PURE__ */ jsx("span", { children: article.publishedAt })
-                ] }),
-                /* @__PURE__ */ jsx("h3", { className: "font-display font-bold text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug mb-3", children: article.title }),
-                /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-sm line-clamp-2 mb-4", children: article.excerpt }),
-                /* @__PURE__ */ jsx("div", { className: "flex items-center justify-between pt-3 border-t border-neutral-100", children: /* @__PURE__ */ jsx("span", { className: "text-neutral-400 text-xs", children: article.readTime }) })
+              /* @__PURE__ */ jsxs("div", { className: "relative aspect-16/10 overflow-hidden", children: [
+                /* @__PURE__ */ jsx(
+                  "img",
+                  {
+                    src: article.imageUrl,
+                    alt: article.title,
+                    loading: "lazy",
+                    className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  }
+                ),
+                /* @__PURE__ */ jsx("div", { className: "absolute top-3 left-3", children: /* @__PURE__ */ jsx("span", { className: "chip", children: article.category }) })
+              ] }),
+              /* @__PURE__ */ jsxs("div", { className: "p-5 flex flex-col flex-1", children: [
+                /* @__PURE__ */ jsx("h3", { className: "font-display text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: article.title }),
+                /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-sm line-clamp-2 mt-2 mb-4", children: article.excerpt }),
+                /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between pt-3 border-t border-neutral-100 mt-auto", children: [
+                  /* @__PURE__ */ jsxs("span", { className: "text-neutral-400 text-xs font-medium", children: [
+                    article.publishedAt,
+                    " · ",
+                    article.readTime
+                  ] }),
+                  /* @__PURE__ */ jsx(ArrowUpRight, { className: "w-4 h-4 text-neutral-300 group-hover:text-primary transition-colors" })
+                ] })
               ] })
             ]
           },
@@ -876,8 +901,9 @@ function TrendingNewsSection({ articles: articles2 }) {
     /* @__PURE__ */ jsx("div", { className: "flex sm:hidden justify-center gap-1.5 mt-6", children: Array.from({ length: totalSlides }).map((_, i) => /* @__PURE__ */ jsx(
       "button",
       {
+        "aria-label": `Slide ${i + 1}`,
         onClick: () => goToSlide(i),
-        className: `h-1 transition-all duration-500 ${i === currentIndex ? "bg-primary w-8" : "bg-neutral-300 w-3"}`
+        className: `h-1.5 rounded-full transition-all duration-500 ${i === activeIndex ? "bg-primary w-8" : "bg-neutral-300 w-3"}`
       },
       i
     )) })
@@ -890,114 +916,114 @@ function FeaturedNewsSection({ articles: articles2 }) {
     { id: "all", name: "All" },
     ...categories.map((c) => ({ id: c.id, name: c.name }))
   ];
-  return /* @__PURE__ */ jsxs("section", { className: "container-page py-12", children: [
+  const lead = filteredArticles[0];
+  const side = filteredArticles.slice(1, 4);
+  return /* @__PURE__ */ jsxs("section", { className: "container-page py-14 lg:py-20", children: [
     /* @__PURE__ */ jsxs("div", { className: "flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10", children: [
       /* @__PURE__ */ jsxs("div", { children: [
-        /* @__PURE__ */ jsx("h2", { className: "font-display text-3xl lg:text-4xl font-bold text-secondary", children: "Editor's Picks" }),
+        /* @__PURE__ */ jsx("span", { className: "section-eyebrow", children: "Editor's Picks" }),
+        /* @__PURE__ */ jsx("h2", { className: "section-heading mt-2", children: "The Stories That Matter" }),
         /* @__PURE__ */ jsx("div", { className: "section-rule" })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "flex items-center gap-1 overflow-x-auto pb-1 scrollbar-hide", children: categoryTabs.slice(0, 5).map((cat) => /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsx("div", { className: "flex items-center gap-2 overflow-x-auto pb-1 scrollbar-hide", children: categoryTabs.slice(0, 6).map((cat) => /* @__PURE__ */ jsx(
         "button",
         {
           onClick: () => setActiveCategory(cat.id),
-          className: `px-4 py-2 text-[11px] font-bold uppercase tracking-widest whitespace-nowrap transition-all duration-200 border-b-2 ${activeCategory === cat.id ? "text-primary border-primary" : "text-neutral-500 border-transparent hover:text-secondary hover:border-neutral-300"}`,
+          className: `px-4 py-2 text-[12.5px] font-bold rounded-full whitespace-nowrap transition-all duration-200 ${activeCategory === cat.id ? "bg-secondary text-white" : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"}`,
           children: cat.name
         },
         cat.id
       )) })
     ] }),
     /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 gap-6", children: [
-      filteredArticles[0] && /* @__PURE__ */ jsxs(Link, { to: `/article/${filteredArticles[0].id}`, className: "lg:col-span-5 lg:row-span-2 group flex flex-col", children: [
-        /* @__PURE__ */ jsx("div", { className: "aspect-[4/3] lg:aspect-auto lg:flex-1 overflow-hidden bg-neutral-100", children: /* @__PURE__ */ jsx(
-          "img",
-          {
-            src: filteredArticles[0].imageUrl,
-            alt: filteredArticles[0].title,
-            className: "w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-          }
-        ) }),
+      lead && /* @__PURE__ */ jsxs(Link, { to: `/article/${lead.id}`, className: "lg:col-span-6 group flex flex-col", children: [
+        /* @__PURE__ */ jsxs("div", { className: "relative aspect-4/3 overflow-hidden rounded-3xl bg-neutral-100", children: [
+          /* @__PURE__ */ jsx(
+            "img",
+            {
+              src: lead.imageUrl,
+              alt: lead.title,
+              loading: "lazy",
+              className: "w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
+            }
+          ),
+          /* @__PURE__ */ jsx("div", { className: "absolute top-4 left-4", children: /* @__PURE__ */ jsx("span", { className: "chip", children: lead.category }) })
+        ] }),
         /* @__PURE__ */ jsxs("div", { className: "pt-5", children: [
-          /* @__PURE__ */ jsx("span", { className: "text-[11px] font-semibold uppercase tracking-widest text-primary", children: filteredArticles[0].category }),
-          /* @__PURE__ */ jsx("h3", { className: "font-display text-xl lg:text-2xl font-bold text-secondary leading-snug mt-2 mb-2 group-hover:text-primary transition-colors", children: filteredArticles[0].title }),
-          /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-sm line-clamp-2 hidden lg:block leading-relaxed", children: filteredArticles[0].excerpt }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 text-neutral-400 text-xs mt-3", children: [
-            /* @__PURE__ */ jsx("span", { children: filteredArticles[0].publishedAt }),
-            /* @__PURE__ */ jsx("span", { children: "·" }),
-            /* @__PURE__ */ jsx("span", { children: filteredArticles[0].readTime })
+          /* @__PURE__ */ jsx("h3", { className: "font-display text-2xl lg:text-3xl text-secondary leading-tight group-hover:text-primary transition-colors", children: lead.title }),
+          /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-[15px] line-clamp-2 mt-3 leading-relaxed", children: lead.excerpt }),
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 text-neutral-400 text-xs mt-4 font-medium", children: [
+            /* @__PURE__ */ jsx("span", { children: lead.author }),
+            /* @__PURE__ */ jsx("span", { className: "w-1 h-1 rounded-full bg-neutral-300" }),
+            /* @__PURE__ */ jsx("span", { children: lead.publishedAt }),
+            /* @__PURE__ */ jsx("span", { className: "w-1 h-1 rounded-full bg-neutral-300" }),
+            /* @__PURE__ */ jsx("span", { children: lead.readTime })
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "lg:col-span-7 space-y-4", children: [
-        filteredArticles.slice(1, 4).map((article) => /* @__PURE__ */ jsxs(Link, { to: `/article/${article.id}`, className: "flex gap-5 group bg-white border border-neutral-100 hover:border-neutral-200 p-4 transition-all", children: [
-          /* @__PURE__ */ jsx("div", { className: "w-32 h-24 shrink-0 overflow-hidden bg-neutral-100", children: /* @__PURE__ */ jsx(
+      /* @__PURE__ */ jsxs("div", { className: "lg:col-span-6 flex flex-col gap-4", children: [
+        side.map((article) => /* @__PURE__ */ jsxs(Link, { to: `/article/${article.id}`, className: "flex gap-5 group rounded-2xl border border-neutral-200 hover:border-neutral-300 hover:shadow-[0_18px_40px_-28px_rgba(10,14,20,0.35)] p-3 transition-all bg-white", children: [
+          /* @__PURE__ */ jsx("div", { className: "w-32 sm:w-40 aspect-4/3 shrink-0 overflow-hidden rounded-xl bg-neutral-100", children: /* @__PURE__ */ jsx(
             "img",
             {
               src: article.imageUrl,
               alt: article.title,
-              className: "w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+              loading: "lazy",
+              className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             }
           ) }),
-          /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0 flex flex-col justify-center", children: [
-            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 text-[10px] mb-2", children: [
-              /* @__PURE__ */ jsx("span", { className: "font-semibold uppercase tracking-widest text-primary", children: article.category }),
-              /* @__PURE__ */ jsx("span", { className: "text-neutral-300", children: "·" }),
-              /* @__PURE__ */ jsx("span", { className: "text-neutral-400", children: article.publishedAt })
-            ] }),
-            /* @__PURE__ */ jsx("h3", { className: "font-display font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug text-base", children: article.title })
-          ] })
+          /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0 flex flex-col justify-center py-1", children: [
+            /* @__PURE__ */ jsx("span", { className: "category-badge", children: article.category }),
+            /* @__PURE__ */ jsx("h3", { className: "font-display text-base sm:text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug mt-1", children: article.title }),
+            /* @__PURE__ */ jsxs("span", { className: "text-[11px] text-neutral-400 mt-2 font-medium", children: [
+              article.publishedAt,
+              " · ",
+              article.readTime
+            ] })
+          ] }),
+          /* @__PURE__ */ jsx(ArrowUpRight, { className: "w-4 h-4 text-neutral-300 group-hover:text-primary transition-colors shrink-0 self-center" })
         ] }, article.id)),
-        /* @__PURE__ */ jsx("div", { className: "flex justify-end pt-2", children: /* @__PURE__ */ jsxs(Link, { to: "/category/politics", className: "flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-primary hover:text-primary-dark transition-colors", children: [
-          "More Stories ",
-          /* @__PURE__ */ jsx(ArrowRight, { className: "w-3.5 h-3.5" })
+        /* @__PURE__ */ jsx("div", { className: "flex justify-end pt-1", children: /* @__PURE__ */ jsxs(Link, { to: "/category/politics", className: "inline-flex items-center gap-2 text-[13px] font-bold text-secondary hover:text-primary transition-colors", children: [
+          "More stories ",
+          /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4" })
         ] }) })
       ] })
     ] })
   ] });
 }
 function LiveScoreWidget({ matches }) {
-  return /* @__PURE__ */ jsxs("div", { className: "bg-secondary text-white overflow-hidden", children: [
-    /* @__PURE__ */ jsx("div", { className: "px-5 pt-5 pb-4 border-b border-white/10", children: /* @__PURE__ */ jsx("div", { className: "flex items-center justify-between", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2.5", children: [
-      /* @__PURE__ */ jsxs("div", { className: "live-badge bg-primary! animate-none!", children: [
-        /* @__PURE__ */ jsx(Radio, { className: "w-3 h-3 animate-pulse" }),
-        /* @__PURE__ */ jsx("span", { children: "Live" })
+  return /* @__PURE__ */ jsxs("div", { className: "rounded-3xl border border-neutral-200 bg-white overflow-hidden", children: [
+    /* @__PURE__ */ jsx("div", { className: "px-5 py-4 border-b border-neutral-200 bg-neutral-50 flex items-center justify-between", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2.5", children: [
+      /* @__PURE__ */ jsxs("span", { className: "live-badge", children: [
+        /* @__PURE__ */ jsx(Radio, { className: "w-3 h-3 breaking-pulse" }),
+        "Live"
       ] }),
-      /* @__PURE__ */ jsx("span", { className: "text-[11px] font-bold uppercase tracking-widest text-white/60", children: "Scoreboard" })
-    ] }) }) }),
-    /* @__PURE__ */ jsx("div", { className: "divide-y divide-white/5", children: matches.map((match) => /* @__PURE__ */ jsxs("div", { className: "px-5 py-4 hover:bg-white/5 transition-colors", children: [
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 text-[10px] text-white/40 uppercase tracking-wider mb-3", children: [
-        /* @__PURE__ */ jsx("span", { className: "font-bold text-primary", children: match.sport }),
-        /* @__PURE__ */ jsx("span", { children: "·" }),
-        /* @__PURE__ */ jsx("span", { children: match.tournament }),
-        match.status === "live" && /* @__PURE__ */ jsxs("span", { className: "ml-auto flex items-center gap-1", children: [
-          /* @__PURE__ */ jsx("span", { className: "w-1.5 h-1.5 bg-primary rounded-full animate-pulse" }),
-          /* @__PURE__ */ jsx("span", { className: "text-primary font-bold", children: "LIVE" })
+      /* @__PURE__ */ jsx("span", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-neutral-500", children: "Scoreboard" })
+    ] }) }),
+    /* @__PURE__ */ jsx("div", { className: "divide-y divide-neutral-100", children: matches.map((match) => /* @__PURE__ */ jsxs("div", { className: "px-5 py-4 hover:bg-neutral-50 transition-colors", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 text-[10px] text-neutral-400 uppercase tracking-wider mb-3 font-semibold", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-primary", children: match.sport }),
+        /* @__PURE__ */ jsx("span", { className: "text-neutral-300", children: "·" }),
+        /* @__PURE__ */ jsx("span", { className: "truncate", children: match.tournament }),
+        match.status === "live" && /* @__PURE__ */ jsxs("span", { className: "ml-auto flex items-center gap-1 shrink-0", children: [
+          /* @__PURE__ */ jsx("span", { className: "w-1.5 h-1.5 bg-primary rounded-full breaking-pulse" }),
+          /* @__PURE__ */ jsx("span", { className: "text-primary font-extrabold", children: "LIVE" })
         ] }),
-        match.status === "upcoming" && /* @__PURE__ */ jsx("span", { className: "ml-auto text-white/30 font-bold", children: "UPCOMING" })
+        match.status === "upcoming" && /* @__PURE__ */ jsx("span", { className: "ml-auto text-neutral-300 font-extrabold shrink-0", children: "UPCOMING" }),
+        match.status === "completed" && /* @__PURE__ */ jsx("span", { className: "ml-auto text-neutral-400 font-extrabold shrink-0", children: "RESULT" })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "space-y-2.5", children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2.5", children: [
-            /* @__PURE__ */ jsx("span", { className: "text-base", children: match.team1.flag }),
-            /* @__PURE__ */ jsx("span", { className: "font-semibold text-sm text-white/90", children: match.team1.shortName })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "text-right flex items-center gap-2", children: [
-            /* @__PURE__ */ jsx("span", { className: "text-[10px] text-white/30", children: match.team1.overs }),
-            /* @__PURE__ */ jsx("span", { className: "font-bold text-white text-sm min-w-12.5 text-right", children: match.team1.score })
-          ] })
+      /* @__PURE__ */ jsx("div", { className: "space-y-2.5", children: [match.team1, match.team2].map((team, i) => /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2.5", children: [
+          /* @__PURE__ */ jsx("span", { className: "text-base", children: team.flag }),
+          /* @__PURE__ */ jsx("span", { className: "font-bold text-sm text-secondary", children: team.shortName })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2.5", children: [
-            /* @__PURE__ */ jsx("span", { className: "text-base", children: match.team2.flag }),
-            /* @__PURE__ */ jsx("span", { className: "font-semibold text-sm text-white/90", children: match.team2.shortName })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "text-right flex items-center gap-2", children: [
-            /* @__PURE__ */ jsx("span", { className: "text-[10px] text-white/30", children: match.team2.overs }),
-            /* @__PURE__ */ jsx("span", { className: "font-bold text-white text-sm min-w-12.5 text-right", children: match.team2.score })
-          ] })
+        /* @__PURE__ */ jsxs("div", { className: "text-right flex items-center gap-2", children: [
+          /* @__PURE__ */ jsx("span", { className: "text-[10px] text-neutral-400", children: team.overs }),
+          /* @__PURE__ */ jsx("span", { className: "font-extrabold text-secondary text-sm min-w-12.5 text-right", children: team.score })
         ] })
-      ] })
+      ] }, i)) })
     ] }, match.id)) }),
-    /* @__PURE__ */ jsxs("button", { className: "w-full px-5 py-3.5 bg-white/5 hover:bg-white/10 transition-colors flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-widest text-white/60 hover:text-white", children: [
+    /* @__PURE__ */ jsxs("button", { className: "w-full px-5 py-3.5 bg-neutral-50 hover:bg-secondary hover:text-white transition-colors flex items-center justify-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-neutral-500", children: [
       "All Scores ",
       /* @__PURE__ */ jsx(ChevronRight, { className: "w-3.5 h-3.5" })
     ] })
@@ -1276,35 +1302,57 @@ function buildNotFoundSeo(path) {
 }
 function HomePage() {
   const featuredArticle = articles.find((a) => a.isFeatured) || articles[0];
-  const recentArticles = articles.slice(0, 5);
+  const recentArticles = articles.slice(0, 6);
   const trendingArticles = getTrendingArticles();
-  return /* @__PURE__ */ jsxs("div", { className: "bg-neutral-50", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "bg-white", children: [
     /* @__PURE__ */ jsx(Seo, { ...buildHomeSeo() }),
-    /* @__PURE__ */ jsx("div", { className: "bg-white border-b border-neutral-200", children: /* @__PURE__ */ jsx(
-      HeroSection,
-      {
-        featuredArticle,
-        recentArticles
-      }
-    ) }),
+    /* @__PURE__ */ jsx(HeroSection, { featuredArticle, recentArticles }),
+    /* @__PURE__ */ jsx("div", { className: "border-y border-neutral-200 bg-neutral-50", children: /* @__PURE__ */ jsxs("div", { className: "container-page py-4 flex items-center gap-3 overflow-x-auto scrollbar-hide", children: [
+      /* @__PURE__ */ jsx("span", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-neutral-400 shrink-0", children: "Explore" }),
+      categories.map((cat) => /* @__PURE__ */ jsxs(
+        Link,
+        {
+          to: `/category/${cat.slug}`,
+          className: "group flex items-center gap-1.5 shrink-0 px-4 py-2 rounded-full border border-neutral-200 bg-white text-[13px] font-bold text-secondary hover:border-secondary hover:bg-secondary hover:text-white transition-all",
+          children: [
+            cat.name,
+            /* @__PURE__ */ jsx(ArrowUpRight, { className: "w-3.5 h-3.5 text-neutral-300 group-hover:text-white transition-colors" })
+          ]
+        },
+        cat.id
+      ))
+    ] }) }),
     /* @__PURE__ */ jsx("section", { className: "container-page py-14 lg:py-16", "aria-label": "Trending stories", children: /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 gap-10", children: [
       /* @__PURE__ */ jsx("div", { className: "lg:col-span-8", children: /* @__PURE__ */ jsx(TrendingNewsSection, { articles: trendingArticles }) }),
-      /* @__PURE__ */ jsx("div", { className: "lg:col-span-4", children: /* @__PURE__ */ jsx("div", { className: "sticky top-32", children: /* @__PURE__ */ jsx(LiveScoreWidget, { matches: liveMatches }) }) })
+      /* @__PURE__ */ jsx("div", { className: "lg:col-span-4", children: /* @__PURE__ */ jsx("div", { className: "sticky top-28", children: /* @__PURE__ */ jsx(LiveScoreWidget, { matches: liveMatches }) }) })
     ] }) }),
-    /* @__PURE__ */ jsx("div", { className: "bg-white border-y border-neutral-200", children: /* @__PURE__ */ jsx(FeaturedNewsSection, { articles }) })
+    /* @__PURE__ */ jsx("div", { className: "bg-neutral-50 border-t border-neutral-200", children: /* @__PURE__ */ jsx(FeaturedNewsSection, { articles }) })
   ] });
 }
 function NotFoundPage() {
   const { pathname } = useLocation();
   return /* @__PURE__ */ jsxs("div", { className: "max-w-2xl mx-auto px-6 py-28 text-center", children: [
     /* @__PURE__ */ jsx(Seo, { ...buildNotFoundSeo(pathname) }),
-    /* @__PURE__ */ jsx("span", { className: "font-display text-7xl font-bold text-neutral-200", children: "404" }),
-    /* @__PURE__ */ jsx("h1", { className: "font-display text-3xl font-bold text-secondary mt-4 mb-3", children: "Page Not Found" }),
+    /* @__PURE__ */ jsxs("span", { className: "inline-flex items-center gap-2 section-eyebrow", children: [
+      /* @__PURE__ */ jsx(Compass, { className: "w-4 h-4" }),
+      " Lost the trail"
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "font-display text-[8rem] leading-none text-secondary mt-4", children: "404" }),
+    /* @__PURE__ */ jsx("h1", { className: "font-display text-3xl text-secondary mt-2 mb-3", children: "This page went off the record" }),
     /* @__PURE__ */ jsx("p", { className: "text-neutral-500 mb-8", children: "The page you're looking for doesn't exist or may have been moved." }),
-    /* @__PURE__ */ jsxs(Link, { to: "/", className: "btn-primary inline-flex items-center gap-2", children: [
+    /* @__PURE__ */ jsxs(Link, { to: "/", className: "btn-primary inline-flex", children: [
       /* @__PURE__ */ jsx(ArrowLeft, { className: "w-4 h-4" }),
       "Back to Home"
-    ] })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "mt-10 flex flex-wrap items-center justify-center gap-2", children: categories.map((cat) => /* @__PURE__ */ jsx(
+      Link,
+      {
+        to: `/category/${cat.slug}`,
+        className: "px-4 py-2 rounded-full border border-neutral-200 bg-white text-[13px] font-bold text-secondary hover:border-secondary hover:bg-secondary hover:text-white transition-all",
+        children: cat.name
+      },
+      cat.id
+    )) })
   ] });
 }
 function CategoryPage() {
@@ -1337,229 +1385,166 @@ function CategoryPage() {
   const featuredArticle = categoryArticles[0];
   const restArticles = categoryArticles.slice(1);
   const otherCategoryArticles = articles.filter((a) => a.category !== category.id).slice(0, 5);
-  return /* @__PURE__ */ jsxs("div", { className: "bg-neutral-50 min-h-screen", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "bg-white min-h-screen", children: [
     /* @__PURE__ */ jsx(Seo, { ...buildCategorySeo(category, categoryArticles) }),
-    /* @__PURE__ */ jsx("nav", { "aria-label": "Breadcrumb", className: "bg-white border-b border-neutral-200", children: /* @__PURE__ */ jsxs("div", { className: "container-page py-3 flex items-center gap-2 text-[12px]", children: [
+    /* @__PURE__ */ jsx("nav", { "aria-label": "Breadcrumb", className: "border-b border-neutral-200", children: /* @__PURE__ */ jsxs("div", { className: "container-page py-3 flex items-center gap-2 text-[12px]", children: [
       /* @__PURE__ */ jsx(Link, { to: "/", className: "text-neutral-400 hover:text-primary transition-colors font-medium", children: "Home" }),
       /* @__PURE__ */ jsx("span", { className: "text-neutral-300", children: "/" }),
       /* @__PURE__ */ jsx("span", { className: "font-semibold text-secondary capitalize", children: category.name })
     ] }) }),
     /* @__PURE__ */ jsxs("div", { className: "relative bg-secondary overflow-hidden", children: [
-      /* @__PURE__ */ jsx("div", { className: "absolute inset-0 opacity-10", children: /* @__PURE__ */ jsx("div", { className: "absolute inset-0", style: {
-        backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.03) 40px, rgba(255,255,255,0.03) 80px)`
-      } }) }),
-      /* @__PURE__ */ jsx("div", { className: "container-page py-12 lg:py-16 relative z-10", children: /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-6", children: [
-        /* @__PURE__ */ jsx(
-          "div",
+      /* @__PURE__ */ jsx("div", { className: "absolute inset-0", style: {
+        backgroundImage: `radial-gradient(circle at 15% 20%, ${category.color}55, transparent 45%), radial-gradient(circle at 85% 80%, ${category.color}33, transparent 40%)`
+      } }),
+      /* @__PURE__ */ jsxs("div", { className: "container-page py-14 lg:py-20 relative z-10", children: [
+        /* @__PURE__ */ jsxs(
+          "span",
           {
-            className: "w-1.5 h-16 shrink-0 mt-1",
-            style: { backgroundColor: category.color }
+            className: "inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.18em] mb-4",
+            style: { color: category.color },
+            children: [
+              /* @__PURE__ */ jsx("span", { className: "w-6 h-0.5 rounded-full", style: { backgroundColor: category.color } }),
+              "Section"
+            ]
           }
         ),
-        /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx(
-            "span",
-            {
-              className: "text-[10px] font-bold uppercase tracking-widest mb-2 block",
-              style: { color: category.color },
-              children: "Section"
-            }
-          ),
-          /* @__PURE__ */ jsx("h1", { className: "font-display text-3xl lg:text-5xl font-bold text-white leading-tight mb-3", children: category.name }),
-          /* @__PURE__ */ jsxs("p", { className: "text-white/50 text-sm lg:text-base max-w-xl", children: [
-            "Stay updated with the latest ",
-            category.name.toLowerCase(),
-            " news from India and around the world."
+        /* @__PURE__ */ jsx("h1", { className: "font-display text-4xl lg:text-6xl text-white leading-[1.02] mb-4", children: category.name }),
+        /* @__PURE__ */ jsxs("p", { className: "text-white/60 text-sm lg:text-base max-w-xl", children: [
+          "Stay updated with the latest ",
+          category.name.toLowerCase(),
+          " news from India and around the world."
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 mt-6 text-white/40 text-xs font-medium", children: [
+          /* @__PURE__ */ jsxs("span", { children: [
+            categoryArticles.length,
+            " Articles"
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-6 mt-5 text-white/30 text-xs", children: [
-            /* @__PURE__ */ jsxs("span", { children: [
-              categoryArticles.length,
-              " Articles"
-            ] }),
-            /* @__PURE__ */ jsx("span", { className: "w-1 h-1 rounded-full bg-white/20" }),
-            /* @__PURE__ */ jsxs("span", { children: [
-              "Updated ",
-              categoryArticles[0]?.publishedAt || "Recently"
-            ] })
+          /* @__PURE__ */ jsx("span", { className: "w-1 h-1 rounded-full bg-white/20" }),
+          /* @__PURE__ */ jsxs("span", { children: [
+            "Updated ",
+            categoryArticles[0]?.publishedAt || "Recently"
           ] })
         ] })
-      ] }) })
+      ] })
     ] }),
-    featuredArticle && /* @__PURE__ */ jsx("div", { className: "container-page -mt-6 relative z-10 mb-10", children: /* @__PURE__ */ jsx(
-      Link,
-      {
-        to: `/article/${featuredArticle.id}`,
-        className: "block group",
-        children: /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 bg-white border border-neutral-200 overflow-hidden hover:shadow-xl transition-all duration-300", children: [
-          /* @__PURE__ */ jsxs("div", { className: "lg:col-span-7 relative h-64 lg:h-96 overflow-hidden", children: [
+    featuredArticle && /* @__PURE__ */ jsx("div", { className: "container-page -mt-8 relative z-10 mb-12", children: /* @__PURE__ */ jsx(Link, { to: `/article/${featuredArticle.id}`, className: "block group", children: /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 bg-white border border-neutral-200 rounded-3xl overflow-hidden hover:shadow-[0_30px_60px_-30px_rgba(10,14,20,0.4)] transition-all duration-300", children: [
+      /* @__PURE__ */ jsxs("div", { className: "lg:col-span-7 relative h-64 lg:h-[26rem] overflow-hidden", children: [
+        /* @__PURE__ */ jsx(
+          "img",
+          {
+            src: featuredArticle.imageUrl,
+            alt: featuredArticle.title,
+            className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          }
+        ),
+        /* @__PURE__ */ jsx("div", { className: "absolute top-4 left-4", children: /* @__PURE__ */ jsx("span", { className: "chip", children: "Featured" }) })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "lg:col-span-5 p-8 lg:p-10 flex flex-col justify-center", children: [
+        /* @__PURE__ */ jsx("span", { className: "category-badge", children: featuredArticle.category }),
+        /* @__PURE__ */ jsx("h2", { className: "font-display text-2xl lg:text-3xl text-secondary group-hover:text-primary transition-colors leading-tight mt-2 mb-4", children: featuredArticle.title }),
+        /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-sm lg:text-base leading-relaxed mb-6 line-clamp-3", children: featuredArticle.excerpt }),
+        /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 text-xs text-neutral-400 font-medium", children: [
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5", children: [
+            /* @__PURE__ */ jsx(User, { className: "w-3.5 h-3.5" }),
+            /* @__PURE__ */ jsx("span", { children: featuredArticle.author })
+          ] }),
+          /* @__PURE__ */ jsx("span", { className: "w-1 h-1 rounded-full bg-neutral-300" }),
+          /* @__PURE__ */ jsx("span", { children: featuredArticle.publishedAt }),
+          /* @__PURE__ */ jsx("span", { className: "w-1 h-1 rounded-full bg-neutral-300" }),
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5", children: [
+            /* @__PURE__ */ jsx(Clock, { className: "w-3.5 h-3.5" }),
+            /* @__PURE__ */ jsx("span", { children: featuredArticle.readTime })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxs("span", { className: "btn-primary mt-6 self-start", children: [
+          "Read Full Story ",
+          /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4" })
+        ] })
+      ] })
+    ] }) }) }),
+    /* @__PURE__ */ jsx("div", { className: "container-page pb-16", children: /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 gap-8", children: [
+      /* @__PURE__ */ jsx("div", { className: "lg:col-span-8", children: restArticles.length > 0 ? /* @__PURE__ */ jsxs(Fragment, { children: [
+        /* @__PURE__ */ jsx("div", { className: "flex items-end justify-between mb-6", children: /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx("span", { className: "section-eyebrow", children: "Latest" }),
+          /* @__PURE__ */ jsxs("h2", { className: "font-display text-2xl text-secondary mt-1", children: [
+            "More ",
+            category.name,
+            " Stories"
+          ] }),
+          /* @__PURE__ */ jsx("div", { className: "section-rule" })
+        ] }) }),
+        /* @__PURE__ */ jsx("div", { className: "grid sm:grid-cols-2 gap-6", children: restArticles.map((article) => /* @__PURE__ */ jsxs(Link, { to: `/article/${article.id}`, className: "card group flex flex-col", children: [
+          /* @__PURE__ */ jsxs("div", { className: "relative aspect-16/10 overflow-hidden", children: [
             /* @__PURE__ */ jsx(
               "img",
               {
-                src: featuredArticle.imageUrl,
-                alt: featuredArticle.title,
-                className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src: article.imageUrl,
+                alt: article.title,
+                loading: "lazy",
+                className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               }
             ),
-            /* @__PURE__ */ jsx("div", { className: "absolute top-4 left-4", children: /* @__PURE__ */ jsx(
-              "span",
-              {
-                className: "px-3 py-1.5 text-white text-[10px] font-bold uppercase tracking-widest",
-                style: { backgroundColor: category.color },
-                children: "Featured"
-              }
-            ) })
+            /* @__PURE__ */ jsx("div", { className: "absolute top-3 left-3", children: /* @__PURE__ */ jsx("span", { className: "chip", children: article.category }) })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "lg:col-span-5 p-8 lg:p-10 flex flex-col justify-center", children: [
-            /* @__PURE__ */ jsx(
-              "span",
-              {
-                className: "text-[10px] font-bold uppercase tracking-widest mb-3",
-                style: { color: category.color },
-                children: featuredArticle.category
-              }
-            ),
-            /* @__PURE__ */ jsx("h2", { className: "font-display text-2xl lg:text-3xl font-bold text-secondary group-hover:text-primary transition-colors leading-tight mb-4", children: featuredArticle.title }),
-            /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-sm lg:text-base leading-relaxed mb-6 line-clamp-3", children: featuredArticle.excerpt }),
-            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-4 text-xs text-neutral-400", children: [
-              /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5", children: [
-                /* @__PURE__ */ jsx(User, { className: "w-3.5 h-3.5" }),
-                /* @__PURE__ */ jsx("span", { className: "font-medium", children: featuredArticle.author })
+          /* @__PURE__ */ jsxs("div", { className: "p-5 flex flex-col flex-1", children: [
+            /* @__PURE__ */ jsx("h3", { className: "font-display text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: article.title }),
+            /* @__PURE__ */ jsx("p", { className: "text-sm text-neutral-500 line-clamp-2 mt-2 mb-4", children: article.excerpt }),
+            /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between pt-3 border-t border-neutral-100 mt-auto", children: [
+              /* @__PURE__ */ jsxs("span", { className: "text-[11px] text-neutral-400 font-medium", children: [
+                article.publishedAt,
+                " · ",
+                article.readTime
               ] }),
-              /* @__PURE__ */ jsx("span", { className: "text-neutral-200", children: "|" }),
-              /* @__PURE__ */ jsx("span", { children: featuredArticle.publishedAt }),
-              /* @__PURE__ */ jsx("span", { className: "text-neutral-200", children: "|" }),
               /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5", children: [
-                /* @__PURE__ */ jsx(Clock, { className: "w-3.5 h-3.5" }),
-                /* @__PURE__ */ jsx("span", { children: featuredArticle.readTime })
+                /* @__PURE__ */ jsx("button", { "aria-label": "Share on Facebook", onClick: (e) => handleShare(e, "facebook", article), className: "p-1.5 rounded-full bg-neutral-50 hover:bg-blue-50 hover:text-blue-600 text-neutral-400 transition-colors", children: /* @__PURE__ */ jsx(Facebook, { className: "w-3 h-3" }) }),
+                /* @__PURE__ */ jsx("button", { "aria-label": "Share on Twitter", onClick: (e) => handleShare(e, "twitter", article), className: "p-1.5 rounded-full bg-neutral-50 hover:bg-sky-50 hover:text-sky-500 text-neutral-400 transition-colors", children: /* @__PURE__ */ jsx(Twitter, { className: "w-3 h-3" }) }),
+                /* @__PURE__ */ jsx("button", { "aria-label": "Share on WhatsApp", onClick: (e) => handleShare(e, "whatsapp", article), className: "p-1.5 rounded-full bg-neutral-50 hover:bg-green-50 hover:text-green-600 text-neutral-400 transition-colors", children: /* @__PURE__ */ jsx(Share2, { className: "w-3 h-3" }) })
               ] })
-            ] }),
-            /* @__PURE__ */ jsx("div", { className: "mt-6 pt-5 border-t border-neutral-100 flex items-center gap-2", children: /* @__PURE__ */ jsxs("span", { className: "text-[11px] font-bold uppercase tracking-widest text-primary group-hover:gap-3 flex items-center gap-1.5 transition-all", children: [
-              "Read Full Story ",
-              /* @__PURE__ */ jsx(ArrowRight, { className: "w-3.5 h-3.5" })
-            ] }) })
+            ] })
           ] })
-        ] })
-      }
-    ) }),
-    /* @__PURE__ */ jsx("div", { className: "container-page pb-14", children: /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 gap-8", children: [
-      /* @__PURE__ */ jsx("div", { className: "lg:col-span-8", children: restArticles.length > 0 ? /* @__PURE__ */ jsxs(Fragment, { children: [
-        /* @__PURE__ */ jsx("div", { className: "flex items-end justify-between mb-6", children: /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsx("h2", { className: "font-display text-xl font-bold text-secondary", children: "Latest Stories" }),
-          /* @__PURE__ */ jsx("div", { className: "section-rule" })
-        ] }) }),
-        /* @__PURE__ */ jsx("div", { className: "grid sm:grid-cols-2 gap-6", children: restArticles.map((article) => /* @__PURE__ */ jsxs(
-          Link,
-          {
-            to: `/article/${article.id}`,
-            className: "bg-white border border-neutral-200 overflow-hidden group hover:border-neutral-300 hover:shadow-lg transition-all duration-300",
-            children: [
-              /* @__PURE__ */ jsxs("div", { className: "relative h-44 overflow-hidden", children: [
-                /* @__PURE__ */ jsx(
-                  "img",
-                  {
-                    src: article.imageUrl,
-                    alt: article.title,
-                    className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  }
-                ),
-                /* @__PURE__ */ jsx("div", { className: "absolute top-3 left-3", children: /* @__PURE__ */ jsx(
-                  "span",
-                  {
-                    className: "px-2.5 py-1 text-white text-[9px] font-bold uppercase tracking-widest",
-                    style: { backgroundColor: category.color },
-                    children: article.category
-                  }
-                ) })
-              ] }),
-              /* @__PURE__ */ jsxs("div", { className: "p-5", children: [
-                /* @__PURE__ */ jsx("h3", { className: "font-display font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors mb-2 leading-snug", children: article.title }),
-                /* @__PURE__ */ jsx("p", { className: "text-sm text-neutral-500 line-clamp-2 mb-4", children: article.excerpt }),
-                /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between pt-3 border-t border-neutral-100", children: [
-                  /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 text-[11px] text-neutral-400", children: [
-                    /* @__PURE__ */ jsx("span", { children: article.publishedAt }),
-                    /* @__PURE__ */ jsx("span", { className: "text-neutral-200", children: "|" }),
-                    /* @__PURE__ */ jsx("span", { children: article.readTime })
-                  ] }),
-                  /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5", children: [
-                    /* @__PURE__ */ jsx(
-                      "button",
-                      {
-                        onClick: (e) => handleShare(e, "facebook", article),
-                        className: "p-1.5 bg-neutral-50 hover:bg-blue-50 hover:text-blue-600 text-neutral-400 transition-colors rounded-sm",
-                        children: /* @__PURE__ */ jsx(Facebook, { className: "w-3 h-3" })
-                      }
-                    ),
-                    /* @__PURE__ */ jsx(
-                      "button",
-                      {
-                        onClick: (e) => handleShare(e, "twitter", article),
-                        className: "p-1.5 bg-neutral-50 hover:bg-sky-50 hover:text-sky-500 text-neutral-400 transition-colors rounded-sm",
-                        children: /* @__PURE__ */ jsx(Twitter, { className: "w-3 h-3" })
-                      }
-                    ),
-                    /* @__PURE__ */ jsx(
-                      "button",
-                      {
-                        onClick: (e) => handleShare(e, "whatsapp", article),
-                        className: "p-1.5 bg-neutral-50 hover:bg-green-50 hover:text-green-600 text-neutral-400 transition-colors rounded-sm",
-                        children: /* @__PURE__ */ jsx(Share2, { className: "w-3 h-3" })
-                      }
-                    )
-                  ] })
-                ] })
-              ] })
-            ]
-          },
-          article.id
-        )) })
-      ] }) : /* @__PURE__ */ jsx("div", { className: "text-center py-20 bg-white border border-neutral-200", children: /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-lg font-display", children: "No more articles in this section." }) }) }),
+        ] }, article.id)) })
+      ] }) : /* @__PURE__ */ jsx("div", { className: "text-center py-20 rounded-2xl bg-neutral-50 border border-neutral-200", children: /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-lg font-display", children: "No more articles in this section." }) }) }),
       /* @__PURE__ */ jsx("aside", { className: "lg:col-span-4", children: /* @__PURE__ */ jsxs("div", { className: "sticky top-28 space-y-6", children: [
-        /* @__PURE__ */ jsxs("div", { className: "bg-white border border-neutral-200", children: [
-          /* @__PURE__ */ jsx("div", { className: "px-5 py-4 border-b border-neutral-200", children: /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-bold uppercase tracking-widest text-primary", children: "Browse Sections" }) }),
+        /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-neutral-200 overflow-hidden", children: [
+          /* @__PURE__ */ jsx("div", { className: "px-5 py-4 border-b border-neutral-200 bg-neutral-50", children: /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary", children: "Browse Sections" }) }),
           /* @__PURE__ */ jsx("div", { className: "p-4 grid grid-cols-2 gap-2", children: categories.filter((c) => c.slug !== categorySlug).map((cat) => /* @__PURE__ */ jsx(
             Link,
             {
               to: `/category/${cat.slug}`,
-              className: "px-3 py-2.5 text-[11px] font-bold uppercase tracking-wider text-neutral-600 border border-neutral-100 hover:border-neutral-300 hover:text-primary text-center transition-all",
+              className: "px-3 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider text-neutral-600 border border-neutral-200 hover:border-secondary hover:bg-secondary hover:text-white text-center transition-all",
               children: cat.name
             },
             cat.slug
           )) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "bg-white border border-neutral-200", children: [
-          /* @__PURE__ */ jsx("div", { className: "px-5 py-4 border-b border-neutral-200", children: /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-bold uppercase tracking-widest text-primary", children: "From Other Sections" }) }),
-          /* @__PURE__ */ jsx("div", { className: "divide-y divide-neutral-100", children: otherCategoryArticles.map((article) => /* @__PURE__ */ jsxs(
-            Link,
-            {
-              to: `/article/${article.id}`,
-              className: "flex gap-3 p-4 group hover:bg-neutral-50 transition-colors",
-              children: [
-                /* @__PURE__ */ jsx("div", { className: "w-16 h-14 shrink-0 overflow-hidden", children: /* @__PURE__ */ jsx("img", { src: article.imageUrl, alt: article.title, className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" }) }),
-                /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", children: [
-                  /* @__PURE__ */ jsx("span", { className: "text-[9px] font-bold uppercase tracking-widest text-primary block mb-1", children: article.category }),
-                  /* @__PURE__ */ jsx("h4", { className: "text-xs font-semibold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: article.title })
-                ] })
-              ]
-            },
-            article.id
-          )) })
+        /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-neutral-200 overflow-hidden", children: [
+          /* @__PURE__ */ jsx("div", { className: "px-5 py-4 border-b border-neutral-200 bg-neutral-50", children: /* @__PURE__ */ jsx("h3", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary", children: "From Other Sections" }) }),
+          /* @__PURE__ */ jsx("div", { className: "divide-y divide-neutral-100", children: otherCategoryArticles.map((article) => /* @__PURE__ */ jsxs(Link, { to: `/article/${article.id}`, className: "flex gap-3 p-4 group hover:bg-neutral-50 transition-colors", children: [
+            /* @__PURE__ */ jsx("div", { className: "w-16 h-14 shrink-0 overflow-hidden rounded-lg", children: /* @__PURE__ */ jsx("img", { src: article.imageUrl, alt: article.title, loading: "lazy", className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" }) }),
+            /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", children: [
+              /* @__PURE__ */ jsx("span", { className: "category-badge block mb-1", children: article.category }),
+              /* @__PURE__ */ jsx("h4", { className: "text-xs font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: article.title })
+            ] }),
+            /* @__PURE__ */ jsx(ArrowUpRight, { className: "w-3.5 h-3.5 text-neutral-300 group-hover:text-primary transition-colors shrink-0" })
+          ] }, article.id)) })
         ] }),
-        /* @__PURE__ */ jsxs("div", { className: "bg-secondary p-6", children: [
-          /* @__PURE__ */ jsx("h3", { className: "font-display text-lg font-bold text-white mb-2", children: "Stay Updated" }),
+        /* @__PURE__ */ jsxs("div", { className: "rounded-2xl bg-secondary p-6", children: [
+          /* @__PURE__ */ jsx("h3", { className: "font-display text-lg text-white mb-2", children: "Stay Updated" }),
           /* @__PURE__ */ jsxs("p", { className: "text-white/50 text-sm mb-4", children: [
             "Get the latest ",
             category.name.toLowerCase(),
-            " stories in your inbox"
+            " stories in your inbox."
           ] }),
           /* @__PURE__ */ jsx(
             "input",
             {
               type: "email",
+              "aria-label": "Email address",
               placeholder: "Your email",
-              className: "w-full px-4 py-2.5 bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
+              className: "w-full px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
             }
           ),
-          /* @__PURE__ */ jsx("button", { className: "w-full py-2.5 bg-primary hover:bg-primary-dark text-white text-[11px] font-bold uppercase tracking-widest transition-colors", children: "Subscribe" })
+          /* @__PURE__ */ jsx("button", { className: "w-full py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-[11px] font-extrabold uppercase tracking-[0.16em] transition-colors", children: "Subscribe" })
         ] })
       ] }) })
     ] }) })
@@ -1600,9 +1585,9 @@ function ArticlePage() {
   const currentIdx = articles.findIndex((a) => a.id === articleId);
   const prevArticle = currentIdx > 0 ? articles[currentIdx - 1] : null;
   const nextArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null;
-  return /* @__PURE__ */ jsxs("div", { className: "min-h-screen bg-neutral-50", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "min-h-screen bg-white", children: [
     /* @__PURE__ */ jsx(Seo, { ...buildArticleSeo(article, category) }),
-    /* @__PURE__ */ jsx("nav", { "aria-label": "Breadcrumb", className: "bg-white border-b border-neutral-200", children: /* @__PURE__ */ jsxs("div", { className: "container-page py-3 flex items-center gap-2 text-[12px]", children: [
+    /* @__PURE__ */ jsx("nav", { "aria-label": "Breadcrumb", className: "border-b border-neutral-200", children: /* @__PURE__ */ jsxs("div", { className: "container-page py-3 flex items-center gap-2 text-[12px]", children: [
       /* @__PURE__ */ jsx(Link, { to: "/", className: "text-neutral-400 hover:text-primary transition-colors font-medium", children: "Home" }),
       /* @__PURE__ */ jsx("span", { className: "text-neutral-300", children: "/" }),
       /* @__PURE__ */ jsx(Link, { to: `/category/${category?.slug || article.category}`, className: "text-neutral-400 hover:text-primary transition-colors font-medium capitalize", children: category?.name || article.category }),
@@ -1610,7 +1595,7 @@ function ArticlePage() {
       /* @__PURE__ */ jsx("span", { className: "text-neutral-600 font-semibold truncate max-w-xs", children: article.title })
     ] }) }),
     /* @__PURE__ */ jsxs("article", { children: [
-      /* @__PURE__ */ jsxs("div", { className: "relative w-full h-60 sm:h-72 md:h-80 lg:h-96 xl:h-[30rem] 2xl:h-[34rem] overflow-hidden", children: [
+      /* @__PURE__ */ jsxs("div", { className: "relative w-full h-64 sm:h-80 md:h-96 lg:h-[30rem] xl:h-[34rem] overflow-hidden", children: [
         /* @__PURE__ */ jsx(
           "img",
           {
@@ -1620,29 +1605,22 @@ function ArticlePage() {
             fetchPriority: "high"
           }
         ),
-        /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-linear-to-t from-black/75 via-black/25 to-transparent" }),
+        /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-linear-to-t from-secondary/90 via-secondary/30 to-transparent" }),
         /* @__PURE__ */ jsx("div", { className: "absolute bottom-0 left-0 right-0", children: /* @__PURE__ */ jsxs("div", { className: "container-page pb-9 lg:pb-14", children: [
-          /* @__PURE__ */ jsx(
-            "div",
-            {
-              className: "inline-block px-4 py-1.5 text-white text-[10px] font-bold uppercase tracking-[0.2em] mb-4",
-              style: { backgroundColor: category?.color || "#C8102E" },
-              children: category?.name || article.category
-            }
-          ),
-          /* @__PURE__ */ jsx("h1", { className: "font-display text-[1.75rem] md:text-4xl lg:text-5xl xl:text-[3.5rem] font-bold text-white leading-[1.08] max-w-4xl", children: article.title })
+          /* @__PURE__ */ jsx("span", { className: "chip mb-4", children: category?.name || article.category }),
+          /* @__PURE__ */ jsx("h1", { className: "font-display text-white text-[1.9rem] md:text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.04] max-w-4xl mt-4", children: article.title })
         ] }) })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "bg-white border-b border-neutral-200 sticky top-0 z-30", children: /* @__PURE__ */ jsxs("div", { className: "container-page py-3 flex flex-wrap items-center justify-between gap-4", children: [
+      /* @__PURE__ */ jsx("div", { className: "bg-white/90 backdrop-blur-xl border-b border-neutral-200 sticky top-0 z-30", children: /* @__PURE__ */ jsxs("div", { className: "container-page py-3 flex flex-wrap items-center justify-between gap-4", children: [
         /* @__PURE__ */ jsxs("div", { className: "flex flex-wrap items-center gap-4", children: [
           /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2.5", children: [
             /* @__PURE__ */ jsx("div", { className: "w-9 h-9 rounded-full bg-secondary flex items-center justify-center", children: /* @__PURE__ */ jsx(User, { className: "w-4 h-4 text-white" }) }),
             /* @__PURE__ */ jsxs("div", { children: [
-              /* @__PURE__ */ jsx("span", { className: "block font-semibold text-secondary text-sm leading-tight", children: article.author }),
+              /* @__PURE__ */ jsx("span", { className: "block font-bold text-secondary text-sm leading-tight", children: article.author }),
               /* @__PURE__ */ jsx("span", { className: "block text-[11px] text-neutral-400", children: "The Fista" })
             ] })
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "hidden sm:flex items-center gap-4 text-xs text-neutral-400", children: [
+          /* @__PURE__ */ jsxs("div", { className: "hidden sm:flex items-center gap-4 text-xs text-neutral-400 font-medium", children: [
             /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1.5", children: [
               /* @__PURE__ */ jsx(Calendar, { className: "w-3.5 h-3.5" }),
               /* @__PURE__ */ jsx("time", { dateTime: toISODate(article.publishedAt), children: article.publishedAt })
@@ -1654,7 +1632,7 @@ function ArticlePage() {
           ] })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ jsx("span", { className: "text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-300 hidden sm:block", children: "Share" }),
+          /* @__PURE__ */ jsx("span", { className: "text-[10px] font-extrabold uppercase tracking-[0.16em] text-neutral-300 hidden sm:block", children: "Share" }),
           [
             { platform: "facebook", icon: Facebook, hoverBg: "hover:bg-blue-600" },
             { platform: "twitter", icon: Twitter, hoverBg: "hover:bg-sky-500" },
@@ -1665,7 +1643,7 @@ function ArticlePage() {
             {
               "aria-label": `Share on ${platform}`,
               onClick: () => handleShare(platform),
-              className: `w-8 h-8 bg-neutral-100 ${hoverBg} hover:text-white text-neutral-500 rounded-md flex items-center justify-center transition-all duration-200`,
+              className: `w-9 h-9 bg-neutral-100 ${hoverBg} hover:text-white text-neutral-500 rounded-full flex items-center justify-center transition-all duration-200`,
               children: /* @__PURE__ */ jsx(Icon, { className: "w-3.5 h-3.5" })
             },
             platform
@@ -1675,15 +1653,15 @@ function ArticlePage() {
             {
               "aria-label": "Copy link",
               onClick: copyToClipboard,
-              className: `w-8 h-8 rounded-md flex items-center justify-center transition-all duration-200 ${copySuccess ? "bg-green-500 text-white" : "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"}`,
-              children: /* @__PURE__ */ jsx(Link2, { className: "w-3.5 h-3.5" })
+              className: `w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${copySuccess ? "bg-green-500 text-white" : "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"}`,
+              children: copySuccess ? /* @__PURE__ */ jsx(Check, { className: "w-3.5 h-3.5" }) : /* @__PURE__ */ jsx(Link2, { className: "w-3.5 h-3.5" })
             }
           )
         ] })
       ] }) }),
       /* @__PURE__ */ jsx("div", { className: "container-page py-12 lg:py-16", children: /* @__PURE__ */ jsxs("div", { className: "grid lg:grid-cols-12 gap-12", children: [
         /* @__PURE__ */ jsxs("div", { className: "lg:col-span-8", children: [
-          /* @__PURE__ */ jsx("p", { className: "font-display text-xl lg:text-[1.6rem] text-neutral-700 leading-relaxed mb-10 border-l-4 border-primary pl-6", children: article.excerpt }),
+          /* @__PURE__ */ jsx("p", { className: "font-display text-xl lg:text-[1.6rem] text-secondary leading-snug mb-10 border-l-4 border-primary pl-6", children: article.excerpt }),
           /* @__PURE__ */ jsx(
             "div",
             {
@@ -1691,19 +1669,12 @@ function ArticlePage() {
               dangerouslySetInnerHTML: { __html: article.content }
             }
           ),
-          /* @__PURE__ */ jsx("div", { className: "mt-12 p-6 bg-white border border-neutral-200", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4", children: [
+          /* @__PURE__ */ jsx("div", { className: "mt-12 p-6 rounded-2xl bg-neutral-50 border border-neutral-200", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4", children: [
             /* @__PURE__ */ jsxs("div", { className: "flex items-center flex-wrap gap-2", children: [
-              /* @__PURE__ */ jsx("span", { className: "text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400", children: "Tags" }),
-              /* @__PURE__ */ jsx(
-                "span",
-                {
-                  className: "px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-sm",
-                  style: { backgroundColor: `${category?.color}15`, color: category?.color },
-                  children: category?.name
-                }
-              ),
-              /* @__PURE__ */ jsx("span", { className: "px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-neutral-100 text-neutral-500 rounded-sm", children: "India" }),
-              /* @__PURE__ */ jsx("span", { className: "px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-neutral-100 text-neutral-500 rounded-sm", children: "2026" })
+              /* @__PURE__ */ jsx("span", { className: "text-[10px] font-extrabold uppercase tracking-[0.16em] text-neutral-400", children: "Tags" }),
+              /* @__PURE__ */ jsx("span", { className: "px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-full bg-primary-light text-primary", children: category?.name }),
+              /* @__PURE__ */ jsx("span", { className: "px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-white border border-neutral-200 text-neutral-500 rounded-full", children: "India" }),
+              /* @__PURE__ */ jsx("span", { className: "px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-white border border-neutral-200 text-neutral-500 rounded-full", children: "2026" })
             ] }),
             /* @__PURE__ */ jsx("div", { className: "flex flex-wrap gap-2", children: [
               { platform: "facebook", label: "Facebook", bg: "bg-blue-600 hover:bg-blue-700" },
@@ -1713,22 +1684,22 @@ function ArticlePage() {
               "button",
               {
                 onClick: () => handleShare(platform),
-                className: `px-4 py-2 ${bg} text-white text-[11px] font-bold uppercase tracking-wider transition-colors`,
+                className: `px-4 py-2 rounded-full ${bg} text-white text-[11px] font-bold uppercase tracking-wider transition-colors`,
                 children: label
               },
               platform
             )) })
           ] }) }),
           /* @__PURE__ */ jsxs("div", { className: "mt-6 grid grid-cols-2 gap-4", children: [
-            prevArticle ? /* @__PURE__ */ jsxs(Link, { to: `/article/${prevArticle.id}`, className: "group p-5 bg-white border border-neutral-200 hover:border-primary/30 hover:shadow-sm transition-all", children: [
-              /* @__PURE__ */ jsxs("span", { className: "text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 flex items-center gap-1 mb-2", children: [
+            prevArticle ? /* @__PURE__ */ jsxs(Link, { to: `/article/${prevArticle.id}`, className: "group p-5 rounded-2xl bg-white border border-neutral-200 hover:border-primary/40 hover:shadow-sm transition-all", children: [
+              /* @__PURE__ */ jsxs("span", { className: "text-[10px] font-extrabold uppercase tracking-[0.16em] text-neutral-400 flex items-center gap-1 mb-2", children: [
                 /* @__PURE__ */ jsx(ArrowLeft, { className: "w-3 h-3" }),
                 " Previous"
               ] }),
               /* @__PURE__ */ jsx("h4", { className: "font-display font-bold text-sm text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: prevArticle.title })
             ] }) : /* @__PURE__ */ jsx("div", {}),
-            nextArticle ? /* @__PURE__ */ jsxs(Link, { to: `/article/${nextArticle.id}`, className: "group p-5 bg-white border border-neutral-200 hover:border-primary/30 hover:shadow-sm transition-all text-right", children: [
-              /* @__PURE__ */ jsxs("span", { className: "text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 flex items-center gap-1 justify-end mb-2", children: [
+            nextArticle ? /* @__PURE__ */ jsxs(Link, { to: `/article/${nextArticle.id}`, className: "group p-5 rounded-2xl bg-white border border-neutral-200 hover:border-primary/40 hover:shadow-sm transition-all text-right", children: [
+              /* @__PURE__ */ jsxs("span", { className: "text-[10px] font-extrabold uppercase tracking-[0.16em] text-neutral-400 flex items-center gap-1 justify-end mb-2", children: [
                 "Next ",
                 /* @__PURE__ */ jsx(ArrowRight, { className: "w-3 h-3" })
               ] }),
@@ -1737,17 +1708,17 @@ function ArticlePage() {
           ] })
         ] }),
         /* @__PURE__ */ jsx("aside", { className: "lg:col-span-4", children: /* @__PURE__ */ jsxs("div", { className: "sticky top-24 space-y-6", children: [
-          /* @__PURE__ */ jsxs("div", { className: "bg-white border border-neutral-200", children: [
-            /* @__PURE__ */ jsx("div", { className: "px-5 py-4 border-b border-neutral-200", children: /* @__PURE__ */ jsx("h2", { className: "text-[11px] font-bold uppercase tracking-[0.2em] text-primary", children: "Related Stories" }) }),
+          /* @__PURE__ */ jsxs("div", { className: "rounded-2xl border border-neutral-200 overflow-hidden", children: [
+            /* @__PURE__ */ jsx("div", { className: "px-5 py-4 border-b border-neutral-200 bg-neutral-50", children: /* @__PURE__ */ jsx("h2", { className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary", children: "Related Stories" }) }),
             /* @__PURE__ */ jsx("div", { className: "divide-y divide-neutral-100", children: relatedArticles.map((related) => /* @__PURE__ */ jsxs(
               Link,
               {
                 to: `/article/${related.id}`,
                 className: "flex gap-4 p-4 group hover:bg-neutral-50 transition-colors",
                 children: [
-                  /* @__PURE__ */ jsx("div", { className: "w-20 h-16 shrink-0 overflow-hidden", children: /* @__PURE__ */ jsx("img", { src: related.imageUrl, alt: related.title, loading: "lazy", className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" }) }),
+                  /* @__PURE__ */ jsx("div", { className: "w-20 h-16 shrink-0 overflow-hidden rounded-lg", children: /* @__PURE__ */ jsx("img", { src: related.imageUrl, alt: related.title, loading: "lazy", className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" }) }),
                   /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", children: [
-                    /* @__PURE__ */ jsx("h3", { className: "text-sm font-semibold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: related.title }),
+                    /* @__PURE__ */ jsx("h3", { className: "text-sm font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: related.title }),
                     /* @__PURE__ */ jsx("span", { className: "text-[11px] text-neutral-400 mt-1 block", children: related.publishedAt })
                   ] })
                 ]
@@ -1758,7 +1729,7 @@ function ArticlePage() {
               Link,
               {
                 to: `/category/${category.slug}`,
-                className: "flex items-center justify-center gap-2 py-3 border-t border-neutral-200 text-[11px] font-bold uppercase tracking-[0.2em] text-primary hover:bg-primary/5 transition-colors",
+                className: "flex items-center justify-center gap-2 py-3 border-t border-neutral-200 text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary hover:bg-primary-light transition-colors",
                 children: [
                   "More ",
                   category.name,
@@ -1768,44 +1739,45 @@ function ArticlePage() {
               }
             )
           ] }),
-          /* @__PURE__ */ jsxs("div", { className: "bg-secondary p-6", children: [
-            /* @__PURE__ */ jsx("h2", { className: "font-display text-lg font-bold text-white mb-2", children: "Stay Updated" }),
-            /* @__PURE__ */ jsx("p", { className: "text-white/50 text-sm mb-4", children: "Get the latest stories delivered to your inbox" }),
+          /* @__PURE__ */ jsxs("div", { className: "rounded-2xl bg-secondary p-6", children: [
+            /* @__PURE__ */ jsx("h2", { className: "font-display text-lg text-white mb-2", children: "Stay Updated" }),
+            /* @__PURE__ */ jsx("p", { className: "text-white/50 text-sm mb-4", children: "Get the latest stories delivered to your inbox." }),
             /* @__PURE__ */ jsx(
               "input",
               {
                 type: "email",
                 "aria-label": "Email address",
                 placeholder: "Your email",
-                className: "w-full px-4 py-2.5 bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
+                className: "w-full px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
               }
             ),
-            /* @__PURE__ */ jsx("button", { className: "w-full py-2.5 bg-primary hover:bg-primary-dark text-white text-[11px] font-bold uppercase tracking-[0.2em] transition-colors", children: "Subscribe" })
+            /* @__PURE__ */ jsx("button", { className: "w-full py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-[11px] font-extrabold uppercase tracking-[0.16em] transition-colors", children: "Subscribe" })
           ] })
         ] }) })
       ] }) })
     ] }),
-    relatedArticles.length > 0 && /* @__PURE__ */ jsx("section", { className: "bg-white border-t border-neutral-200", "aria-label": `More in ${category?.name}`, children: /* @__PURE__ */ jsxs("div", { className: "container-page py-16", children: [
+    relatedArticles.length > 0 && /* @__PURE__ */ jsx("section", { className: "bg-neutral-50 border-t border-neutral-200", "aria-label": `More in ${category?.name}`, children: /* @__PURE__ */ jsxs("div", { className: "container-page py-16", children: [
       /* @__PURE__ */ jsxs("div", { className: "flex items-end justify-between mb-8", children: [
         /* @__PURE__ */ jsxs("div", { children: [
-          /* @__PURE__ */ jsxs("h2", { className: "font-display text-2xl lg:text-3xl font-bold text-secondary", children: [
+          /* @__PURE__ */ jsxs("span", { className: "section-eyebrow", children: [
             "More in ",
             category?.name
           ] }),
+          /* @__PURE__ */ jsx("h2", { className: "section-heading mt-2", children: "Keep Reading" }),
           /* @__PURE__ */ jsx("div", { className: "section-rule" })
         ] }),
-        category && /* @__PURE__ */ jsxs(Link, { to: `/category/${category.slug}`, className: "text-[11px] font-bold uppercase tracking-[0.2em] text-primary hover:text-primary-dark transition-colors flex items-center gap-1.5", children: [
+        category && /* @__PURE__ */ jsxs(Link, { to: `/category/${category.slug}`, className: "text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary hover:text-primary-dark transition-colors flex items-center gap-1.5", children: [
           "View All ",
           /* @__PURE__ */ jsx(ArrowRight, { className: "w-3.5 h-3.5" })
         ] })
       ] }),
-      /* @__PURE__ */ jsx("div", { className: "grid md:grid-cols-3 gap-8", children: relatedArticles.map((related) => /* @__PURE__ */ jsxs(
+      /* @__PURE__ */ jsx("div", { className: "grid md:grid-cols-3 gap-6", children: relatedArticles.map((related) => /* @__PURE__ */ jsxs(
         Link,
         {
           to: `/article/${related.id}`,
-          className: "group bg-white border border-neutral-200 overflow-hidden hover:border-neutral-300 hover:shadow-[0_18px_40px_-24px_rgba(20,17,14,0.35)] transition-all duration-300",
+          className: "card group",
           children: [
-            /* @__PURE__ */ jsxs("div", { className: "relative h-52 overflow-hidden", children: [
+            /* @__PURE__ */ jsxs("div", { className: "relative aspect-16/10 overflow-hidden", children: [
               /* @__PURE__ */ jsx(
                 "img",
                 {
@@ -1815,14 +1787,14 @@ function ArticlePage() {
                   className: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 }
               ),
-              /* @__PURE__ */ jsx("div", { className: "absolute top-4 left-4", children: /* @__PURE__ */ jsx("span", { className: "px-2.5 py-1 bg-white/90 backdrop-blur category-badge", children: related.category }) })
+              /* @__PURE__ */ jsx("div", { className: "absolute top-4 left-4", children: /* @__PURE__ */ jsx("span", { className: "chip", children: related.category }) })
             ] }),
             /* @__PURE__ */ jsxs("div", { className: "p-6", children: [
-              /* @__PURE__ */ jsx("h3", { className: "font-display font-bold text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: related.title }),
+              /* @__PURE__ */ jsx("h3", { className: "font-display text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug", children: related.title }),
               /* @__PURE__ */ jsx("p", { className: "text-neutral-500 text-sm mt-2 line-clamp-2", children: related.excerpt }),
-              /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mt-4 pt-3 border-t border-neutral-100 text-[11px] text-neutral-400", children: [
+              /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 mt-4 pt-3 border-t border-neutral-100 text-[11px] text-neutral-400 font-medium", children: [
                 /* @__PURE__ */ jsx("span", { children: related.publishedAt }),
-                /* @__PURE__ */ jsx("span", { className: "text-neutral-200", children: "|" }),
+                /* @__PURE__ */ jsx("span", { className: "w-1 h-1 rounded-full bg-neutral-300" }),
                 /* @__PURE__ */ jsx("span", { children: related.readTime })
               ] })
             ] })
@@ -1841,7 +1813,7 @@ function ScrollToTop() {
   return null;
 }
 function App() {
-  return /* @__PURE__ */ jsxs("div", { className: "min-h-screen flex flex-col bg-neutral-50", children: [
+  return /* @__PURE__ */ jsxs("div", { className: "min-h-screen flex flex-col bg-white", children: [
     /* @__PURE__ */ jsx(ScrollToTop, {}),
     /* @__PURE__ */ jsx(Header, {}),
     /* @__PURE__ */ jsx("main", { className: "flex-1", children: /* @__PURE__ */ jsxs(Routes, { children: [

@@ -22,7 +22,7 @@ function ScrollToTop() {
 // StaticRouter during prerendering), so App itself is router-agnostic.
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-neutral-50">
+    <div className="min-h-screen flex flex-col bg-white">
       <ScrollToTop />
       <Header />
       <main className="flex-1">

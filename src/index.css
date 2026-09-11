@@ -1,43 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --font-inter: "Inter", system-ui, sans-serif;
-  --font-display: "Playfair Display", Georgia, serif;
+  /* Type — modern grotesk display + clean sans UI + serif long-read */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Archivo", "Inter", system-ui, sans-serif;
   --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
 
-  /* Brand — refined editorial red + deep ink */
-  --color-primary: #C8102E;
-  --color-primary-dark: #A00C24;
-  --color-primary-light: #FBE9EC;
-  --color-secondary: #0E1621;
-  --color-secondary-light: #1E2A38;
-  --color-accent: #C8102E;
-  --color-gold: #B08641;
-  --color-gold-light: #F3E8D2;
+  /* Brand — bright, high-contrast newsroom. Single electric accent. */
+  --color-primary: #F0263C;
+  --color-primary-dark: #C5102A;
+  --color-primary-light: #FFECEE;
+  --color-secondary: #0A0E14;
+  --color-secondary-light: #1D2530;
+  --color-accent: #F0263C;
+  --color-ink: #0A0E14;
 
-  /* Warm, premium neutral scale (paper tint) */
-  --color-neutral-50: #FAF9F6;
-  --color-neutral-100: #F3F1EC;
-  --color-neutral-200: #E7E4DD;
-  --color-neutral-300: #D4D0C7;
-  --color-neutral-400: #A39E93;
-  --color-neutral-500: #6F6A60;
-  --color-neutral-600: #4C473F;
-  --color-neutral-700: #35312B;
-  --color-neutral-800: #211E1A;
-  --color-neutral-900: #14110E;
+  /* Cool, crisp neutral scale */
+  --color-neutral-50: #F7F8FA;
+  --color-neutral-100: #F1F2F5;
+  --color-neutral-200: #E4E7EC;
+  --color-neutral-300: #CDD2DA;
+  --color-neutral-400: #98A1B0;
+  --color-neutral-500: #667085;
+  --color-neutral-600: #475061;
+  --color-neutral-700: #333B49;
+  --color-neutral-800: #1D2530;
+  --color-neutral-900: #0A0E14;
 }
 
 @layer base {
   html {
-    font-family: var(--font-inter);
+    font-family: var(--font-sans);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   body {
-    @apply bg-neutral-50 text-neutral-900 antialiased;
+    @apply bg-white text-neutral-900 antialiased;
     margin: 0;
   }
 
@@ -58,91 +58,124 @@
 @layer components {
   .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
+    font-weight: 800;
   }
 
   .font-serif-read {
     font-family: var(--font-serif);
   }
 
-  /* Constrain outer content to a premium editorial width */
+  /* Outer content width — wide, modern grid */
   .container-page {
-    @apply max-w-350 mx-auto px-6 lg:px-10;
+    @apply max-w-[1440px] mx-auto px-5 sm:px-6 lg:px-10;
   }
 
+  /* High-CTA buttons */
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 transition-all duration-200 tracking-wide;
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-6 py-3.5 rounded-full transition-all duration-200 tracking-wide;
+    box-shadow: 0 8px 20px -8px rgba(240, 38, 60, 0.6);
+  }
+  .btn-ink {
+    @apply inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-light text-white font-bold px-6 py-3.5 rounded-full transition-all duration-200 tracking-wide;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-neutral-300 hover:border-secondary text-secondary font-bold px-6 py-3.5 rounded-full transition-all duration-200 tracking-wide;
   }
 
+  /* Kicker / category label */
   .kicker {
-    @apply text-primary text-[11px] font-bold uppercase tracking-[0.18em];
+    @apply text-primary text-[11px] font-extrabold uppercase tracking-[0.16em];
+  }
+  .category-badge {
+    @apply text-primary text-[10px] font-extrabold uppercase tracking-[0.16em];
   }
 
-  .category-badge {
-    @apply text-primary text-[10px] font-bold uppercase tracking-[0.2em];
+  /* Pill-style category chip on imagery */
+  .chip {
+    @apply inline-flex items-center rounded-full bg-primary text-white text-[10px] font-extrabold uppercase tracking-[0.14em] px-3 py-1.5;
+  }
+  .chip-ink {
+    @apply inline-flex items-center rounded-full bg-secondary/85 backdrop-blur text-white text-[10px] font-extrabold uppercase tracking-[0.14em] px-3 py-1.5;
   }
 
   .live-badge {
-    @apply bg-primary text-white text-[10px] font-bold px-3 py-1 uppercase tracking-[0.2em] animate-pulse flex items-center gap-1.5;
+    @apply inline-flex items-center gap-1.5 rounded-full bg-primary text-white text-[10px] font-extrabold px-3 py-1 uppercase tracking-[0.16em];
   }
 
   .card {
-    @apply bg-white border border-neutral-200 hover:border-neutral-300 hover:shadow-[0_18px_40px_-24px_rgba(20,17,14,0.35)] transition-all duration-300 overflow-hidden;
+    @apply bg-white border border-neutral-200 rounded-2xl hover:border-neutral-300 hover:shadow-[0_24px_50px_-30px_rgba(10,14,20,0.4)] transition-all duration-300 overflow-hidden;
   }
 
   .nav-link {
-    @apply text-neutral-600 hover:text-secondary font-medium transition-colors text-sm uppercase tracking-wide;
+    @apply text-neutral-600 hover:text-secondary font-semibold transition-colors text-sm;
   }
-
   .nav-link-active {
-    @apply text-primary font-semibold;
+    @apply text-primary font-bold;
   }
 
+  /* Section headings */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-primary text-[11px] font-extrabold uppercase tracking-[0.18em];
+  }
   .section-heading {
     font-family: var(--font-display);
-    @apply text-3xl lg:text-4xl font-bold text-secondary;
-    letter-spacing: -0.015em;
+    @apply text-3xl lg:text-[2.5rem] font-extrabold text-secondary leading-[1.05];
+    letter-spacing: -0.02em;
   }
-
   .section-rule {
-    @apply w-14 h-0.5 bg-primary mt-3;
+    @apply w-12 h-1 bg-primary rounded-full mt-3;
   }
-
   .hairline {
     @apply border-t border-neutral-200;
   }
 
+  /* Breaking ticker */
   .ticker-scroll {
-    animation: ticker 38s linear infinite;
+    animation: ticker 40s linear infinite;
   }
-
   @keyframes ticker {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
+  .ticker-track:hover .ticker-scroll {
+    animation-play-state: paused;
+  }
 
   .breaking-pulse {
-    animation: breaking 1.5s ease-in-out infinite;
+    animation: breaking 1.4s ease-in-out infinite;
+  }
+  @keyframes breaking {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
   }
 
-  @keyframes breaking {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+  /* Subtle rise-in for hero */
+  .rise-in {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
   /* Editorial article body — serif, generous measure & rhythm */
   .article-prose {
     font-family: var(--font-serif);
-    @apply text-[1.175rem] leading-[1.85] text-neutral-700;
+    @apply text-[1.2rem] leading-[1.85] text-neutral-700;
   }
   .article-prose p { @apply mb-7; }
   .article-prose h2 {
     font-family: var(--font-display);
-    @apply text-[1.7rem] lg:text-[2rem] font-bold text-secondary mt-12 mb-5 leading-tight;
+    @apply text-[1.7rem] lg:text-[2rem] font-extrabold text-secondary mt-12 mb-5 leading-tight;
+    letter-spacing: -0.02em;
   }
   .article-prose h3 {
     font-family: var(--font-display);
-    @apply text-xl font-bold text-secondary mt-8 mb-3;
+    @apply text-xl font-extrabold text-secondary mt-8 mb-3;
   }
   .article-prose ul { @apply list-disc pl-6 mb-7 space-y-2.5; }
   .article-prose ol { @apply list-decimal pl-6 mb-7 space-y-2.5; }
@@ -150,7 +183,8 @@
   .article-prose a { @apply text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary; }
   .article-prose strong { @apply text-secondary font-semibold; }
   .article-prose blockquote {
-    @apply border-l-4 border-primary pl-6 my-9 text-neutral-600 italic text-[1.25rem] leading-relaxed;
+    font-family: var(--font-serif);
+    @apply border-l-4 border-primary pl-6 my-9 text-secondary italic text-[1.3rem] leading-relaxed;
   }
-  .article-prose img { @apply rounded-lg shadow-md my-8; }
+  .article-prose img { @apply rounded-xl shadow-md my-8; }
 }

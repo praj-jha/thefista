@@ -1,40 +1,56 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Youtube, Mail, MapPin, ArrowRight } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Mail, MapPin, ArrowRight, Send } from 'lucide-react';
 import { categories } from '../data/articles';
 
 export default function Footer() {
     return (
         <footer className="bg-secondary text-white">
-            {/* Newsletter Bar */}
-            <div className="bg-primary">
-                <div className="container-page py-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div>
-                        <h3 className="font-display text-xl font-bold text-white">Stay Informed</h3>
-                        <p className="text-white/80 text-sm mt-1">Get breaking news delivered to your inbox</p>
-                    </div>
-                    <div className="flex w-full md:w-auto">
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="flex-1 md:w-72 px-5 py-3 bg-white/20 backdrop-blur-sm text-white placeholder-white/60 text-sm border border-white/30 focus:outline-none focus:border-white focus:bg-white/25 transition-all"
-                        />
-                        <button className="px-6 py-3 bg-secondary hover:bg-secondary-light text-white text-sm font-bold uppercase tracking-widest transition-colors flex items-center gap-2">
-                            Subscribe <ArrowRight className="w-4 h-4" />
-                        </button>
+            {/* Newsletter CTA Band */}
+            <div id="newsletter" className="container-page pt-16 pb-14 lg:pt-20 lg:pb-16 scroll-mt-24">
+                <div className="relative overflow-hidden rounded-[2rem] bg-linear-to-br from-primary to-primary-dark px-6 py-12 sm:px-12 lg:px-16 lg:py-16">
+                    <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/10" />
+                    <div className="absolute -bottom-24 -left-10 w-72 h-72 rounded-full bg-white/5" />
+                    <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+                        <div className="max-w-xl">
+                            <span className="inline-flex items-center gap-2 text-white/80 text-[11px] font-extrabold uppercase tracking-[0.18em]">
+                                <Send className="w-3.5 h-3.5" /> The Fista Briefing
+                            </span>
+                            <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.05] mt-3">
+                                India's biggest stories, in your inbox by 8 AM.
+                            </h2>
+                            <p className="text-white/80 text-[15px] mt-3">
+                                Join thousands of readers. Sharp, credible, and free — every morning.
+                            </p>
+                        </div>
+                        <form className="w-full lg:w-auto shrink-0" onSubmit={(e) => e.preventDefault()}>
+                            <div className="flex flex-col sm:flex-row gap-3 lg:w-96">
+                                <input
+                                    type="email"
+                                    required
+                                    placeholder="Enter your email"
+                                    aria-label="Email address"
+                                    className="flex-1 px-5 py-3.5 rounded-full bg-white text-secondary placeholder-neutral-400 text-sm focus:outline-none focus:ring-4 focus:ring-white/30 transition-all"
+                                />
+                                <button type="submit" className="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-light text-white text-sm font-bold px-6 py-3.5 rounded-full transition-colors whitespace-nowrap">
+                                    Subscribe <ArrowRight className="w-4 h-4" />
+                                </button>
+                            </div>
+                            <p className="text-white/60 text-[11px] mt-3 sm:pl-2">No spam. Unsubscribe anytime.</p>
+                        </form>
                     </div>
                 </div>
             </div>
 
             {/* Main Footer */}
-            <div className="container-page py-14">
-                <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-10">
+            <div className="container-page pb-14">
+                <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-10 pt-6 border-t border-white/10">
                     {/* Brand */}
                     <div className="lg:col-span-4">
                         <Link to="/" className="flex items-center mb-5">
-                            <img src="/2.png" alt="The Fista" className="h-12 w-auto -ml-6" />
+                            <img src="/2.png" alt="The Fista" className="h-11 w-auto -ml-6" />
                         </Link>
                         <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
-                            India's trusted news platform delivering credible journalism across cricket, politics, health, business, and more.
+                            India's trusted news platform — credible, in-depth coverage across cricket, politics, business, health, Bollywood, education and technology.
                         </p>
                         <div className="flex gap-2">
                             {[
@@ -46,7 +62,7 @@ export default function Footer() {
                                 <a
                                     key={label}
                                     href="#"
-                                    className="w-9 h-9 bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-200"
+                                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-200"
                                     aria-label={label}
                                 >
                                     <Icon className="w-4 h-4" />
@@ -55,16 +71,13 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Categories */}
+                    {/* Sections */}
                     <div className="lg:col-span-2">
-                        <h3 className="text-[11px] font-bold uppercase tracking-widest text-white/40 mb-5">Sections</h3>
+                        <h3 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/40 mb-5">Sections</h3>
                         <ul className="space-y-2.5">
                             {categories.map((cat) => (
                                 <li key={cat.id}>
-                                    <Link
-                                        to={`/category/${cat.slug}`}
-                                        className="text-white/60 hover:text-white text-sm transition-colors"
-                                    >
+                                    <Link to={`/category/${cat.slug}`} className="text-white/60 hover:text-white text-sm transition-colors">
                                         {cat.name}
                                     </Link>
                                 </li>
@@ -74,7 +87,7 @@ export default function Footer() {
 
                     {/* Company */}
                     <div className="lg:col-span-2">
-                        <h3 className="text-[11px] font-bold uppercase tracking-widest text-white/40 mb-5">Company</h3>
+                        <h3 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/40 mb-5">Company</h3>
                         <ul className="space-y-2.5">
                             {['About Us', 'Contact', 'Careers', 'Advertise'].map((item) => (
                                 <li key={item}>
@@ -86,7 +99,7 @@ export default function Footer() {
 
                     {/* Legal */}
                     <div className="lg:col-span-2">
-                        <h3 className="text-[11px] font-bold uppercase tracking-widest text-white/40 mb-5">Legal</h3>
+                        <h3 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/40 mb-5">Legal</h3>
                         <ul className="space-y-2.5">
                             {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Disclaimer'].map((item) => (
                                 <li key={item}>
@@ -98,7 +111,7 @@ export default function Footer() {
 
                     {/* Contact */}
                     <div className="lg:col-span-2">
-                        <h3 className="text-[11px] font-bold uppercase tracking-widest text-white/40 mb-5">Reach Us</h3>
+                        <h3 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-white/40 mb-5">Reach Us</h3>
                         <ul className="space-y-3">
                             <li className="flex items-start gap-2.5 text-white/60 text-sm">
                                 <MapPin className="w-4 h-4 shrink-0 text-primary mt-0.5" />
@@ -117,9 +130,7 @@ export default function Footer() {
                     <p className="text-white/30 text-xs uppercase tracking-wider">
                         &copy; {new Date().getFullYear()} The Fista Media Group. All rights reserved.
                     </p>
-                    <p className="text-white/20 text-xs">
-                        Crafted with precision in India
-                    </p>
+                    <p className="text-white/20 text-xs">Crafted with precision in India</p>
                 </div>
             </div>
         </footer>
