@@ -60,7 +60,7 @@ export default function Header() {
             <div className={`bg-white border-b border-neutral-200 overflow-hidden transition-all duration-300 ${isScrolled ? 'max-h-0 opacity-0 border-transparent' : 'max-h-24 opacity-100'}`}>
                 <div className="container-page flex items-center justify-between gap-4 py-3">
                     <Link to="/" className="flex items-center shrink-0">
-                        <img src="/2.png" alt="The Fista" className="h-9 md:h-11 w-auto" />
+                        <img src="/fistaa.png" alt="The Fista" className="h-9 md:h-11 w-auto" />
                     </Link>
 
                     <div className="flex items-center gap-2 shrink-0">
