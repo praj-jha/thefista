@@ -46,38 +46,31 @@ export default function CategoryPage() {
         .slice(0, 5);
 
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-neutral-50 min-h-screen">
             <Seo {...buildCategorySeo(category, categoryArticles)} />
 
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="border-b border-neutral-200">
-                <div className="container-page py-3 flex items-center gap-2 text-[12px]">
-                    <Link to="/" className="text-neutral-400 hover:text-primary transition-colors font-medium">Home</Link>
+            <nav aria-label="Breadcrumb" className="border-b border-neutral-200 bg-white">
+                <div className="container-page py-2.5 flex items-center gap-2 text-[12px] font-cond uppercase tracking-wide">
+                    <Link to="/" className="text-neutral-400 hover:text-primary transition-colors">Home</Link>
                     <span className="text-neutral-300">/</span>
-                    <span className="font-semibold text-secondary capitalize">{category.name}</span>
+                    <span className="font-bold text-primary">{category.name}</span>
                 </div>
             </nav>
 
-            {/* Category Hero Banner */}
-            <div className="relative bg-secondary overflow-hidden">
-                <div className="absolute inset-0" style={{
-                    backgroundImage: `radial-gradient(circle at 15% 20%, ${category.color}55, transparent 45%), radial-gradient(circle at 85% 80%, ${category.color}33, transparent 40%)`,
-                }} />
-                <div className="container-page py-14 lg:py-20 relative z-10">
-                    <span
-                        className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.18em] mb-4"
-                        style={{ color: category.color }}
-                    >
-                        <span className="w-6 h-0.5 rounded-full" style={{ backgroundColor: category.color }} />
-                        Section
-                    </span>
-                    <h1 className="font-display text-4xl lg:text-6xl text-white leading-[1.02] mb-4">
-                        {category.name}
-                    </h1>
-                    <p className="text-white/60 text-sm lg:text-base max-w-xl">
-                        Stay updated with the latest {category.name.toLowerCase()} news from India and around the world.
+            {/* Category header band */}
+            <div className="bg-neutral-900 text-white">
+                <div className="container-page py-8 lg:py-10">
+                    <div className="flex items-center gap-3">
+                        <span className="w-1.5 h-9 rounded-full" style={{ backgroundColor: category.color }} />
+                        <h1 className="font-display text-4xl lg:text-5xl uppercase leading-none">
+                            {category.name}
+                        </h1>
+                    </div>
+                    <p className="text-white/60 text-sm lg:text-base max-w-xl mt-3">
+                        Latest {category.name.toLowerCase()} news, updates and analysis from India and around the world.
                     </p>
-                    <div className="flex items-center gap-4 mt-6 text-white/40 text-xs font-medium">
+                    <div className="flex items-center gap-3 mt-4 text-white/40 text-[11px] font-cond uppercase tracking-wide">
                         <span>{categoryArticles.length} Articles</span>
                         <span className="w-1 h-1 rounded-full bg-white/20" />
                         <span>Updated {categoryArticles[0]?.publishedAt || 'Recently'}</span>
@@ -87,28 +80,28 @@ export default function CategoryPage() {
 
             {/* Featured Lead Story */}
             {featuredArticle && (
-                <div className="container-page -mt-8 relative z-10 mb-12">
+                <div className="container-page pt-8 mb-10">
                     <Link to={`/article/${featuredArticle.id}`} className="block group">
-                        <div className="grid lg:grid-cols-12 bg-white border border-neutral-200 rounded-3xl overflow-hidden hover:shadow-[0_30px_60px_-30px_rgba(10,14,20,0.4)] transition-all duration-300">
-                            <div className="lg:col-span-7 relative h-64 lg:h-[26rem] overflow-hidden">
+                        <div className="grid lg:grid-cols-12 bg-white border border-neutral-200 rounded-sm overflow-hidden hover:shadow-[0_16px_40px_-24px_rgba(0,0,0,0.5)] transition-all duration-200">
+                            <div className="lg:col-span-7 relative h-64 lg:h-[24rem] overflow-hidden">
                                 <img
                                     src={featuredArticle.imageUrl}
                                     alt={featuredArticle.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
-                                <div className="absolute top-4 left-4">
-                                    <span className="chip">Featured</span>
+                                <div className="absolute top-0 left-0">
+                                    <span className="chip rounded-none">Featured</span>
                                 </div>
                             </div>
-                            <div className="lg:col-span-5 p-8 lg:p-10 flex flex-col justify-center">
+                            <div className="lg:col-span-5 p-6 lg:p-8 flex flex-col justify-center">
                                 <span className="category-badge">{featuredArticle.category}</span>
-                                <h2 className="font-display text-2xl lg:text-3xl text-secondary group-hover:text-primary transition-colors leading-tight mt-2 mb-4">
+                                <h2 className="font-display text-2xl lg:text-[1.9rem] text-secondary group-hover:text-primary transition-colors leading-tight mt-1.5 mb-3">
                                     {featuredArticle.title}
                                 </h2>
-                                <p className="text-neutral-500 text-sm lg:text-base leading-relaxed mb-6 line-clamp-3">
+                                <p className="text-neutral-500 text-sm lg:text-[15px] leading-relaxed mb-5 line-clamp-3">
                                     {featuredArticle.excerpt}
                                 </p>
-                                <div className="flex items-center gap-3 text-xs text-neutral-400 font-medium">
+                                <div className="flex items-center gap-3 text-[11px] text-neutral-400 font-cond uppercase tracking-wide">
                                     <div className="flex items-center gap-1.5">
                                         <User className="w-3.5 h-3.5" />
                                         <span>{featuredArticle.author}</span>
@@ -121,7 +114,7 @@ export default function CategoryPage() {
                                         <span>{featuredArticle.readTime}</span>
                                     </div>
                                 </div>
-                                <span className="btn-primary mt-6 self-start">
+                                <span className="btn-primary mt-5 self-start">
                                     Read Full Story <ArrowRight className="w-4 h-4" />
                                 </span>
                             </div>
@@ -131,19 +124,15 @@ export default function CategoryPage() {
             )}
 
             {/* Main Content */}
-            <div className="container-page pb-16">
+            <div className="container-page pb-14">
                 <div className="grid lg:grid-cols-12 gap-8">
                     <div className="lg:col-span-8">
                         {restArticles.length > 0 ? (
                             <>
-                                <div className="flex items-end justify-between mb-6">
-                                    <div>
-                                        <span className="section-eyebrow">Latest</span>
-                                        <h2 className="font-display text-2xl text-secondary mt-1">More {category.name} Stories</h2>
-                                        <div className="section-rule" />
-                                    </div>
+                                <div className="section-bar">
+                                    <span className="section-tab">More {category.name}</span>
                                 </div>
-                                <div className="grid sm:grid-cols-2 gap-6">
+                                <div className="grid sm:grid-cols-2 gap-4">
                                     {restArticles.map((article) => (
                                         <Link to={`/article/${article.id}`} key={article.id} className="card group flex flex-col">
                                             <div className="relative aspect-16/10 overflow-hidden">
@@ -153,19 +142,19 @@ export default function CategoryPage() {
                                                     loading="lazy"
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                                 />
-                                                <div className="absolute top-3 left-3">
-                                                    <span className="chip">{article.category}</span>
+                                                <div className="absolute top-0 left-0">
+                                                    <span className="chip rounded-none">{article.category}</span>
                                                 </div>
                                             </div>
-                                            <div className="p-5 flex flex-col flex-1">
-                                                <h3 className="font-display text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
+                                            <div className="p-4 flex flex-col flex-1">
+                                                <h3 className="text-[16px] font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
                                                     {article.title}
                                                 </h3>
-                                                <p className="text-sm text-neutral-500 line-clamp-2 mt-2 mb-4">
+                                                <p className="text-[13.5px] text-neutral-500 line-clamp-2 mt-1.5 mb-3">
                                                     {article.excerpt}
                                                 </p>
-                                                <div className="flex items-center justify-between pt-3 border-t border-neutral-100 mt-auto">
-                                                    <span className="text-[11px] text-neutral-400 font-medium">{article.publishedAt} · {article.readTime}</span>
+                                                <div className="flex items-center justify-between pt-2.5 border-t border-neutral-100 mt-auto">
+                                                    <span className="text-[11px] text-neutral-400 font-cond uppercase tracking-wide">{article.publishedAt} · {article.readTime}</span>
                                                     <div className="flex items-center gap-1.5">
                                                         <button aria-label="Share on Facebook" onClick={(e) => handleShare(e, 'facebook', article)} className="p-1.5 rounded-full bg-neutral-50 hover:bg-blue-50 hover:text-blue-600 text-neutral-400 transition-colors">
                                                             <Facebook className="w-3 h-3" />
@@ -184,8 +173,8 @@ export default function CategoryPage() {
                                 </div>
                             </>
                         ) : (
-                            <div className="text-center py-20 rounded-2xl bg-neutral-50 border border-neutral-200">
-                                <p className="text-neutral-500 text-lg font-display">No more articles in this section.</p>
+                            <div className="text-center py-20 rounded-sm bg-white border border-neutral-200">
+                                <p className="text-neutral-500 text-lg font-display uppercase">No more articles in this section.</p>
                             </div>
                         )}
                     </div>
@@ -193,16 +182,16 @@ export default function CategoryPage() {
                     {/* Sidebar */}
                     <aside className="lg:col-span-4">
                         <div className="sticky top-28 space-y-6">
-                            <div className="rounded-2xl border border-neutral-200 overflow-hidden">
-                                <div className="px-5 py-4 border-b border-neutral-200 bg-neutral-50">
-                                    <h3 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary">Browse Sections</h3>
+                            <div className="rounded-sm border border-neutral-200 bg-white overflow-hidden">
+                                <div className="section-bar mb-0 border-b-2 border-primary px-4 pt-3 pb-2">
+                                    <h3 className="section-bar-title text-primary">Sections</h3>
                                 </div>
-                                <div className="p-4 grid grid-cols-2 gap-2">
+                                <div className="p-3 grid grid-cols-2 gap-2">
                                     {categories.filter(c => c.slug !== categorySlug).map((cat) => (
                                         <Link
                                             key={cat.slug}
                                             to={`/category/${cat.slug}`}
-                                            className="px-3 py-2.5 rounded-xl text-[11px] font-bold uppercase tracking-wider text-neutral-600 border border-neutral-200 hover:border-secondary hover:bg-secondary hover:text-white text-center transition-all"
+                                            className="px-3 py-2.5 rounded-sm text-[11px] font-bold uppercase tracking-wide font-cond text-neutral-600 border border-neutral-200 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white text-center transition-all"
                                         >
                                             {cat.name}
                                         </Link>
@@ -210,19 +199,19 @@ export default function CategoryPage() {
                                 </div>
                             </div>
 
-                            <div className="rounded-2xl border border-neutral-200 overflow-hidden">
-                                <div className="px-5 py-4 border-b border-neutral-200 bg-neutral-50">
-                                    <h3 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary">From Other Sections</h3>
+                            <div className="rounded-sm border border-neutral-200 bg-white overflow-hidden">
+                                <div className="section-bar mb-0 border-b-2 border-primary px-4 pt-3 pb-2">
+                                    <h3 className="section-bar-title text-primary">More News</h3>
                                 </div>
                                 <div className="divide-y divide-neutral-100">
                                     {otherCategoryArticles.map((article) => (
                                         <Link key={article.id} to={`/article/${article.id}`} className="flex gap-3 p-4 group hover:bg-neutral-50 transition-colors">
-                                            <div className="w-16 h-14 shrink-0 overflow-hidden rounded-lg">
+                                            <div className="w-16 h-14 shrink-0 overflow-hidden rounded-sm">
                                                 <img src={article.imageUrl} alt={article.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <span className="category-badge block mb-1">{article.category}</span>
-                                                <h4 className="text-xs font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
+                                                <span className="category-badge block mb-0.5">{article.category}</span>
+                                                <h4 className="text-[13px] font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
                                                     {article.title}
                                                 </h4>
                                             </div>
@@ -232,16 +221,16 @@ export default function CategoryPage() {
                                 </div>
                             </div>
 
-                            <div className="rounded-2xl bg-secondary p-6">
-                                <h3 className="font-display text-lg text-white mb-2">Stay Updated</h3>
+                            <div className="rounded-sm bg-neutral-900 p-6">
+                                <h3 className="font-display text-xl uppercase text-white mb-2">Stay Updated</h3>
                                 <p className="text-white/50 text-sm mb-4">Get the latest {category.name.toLowerCase()} stories in your inbox.</p>
                                 <input
                                     type="email"
                                     aria-label="Email address"
                                     placeholder="Your email"
-                                    className="w-full px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
+                                    className="w-full px-4 py-2.5 rounded-sm bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
                                 />
-                                <button className="w-full py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-[11px] font-extrabold uppercase tracking-[0.16em] transition-colors">
+                                <button className="w-full py-2.5 rounded-sm bg-primary hover:bg-primary-dark text-white text-[12px] font-bold uppercase tracking-wide font-cond transition-colors">
                                     Subscribe
                                 </button>
                             </div>

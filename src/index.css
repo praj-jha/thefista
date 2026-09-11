@@ -1,31 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  /* Type — modern grotesk display + clean sans UI + serif long-read */
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-display: "Archivo", "Inter", system-ui, sans-serif;
-  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  /* Type — Roboto news sans + Oswald condensed display (NDTV newsroom feel) */
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Oswald", "Roboto Condensed", "Roboto", system-ui, sans-serif;
+  --font-cond: "Roboto Condensed", "Roboto", system-ui, sans-serif;
 
-  /* Brand — bright, high-contrast newsroom. Single electric accent. */
-  --color-primary: #F0263C;
-  --color-primary-dark: #C5102A;
-  --color-primary-light: #FFECEE;
-  --color-secondary: #0A0E14;
-  --color-secondary-light: #1D2530;
-  --color-accent: #F0263C;
-  --color-ink: #0A0E14;
+  /* Brand — NDTV-style hot red on near-black + clean white canvas */
+  --color-primary: #D71920;
+  --color-primary-dark: #B0111A;
+  --color-primary-light: #FDECEC;
+  --color-secondary: #0A0A0A;
+  --color-secondary-light: #1F1F1F;
+  --color-accent: #D71920;
+  --color-ink: #0A0A0A;
 
-  /* Cool, crisp neutral scale */
-  --color-neutral-50: #F7F8FA;
-  --color-neutral-100: #F1F2F5;
-  --color-neutral-200: #E4E7EC;
-  --color-neutral-300: #CDD2DA;
-  --color-neutral-400: #98A1B0;
-  --color-neutral-500: #667085;
-  --color-neutral-600: #475061;
-  --color-neutral-700: #333B49;
-  --color-neutral-800: #1D2530;
-  --color-neutral-900: #0A0E14;
+  /* Warm-neutral news grays */
+  --color-neutral-50: #F6F6F6;
+  --color-neutral-100: #EDEDED;
+  --color-neutral-200: #E1E1E1;
+  --color-neutral-300: #CFCFCF;
+  --color-neutral-400: #9C9C9C;
+  --color-neutral-500: #6E6E6E;
+  --color-neutral-600: #4A4A4A;
+  --color-neutral-700: #333333;
+  --color-neutral-800: #1F1F1F;
+  --color-neutral-900: #0A0A0A;
 }
 
 @layer base {
@@ -37,7 +37,7 @@
   }
 
   body {
-    @apply bg-white text-neutral-900 antialiased;
+    @apply bg-neutral-50 text-neutral-900 antialiased;
     margin: 0;
   }
 
@@ -58,73 +58,90 @@
 @layer components {
   .font-display {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    font-weight: 800;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .font-cond {
+    font-family: var(--font-cond);
   }
 
-  .font-serif-read {
-    font-family: var(--font-serif);
-  }
-
-  /* Outer content width — wide, modern grid */
+  /* Outer content width — NDTV portal grid */
   .container-page {
-    @apply max-w-[1440px] mx-auto px-5 sm:px-6 lg:px-10;
+    @apply max-w-[1300px] mx-auto px-4 sm:px-5 lg:px-6;
   }
 
-  /* High-CTA buttons */
+  /* Buttons — squared newsroom style */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-6 py-3.5 rounded-full transition-all duration-200 tracking-wide;
-    box-shadow: 0 8px 20px -8px rgba(240, 38, 60, 0.6);
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-5 py-3 rounded-[3px] transition-colors duration-150 uppercase tracking-wide text-[13px];
   }
   .btn-ink {
-    @apply inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-light text-white font-bold px-6 py-3.5 rounded-full transition-all duration-200 tracking-wide;
+    @apply inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary-light text-white font-bold px-5 py-3 rounded-[3px] transition-colors duration-150 uppercase tracking-wide text-[13px];
   }
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 border border-neutral-300 hover:border-secondary text-secondary font-bold px-6 py-3.5 rounded-full transition-all duration-200 tracking-wide;
+    @apply inline-flex items-center justify-center gap-2 border border-neutral-300 hover:border-secondary text-secondary font-bold px-5 py-3 rounded-[3px] transition-colors duration-150 uppercase tracking-wide text-[13px];
   }
 
-  /* Kicker / category label */
+  /* Kicker / category label — red condensed uppercase */
   .kicker {
-    @apply text-primary text-[11px] font-extrabold uppercase tracking-[0.16em];
+    font-family: var(--font-cond);
+    @apply text-primary text-[12px] font-bold uppercase tracking-[0.06em];
   }
   .category-badge {
-    @apply text-primary text-[10px] font-extrabold uppercase tracking-[0.16em];
+    font-family: var(--font-cond);
+    @apply text-primary text-[11px] font-bold uppercase tracking-[0.06em];
   }
 
-  /* Pill-style category chip on imagery */
+  /* Squared category tag on imagery */
   .chip {
-    @apply inline-flex items-center rounded-full bg-primary text-white text-[10px] font-extrabold uppercase tracking-[0.14em] px-3 py-1.5;
+    font-family: var(--font-cond);
+    @apply inline-flex items-center rounded-[2px] bg-primary text-white text-[11px] font-bold uppercase tracking-[0.06em] px-2.5 py-1;
   }
   .chip-ink {
-    @apply inline-flex items-center rounded-full bg-secondary/85 backdrop-blur text-white text-[10px] font-extrabold uppercase tracking-[0.14em] px-3 py-1.5;
+    font-family: var(--font-cond);
+    @apply inline-flex items-center rounded-[2px] bg-secondary/90 backdrop-blur text-white text-[11px] font-bold uppercase tracking-[0.06em] px-2.5 py-1;
   }
 
   .live-badge {
-    @apply inline-flex items-center gap-1.5 rounded-full bg-primary text-white text-[10px] font-extrabold px-3 py-1 uppercase tracking-[0.16em];
+    font-family: var(--font-cond);
+    @apply inline-flex items-center gap-1.5 rounded-[2px] bg-primary text-white text-[11px] font-bold px-2.5 py-1 uppercase tracking-[0.08em];
   }
 
   .card {
-    @apply bg-white border border-neutral-200 rounded-2xl hover:border-neutral-300 hover:shadow-[0_24px_50px_-30px_rgba(10,14,20,0.4)] transition-all duration-300 overflow-hidden;
+    @apply bg-white border border-neutral-200 rounded-[4px] hover:shadow-[0_10px_30px_-16px_rgba(0,0,0,0.5)] hover:border-neutral-300 transition-all duration-200 overflow-hidden;
   }
 
   .nav-link {
-    @apply text-neutral-600 hover:text-secondary font-semibold transition-colors text-sm;
+    @apply text-neutral-600 hover:text-primary font-semibold transition-colors text-sm;
   }
   .nav-link-active {
     @apply text-primary font-bold;
   }
 
-  /* Section headings */
+  /* NDTV-style section header: bold condensed title with red accent bar */
   .section-eyebrow {
-    @apply inline-flex items-center gap-2 text-primary text-[11px] font-extrabold uppercase tracking-[0.18em];
+    font-family: var(--font-cond);
+    @apply inline-flex items-center gap-2 text-primary text-[12px] font-bold uppercase tracking-[0.08em];
   }
   .section-heading {
     font-family: var(--font-display);
-    @apply text-3xl lg:text-[2.5rem] font-extrabold text-secondary leading-[1.05];
-    letter-spacing: -0.02em;
+    @apply text-[1.6rem] lg:text-[2rem] font-bold text-secondary leading-none uppercase;
+    letter-spacing: 0.01em;
+  }
+  /* Full-width titled divider (title | red rule) */
+  .section-bar {
+    @apply flex items-center gap-3 border-b-2 border-secondary pb-2 mb-6;
+  }
+  .section-bar-title {
+    font-family: var(--font-display);
+    @apply text-[1.35rem] lg:text-[1.6rem] font-bold uppercase text-secondary leading-none;
+    letter-spacing: 0.01em;
+  }
+  .section-tab {
+    @apply inline-flex items-center bg-primary text-white font-display font-bold uppercase text-[15px] px-3 py-1.5 leading-none;
+    letter-spacing: 0.02em;
   }
   .section-rule {
-    @apply w-12 h-1 bg-primary rounded-full mt-3;
+    @apply w-10 h-1 bg-primary mt-3;
   }
   .hairline {
     @apply border-t border-neutral-200;
@@ -150,41 +167,40 @@
     50% { opacity: 0.4; transform: scale(0.7); }
   }
 
-  /* Subtle rise-in for hero */
   .rise-in {
-    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
   @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-  /* Editorial article body — serif, generous measure & rhythm */
+  /* Article body — clean sans, comfortable measure (NDTV reading style) */
   .article-prose {
-    font-family: var(--font-serif);
-    @apply text-[1.2rem] leading-[1.85] text-neutral-700;
+    font-family: var(--font-sans);
+    @apply text-[1.075rem] leading-[1.75] text-neutral-700;
   }
-  .article-prose p { @apply mb-7; }
+  .article-prose p { @apply mb-6; }
   .article-prose h2 {
     font-family: var(--font-display);
-    @apply text-[1.7rem] lg:text-[2rem] font-extrabold text-secondary mt-12 mb-5 leading-tight;
-    letter-spacing: -0.02em;
+    @apply text-[1.5rem] lg:text-[1.75rem] font-bold text-secondary mt-10 mb-4 leading-tight uppercase;
+    letter-spacing: 0.01em;
   }
   .article-prose h3 {
     font-family: var(--font-display);
-    @apply text-xl font-extrabold text-secondary mt-8 mb-3;
+    @apply text-xl font-bold text-secondary mt-8 mb-3;
   }
-  .article-prose ul { @apply list-disc pl-6 mb-7 space-y-2.5; }
-  .article-prose ol { @apply list-decimal pl-6 mb-7 space-y-2.5; }
+  .article-prose ul { @apply list-disc pl-6 mb-6 space-y-2.5; }
+  .article-prose ol { @apply list-decimal pl-6 mb-6 space-y-2.5; }
   .article-prose li { @apply text-neutral-700; }
   .article-prose a { @apply text-primary underline underline-offset-2 decoration-primary/40 hover:decoration-primary; }
-  .article-prose strong { @apply text-secondary font-semibold; }
+  .article-prose strong { @apply text-secondary font-bold; }
   .article-prose blockquote {
-    font-family: var(--font-serif);
-    @apply border-l-4 border-primary pl-6 my-9 text-secondary italic text-[1.3rem] leading-relaxed;
+    font-family: var(--font-sans);
+    @apply border-l-4 border-primary pl-5 my-8 text-secondary italic text-[1.2rem] leading-relaxed;
   }
-  .article-prose img { @apply rounded-xl shadow-md my-8; }
+  .article-prose img { @apply rounded-[4px] my-8; }
 }

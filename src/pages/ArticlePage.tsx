@@ -59,12 +59,12 @@ export default function ArticlePage() {
 
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="border-b border-neutral-200">
-                <div className="container-page py-3 flex items-center gap-2 text-[12px]">
-                    <Link to="/" className="text-neutral-400 hover:text-primary transition-colors font-medium">Home</Link>
+                <div className="container-page py-2.5 flex items-center gap-2 text-[12px] font-cond uppercase tracking-wide">
+                    <Link to="/" className="text-neutral-400 hover:text-primary transition-colors">Home</Link>
                     <span className="text-neutral-300">/</span>
-                    <Link to={`/category/${category?.slug || article.category}`} className="text-neutral-400 hover:text-primary transition-colors font-medium capitalize">{category?.name || article.category}</Link>
+                    <Link to={`/category/${category?.slug || article.category}`} className="text-neutral-400 hover:text-primary transition-colors">{category?.name || article.category}</Link>
                     <span className="text-neutral-300">/</span>
-                    <span className="text-neutral-600 font-semibold truncate max-w-xs">{article.title}</span>
+                    <span className="text-neutral-600 font-bold truncate max-w-xs">{article.title}</span>
                 </div>
             </nav>
 
@@ -146,7 +146,7 @@ export default function ArticlePage() {
                 <div className="container-page py-12 lg:py-16">
                     <div className="grid lg:grid-cols-12 gap-12">
                         <div className="lg:col-span-8">
-                            <p className="font-display text-xl lg:text-[1.6rem] text-secondary leading-snug mb-10 border-l-4 border-primary pl-6">
+                            <p className="text-lg lg:text-[1.4rem] font-medium text-secondary leading-snug mb-10 border-l-4 border-primary pl-5">
                                 {article.excerpt}
                             </p>
 
@@ -156,15 +156,15 @@ export default function ArticlePage() {
                             />
 
                             {/* Tags / Share Footer */}
-                            <div className="mt-12 p-6 rounded-2xl bg-neutral-50 border border-neutral-200">
+                            <div className="mt-12 p-5 rounded-sm bg-white border border-neutral-200">
                                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                                     <div className="flex items-center flex-wrap gap-2">
-                                        <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-neutral-400">Tags</span>
-                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-full bg-primary-light text-primary">
+                                        <span className="text-[11px] font-bold uppercase tracking-wide font-cond text-neutral-400">Tags</span>
+                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wide font-cond rounded-sm bg-primary-light text-primary">
                                             {category?.name}
                                         </span>
-                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-white border border-neutral-200 text-neutral-500 rounded-full">India</span>
-                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider bg-white border border-neutral-200 text-neutral-500 rounded-full">2026</span>
+                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wide font-cond bg-neutral-50 border border-neutral-200 text-neutral-500 rounded-sm">India</span>
+                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wide font-cond bg-neutral-50 border border-neutral-200 text-neutral-500 rounded-sm">2026</span>
                                     </div>
                                     <div className="flex flex-wrap gap-2">
                                         {[
@@ -175,7 +175,7 @@ export default function ArticlePage() {
                                             <button
                                                 key={platform}
                                                 onClick={() => handleShare(platform)}
-                                                className={`px-4 py-2 rounded-full ${bg} text-white text-[11px] font-bold uppercase tracking-wider transition-colors`}
+                                                className={`px-4 py-2 rounded-sm ${bg} text-white text-[11px] font-bold uppercase tracking-wide font-cond transition-colors`}
                                             >
                                                 {label}
                                             </button>
@@ -187,21 +187,21 @@ export default function ArticlePage() {
                             {/* Prev / Next */}
                             <div className="mt-6 grid grid-cols-2 gap-4">
                                 {prevArticle ? (
-                                    <Link to={`/article/${prevArticle.id}`} className="group p-5 rounded-2xl bg-white border border-neutral-200 hover:border-primary/40 hover:shadow-sm transition-all">
-                                        <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-neutral-400 flex items-center gap-1 mb-2">
+                                    <Link to={`/article/${prevArticle.id}`} className="group p-5 rounded-sm bg-white border border-neutral-200 hover:border-primary hover:shadow-sm transition-all">
+                                        <span className="text-[11px] font-bold uppercase tracking-wide font-cond text-neutral-400 flex items-center gap-1 mb-2">
                                             <ArrowLeft className="w-3 h-3" /> Previous
                                         </span>
-                                        <h4 className="font-display font-bold text-sm text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
+                                        <h4 className="font-bold text-sm text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
                                             {prevArticle.title}
                                         </h4>
                                     </Link>
                                 ) : <div />}
                                 {nextArticle ? (
-                                    <Link to={`/article/${nextArticle.id}`} className="group p-5 rounded-2xl bg-white border border-neutral-200 hover:border-primary/40 hover:shadow-sm transition-all text-right">
-                                        <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-neutral-400 flex items-center gap-1 justify-end mb-2">
+                                    <Link to={`/article/${nextArticle.id}`} className="group p-5 rounded-sm bg-white border border-neutral-200 hover:border-primary hover:shadow-sm transition-all text-right">
+                                        <span className="text-[11px] font-bold uppercase tracking-wide font-cond text-neutral-400 flex items-center gap-1 justify-end mb-2">
                                             Next <ArrowRight className="w-3 h-3" />
                                         </span>
-                                        <h4 className="font-display font-bold text-sm text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
+                                        <h4 className="font-bold text-sm text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
                                             {nextArticle.title}
                                         </h4>
                                     </Link>
@@ -212,9 +212,9 @@ export default function ArticlePage() {
                         {/* Sidebar */}
                         <aside className="lg:col-span-4">
                             <div className="sticky top-24 space-y-6">
-                                <div className="rounded-2xl border border-neutral-200 overflow-hidden">
-                                    <div className="px-5 py-4 border-b border-neutral-200 bg-neutral-50">
-                                        <h2 className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary">Related Stories</h2>
+                                <div className="rounded-sm border border-neutral-200 bg-white overflow-hidden">
+                                    <div className="section-bar mb-0 border-b-2 border-primary px-4 pt-3 pb-2">
+                                        <h2 className="section-bar-title text-primary">Related</h2>
                                     </div>
                                     <div className="divide-y divide-neutral-100">
                                         {relatedArticles.map((related) => (
@@ -223,14 +223,14 @@ export default function ArticlePage() {
                                                 to={`/article/${related.id}`}
                                                 className="flex gap-4 p-4 group hover:bg-neutral-50 transition-colors"
                                             >
-                                                <div className="w-20 h-16 shrink-0 overflow-hidden rounded-lg">
+                                                <div className="w-20 h-16 shrink-0 overflow-hidden rounded-sm">
                                                     <img src={related.imageUrl} alt={related.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                    <h3 className="text-sm font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
+                                                    <h3 className="text-[13px] font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
                                                         {related.title}
                                                     </h3>
-                                                    <span className="text-[11px] text-neutral-400 mt-1 block">{related.publishedAt}</span>
+                                                    <span className="text-[11px] text-neutral-400 mt-1 block font-cond uppercase tracking-wide">{related.publishedAt}</span>
                                                 </div>
                                             </Link>
                                         ))}
@@ -238,7 +238,7 @@ export default function ArticlePage() {
                                     {category && (
                                         <Link
                                             to={`/category/${category.slug}`}
-                                            className="flex items-center justify-center gap-2 py-3 border-t border-neutral-200 text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary hover:bg-primary-light transition-colors"
+                                            className="flex items-center justify-center gap-2 py-3 border-t-2 border-neutral-900 text-[12px] font-bold uppercase tracking-wide font-cond text-secondary hover:bg-neutral-900 hover:text-white transition-colors"
                                         >
                                             More {category.name} <ArrowRight className="w-3.5 h-3.5" />
                                         </Link>
@@ -246,16 +246,16 @@ export default function ArticlePage() {
                                 </div>
 
                                 {/* Newsletter Sidebar */}
-                                <div className="rounded-2xl bg-secondary p-6">
-                                    <h2 className="font-display text-lg text-white mb-2">Stay Updated</h2>
+                                <div className="rounded-sm bg-neutral-900 p-6">
+                                    <h2 className="font-display text-xl uppercase text-white mb-2">Stay Updated</h2>
                                     <p className="text-white/50 text-sm mb-4">Get the latest stories delivered to your inbox.</p>
                                     <input
                                         type="email"
                                         aria-label="Email address"
                                         placeholder="Your email"
-                                        className="w-full px-4 py-2.5 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
+                                        className="w-full px-4 py-2.5 rounded-sm bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
                                     />
-                                    <button className="w-full py-2.5 rounded-full bg-primary hover:bg-primary-dark text-white text-[11px] font-extrabold uppercase tracking-[0.16em] transition-colors">
+                                    <button className="w-full py-2.5 rounded-sm bg-primary hover:bg-primary-dark text-white text-[12px] font-bold uppercase tracking-wide font-cond transition-colors">
                                         Subscribe
                                     </button>
                                 </div>
@@ -267,21 +267,18 @@ export default function ArticlePage() {
 
             {/* More From Category */}
             {relatedArticles.length > 0 && (
-                <section className="bg-neutral-50 border-t border-neutral-200" aria-label={`More in ${category?.name}`}>
-                    <div className="container-page py-16">
-                        <div className="flex items-end justify-between mb-8">
-                            <div>
-                                <span className="section-eyebrow">More in {category?.name}</span>
-                                <h2 className="section-heading mt-2">Keep Reading</h2>
-                                <div className="section-rule" />
-                            </div>
+                <section className="bg-white border-t border-neutral-200" aria-label={`More in ${category?.name}`}>
+                    <div className="container-page py-12">
+                        <div className="section-bar">
+                            <span className="section-tab">More in {category?.name}</span>
+                            <div className="flex-1" />
                             {category && (
-                                <Link to={`/category/${category.slug}`} className="text-[11px] font-extrabold uppercase tracking-[0.16em] text-primary hover:text-primary-dark transition-colors flex items-center gap-1.5">
+                                <Link to={`/category/${category.slug}`} className="text-[12px] font-bold uppercase tracking-wide font-cond text-primary hover:text-primary-dark transition-colors flex items-center gap-1.5">
                                     View All <ArrowRight className="w-3.5 h-3.5" />
                                 </Link>
                             )}
                         </div>
-                        <div className="grid md:grid-cols-3 gap-6">
+                        <div className="grid md:grid-cols-3 gap-4">
                             {relatedArticles.map((related) => (
                                 <Link
                                     key={related.id}
@@ -295,16 +292,16 @@ export default function ArticlePage() {
                                             loading="lazy"
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute top-4 left-4">
-                                            <span className="chip">{related.category}</span>
+                                        <div className="absolute top-0 left-0">
+                                            <span className="chip rounded-none">{related.category}</span>
                                         </div>
                                     </div>
-                                    <div className="p-6">
-                                        <h3 className="font-display text-lg text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
+                                    <div className="p-4">
+                                        <h3 className="text-[17px] font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
                                             {related.title}
                                         </h3>
-                                        <p className="text-neutral-500 text-sm mt-2 line-clamp-2">{related.excerpt}</p>
-                                        <div className="flex items-center gap-3 mt-4 pt-3 border-t border-neutral-100 text-[11px] text-neutral-400 font-medium">
+                                        <p className="text-neutral-500 text-[13.5px] mt-1.5 line-clamp-2">{related.excerpt}</p>
+                                        <div className="flex items-center gap-3 mt-3 pt-2.5 border-t border-neutral-100 text-[11px] text-neutral-400 font-cond uppercase tracking-wide">
                                             <span>{related.publishedAt}</span>
                                             <span className="w-1 h-1 rounded-full bg-neutral-300" />
                                             <span>{related.readTime}</span>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { Clock, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Clock, ChevronRight } from 'lucide-react';
 import type { Article } from '../types';
 
 interface HeroSectionProps {
@@ -22,53 +22,48 @@ export default function HeroSection({ featuredArticle, recentArticles }: HeroSec
     }, [nextSlide]);
 
     const current = slides[currentSlide];
-    const railArticles = recentArticles.filter(a => a.id !== current.id).slice(0, 5);
+    const railArticles = recentArticles.filter(a => a.id !== current.id).slice(0, 6);
 
     return (
-        <section className="container-page pt-8 pb-12 lg:pt-10 lg:pb-16">
-            <div className="grid lg:grid-cols-12 gap-6 lg:gap-8">
+        <section className="container-page pt-5 pb-8 lg:pt-6 lg:pb-10">
+            <div className="grid lg:grid-cols-12 gap-5 lg:gap-6">
                 {/* Main Featured — 8 cols */}
                 <div className="lg:col-span-8">
                     <Link to={`/article/${current.id}`} key={current.id} className="block group rise-in">
-                        <div className="relative aspect-16/10 lg:aspect-video overflow-hidden rounded-3xl bg-neutral-100">
+                        <div className="relative aspect-16/10 lg:aspect-video overflow-hidden rounded-[4px] bg-neutral-200">
                             <img
                                 src={current.imageUrl}
                                 alt={current.title}
-                                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-900 ease-out"
+                                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
                                 fetchPriority="high"
                             />
-                            <div className="absolute inset-0 bg-linear-to-t from-secondary/90 via-secondary/25 to-transparent" />
-
-                            {/* Text over image */}
-                            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-10">
-                                <div className="flex items-center gap-3 mb-4">
+                            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/35 to-transparent" />
+                            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">
+                                <div className="flex items-center gap-3 mb-3">
                                     <span className="chip">{current.category}</span>
                                     <div className="flex items-center gap-1.5 text-white/70 text-xs font-medium">
                                         <Clock className="w-3.5 h-3.5" />
                                         <span>{current.publishedAt}</span>
                                     </div>
                                 </div>
-                                <h1 className="font-display text-white text-2xl sm:text-4xl lg:text-[3.25rem] leading-[1.02] max-w-3xl">
+                                <h1 className="font-display text-white text-2xl sm:text-4xl lg:text-[3rem] leading-[1.03] max-w-3xl group-hover:text-primary transition-colors">
                                     {current.title}
                                 </h1>
-                                <p className="text-white/80 text-[15px] leading-relaxed max-w-2xl mt-4 line-clamp-2 hidden sm:block">
+                                <p className="text-white/80 text-[15px] leading-relaxed max-w-2xl mt-3 line-clamp-2 hidden sm:block">
                                     {current.excerpt}
                                 </p>
-                                <span className="mt-6 inline-flex items-center gap-2 bg-primary text-white text-[13px] font-bold px-5 py-3 rounded-full group-hover:bg-white group-hover:text-secondary transition-all duration-200">
-                                    Read the story <ArrowRight className="w-4 h-4" />
-                                </span>
                             </div>
                         </div>
                     </Link>
 
                     {/* Slide indicators */}
-                    <div className="flex items-center gap-2 mt-5">
+                    <div className="flex items-center gap-2 mt-3">
                         {slides.map((_, i) => (
                             <button
                                 key={i}
                                 aria-label={`Slide ${i + 1}`}
                                 onClick={() => setCurrentSlide(i)}
-                                className={`h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? 'bg-primary w-10' : 'bg-neutral-300 hover:bg-neutral-400 w-5'}`}
+                                className={`h-1 transition-all duration-300 ${i === currentSlide ? 'bg-primary w-10' : 'bg-neutral-300 hover:bg-neutral-400 w-5'}`}
                             />
                         ))}
                     </div>
@@ -76,37 +71,35 @@ export default function HeroSection({ featuredArticle, recentArticles }: HeroSec
 
                 {/* Top Stories Rail — 4 cols */}
                 <div className="lg:col-span-4">
-                    <div className="h-full flex flex-col">
-                        <div className="flex items-center justify-between mb-4">
-                            <span className="section-eyebrow">Top Stories</span>
-                            <span className="w-2 h-2 rounded-full bg-primary breaking-pulse" />
+                    <div className="h-full flex flex-col border border-neutral-200 bg-white rounded-[4px]">
+                        <div className="section-bar mb-0 border-b-2 border-primary px-4 pt-3 pb-2">
+                            <h2 className="section-bar-title text-primary">Top Stories</h2>
+                            <span className="ml-auto w-2 h-2 rounded-full bg-primary breaking-pulse" />
                         </div>
-                        <div className="flex flex-col divide-y divide-neutral-200 rounded-3xl border border-neutral-200 bg-neutral-50 overflow-hidden flex-1">
+                        <div className="flex flex-col divide-y divide-neutral-200 flex-1">
                             {railArticles.map((article, idx) => (
                                 <Link
                                     to={`/article/${article.id}`}
                                     key={article.id}
-                                    className="flex gap-4 p-4 lg:p-[1.1rem] group hover:bg-white transition-colors"
+                                    className="flex gap-3 px-4 py-3 group hover:bg-neutral-50 transition-colors"
                                 >
-                                    <span className="font-display text-2xl text-neutral-300 group-hover:text-primary transition-colors leading-none pt-0.5">
+                                    <span className="font-display text-xl text-neutral-300 group-hover:text-primary transition-colors leading-none pt-0.5">
                                         {String(idx + 1).padStart(2, '0')}
                                     </span>
                                     <div className="flex-1 min-w-0">
-                                        <span className="category-badge">{article.category}</span>
-                                        <h3 className="text-[14.5px] font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug mt-1">
+                                        <h3 className="text-[14px] font-bold text-secondary line-clamp-3 group-hover:text-primary transition-colors leading-snug">
                                             {article.title}
                                         </h3>
-                                        <span className="text-[11px] text-neutral-400 mt-1.5 block">{article.publishedAt}</span>
+                                        <span className="text-[11px] text-neutral-400 mt-1 block font-cond uppercase tracking-wide">{article.category} · {article.publishedAt}</span>
                                     </div>
-                                    <ArrowUpRight className="w-4 h-4 text-neutral-300 group-hover:text-primary transition-colors shrink-0" />
                                 </Link>
                             ))}
                         </div>
                         <Link
                             to="/category/cricket"
-                            className="mt-3 flex items-center justify-center gap-2 py-3 rounded-full border border-neutral-200 text-[12px] font-bold uppercase tracking-[0.12em] text-secondary hover:bg-secondary hover:text-white transition-colors"
+                            className="flex items-center justify-center gap-2 py-3 border-t-2 border-neutral-900 text-[12px] font-bold uppercase tracking-wide text-secondary hover:bg-neutral-900 hover:text-white transition-colors font-cond"
                         >
-                            View all stories <ArrowRight className="w-3.5 h-3.5" />
+                            More Top Stories <ChevronRight className="w-3.5 h-3.5" />
                         </Link>
                     </div>
                 </div>

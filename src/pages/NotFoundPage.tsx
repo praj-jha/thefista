@@ -12,8 +12,8 @@ export default function NotFoundPage() {
       <span className="inline-flex items-center gap-2 section-eyebrow">
         <Compass className="w-4 h-4" /> Lost the trail
       </span>
-      <div className="font-display text-[8rem] leading-none text-secondary mt-4">404</div>
-      <h1 className="font-display text-3xl text-secondary mt-2 mb-3">This page went off the record</h1>
+      <div className="font-display text-[8rem] leading-none text-primary mt-4">404</div>
+      <h1 className="font-display text-3xl uppercase text-secondary mt-2 mb-3">This page went off the record</h1>
       <p className="text-neutral-500 mb-8">The page you're looking for doesn't exist or may have been moved.</p>
       <Link to="/" className="btn-primary inline-flex">
         <ArrowLeft className="w-4 h-4" />
@@ -24,7 +24,7 @@ export default function NotFoundPage() {
           <Link
             key={cat.id}
             to={`/category/${cat.slug}`}
-            className="px-4 py-2 rounded-full border border-neutral-200 bg-white text-[13px] font-bold text-secondary hover:border-secondary hover:bg-secondary hover:text-white transition-all"
+            className="px-4 py-2 rounded-sm border border-neutral-200 bg-white text-[12px] font-bold uppercase tracking-wide font-cond text-secondary hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
           >
             {cat.name}
           </Link>

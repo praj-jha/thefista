@@ -84,7 +84,7 @@ export const articles: Article[] = [
 <h2>The Crew</h2>
 <p>The astronaut-designates have completed simulator and centrifuge training and are now in mission-specific rehearsals. ISRO said final crew assignment will be announced closer to the uncrewed test.</p>`,
     category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1200&auto=format&fit=crop&q=80',
     author: 'Dr. Neha Kulkarni',
     publishedAt: 'Sep 11, 2026',
     readTime: '5 min read',
@@ -158,7 +158,7 @@ export const articles: Article[] = [
 <h2>The Bigger Picture</h2>
 <p>Officials framed the agreement as an anchor for supply-chain diversification, positioning India as a trusted manufacturing partner as global firms rebalance away from concentrated sourcing.</p>`,
     category: 'business',
-    imageUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&auto=format&fit=crop&q=80',
     author: 'Sanjay Mehta',
     publishedAt: 'Sep 9, 2026',
     readTime: '4 min read',
@@ -258,7 +258,7 @@ export const articles: Article[] = [
 <h2>Guardrails</h2>
 <p>The framework pairs access with responsible-use commitments, including safety evaluation, transparency reporting and content-provenance requirements for generative systems.</p>`,
     category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
     author: 'Dr. Neha Kulkarni',
     publishedAt: 'Sep 9, 2026',
     readTime: '4 min read',
@@ -283,7 +283,7 @@ export const articles: Article[] = [
 <h2>What to Watch</h2>
 <p>Analysts said turnout among first-time voters and women could prove decisive, while the outcome will be read closely as a barometer ahead of the next general election cycle.</p>`,
     category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=1200&auto=format&fit=crop&q=80',
     author: 'Priya Nair',
     publishedAt: 'Sep 8, 2026',
     readTime: '4 min read',
@@ -404,7 +404,7 @@ export const articles: Article[] = [
 <h2>The Takeaway</h2>
 <p>For creators, the trend opens doors long guarded by mainstream gatekeepers. For platforms, it is increasingly the difference between a subscriber who stays and one who cancels.</p>`,
     category: 'bollywood',
-    imageUrl: 'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1200&auto=format&fit=crop&q=80',
     author: 'Karan Malhotra',
     publishedAt: 'Sep 8, 2026',
     readTime: '3 min read',
