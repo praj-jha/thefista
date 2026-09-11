@@ -2,6 +2,9 @@ import { useParams, Link } from 'react-router-dom';
 import { Facebook, Twitter, Share2, ArrowRight, Clock, User } from 'lucide-react';
 import { categories, getArticlesByCategory, articles as allArticles } from '../data/articles';
 import type { Article } from '../types';
+import Seo from '../seo/Seo';
+import { buildCategorySeo } from '../seo/builders';
+import NotFoundPage from './NotFoundPage';
 
 export default function CategoryPage() {
     const { categorySlug } = useParams<{ categorySlug: string }>();
@@ -32,15 +35,7 @@ export default function CategoryPage() {
     };
 
     if (!category) {
-        return (
-            <div className="max-w-350 mx-auto px-6 py-20 text-center">
-                <h1 className="font-display text-4xl font-bold text-secondary mb-4">Category Not Found</h1>
-                <p className="text-neutral-500 mb-6">The category you're looking for doesn't exist.</p>
-                <Link to="/" className="text-primary hover:text-primary-dark text-sm font-bold uppercase tracking-widest transition-colors">
-                    &larr; Back to Home
-                </Link>
-            </div>
-        );
+        return <NotFoundPage />;
     }
 
     const featuredArticle = categoryArticles[0];

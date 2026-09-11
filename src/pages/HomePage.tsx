@@ -2,6 +2,8 @@ import HeroSection from '../components/HeroSection';
 import TrendingNewsSection from '../components/TrendingNewsSection';
 import FeaturedNewsSection from '../components/FeaturedNewsSection';
 import LiveScoreWidget from '../components/LiveScoreWidget';
+import Seo from '../seo/Seo';
+import { buildHomeSeo } from '../seo/builders';
 import { articles, liveMatches, getTrendingArticles } from '../data/articles';
 
 export default function HomePage() {
@@ -11,6 +13,8 @@ export default function HomePage() {
 
     return (
         <div className="bg-neutral-50">
+            <Seo {...buildHomeSeo()} />
+
             {/* Hero Section */}
             <div className="bg-white border-b border-neutral-200">
                 <HeroSection
@@ -20,8 +24,8 @@ export default function HomePage() {
             </div>
 
             {/* Trending + Live Score Section */}
-            <div className="max-w-350 mx-auto px-6 py-12">
-                <div className="grid lg:grid-cols-12 gap-8">
+            <section className="container-page py-14 lg:py-16" aria-label="Trending stories">
+                <div className="grid lg:grid-cols-12 gap-10">
                     {/* Trending News — 8 cols */}
                     <div className="lg:col-span-8">
                         <TrendingNewsSection articles={trendingArticles} />
@@ -34,7 +38,7 @@ export default function HomePage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             {/* Featured/Editor's Picks Section */}
             <div className="bg-white border-y border-neutral-200">

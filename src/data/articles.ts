@@ -1,410 +1,354 @@
 import type { Article, LiveMatch, CategoryInfo } from '../types';
 
 export const categories: CategoryInfo[] = [
-  { id: 'cricket', name: 'Cricket', slug: 'cricket', color: '#16a34a' },
-  { id: 'politics', name: 'Politics', slug: 'politics', color: '#2563eb' },
-  { id: 'health', name: 'Health', slug: 'health', color: '#dc2626' },
-  { id: 'bollywood', name: 'Bollywood', slug: 'bollywood', color: '#db2777' },
-  { id: 'business', name: 'Business', slug: 'business', color: '#d97706' },
-  { id: 'education', name: 'Education', slug: 'education', color: '#7c3aed' },
-  { id: 'technology', name: 'Technology', slug: 'technology', color: '#0891b2' },
+  { id: 'cricket', name: 'Cricket', slug: 'cricket', color: '#0F766E' },
+  { id: 'politics', name: 'Politics', slug: 'politics', color: '#1D4ED8' },
+  { id: 'health', name: 'Health', slug: 'health', color: '#B91C1C' },
+  { id: 'bollywood', name: 'Bollywood', slug: 'bollywood', color: '#BE185D' },
+  { id: 'business', name: 'Business', slug: 'business', color: '#B45309' },
+  { id: 'education', name: 'Education', slug: 'education', color: '#6D28D9' },
+  { id: 'technology', name: 'Technology', slug: 'technology', color: '#0E7490' },
 ];
 
 export const articles: Article[] = [
-  // 1 — Prajwal Jha (Featured Hero — Top Recent)
+  // 1 — Asia Cup Final (Featured Hero — Sep 11, 2026)
+  {
+    id: 'india-asia-cup-2026-final-win',
+    title: 'India Clinch Asia Cup 2026 Title with Nerveless Chase in Dubai Final',
+    excerpt: 'Chasing 182 under the Dubai lights, India held their composure through a tense final over to beat their arch-rivals and lift a record-extending Asia Cup crown, capping a flawless unbeaten campaign.',
+    content: `<p class="text-lg leading-relaxed mb-6">Dubai, September 11, 2026 — India were crowned champions of the <strong>Asia Cup 2026</strong> on Thursday night, chasing down 182 with two balls to spare in a final that swung on every delivery of a pulsating closing over at the Dubai International Stadium. The victory extended India's record as the most successful side in the tournament's history and completed an unbeaten run through the competition.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">A Chase Built on Cool Heads</h2>
+<p class="mb-6">Set a demanding target on a used surface, India lost an early wicket but were steadied by a composed half-century at the top of the order and a match-defining cameo in the death overs. With 14 needed off the final over, the middle order held its nerve, picking gaps and running hard to seal a title that had looked out of reach at the halfway stage.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Key Performers</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Opening stand:</strong> A brisk 74-run partnership set the platform for the chase</li>
+  <li><strong>Death-overs finishing:</strong> Two clean strikes in the 19th over swung momentum decisively</li>
+  <li><strong>Spin in the middle:</strong> Three wickets through the middle phase kept the target within reach</li>
+  <li><strong>Fielding:</strong> Two direct-hit run-outs proved the difference on the night</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">What It Means</h2>
+<p class="mb-6">The triumph offers India valuable momentum heading into a packed home season and reaffirms the depth of a squad in transition. Selectors will take heart from the way younger players absorbed pressure on the biggest stage in the region.</p>
+<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"We spoke about staying in the present, ball by ball. The boys were fearless when it mattered — that's what makes this group special."<br/><span class="text-sm not-italic font-semibold">— India Captain, post-match presentation</span></blockquote>`,
+    category: 'cricket',
+    imageUrl: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200&auto=format&fit=crop&q=80',
+    author: 'Rajesh Sharma',
+    publishedAt: 'Sep 11, 2026',
+    readTime: '5 min read',
+    isFeatured: true,
+    isTrending: true,
+  },
+
+  // 2 — GST 2.0 (Sep 11)
+  {
+    id: 'gst-2-simplified-slabs-rollout',
+    title: 'GST 2.0 Goes Live: Simplified Two-Slab Structure Cheers Households and Small Business',
+    excerpt: 'The next-generation Goods and Services Tax framework took effect this week, collapsing multiple rates into a cleaner structure that the government says will cut prices on everyday essentials and ease compliance for MSMEs.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 11, 2026 — The long-awaited overhaul of India's indirect tax system, popularly dubbed <strong>GST 2.0</strong>, came into force this week, rationalising a tangle of rates into a simpler structure aimed at lowering the tax burden on essentials and reducing paperwork for small businesses.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">What Changes for Consumers</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Everyday essentials:</strong> A wide basket of daily-use goods moves to a lower slab</li>
+  <li><strong>Simpler rates:</strong> Fewer categories mean less confusion at the point of sale</li>
+  <li><strong>Faster refunds:</strong> A streamlined process promises quicker input-credit settlement</li>
+  <li><strong>Sin and luxury goods:</strong> A special rate keeps high-end and demerit items separate</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">Relief for Small Business</h2>
+<p class="mb-6">Trade bodies broadly welcomed the reform, saying the simplified filing requirements and clearer classification will cut compliance costs for micro, small and medium enterprises. Economists said the timing — ahead of the festive season — could give consumption a meaningful lift.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">The Fiscal Balance</h2>
+<p class="mb-6">Officials acknowledged a short-term hit to collections but argued that wider compliance and stronger demand would offset it over the medium term. Analysts will watch the first full month of data closely for early signals.</p>`,
+    category: 'business',
+    imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80',
+    author: 'Amit Verma',
+    publishedAt: 'Sep 11, 2026',
+    readTime: '4 min read',
+    isFeatured: true,
+    isTrending: true,
+  },
+
+  // 3 — Monsoon Session concludes (Sep 10)
+  {
+    id: 'monsoon-session-concludes-2026',
+    title: 'Monsoon Session Wraps Up: Data Rules, Skilling Push and Jobs Debate Dominate',
+    excerpt: 'Parliament concluded its Monsoon Session with the government clearing a clutch of economic bills, even as the Opposition pressed hard on employment and price rise in a series of sharp exchanges.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 10, 2026 — The Monsoon Session of Parliament drew to a close on Wednesday, with the treasury benches claiming a productive stretch of legislative business while the Opposition insisted key concerns on jobs and household budgets remained unanswered.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">On the Statute Book</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Digital data rules:</strong> Fresh regulations operationalising data protection and cross-border flows</li>
+  <li><strong>Skilling and apprenticeships:</strong> A package to widen formal training and gig-worker protections</li>
+  <li><strong>Infrastructure spending:</strong> Supplementary allocations for highways, railways and urban transit</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">The Opposition's Case</h2>
+<p class="mb-6">Floor leaders said they had used every available instrument to force debates on employment, rural distress and inflation. The government countered that its reform agenda — including this month's tax rationalisation — was already easing pressure on households.</p>
+<p class="mb-6">The Chair thanked members for a largely orderly session and noted that a long list of committee referrals would carry the work forward before the Winter Session.</p>`,
+    category: 'politics',
+    imageUrl: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&auto=format&fit=crop&q=80',
+    author: 'Sanjay Das',
+    publishedAt: 'Sep 10, 2026',
+    readTime: '4 min read',
+    isFeatured: true,
+    isTrending: true,
+  },
+
+  // 4 — ISRO Gaganyaan crewed timeline (Sep 10)
+  {
+    id: 'isro-gaganyaan-crew-timeline',
+    title: 'ISRO Confirms Gaganyaan Crewed Flight Window After Successful Systems Review',
+    excerpt: 'India moved a decisive step closer to its first human spaceflight as ISRO announced a firm window for the crewed Gaganyaan mission, following a clean bill of health from its final major systems review.',
+    content: `<p class="text-lg leading-relaxed mb-6">Bengaluru, September 10, 2026 — The Indian Space Research Organisation (ISRO) confirmed the target window for its historic crewed <strong>Gaganyaan</strong> mission after completing a comprehensive review of the human-rated launch vehicle, crew module and life-support systems.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Cleared for the Big Step</h2>
+<p class="mb-6">Officials said data from earlier uncrewed test flights had validated the critical safety architecture, including the crew escape system and splashdown recovery. The mission would make India only the fourth nation to independently send humans into orbit.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">On the Flight Card</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Human-rated vehicle:</strong> Final validation of the upgraded rocket stack</li>
+  <li><strong>Crew training:</strong> Astronaut-designates complete integrated mission simulations</li>
+  <li><strong>Recovery operations:</strong> Naval teams rehearse splashdown retrieval at sea</li>
+  <li><strong>Ground network:</strong> Tracking and communication links checked end to end</li>
+</ul>
+<p class="mb-6">ISRO said the programme would also feed directly into its longer-term ambitions, including a planned space station and a crewed lunar goal in the next decade.</p>`,
+    category: 'technology',
+    imageUrl: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1200&auto=format&fit=crop&q=80',
+    author: 'Neha Gupta',
+    publishedAt: 'Sep 10, 2026',
+    readTime: '5 min read',
+    isFeatured: true,
+    isTrending: true,
+  },
+
+  // 5 — Post-monsoon dengue (Sep 9)
+  {
+    id: 'post-monsoon-dengue-advisory',
+    title: 'Post-Monsoon Health Watch: Dengue Cases Peak as North India Steps Up Fogging',
+    excerpt: 'With the monsoon retreating, health departments have flagged the seasonal peak in dengue and chikungunya, urging citizens to clear stagnant water and watch for warning symptoms.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 9, 2026 — As the monsoon begins to withdraw from northern India, health authorities across several states have flagged the annual post-monsoon surge in vector-borne diseases, issuing fresh advisories on prevention and early testing.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Staying Safe This Season</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Eliminate breeding sites:</strong> Empty stagnant water from coolers, pots and containers weekly</li>
+  <li><strong>Use protection:</strong> Repellents, nets and full-sleeved clothing, especially at dawn and dusk</li>
+  <li><strong>Watch for symptoms:</strong> High fever, severe body ache, rash and fatigue warrant prompt testing</li>
+  <li><strong>Stay hydrated:</strong> Fluids are critical; avoid self-medication with certain painkillers</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">Hospitals on Alert</h2>
+<p class="mb-6">Civic bodies have intensified fogging drives and door-to-door larvae checks, while hospitals have been asked to keep dedicated fever wards ready. Officials stressed that early diagnosis dramatically reduces the risk of complications.</p>
+<p class="mb-6">Doctors advised people not to ignore persistent fever and to seek medical attention rather than waiting it out at home.</p>`,
+    category: 'health',
+    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&auto=format&fit=crop&q=80',
+    author: 'Dr. Anita Singh',
+    publishedAt: 'Sep 9, 2026',
+    readTime: '4 min read',
+    isTrending: true,
+  },
+
+  // 6 — Bollywood festive release (Sep 9)
+  {
+    id: 'bollywood-festive-season-blockbuster',
+    title: 'Festive Season Roars In as Big Bollywood Release Posts Year-Best Opening',
+    excerpt: 'The Hindi film industry kicked off the festive stretch in style, with a much-anticipated release drawing packed houses across the country and delivering the biggest opening weekend of 2026 so far.',
+    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, September 9, 2026 — Bollywood set the tone for a bumper festive season as one of the year's most-awaited releases opened to houseful boards nationwide, notching the biggest opening weekend for a Hindi film in 2026.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">A Weekend to Remember</h2>
+<p class="mb-6">Backed by a strong marketing push, an ensemble cast and warm early reviews, the film pulled large family audiences and packed late-night shows in metros and smaller towns alike. Trade analysts said the momentum points to a healthy extended run through the festival calendar.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Why It's Clicking</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Word of mouth:</strong> Social buzz quickly translating into repeat viewing</li>
+  <li><strong>Music that travels:</strong> A chart-topping soundtrack fuelling pre-release hype</li>
+  <li><strong>Wide release:</strong> A large screen count across single screens and multiplexes</li>
+</ul>
+<p class="mb-6">Exhibitors, buoyed after a mixed first half of the year, said several more big titles lined up for the festive window could make this one of the strongest quarters in recent memory.</p>`,
+    category: 'bollywood',
+    imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&auto=format&fit=crop&q=80',
+    author: 'Pooja Sharma',
+    publishedAt: 'Sep 9, 2026',
+    readTime: '3 min read',
+    isTrending: true,
+  },
+
+  // 7 — CBSE two board exams (Sep 8)
+  {
+    id: 'cbse-two-board-exams-rollout',
+    title: 'CBSE Releases Guidelines for Twice-a-Year Class 10 Board Exams',
+    excerpt: 'The board has published detailed guidelines for its landmark reform allowing Class 10 students two exam attempts a year, spelling out the exam windows, syllabus coverage and the best-of-two scoring rule.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 8, 2026 — The Central Board of Secondary Education (CBSE) released detailed operational guidelines for its landmark reform under which Class 10 students can appear for board examinations twice a year, in line with the National Education Policy's vision.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">How It Will Work</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Two attempts:</strong> Exams will be held in two phases, and students may appear in one or both</li>
+  <li><strong>Best score counts:</strong> The higher of the two scores will be retained</li>
+  <li><strong>Reduced pressure:</strong> The move aims to lower the stakes attached to a single high-stress exam</li>
+  <li><strong>Clear windows:</strong> The board has published the phase-wise schedule and syllabus split</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">Educators React</h2>
+<p class="mb-6">School principals and teachers broadly welcomed the clarity, saying it aligns Indian assessment with global best practices and gives students a genuine second chance. Some flagged the need for careful scheduling so the two windows do not disrupt the academic calendar.</p>
+<p class="mb-6">The board said schools would receive orientation material to help students and parents plan for the new structure.</p>`,
+    category: 'education',
+    imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&auto=format&fit=crop&q=80',
+    author: 'Kavita Reddy',
+    publishedAt: 'Sep 8, 2026',
+    readTime: '4 min read',
+    isTrending: true,
+  },
+
+  // 8 — Women's cricket (Sep 8)
+  {
+    id: 'india-women-series-win-momentum',
+    title: 'Smriti Mandhana Masterclass Powers India Women to Commanding Series Win',
+    excerpt: 'A sublime century from Smriti Mandhana and a disciplined bowling effort handed India Women a series victory, sharpening their credentials ahead of a marquee home season.',
+    content: `<p class="text-lg leading-relaxed mb-6">Bengaluru, September 8, 2026 — Smriti Mandhana produced a batting masterclass, stroking a fluent century to power India Women to a series-clinching victory and cap an impressive run of white-ball form ahead of a busy home calendar.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Mandhana in Full Flow</h2>
+<p class="mb-6">Opening the innings, Mandhana timed the ball beautifully through the off side and paced her knock to perfection, bringing up her hundred with trademark elegance. Her stand with the middle order pushed India to a commanding total.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">All-Round Effort</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Smriti Mandhana:</strong> A chanceless century at the top of the order</li>
+  <li><strong>Deepti Sharma:</strong> Vital breakthroughs and tight, economical overs</li>
+  <li><strong>Renuka Singh:</strong> Early strikes with the new ball to set the tone</li>
+</ul>
+<p class="mb-6">The result offers Harmanpreet Kaur's side valuable momentum and selection clarity with a demanding season on the horizon.</p>`,
+    category: 'cricket',
+    imageUrl: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1200&auto=format&fit=crop&q=80',
+    author: 'Suresh Nair',
+    publishedAt: 'Sep 8, 2026',
+    readTime: '4 min read',
+    isTrending: true,
+  },
+
+  // 9 — RBI policy (Sep 7)
+  {
+    id: 'rbi-policy-holds-rate-growth',
+    title: 'RBI Holds Repo Rate, Lifts Growth Outlook as Inflation Stays Benign',
+    excerpt: 'The Reserve Bank of India kept its benchmark rate unchanged and nudged up its growth forecast, striking an upbeat tone as a good monsoon and cooling prices brightened the outlook.',
+    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, September 7, 2026 — The Reserve Bank of India's Monetary Policy Committee voted to keep the benchmark repo rate unchanged while raising its growth projection for the year, reflecting confidence in a resilient economy and a well-behaved price environment.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
+<ul class="list-disc pl-6 mb-6 space-y-2">
+  <li><strong>Rate on hold:</strong> The repo rate stays put, in line with market expectations</li>
+  <li><strong>Inflation benign:</strong> Softer food prices and a good monsoon aid the outlook</li>
+  <li><strong>Growth upgraded:</strong> The RBI nudged up its GDP forecast for the fiscal year</li>
+  <li><strong>Stance:</strong> The central bank retained flexibility to act as data evolves</li>
+</ul>
+<h2 class="text-2xl font-bold mt-8 mb-4">What It Means for Borrowers</h2>
+<p class="mb-6">For home and auto loan borrowers, the pause means EMIs are likely to stay stable in the near term. Economists said the combination of easing inflation and the fresh tax rationalisation keeps the door open for a softer stance later in the year.</p>
+<p class="mb-6">Markets took the announcement in stride, with rate-sensitive banking and real-estate stocks holding firm.</p>`,
+    category: 'business',
+    imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=80',
+    author: 'Amit Verma',
+    publishedAt: 'Sep 7, 2026',
+    readTime: '4 min read',
+    isTrending: true,
+  },
+
+  // 10 — Prajwal Jha profile (evergreen, re-dated Sep 7)
   {
     id: 'prajwal-jha-young-innovator',
     title: 'Prajwal Jha: The Young Innovator Redefining Student Entrepreneurship in Delhi',
-    excerpt: 'Delhi Technological University student Prajwal Jha has been named among the Top 60 most innovative students in India by Delhi CM Rekha Gupta — capping a journey spanning solar-dryer research, youth governance, and organising the world\'s biggest hackathon.',
-    content: `<p class="text-lg leading-relaxed mb-6">At a time when most undergraduates are still finding their footing, <strong>Prajwal Jha</strong>, a student at <strong>Delhi Technological University (DTU)</strong>, has built a track record that reads more like a seasoned changemaker's résumé than a college student's. From academic research to civic leadership and large-scale event organizing, Jha has emerged as one of Delhi's most talked-about young innovators — a reputation cemented on <strong>July 2, 2026</strong>, when he was named among the <strong>Top 60 most innovative students in India</strong> by Delhi Chief Minister <strong>Rekha Gupta</strong>.</p>
+    excerpt: 'Delhi Technological University student Prajwal Jha has been named among the Top 60 most innovative students in India by Delhi CM Rekha Gupta — capping a journey spanning solar-dryer research, youth governance, and organising one of the world’s biggest hackathons.',
+    content: `<p class="text-lg leading-relaxed mb-6">At a time when most undergraduates are still finding their footing, <strong>Prajwal Jha</strong>, a student at <strong>Delhi Technological University (DTU)</strong>, has built a track record that reads more like a seasoned changemaker's résumé than a college student's. From academic research to civic leadership and large-scale event organizing, Jha has emerged as one of Delhi's most talked-about young innovators — a reputation cemented when he was named among the <strong>Top 60 most innovative students in India</strong> by Delhi Chief Minister <strong>Rekha Gupta</strong>.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">A Researcher's Mindset</h2>
 <p class="mb-6">Jha's innovative streak isn't limited to entrepreneurship — it extends into academic research as well. He has published a research paper on solar dryers, a technology with real-world relevance to India's agricultural and food-processing sectors, where reducing post-harvest losses and cutting dependence on conventional energy sources remain pressing challenges. The work reflects a recurring theme in his output: taking a practical, engineering-driven approach to problems that matter at a national scale.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">Leading from the Front in Youth Governance</h2>
 <p class="mb-6">Beyond the lab and the classroom, Jha has taken on a significant leadership role in civic life as Deputy Speaker of a National Youth Parliament. The role places him at the center of youth-led policy debate and democratic engagement, giving young Indians a structured platform to discuss governance, legislation, and public issues — training ground for the kind of civic-minded leadership India's youth movement increasingly champions.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">Building Platforms for Innovation</h2>
-<p class="mb-6">Jha's organizing ability extends to the tech and startup ecosystem as well. He has been behind the organization of what is described as the world's biggest hackathon, bringing together developers, designers, and entrepreneurs to build and compete at scale. Events of this size require not just technical fluency but serious operational and leadership capability — skills that mirror the same entrepreneurial instinct he has applied across his other ventures.</p>
+<p class="mb-6">Jha's organizing ability extends to the tech and startup ecosystem as well. He has been behind the organization of what is described as one of the world's biggest hackathons, bringing together developers, designers, and entrepreneurs to build and compete at scale. Events of this size require not just technical fluency but serious operational and leadership capability — skills that mirror the same entrepreneurial instinct he has applied across his other ventures.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">Recognized by the Delhi Government</h2>
-<p class="mb-6">That instinct was formally recognized on July 2, 2026, when Chief Minister Rekha Gupta named Jha among the Top 60 most innovative students in the country. The recognition came through <strong>Delhi Next – Code, Create & Change</strong>, the Delhi government's large-scale civic-tech innovation programme, which drew participation from students, developers, and young entrepreneurs across India and focused on building technology-driven solutions for urban challenges such as traffic congestion, waterlogging, air pollution, waste management, and citizen service delivery. Selected teams and innovators, after multiple rounds of evaluation, were invited to showcase their ideas before government officials, industry experts, and mentors — with an emphasis on real implementation through pilot projects with Delhi government departments, rather than recognition alone.</p>
+<p class="mb-6">That instinct was formally recognized when Chief Minister Rekha Gupta named Jha among the Top 60 most innovative students in the country. The recognition came through <strong>Delhi Next – Code, Create & Change</strong>, the Delhi government's large-scale civic-tech innovation programme, which drew participation from students, developers, and young entrepreneurs across India and focused on building technology-driven solutions for urban challenges such as traffic congestion, waterlogging, air pollution, waste management, and citizen service delivery. Selected teams and innovators, after multiple rounds of evaluation, were invited to showcase their ideas before government officials, industry experts, and mentors — with an emphasis on real implementation through pilot projects with Delhi government departments, rather than recognition alone.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">A Pattern of Purposeful Innovation</h2>
 <p class="mb-6">What stands out across Jha's body of work — research, governance, and large-scale organizing — is a consistent focus on solving tangible problems rather than chasing accolades for their own sake. Whether it's sustainable technology through his solar dryer research, democratic participation through the National Youth Parliament, or ecosystem-building through hackathons, his work points toward a broader ambition: using innovation as a tool for public good.</p>
 <blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">As Delhi's civic-tech and entrepreneurial ecosystem continues to grow, students like Prajwal Jha represent the kind of talent such initiatives are designed to surface — and a preview of the leadership the next generation of Indian innovation may look like.</blockquote>`,
     category: 'technology',
     imageUrl: '/prj.png',
     author: 'The Fista Desk',
-    publishedAt: 'Jul 23, 2026',
+    publishedAt: 'Sep 7, 2026',
     readTime: '5 min read',
     isFeatured: true,
     isTrending: true,
   },
 
-  // 2 — Sensex crosses 92,000
+  // 11 — India-EU FTA ratification (Sep 6)
   {
-    id: 'sensex-crosses-92000',
-    title: 'Sensex Crosses 92,000 for the First Time as IT and Banking Stocks Power Record Rally',
-    excerpt: 'Indian equity benchmarks hit fresh lifetime highs on Thursday, with the Sensex breaching 92,000 and the Nifty topping 28,000, driven by strong Q1 earnings, cooling inflation, and heavy foreign inflows.',
-    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, July 23, 2026 — Indian stock markets scaled a fresh peak on Thursday as the BSE Sensex crossed the <strong>92,000</strong> mark for the first time in history, while the NSE Nifty 50 breezed past 28,000. The rally was powered by a broad-based surge across information technology, banking, and auto stocks.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">What's Driving the Surge</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Strong Q1 Earnings:</strong> Blue-chip IT majors and private banks beat street estimates for the April-June quarter</li>
-  <li><strong>Cooling Inflation:</strong> Retail inflation eased to a multi-year low, raising hopes of a softer rate cycle</li>
-  <li><strong>Foreign Inflows:</strong> FPIs turned aggressive net buyers, pumping in over ₹18,000 crore in July so far</li>
-  <li><strong>Monsoon Cheer:</strong> An above-normal monsoon has brightened the outlook for rural demand</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Market Mood</h2>
-<p class="mb-6">Broader markets joined the party, with mid-cap and small-cap indices also closing at record highs. Analysts, however, cautioned retail investors against chasing momentum, noting that valuations in several pockets are stretched.</p>
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"India remains a structural growth story. Domestic flows and improving earnings visibility are giving the market fresh legs."<br/><span class="text-sm not-italic font-semibold">— Chief Investment Strategist, leading domestic brokerage</span></blockquote>`,
-    category: 'business',
-    imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop&q=80',
-    author: 'Amit Verma',
-    publishedAt: 'Jul 23, 2026',
-    readTime: '4 min read',
-    isFeatured: true,
-    isTrending: true,
-  },
-
-  // 3 — India clinch ODI series in England
-  {
-    id: 'india-clinch-odi-series-england',
-    title: "Shubman Gill's India Clinch ODI Series in England with Clinical Win at Lord's",
-    excerpt: 'India chased down a stiff target under the Lord\'s lights to take an unassailable 2-1 lead in the three-match ODI series, with Shubman Gill and Shreyas Iyer sharing a match-defining stand.',
-    content: `<p class="text-lg leading-relaxed mb-6">London, July 22, 2026 — India sealed the ODI series against England with a composed batting display at Lord's, chasing down 290 with seven balls to spare to take an unbeatable 2-1 lead in the three-match series.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Gill and Iyer Anchor the Chase</h2>
-<p class="mb-6">Captain Shubman Gill led from the front with a fluent 88, while Shreyas Iyer's counter-attacking 74 tilted the game India's way after an early wobble. The pair added 132 for the third wicket to break the back of the chase on a slow London evening.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Key Performers</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Shubman Gill:</strong> Captain's knock of 88, now the series' leading run-scorer</li>
-  <li><strong>Shreyas Iyer:</strong> A busy, pressure-absorbing 74 in the middle overs</li>
-  <li><strong>Kuldeep Yadav:</strong> Three crucial wickets to peg England back to 289</li>
-  <li><strong>Joe Root (ENG):</strong> A defiant 91 in a losing cause</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">What's Next</h2>
-<p class="mb-6">The two sides now travel to Southampton for the dead-rubber final ODI before shifting focus to a three-match T20I series that begins next week — a key marker on the road to the 2026 T20 calendar.</p>
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"We wanted to be brave in the chase. The boys backed themselves and it's a proud moment to win a series in England."<br/><span class="text-sm not-italic font-semibold">— Shubman Gill, India Captain</span></blockquote>`,
-    category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=800&auto=format&fit=crop&q=80',
-    author: 'Rajesh Sharma',
-    publishedAt: 'Jul 22, 2026',
-    readTime: '5 min read',
-    isFeatured: true,
-    isTrending: true,
-  },
-
-  // 4 — Monsoon Session of Parliament
-  {
-    id: 'monsoon-session-parliament-2026',
-    title: 'Monsoon Session of Parliament Begins: GST Reform, Data Bill and Jobs Top the Agenda',
-    excerpt: 'The Monsoon Session opened on Monday with the government listing a packed legislative agenda, including the next phase of GST rationalisation and a fresh digital data framework, as the Opposition sharpened its attack.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, July 21, 2026 — The Monsoon Session of Parliament kicked off with the government signalling an ambitious legislative agenda even as the Opposition pressed for debates on employment, price rise, and federal issues.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">On the Legislative Table</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>GST 2.0:</strong> A rationalisation of slabs aimed at simplifying rates for households and small businesses</li>
-  <li><strong>Digital Data Framework:</strong> New rules operationalising data protection and cross-border data flows</li>
-  <li><strong>Skilling & Jobs Bill:</strong> A package to expand apprenticeships and formalise gig-economy protections</li>
-  <li><strong>Infrastructure Push:</strong> Supplementary spending on highways, railways, and urban transit</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Opposition Sharpens Attack</h2>
-<p class="mb-6">Opposition parties said they would corner the government on jobs, rural distress, and the impact of monsoon flooding across several states. Floor leaders met ahead of the session to coordinate strategy on demanding structured debates.</p>
-<p class="mb-6">The Chair appealed to both sides to ensure the House runs smoothly, noting that a long list of bills awaits passage before the session concludes.</p>`,
-    category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&auto=format&fit=crop&q=80',
-    author: 'Sanjay Das',
-    publishedAt: 'Jul 21, 2026',
-    readTime: '5 min read',
-    isFeatured: true,
-    isTrending: true,
-  },
-
-  // 5 — Delhi Next Phase 2
-  {
-    id: 'delhi-next-phase-2',
-    title: "Delhi Government Launches Phase 2 of 'Delhi Next' Civic-Tech Programme",
-    excerpt: 'Building on its Top 60 innovators showcase, the Delhi government has opened registrations for the second edition of Delhi Next – Code, Create & Change, inviting students and start-ups to pilot solutions with city departments.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, July 22, 2026 — The Delhi government has announced Phase 2 of its flagship civic-tech initiative, <strong>Delhi Next – Code, Create & Change</strong>, expanding a programme that has quickly become a launchpad for the capital's young innovators.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">From Ideas to Pilots</h2>
-<p class="mb-6">The new phase places even greater emphasis on real-world implementation, with shortlisted teams set to run pilot projects alongside Delhi government departments. Focus areas include traffic congestion, waterlogging during the monsoon, air pollution, waste management, and citizen service delivery.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Building on Momentum</h2>
-<p class="mb-6">The announcement comes weeks after Chief Minister Rekha Gupta felicitated the <strong>Top 60 most innovative students in India</strong> under the programme's first edition — a cohort that included DTU's Prajwal Jha. Officials said the response to the debut round convinced the government to scale up mentorship, funding support, and departmental access.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Who Can Apply</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Students & Researchers:</strong> Undergraduate and postgraduate innovators from across India</li>
-  <li><strong>Early-Stage Start-ups:</strong> Teams building deployable urban-tech solutions</li>
-  <li><strong>Independent Developers:</strong> Coders and designers with a working prototype</li>
-</ul>
-<p class="mb-6">Registrations are open through the programme's online portal, with evaluation to be conducted in multiple rounds before a demo day in front of government officials, industry experts, and mentors.</p>`,
-    category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800&auto=format&fit=crop&q=80',
-    author: 'Meera Joshi',
-    publishedAt: 'Jul 22, 2026',
-    readTime: '4 min read',
-    isTrending: true,
-  },
-
-  // 6 — India-EU FTA
-  {
-    id: 'india-eu-fta-concluded',
-    title: 'India and EU Conclude Landmark Free Trade Agreement After Years of Negotiation',
-    excerpt: 'India and the European Union announced the conclusion of talks on a long-pending free trade agreement, opening up one of the world\'s largest markets for Indian exporters across textiles, pharma, and IT services.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi/Brussels, July 20, 2026 — India and the European Union announced the conclusion of negotiations on a comprehensive Free Trade Agreement (FTA), marking one of the most significant trade breakthroughs for New Delhi in a decade.</p>
+    id: 'india-eu-fta-ratification',
+    title: 'India–EU Free Trade Agreement Clears Ratification, Set to Boost Exports',
+    excerpt: 'The landmark India–European Union free trade agreement moved through its final ratification steps, opening one of the world’s largest markets to Indian exporters across textiles, pharma and IT services.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi/Brussels, September 6, 2026 — The comprehensive Free Trade Agreement between India and the European Union cleared its final ratification hurdles, marking one of the most significant trade breakthroughs for New Delhi in a decade and setting the stage for a phased reduction in tariffs.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">What the Deal Covers</h2>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Market Access:</strong> Sharp tariff reductions on textiles, leather, pharmaceuticals, and engineering goods</li>
-  <li><strong>Services & Mobility:</strong> Easier movement for Indian professionals and mutual recognition of qualifications</li>
-  <li><strong>Investment:</strong> A parallel investment protection pact to boost European capital inflows</li>
-  <li><strong>Sustainability:</strong> Commitments on green technology cooperation and supply-chain resilience</li>
+  <li><strong>Market access:</strong> Sharp tariff reductions on textiles, leather, pharmaceuticals and engineering goods</li>
+  <li><strong>Services and mobility:</strong> Easier movement for professionals and mutual recognition of qualifications</li>
+  <li><strong>Investment:</strong> A parallel protection pact to boost European capital inflows</li>
+  <li><strong>Sustainability:</strong> Commitments on green-technology cooperation and supply-chain resilience</li>
 </ul>
 <h2 class="text-2xl font-bold mt-8 mb-4">Why It Matters</h2>
-<p class="mb-6">The EU is one of India's largest trading partners, and negotiators expect bilateral trade to expand significantly once the agreement is ratified. Exporters in labour-intensive sectors are set to be among the biggest beneficiaries.</p>
-<p class="mb-6">Officials said the legal text will now be finalised and put through ratification on both sides, a process expected to take several months.</p>`,
+<p class="mb-6">The EU is one of India's largest trading partners, and negotiators expect bilateral trade to expand significantly as the agreement is implemented. Exporters in labour-intensive sectors are set to be among the biggest beneficiaries.</p>
+<p class="mb-6">Officials said the two sides would now move to operationalise the agreement in phases, with early gains expected in the coming quarters.</p>`,
     category: 'business',
-    imageUrl: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&auto=format&fit=crop&q=80',
-    author: 'Amit Verma',
-    publishedAt: 'Jul 20, 2026',
+    imageUrl: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&auto=format&fit=crop&q=80',
+    author: 'Meera Joshi',
+    publishedAt: 'Sep 6, 2026',
     readTime: '5 min read',
     isTrending: true,
   },
 
-  // 7 — Smriti Mandhana / India Women
+  // 12 — India semiconductor (Sep 6)
   {
-    id: 'mandhana-ton-india-women',
-    title: 'Smriti Mandhana Hits Sublime Century as India Women Seal Series in England',
-    excerpt: 'A masterful hundred from Smriti Mandhana and a disciplined bowling effort helped India Women clinch their white-ball series in England, underlining their credentials ahead of a big season.',
-    content: `<p class="text-lg leading-relaxed mb-6">Bristol, July 20, 2026 — Smriti Mandhana produced a batting masterclass, stroking a fluent century to power India Women to a series-clinching victory over England Women in the ODI leg of their tour.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Mandhana in Full Flow</h2>
-<p class="mb-6">Opening the innings, Mandhana timed the ball beautifully through the off side and paced her knock to perfection, bringing up her hundred with trademark elegance. Her stand with the middle order pushed India to a commanding total.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">All-Round Effort</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Smriti Mandhana:</strong> A chanceless century at the top of the order</li>
-  <li><strong>Deepti Sharma:</strong> Vital breakthroughs and tight overs with the ball</li>
-  <li><strong>Renuka Singh:</strong> Early strikes with the new ball to set the tone</li>
-</ul>
-<p class="mb-6">The result caps an impressive tour for Harmanpreet Kaur's side and offers valuable momentum ahead of a packed international calendar.</p>`,
-    category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&auto=format&fit=crop&q=80',
-    author: 'Suresh Nair',
-    publishedAt: 'Jul 20, 2026',
-    readTime: '4 min read',
-    isTrending: true,
-  },
-
-  // 8 — Monsoon health alert
-  {
-    id: 'monsoon-dengue-alert',
-    title: 'Monsoon Health Alert: Dengue and Chikungunya Cases Climb Across North India',
-    excerpt: 'Health authorities have issued advisories as vector-borne diseases rise with the monsoon, urging citizens to eliminate stagnant water and watch for warning symptoms.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, July 22, 2026 — As the monsoon settles over northern India, health departments across several states have flagged a seasonal rise in dengue, chikungunya, and malaria cases, issuing fresh advisories to the public.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Staying Safe This Monsoon</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Eliminate breeding sites:</strong> Empty stagnant water from coolers, pots, and containers weekly</li>
-  <li><strong>Use protection:</strong> Mosquito repellents, nets, and full-sleeved clothing, especially at dawn and dusk</li>
-  <li><strong>Watch for symptoms:</strong> High fever, severe body ache, rash, and fatigue warrant prompt testing</li>
-  <li><strong>Stay hydrated:</strong> Fluids are critical; avoid self-medication with certain painkillers</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Hospitals on Alert</h2>
-<p class="mb-6">Civic bodies have ramped up fogging drives and door-to-door checks for larvae, while hospitals have been asked to keep dedicated fever wards ready. Officials stressed that early diagnosis dramatically reduces the risk of complications.</p>
-<p class="mb-6">Doctors advised people not to ignore persistent fever and to seek medical attention rather than waiting it out at home.</p>`,
-    category: 'health',
-    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&auto=format&fit=crop&q=80',
-    author: 'Dr. Anita Singh',
-    publishedAt: 'Jul 22, 2026',
-    readTime: '4 min read',
-    isTrending: true,
-  },
-
-  // 9 — CBSE board reforms
-  {
-    id: 'cbse-two-board-exams-2026',
-    title: 'CBSE Confirms Two Board Exams a Year for Class 10 from the New Session',
-    excerpt: 'In a major shift, CBSE has confirmed that Class 10 students will get two board exam attempts a year, allowing them to keep their best score and easing exam pressure.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, July 22, 2026 — The Central Board of Secondary Education (CBSE) confirmed a landmark reform under which Class 10 students will be able to appear for board examinations twice a year, in line with the National Education Policy's vision.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">How It Will Work</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Two attempts:</strong> Exams will be held in two phases, and students may appear in one or both</li>
-  <li><strong>Best score counts:</strong> The higher of the two scores will be retained</li>
-  <li><strong>Reduced pressure:</strong> The move aims to lower the stakes attached to a single high-stress exam</li>
-  <li><strong>No extra fee burden:</strong> The board has outlined a streamlined registration process</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Educators React</h2>
-<p class="mb-6">School principals and teachers broadly welcomed the change, saying it aligns Indian assessment with global best practices and gives students a genuine second chance. Some flagged the need for careful scheduling so the two windows do not disrupt the academic calendar.</p>
-<p class="mb-6">The board said detailed guidelines, including the exam windows and syllabus coverage for each phase, will be released to schools shortly.</p>`,
-    category: 'education',
-    imageUrl: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&auto=format&fit=crop&q=80',
-    author: 'Kavita Reddy',
-    publishedAt: 'Jul 22, 2026',
-    readTime: '4 min read',
-    isTrending: true,
-  },
-
-  // 10 — JEE Advanced results
-  {
-    id: 'jee-advanced-results-2026',
-    title: 'JEE Advanced 2026 Results Declared: Record Cutoffs as DTU, IITs Draw Top Talent',
-    excerpt: 'The IITs have declared the JEE Advanced 2026 results, with premier institutes reporting some of the highest cutoffs in years amid intense competition among the country\'s brightest engineering aspirants.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, July 21, 2026 — Results for JEE Advanced 2026 were declared on the official portal, setting off celebrations across the country as lakhs of engineering aspirants checked their ranks in one of the world's toughest entrance examinations.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">How to Check Your Result</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li>Visit the official JEE Advanced results portal</li>
-  <li>Log in with your registration number, date of birth, and phone number</li>
-  <li>Download the scorecard and note your All India Rank (AIR)</li>
-  <li>Track the counselling schedule for seat allotment</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">Fierce Competition for Seats</h2>
-<p class="mb-6">Premier institutions, including the IITs and top Delhi colleges such as Delhi Technological University (DTU), are expected to see elevated cutoffs this year, reflecting both the strength of the applicant pool and sustained demand for computer science and allied branches.</p>
-<p class="mb-6">Counselling and seat allocation through the joint process will begin shortly, with multiple rounds giving candidates a chance to secure their preferred branch and institute.</p>`,
-    category: 'education',
-    imageUrl: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&auto=format&fit=crop&q=80',
-    author: 'Kavita Reddy',
-    publishedAt: 'Jul 21, 2026',
-    readTime: '3 min read',
-    isTrending: true,
-  },
-
-  // 11 — ISRO Gaganyaan
-  {
-    id: 'isro-gaganyaan-test-flight',
-    title: 'ISRO Sets Date for Gaganyaan Uncrewed Test Flight, Crewed Mission on Track',
-    excerpt: 'ISRO has announced the schedule for a key uncrewed Gaganyaan test flight, a decisive step towards India\'s first human spaceflight, with the crewed mission targeted for the following year.',
-    content: `<p class="text-lg leading-relaxed mb-6">Bengaluru, July 21, 2026 — The Indian Space Research Organisation (ISRO) announced the timeline for the next major uncrewed test flight of its ambitious <strong>Gaganyaan</strong> human spaceflight programme, calling it a decisive milestone on the road to putting Indian astronauts in orbit.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">A Step Towards Human Spaceflight</h2>
-<p class="mb-6">The upcoming mission will validate critical systems, including the crew module, service module, and the crew escape system, under conditions closely mimicking an actual crewed launch. Data from the flight will feed directly into clearing the vehicle for astronauts.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">What's on the Test Card</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Human-rated launch vehicle:</strong> Full validation of the upgraded rocket</li>
-  <li><strong>Crew module recovery:</strong> Splashdown and recovery operations at sea</li>
-  <li><strong>Life-support systems:</strong> End-to-end checks of environmental control systems</li>
-  <li><strong>Abort scenarios:</strong> Demonstration of crew safety mechanisms</li>
-</ul>
-<p class="mb-6">ISRO officials said the programme remains on course, with the first crewed flight targeted for the following year, potentially making India the fourth nation to independently send humans to space.</p>`,
-    category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=800&auto=format&fit=crop&q=80',
-    author: 'Neha Gupta',
-    publishedAt: 'Jul 21, 2026',
-    readTime: '5 min read',
-    isFeatured: true,
-    isTrending: true,
-  },
-
-  // 12 — Bollywood box office
-  {
-    id: 'bollywood-box-office-weekend',
-    title: 'Big Bollywood Release Storms the Box Office in a Blockbuster Weekend',
-    excerpt: 'A much-anticipated summer release has opened to packed theatres and strong word of mouth, giving the Hindi film industry its biggest opening of the year so far.',
-    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, July 20, 2026 — Bollywood roared back to form this weekend as one of the year's most-anticipated releases opened to houseful boards across the country, notching the biggest opening for a Hindi film in 2026 so far.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">A Weekend to Remember</h2>
-<p class="mb-6">Buoyed by a strong marketing campaign, an ensemble cast, and positive early reviews, the film drew large family audiences and packed late-night shows in metros and smaller towns alike. Trade analysts said the momentum points to a healthy extended run.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Why It's Clicking</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Strong word of mouth:</strong> Social media buzz translated into repeat viewing</li>
-  <li><strong>Music that travels:</strong> A chart-topping soundtrack fuelling pre-release hype</li>
-  <li><strong>Wide release:</strong> A large screen count across single screens and multiplexes</li>
-</ul>
-<p class="mb-6">The success offers a much-needed boost to exhibitors after a mixed first half of the year, with several big titles still lined up for the festive season ahead.</p>`,
-    category: 'bollywood',
-    imageUrl: 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&auto=format&fit=crop&q=80',
-    author: 'Pooja Sharma',
-    publishedAt: 'Jul 20, 2026',
-    readTime: '3 min read',
-    isTrending: true,
-  },
-
-  // 13 — RBI repo rate
-  {
-    id: 'rbi-holds-repo-rate',
-    title: 'RBI Holds Repo Rate Steady, Signals Comfort as Inflation Cools',
-    excerpt: 'The Reserve Bank of India kept its benchmark repo rate unchanged in its latest policy review, striking a balanced tone as retail inflation eased and growth stayed resilient.',
-    content: `<p class="text-lg leading-relaxed mb-6">Mumbai, July 22, 2026 — The Reserve Bank of India's Monetary Policy Committee voted to keep the benchmark repo rate unchanged, maintaining a steady hand as inflation trended lower and growth held firm.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Key Takeaways</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Rate on hold:</strong> The repo rate stays put, in line with market expectations</li>
-  <li><strong>Inflation easing:</strong> Softer food prices and a good monsoon aid the outlook</li>
-  <li><strong>Growth intact:</strong> The RBI reaffirmed a healthy GDP growth projection for the year</li>
-  <li><strong>Stance:</strong> The central bank retained flexibility to act as data evolves</li>
-</ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">What It Means for Borrowers</h2>
-<p class="mb-6">For home and auto loan borrowers, the pause means EMIs are likely to stay stable in the near term. Economists said a well-behaved monsoon and cooling core inflation keep the door open for a softer stance later in the year.</p>
-<p class="mb-6">Markets took the announcement in stride, with rate-sensitive banking and real-estate stocks holding firm.</p>`,
-    category: 'business',
-    imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=80',
-    author: 'Amit Verma',
-    publishedAt: 'Jul 22, 2026',
-    readTime: '4 min read',
-  },
-
-  // 14 — Bumrah workload
-  {
-    id: 'bumrah-workload-management',
-    title: 'Bumrah Rested for Final Stretch of England Tour Under Workload Plan',
-    excerpt: 'The team management has confirmed Jasprit Bumrah will be managed carefully through the remainder of the England tour, prioritising his fitness for a demanding season ahead.',
-    content: `<p class="text-lg leading-relaxed mb-6">Southampton, July 21, 2026 — India's team management confirmed that pace spearhead Jasprit Bumrah will be rested for parts of the remaining England tour as part of a carefully calibrated workload-management plan.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Managing the Spearhead</h2>
-<p class="mb-6">With a packed international calendar ahead, the support staff and medical team opted for a proactive approach to keep Bumrah fresh and injury-free. Officials stressed the move is precautionary and not linked to any fresh niggle.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">An Opportunity for the Bench</h2>
-<ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Fresh legs:</strong> Younger pacers get a chance to press their claims</li>
-  <li><strong>Depth on show:</strong> A test of India's fast-bowling reserves in English conditions</li>
-  <li><strong>Long-term view:</strong> Fitness prioritised ahead of a heavy home-and-away season</li>
-</ul>
-<p class="mb-6">The captain backed the decision, saying a fit and firing Bumrah for the big assignments matters more than any single fixture.</p>`,
-    category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=800&auto=format&fit=crop&q=80',
-    author: 'Ravi Kumar',
-    publishedAt: 'Jul 21, 2026',
-    readTime: '3 min read',
-    isFeatured: true,
-  },
-
-  // 15 — Semiconductor mission
-  {
-    id: 'india-semiconductor-first-chips',
-    title: "India's Semiconductor Mission Hits Milestone as First Made-in-India Chips Roll Out",
-    excerpt: 'India marked a major moment for its chip ambitions as the first packaged semiconductors from a domestic facility rolled off the line, a key step towards reducing import dependence.',
-    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, July 22, 2026 — India took a significant step in its semiconductor journey as the first batch of domestically packaged chips rolled out of a home-grown facility, underscoring the momentum behind the country's electronics manufacturing push.</p>
+    id: 'india-semiconductor-scale-up',
+    title: "India's Chip Mission Scales Up as Second Packaging Line Comes Online",
+    excerpt: 'India’s semiconductor ambitions gathered pace as a second domestic packaging line began commercial output, a key step towards cutting import dependence and anchoring a homegrown electronics ecosystem.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 6, 2026 — India took another significant step in its semiconductor journey as a second domestically operated packaging line began commercial production, underscoring the momentum behind the country's electronics manufacturing push.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">Why This Matters</h2>
-<p class="mb-6">Semiconductors sit at the heart of everything from smartphones and cars to defence systems and data centres. Building domestic capability reduces reliance on imports, strengthens supply-chain resilience, and creates high-skill jobs.</p>
+<p class="mb-6">Semiconductors sit at the heart of everything from smartphones and cars to defence systems and data centres. Building domestic capability reduces reliance on imports, strengthens supply-chain resilience, and creates high-skill jobs across the value chain.</p>
 <h2 class="text-2xl font-bold mt-8 mb-4">The Bigger Picture</h2>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Ecosystem in the making:</strong> Fabrication, packaging, and design capabilities taking shape</li>
+  <li><strong>Ecosystem in the making:</strong> Fabrication, packaging and design capabilities taking shape</li>
   <li><strong>Global partnerships:</strong> Tie-ups with leading international chip firms</li>
-  <li><strong>Talent pipeline:</strong> New courses and roles for engineers across the value chain</li>
-  <li><strong>Downstream boost:</strong> Support for India's growing electronics and EV sectors</li>
+  <li><strong>Talent pipeline:</strong> New courses and roles for engineers across the sector</li>
+  <li><strong>Downstream boost:</strong> Support for India's growing electronics and EV industries</li>
 </ul>
-<p class="mb-6">Industry leaders called the milestone symbolic but significant, noting that scaling to advanced nodes will take sustained investment and policy support over the coming years.</p>`,
+<p class="mb-6">Industry leaders called the milestone significant, noting that scaling to advanced nodes will take sustained investment and policy support over the coming years.</p>`,
     category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80',
     author: 'Dr. Priya Sharma',
-    publishedAt: 'Jul 22, 2026',
+    publishedAt: 'Sep 6, 2026',
     readTime: '5 min read',
     isTrending: true,
   },
 
-  // 16 — India Innovates 2026 (flagship event — evergreen)
+  // 13 — Preventive health / lifestyle (Sep 5)
   {
-    id: 'india-innovates-2026',
-    title: 'India Innovates 2026: 5000+ Developers Set to Break Guinness World Record at Bharat Mandapam',
-    excerpt: 'India is about to make history! Over 5000 engineers and developers will gather at Bharat Mandapam on March 28th to break the Guinness World Record, currently held by Saudi Arabia with 3921 developers.',
-    content: `<p class="text-lg leading-relaxed mb-6">India is set to create history as <strong>India Innovates 2026</strong> prepares to break the <strong>Guinness World Record</strong> for the largest gathering of developers under one roof. The current record is held by <strong>Saudi Arabia</strong>, where 3921 developers assembled in Riyadh. On <strong>March 28, 2026</strong>, at the prestigious <strong>Bharat Mandapam</strong> in New Delhi, more than <strong>5000+ engineers and developers</strong> will come together, organized by <strong>Hansa AI Technologies Pvt. Ltd.</strong></p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Breaking the World Record</h2>
-<p class="mb-6">The Guinness World Record for the largest gathering of software developers is currently held by Saudi Arabia, achieved during a tech event in Riyadh where 3921 developers participated. India Innovates 2026 aims to shatter this record by bringing together more than 5000 engineers, developers, and tech professionals from across the nation.</p>
-<h2 class="text-2xl font-bold mt-8 mb-4">Distinguished Chief Guests</h2>
+    id: 'preventive-health-screening-push',
+    title: 'Doctors Urge Annual Health Screening as Lifestyle Diseases Rise Among Young Indians',
+    excerpt: 'Health experts are calling for wider adoption of preventive check-ups, warning that early screening and simple lifestyle changes can sharply cut the burden of diabetes, hypertension and heart disease.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 5, 2026 — Public-health specialists have renewed calls for annual preventive screening, cautioning that lifestyle-linked conditions are appearing in younger Indians and that early detection remains the single most effective tool to manage them.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Small Steps, Big Impact</h2>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>Shri Ashwini Vaishnaw</strong> — Union Minister of Railways, Electronics & IT</li>
-  <li><strong>Smt. Rekha Gupta</strong> — Chief Minister of Delhi</li>
-  <li><strong>Shri Parvesh Verma</strong> — Deputy Chief Minister of Delhi & PWD Minister</li>
-  <li><strong>20+ IAS/IFS/IRS Officers</strong> — Senior bureaucrats from various ministries</li>
+  <li><strong>Know your numbers:</strong> Blood pressure, blood sugar and cholesterol checks once a year</li>
+  <li><strong>Move daily:</strong> At least 30 minutes of activity on most days of the week</li>
+  <li><strong>Eat mindfully:</strong> More whole foods and fibre, less ultra-processed and sugary intake</li>
+  <li><strong>Sleep and stress:</strong> Consistent sleep and stress management protect long-term health</li>
 </ul>
-<h2 class="text-2xl font-bold mt-8 mb-4">What to Expect</h2>
+<h2 class="text-2xl font-bold mt-8 mb-4">Prevention Over Cure</h2>
+<p class="mb-6">Doctors said the biggest gains come from catching risk factors early, long before they progress into serious illness. Employers and insurers, they added, are increasingly building preventive check-ups into wellness programmes.</p>
+<p class="mb-6">The message, experts stressed, is simple: routine screening is not a sign of illness but a habit that keeps people healthy.</p>`,
+    category: 'health',
+    imageUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&auto=format&fit=crop&q=80',
+    author: 'Dr. Anita Singh',
+    publishedAt: 'Sep 5, 2026',
+    readTime: '4 min read',
+  },
+
+  // 14 — India AI Mission (Sep 5)
+  {
+    id: 'india-ai-mission-compute-push',
+    title: 'India AI Mission Expands Public Compute Access for Startups and Researchers',
+    excerpt: 'The government widened access to subsidised GPU compute under the India AI Mission, aiming to lower the entry barrier for startups, universities and researchers building homegrown AI models.',
+    content: `<p class="text-lg leading-relaxed mb-6">New Delhi, September 5, 2026 — The government expanded access to subsidised high-performance computing under the <strong>India AI Mission</strong>, a move designed to help startups, universities and independent researchers train and deploy artificial-intelligence models at a fraction of commercial cost.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">Lowering the Barrier</h2>
+<p class="mb-6">Access to large-scale compute has been one of the biggest constraints for India's AI builders. By pooling public GPU capacity and offering it at concessional rates, officials hope to unlock a wave of applications tailored to Indian languages, agriculture, healthcare and public services.</p>
+<h2 class="text-2xl font-bold mt-8 mb-4">What's on Offer</h2>
 <ul class="list-disc pl-6 mb-6 space-y-2">
-  <li><strong>World Record Attempt:</strong> Be part of history as 5000+ developers assemble</li>
-  <li><strong>Keynote Sessions:</strong> Industry leaders and policy makers on India's tech future</li>
-  <li><strong>Innovation Showcase:</strong> Cutting-edge technologies from Indian companies</li>
-  <li><strong>Career Fair:</strong> Top tech companies recruiting on-site</li>
+  <li><strong>Subsidised compute:</strong> Concessional GPU access for eligible teams</li>
+  <li><strong>Indian-language models:</strong> Priority support for multilingual and voice applications</li>
+  <li><strong>Datasets and tooling:</strong> Curated, privacy-compliant datasets for training</li>
+  <li><strong>Skilling:</strong> Fellowships and courses to widen the AI talent base</li>
 </ul>
-<blockquote class="border-l-4 border-primary pl-6 italic my-8 text-lg text-neutral-600">"India has the world's largest pool of tech talent, and India Innovates 2026 is our opportunity to showcase this to the world."<br/><span class="text-sm not-italic font-semibold">— CEO, Hansa AI Technologies Pvt. Ltd.</span></blockquote>
-<div class="bg-neutral-100 p-6 my-8"><h3 class="font-bold text-lg mb-2">Event Details</h3><ul class="space-y-1"><li><strong>Date:</strong> March 28, 2026</li><li><strong>Venue:</strong> Bharat Mandapam, Pragati Maidan, New Delhi</li><li><strong>Organizer:</strong> Hansa AI Technologies Pvt. Ltd.</li><li><strong>Target:</strong> 5000+ Developers (Beat Saudi Arabia's 3921)</li></ul></div>`,
+<p class="mb-6">Industry watchers said the initiative could meaningfully improve India's standing in applied AI, provided access is transparent and the ecosystem scales responsibly.</p>`,
     category: 'technology',
-    imageUrl: '/poster.png',
-    author: 'The Fista Tech Desk',
-    publishedAt: 'Mar 28, 2026',
-    readTime: '6 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&auto=format&fit=crop&q=80',
+    author: 'Neha Gupta',
+    publishedAt: 'Sep 5, 2026',
+    readTime: '5 min read',
   },
 ];
 
@@ -412,41 +356,41 @@ export const liveMatches: LiveMatch[] = [
   {
     id: '1',
     sport: 'Cricket',
-    tournament: 'India tour of England 2026 — 3rd ODI',
-    venue: "Lord's, London",
+    tournament: 'Asia Cup 2026 — Final',
+    venue: 'Dubai International Stadium',
     team1: {
       name: 'India',
       shortName: 'IND',
       flag: '🇮🇳',
-      score: '291/3',
-      overs: '(48.5 ov)',
+      score: '182/6',
+      overs: '(19.4 ov)',
     },
     team2: {
-      name: 'England',
-      shortName: 'ENG',
-      flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
-      score: '289/8',
-      overs: '(50 ov)',
+      name: 'Pakistan',
+      shortName: 'PAK',
+      flag: '🇵🇰',
+      score: '181/7',
+      overs: '(20 ov)',
     },
     status: 'completed',
   },
   {
     id: '2',
     sport: 'Cricket',
-    tournament: 'Women\'s ODI — India in England',
-    venue: 'Bristol County Ground',
+    tournament: "Women's ODI Series — India",
+    venue: 'M. Chinnaswamy Stadium, Bengaluru',
     team1: {
       name: 'India Women',
       shortName: 'IND-W',
       flag: '🇮🇳',
-      score: '278/5',
+      score: '289/4',
       overs: '(50 ov)',
     },
     team2: {
-      name: 'England Women',
-      shortName: 'ENG-W',
-      flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
-      score: '212/9',
+      name: 'Australia Women',
+      shortName: 'AUS-W',
+      flag: '🇦🇺',
+      score: '246/9',
       overs: '(50 ov)',
     },
     status: 'completed',
@@ -454,12 +398,33 @@ export const liveMatches: LiveMatch[] = [
   {
     id: '3',
     sport: 'Cricket',
-    tournament: 'India tour of England 2026 — 1st T20I',
-    venue: 'Edgbaston, Birmingham',
+    tournament: 'Duleep Trophy 2026 — Semi-Final',
+    venue: 'M. A. Chidambaram Stadium, Chennai',
     team1: {
-      name: 'England',
-      shortName: 'ENG',
-      flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+      name: 'South Zone',
+      shortName: 'SZ',
+      flag: '🏏',
+      score: '312/6',
+      overs: '(Day 2)',
+    },
+    team2: {
+      name: 'West Zone',
+      shortName: 'WZ',
+      flag: '🏏',
+      score: '—',
+      overs: '',
+    },
+    status: 'live',
+  },
+  {
+    id: '4',
+    sport: 'Cricket',
+    tournament: 'India tour of Australia 2026 — 1st T20I',
+    venue: 'MCG, Melbourne',
+    team1: {
+      name: 'Australia',
+      shortName: 'AUS',
+      flag: '🇦🇺',
       score: '—',
       overs: '',
     },
@@ -473,42 +438,21 @@ export const liveMatches: LiveMatch[] = [
     status: 'upcoming',
   },
   {
-    id: '4',
-    sport: 'Cricket',
-    tournament: 'The Hundred 2026',
-    venue: "The Oval, London",
-    team1: {
-      name: 'Oval Invincibles',
-      shortName: 'OVI',
-      flag: '🏏',
-      score: '128/4',
-      overs: '(72 balls)',
-    },
-    team2: {
-      name: 'Trent Rockets',
-      shortName: 'TRT',
-      flag: '🚀',
-      score: '—',
-      overs: '',
-    },
-    status: 'live',
-  },
-  {
     id: '5',
     sport: 'Cricket',
-    tournament: 'India tour of England 2026 — 3rd ODI',
-    venue: 'Ageas Bowl, Southampton',
+    tournament: 'Ranji Trophy 2026-27 — Round 1',
+    venue: 'Arun Jaitley Stadium, Delhi',
     team1: {
-      name: 'India',
-      shortName: 'IND',
-      flag: '🇮🇳',
+      name: 'Delhi',
+      shortName: 'DEL',
+      flag: '🏏',
       score: '—',
       overs: '',
     },
     team2: {
-      name: 'England',
-      shortName: 'ENG',
-      flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+      name: 'Mumbai',
+      shortName: 'MUM',
+      flag: '🏏',
       score: '—',
       overs: '',
     },
@@ -518,7 +462,7 @@ export const liveMatches: LiveMatch[] = [
 
 export const getCategoryColor = (category: string): string => {
   const categoryInfo = categories.find(c => c.id === category);
-  return categoryInfo?.color || '#FFD700';
+  return categoryInfo?.color || '#B45309';
 };
 
 export const getArticlesByCategory = (category: string): Article[] => {
