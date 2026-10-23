@@ -12,6 +12,10 @@ export interface SeoData {
   imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
+  // Hero image to preload for LCP (prerendered head only).
+  preloadImage?: string;
+  preloadImageSrcSet?: string;
+  preloadImageSizes?: string;
   ogType?: 'website' | 'article';
   robots?: string;
   keywords?: string;

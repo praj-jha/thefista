@@ -1,11 +1,39 @@
 import { useParams, Link } from 'react-router-dom';
-import { User, ArrowLeft, ArrowRight, Facebook, Twitter, Linkedin, Link2, MessageCircle, Calendar, Clock, Check } from 'lucide-react';
-import { articles, categories } from '../data/articles';
-import { useState } from 'react';
+import { ArrowLeft, ArrowRight, Facebook, Twitter, Linkedin, Link2, MessageCircle, Mail, Check } from 'lucide-react';
+import { articles, categories, getTrendingArticles } from '../data/articles';
+import { useState, useEffect } from 'react';
+import { SectionHead, StandardStory, CompactStory, RankedList, NewsletterBox } from '../components/news';
 import Seo from '../seo/Seo';
 import { buildArticleSeo } from '../seo/builders';
 import { toISODate } from '../seo/config';
 import NotFoundPage from './NotFoundPage';
+import { imageSrcSet } from '../lib/images';
+
+function ReadingProgress() {
+    const [progress, setProgress] = useState(0);
+    useEffect(() => {
+        const onScroll = () => {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            setProgress(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', onScroll);
+        };
+    }, []);
+    return (
+        <div className="fixed top-0 inset-x-0 h-[3px] z-[55] pointer-events-none" aria-hidden="true">
+            <div className="h-full bg-primary origin-left" style={{ transform: `scaleX(${progress})` }} />
+        </div>
+    );
+}
+
+function initials(name: string) {
+    return name.replace(/^Dr\.\s*/, '').split(/\s+/).map(p => p[0]).slice(0, 2).join('').toUpperCase();
+}
 
 export default function ArticlePage() {
     const { articleId } = useParams<{ articleId: string }>();
@@ -42,274 +70,194 @@ export default function ArticlePage() {
     };
 
     const handleShare = (platform: keyof typeof shareLinks) => {
+        if (platform === 'email') {
+            window.location.assign(shareLinks.email);
+            return;
+        }
         window.open(shareLinks[platform], '_blank', 'width=600,height=400');
     };
 
     const relatedArticles = articles
         .filter(a => a.category === article.category && a.id !== article.id)
         .slice(0, 3);
+    const mostRead = getTrendingArticles().filter(a => a.id !== article.id).slice(0, 5);
 
     const currentIdx = articles.findIndex(a => a.id === articleId);
     const prevArticle = currentIdx > 0 ? articles[currentIdx - 1] : null;
     const nextArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null;
 
+    const imageCredit = article.imageCredit || 'The Fista';
+    const heroSrcSet = imageSrcSet(article);
+    const sectionName = category?.name || article.category;
+    const sectionPath = `/category/${category?.slug || article.category}`;
+
+    const shareButtons = (
+        <div className="flex items-center gap-1.5">
+            {[
+                { platform: 'facebook' as const, icon: Facebook, label: 'Facebook' },
+                { platform: 'twitter' as const, icon: Twitter, label: 'X (Twitter)' },
+                { platform: 'whatsapp' as const, icon: MessageCircle, label: 'WhatsApp' },
+                { platform: 'linkedin' as const, icon: Linkedin, label: 'LinkedIn' },
+                { platform: 'email' as const, icon: Mail, label: 'email' },
+            ].map(({ platform, icon: Icon, label }) => (
+                <button
+                    key={platform}
+                    aria-label={`Share on ${label}`}
+                    onClick={() => handleShare(platform)}
+                    className="w-9 h-9 border border-neutral-300 text-neutral-700 hover:border-secondary hover:bg-secondary hover:text-white flex items-center justify-center transition-colors"
+                >
+                    <Icon className="w-4 h-4" />
+                </button>
+            ))}
+            <button
+                aria-label="Copy link"
+                onClick={copyToClipboard}
+                className={`w-9 h-9 border flex items-center justify-center transition-colors ${copySuccess ? 'border-green-700 bg-green-700 text-white' : 'border-neutral-300 text-neutral-700 hover:border-secondary hover:bg-secondary hover:text-white'}`}
+            >
+                {copySuccess ? <Check className="w-4 h-4" /> : <Link2 className="w-4 h-4" />}
+            </button>
+        </div>
+    );
+
     return (
-        <div className="min-h-screen bg-white">
+        <div>
             <Seo {...buildArticleSeo(article, category)} />
+            <ReadingProgress />
 
-            {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="border-b border-neutral-200">
-                <div className="container-page py-2.5 flex items-center gap-2 text-[12px] font-cond uppercase tracking-wide">
-                    <Link to="/" className="text-neutral-400 hover:text-primary transition-colors">Home</Link>
-                    <span className="text-neutral-300">/</span>
-                    <Link to={`/category/${category?.slug || article.category}`} className="text-neutral-400 hover:text-primary transition-colors">{category?.name || article.category}</Link>
-                    <span className="text-neutral-300">/</span>
-                    <span className="text-neutral-600 font-bold truncate max-w-xs">{article.title}</span>
-                </div>
-            </nav>
+            <div className="container-page pt-6 lg:pt-10">
+                <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
+                    <article className="lg:col-span-8 min-w-0">
+                        {/* Breadcrumb */}
+                        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px]">
+                            <Link to="/" className="text-neutral-500 hover:text-primary">Home</Link>
+                            <span className="text-neutral-300">/</span>
+                            <Link to={sectionPath} className="kicker hover:text-primary-dark">{sectionName}</Link>
+                        </nav>
 
-            <article>
-                {/* Hero Image */}
-                <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[30rem] xl:h-[34rem] overflow-hidden">
-                    <img
-                        src={article.imageUrl}
-                        alt={article.title}
-                        className="w-full h-full object-cover"
-                        fetchPriority="high"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-secondary/90 via-secondary/30 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0">
-                        <div className="container-page pb-9 lg:pb-14">
-                            <span className="chip mb-4">{category?.name || article.category}</span>
-                            <h1 className="font-display text-white text-[1.9rem] md:text-4xl lg:text-5xl xl:text-[3.5rem] leading-[1.04] max-w-4xl mt-4">
+                        <header className="mt-4">
+                            <h1 className="font-bold text-secondary leading-[1.08] tracking-[-0.01em] text-[2.1rem] sm:text-[2.7rem] lg:text-[3.1rem]">
                                 {article.title}
                             </h1>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Meta Bar */}
-                <div className="bg-white/90 backdrop-blur-xl border-b border-neutral-200 sticky top-0 z-30">
-                    <div className="container-page py-3 flex flex-wrap items-center justify-between gap-4">
-                        <div className="flex flex-wrap items-center gap-4">
-                            <div className="flex items-center gap-2.5">
-                                <div className="w-9 h-9 rounded-full bg-secondary flex items-center justify-center">
-                                    <User className="w-4 h-4 text-white" />
-                                </div>
-                                <div>
-                                    <span className="block font-bold text-secondary text-sm leading-tight">{article.author}</span>
-                                    <span className="block text-[11px] text-neutral-400">The Fista</span>
-                                </div>
-                            </div>
-                            <div className="hidden sm:flex items-center gap-4 text-xs text-neutral-400 font-medium">
-                                <div className="flex items-center gap-1.5">
-                                    <Calendar className="w-3.5 h-3.5" />
-                                    <time dateTime={toISODate(article.publishedAt)}>{article.publishedAt}</time>
-                                </div>
-                                <div className="flex items-center gap-1.5">
-                                    <Clock className="w-3.5 h-3.5" />
-                                    <span>{article.readTime}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Share */}
-                        <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-neutral-300 hidden sm:block">Share</span>
-                            {[
-                                { platform: 'facebook' as const, icon: Facebook, hoverBg: 'hover:bg-blue-600' },
-                                { platform: 'twitter' as const, icon: Twitter, hoverBg: 'hover:bg-sky-500' },
-                                { platform: 'linkedin' as const, icon: Linkedin, hoverBg: 'hover:bg-blue-700' },
-                                { platform: 'whatsapp' as const, icon: MessageCircle, hoverBg: 'hover:bg-green-500' },
-                            ].map(({ platform, icon: Icon, hoverBg }) => (
-                                <button
-                                    key={platform}
-                                    aria-label={`Share on ${platform}`}
-                                    onClick={() => handleShare(platform)}
-                                    className={`w-9 h-9 bg-neutral-100 ${hoverBg} hover:text-white text-neutral-500 rounded-full flex items-center justify-center transition-all duration-200`}
-                                >
-                                    <Icon className="w-3.5 h-3.5" />
-                                </button>
-                            ))}
-                            <button
-                                aria-label="Copy link"
-                                onClick={copyToClipboard}
-                                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${copySuccess ? 'bg-green-500 text-white' : 'bg-neutral-100 text-neutral-500 hover:bg-neutral-200'}`}
-                            >
-                                {copySuccess ? <Check className="w-3.5 h-3.5" /> : <Link2 className="w-3.5 h-3.5" />}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Body */}
-                <div className="container-page py-12 lg:py-16">
-                    <div className="grid lg:grid-cols-12 gap-12">
-                        <div className="lg:col-span-8">
-                            <p className="text-lg lg:text-[1.4rem] font-medium text-secondary leading-snug mb-10 border-l-4 border-primary pl-5">
+                            <p className="text-[1.25rem] sm:text-[1.35rem] leading-[1.45] text-neutral-600 mt-4">
                                 {article.excerpt}
                             </p>
 
-                            <div
-                                className="article-prose max-w-[68ch]"
-                                dangerouslySetInnerHTML={{ __html: article.content }}
-                            />
-
-                            {/* Tags / Share Footer */}
-                            <div className="mt-12 p-5 rounded-sm bg-white border border-neutral-200">
-                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                                    <div className="flex items-center flex-wrap gap-2">
-                                        <span className="text-[11px] font-bold uppercase tracking-wide font-cond text-neutral-400">Tags</span>
-                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wide font-cond rounded-sm bg-primary-light text-primary">
-                                            {category?.name}
-                                        </span>
-                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wide font-cond bg-neutral-50 border border-neutral-200 text-neutral-500 rounded-sm">India</span>
-                                        <span className="px-3 py-1 text-[11px] font-bold uppercase tracking-wide font-cond bg-neutral-50 border border-neutral-200 text-neutral-500 rounded-sm">2026</span>
-                                    </div>
-                                    <div className="flex flex-wrap gap-2">
-                                        {[
-                                            { platform: 'facebook' as const, label: 'Facebook', bg: 'bg-blue-600 hover:bg-blue-700' },
-                                            { platform: 'twitter' as const, label: 'Twitter', bg: 'bg-sky-500 hover:bg-sky-600' },
-                                            { platform: 'whatsapp' as const, label: 'WhatsApp', bg: 'bg-green-500 hover:bg-green-600' },
-                                        ].map(({ platform, label, bg }) => (
-                                            <button
-                                                key={platform}
-                                                onClick={() => handleShare(platform)}
-                                                className={`px-4 py-2 rounded-sm ${bg} text-white text-[11px] font-bold uppercase tracking-wide font-cond transition-colors`}
-                                            >
-                                                {label}
-                                            </button>
-                                        ))}
+                            <div className="mt-6 py-4 border-y border-neutral-200 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                <div className="flex items-center gap-3">
+                                    <span className="w-11 h-11 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-[15px] shrink-0" aria-hidden="true">
+                                        {initials(article.author)}
+                                    </span>
+                                    <div className="leading-tight">
+                                        <p className="text-[15px]">By <span className="font-bold">{article.author}</span></p>
+                                        <p className="meta mt-1">
+                                            <time dateTime={toISODate(article.publishedAt)}>{article.publishedAt}</time>
+                                            <span className="mx-1.5">·</span>{article.readTime}
+                                        </p>
                                     </div>
                                 </div>
+                                {shareButtons}
                             </div>
+                        </header>
 
-                            {/* Prev / Next */}
-                            <div className="mt-6 grid grid-cols-2 gap-4">
-                                {prevArticle ? (
-                                    <Link to={`/article/${prevArticle.id}`} className="group p-5 rounded-sm bg-white border border-neutral-200 hover:border-primary hover:shadow-sm transition-all">
-                                        <span className="text-[11px] font-bold uppercase tracking-wide font-cond text-neutral-400 flex items-center gap-1 mb-2">
-                                            <ArrowLeft className="w-3 h-3" /> Previous
-                                        </span>
-                                        <h4 className="font-bold text-sm text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
-                                            {prevArticle.title}
-                                        </h4>
-                                    </Link>
-                                ) : <div />}
-                                {nextArticle ? (
-                                    <Link to={`/article/${nextArticle.id}`} className="group p-5 rounded-sm bg-white border border-neutral-200 hover:border-primary hover:shadow-sm transition-all text-right">
-                                        <span className="text-[11px] font-bold uppercase tracking-wide font-cond text-neutral-400 flex items-center gap-1 justify-end mb-2">
-                                            Next <ArrowRight className="w-3 h-3" />
-                                        </span>
-                                        <h4 className="font-bold text-sm text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
-                                            {nextArticle.title}
-                                        </h4>
-                                    </Link>
-                                ) : <div />}
+                        <figure className="mt-6 -mx-4 sm:mx-0">
+                            <div className="aspect-[16/9] bg-neutral-100 overflow-hidden">
+                                <img
+                                    src={article.imageUrl}
+                                    srcSet={heroSrcSet}
+                                    sizes={heroSrcSet ? '(min-width: 1024px) 780px, 100vw' : undefined}
+                                    alt={article.imageAlt || article.title}
+                                    width={article.imageWidth}
+                                    height={article.imageHeight}
+                                    className="w-full h-full object-cover"
+                                    fetchPriority="high"
+                                    decoding="sync"
+                                />
                             </div>
+                            <figcaption className="px-4 sm:px-0 mt-2 text-[13px] text-neutral-500 leading-snug">
+                                {article.imageAlt && <span className="text-neutral-700">{article.imageAlt}. </span>}
+                                <span className="italic">
+                                    Photograph:{' '}
+                                    {article.imageSourceUrl
+                                        ? <a href={article.imageSourceUrl} target="_blank" rel="noopener nofollow" className="underline decoration-neutral-300 underline-offset-2 hover:text-primary">{imageCredit}</a>
+                                        : imageCredit}
+                                    {article.imageLicenseUrl && <>{' '}(<a href={article.imageLicenseUrl} target="_blank" rel="noopener nofollow license" className="underline decoration-neutral-300 underline-offset-2 hover:text-primary">licence</a>)</>}
+                                </span>
+                            </figcaption>
+                        </figure>
+
+                        <div
+                            className="article-prose max-w-[680px] mt-8"
+                            dangerouslySetInnerHTML={{ __html: article.content }}
+                        />
+
+                        {/* Topics + share */}
+                        <div className="max-w-[680px] mt-10 pt-5 border-t-[3px] border-secondary flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                            <div className="flex items-center flex-wrap gap-2">
+                                <span className="text-[13px] italic text-neutral-500 mr-1">Topics</span>
+                                <Link to={sectionPath} className="px-3 py-1 text-[13px] border border-neutral-300 hover:border-secondary hover:bg-secondary hover:text-white transition-colors">
+                                    {sectionName}
+                                </Link>
+                            </div>
+                            {shareButtons}
                         </div>
 
-                        {/* Sidebar */}
-                        <aside className="lg:col-span-4">
-                            <div className="sticky top-24 space-y-6">
-                                <div className="rounded-sm border border-neutral-200 bg-white overflow-hidden">
-                                    <div className="section-bar mb-0 border-b-2 border-primary px-4 pt-3 pb-2">
-                                        <h2 className="section-bar-title text-primary">Related</h2>
-                                    </div>
-                                    <div className="divide-y divide-neutral-100">
-                                        {relatedArticles.map((related) => (
-                                            <Link
-                                                key={related.id}
-                                                to={`/article/${related.id}`}
-                                                className="flex gap-4 p-4 group hover:bg-neutral-50 transition-colors"
-                                            >
-                                                <div className="w-20 h-16 shrink-0 overflow-hidden rounded-sm">
-                                                    <img src={related.imageUrl} alt={related.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                                                </div>
-                                                <div className="flex-1 min-w-0">
-                                                    <h3 className="text-[13px] font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
-                                                        {related.title}
-                                                    </h3>
-                                                    <span className="text-[11px] text-neutral-400 mt-1 block font-cond uppercase tracking-wide">{related.publishedAt}</span>
-                                                </div>
-                                            </Link>
-                                        ))}
-                                    </div>
-                                    {category && (
-                                        <Link
-                                            to={`/category/${category.slug}`}
-                                            className="flex items-center justify-center gap-2 py-3 border-t-2 border-neutral-900 text-[12px] font-bold uppercase tracking-wide font-cond text-secondary hover:bg-neutral-900 hover:text-white transition-colors"
-                                        >
-                                            More {category.name} <ArrowRight className="w-3.5 h-3.5" />
-                                        </Link>
-                                    )}
-                                </div>
-
-                                {/* Newsletter Sidebar */}
-                                <div className="rounded-sm bg-neutral-900 p-6">
-                                    <h2 className="font-display text-xl uppercase text-white mb-2">Stay Updated</h2>
-                                    <p className="text-white/50 text-sm mb-4">Get the latest stories delivered to your inbox.</p>
-                                    <input
-                                        type="email"
-                                        aria-label="Email address"
-                                        placeholder="Your email"
-                                        className="w-full px-4 py-2.5 rounded-sm bg-white/10 border border-white/20 text-white placeholder-white/40 text-sm mb-3 focus:outline-none focus:border-primary transition-colors"
-                                    />
-                                    <button className="w-full py-2.5 rounded-sm bg-primary hover:bg-primary-dark text-white text-[12px] font-bold uppercase tracking-wide font-cond transition-colors">
-                                        Subscribe
-                                    </button>
-                                </div>
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-            </article>
-
-            {/* More From Category */}
-            {relatedArticles.length > 0 && (
-                <section className="bg-white border-t border-neutral-200" aria-label={`More in ${category?.name}`}>
-                    <div className="container-page py-12">
-                        <div className="section-bar">
-                            <span className="section-tab">More in {category?.name}</span>
-                            <div className="flex-1" />
-                            {category && (
-                                <Link to={`/category/${category.slug}`} className="text-[12px] font-bold uppercase tracking-wide font-cond text-primary hover:text-primary-dark transition-colors flex items-center gap-1.5">
-                                    View All <ArrowRight className="w-3.5 h-3.5" />
+                        {/* Prev / Next */}
+                        <div className="max-w-[680px] mt-8 grid sm:grid-cols-2 gap-px bg-neutral-200 border border-neutral-200">
+                            {prevArticle ? (
+                                <Link to={`/article/${prevArticle.id}`} className="story-link group bg-white p-5">
+                                    <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-neutral-500 flex items-center gap-1 mb-2">
+                                        <ArrowLeft className="w-3.5 h-3.5" /> Previous
+                                    </span>
+                                    <span className="headline-sm block transition-colors">{prevArticle.title}</span>
                                 </Link>
+                            ) : <div className="bg-white hidden sm:block" />}
+                            {nextArticle ? (
+                                <Link to={`/article/${nextArticle.id}`} className="story-link group bg-white p-5 sm:text-right">
+                                    <span className="text-[12px] font-bold uppercase tracking-[0.1em] text-neutral-500 flex items-center gap-1 sm:justify-end mb-2">
+                                        Next <ArrowRight className="w-3.5 h-3.5" />
+                                    </span>
+                                    <span className="headline-sm block transition-colors">{nextArticle.title}</span>
+                                </Link>
+                            ) : <div className="bg-white hidden sm:block" />}
+                        </div>
+                    </article>
+
+                    {/* Rail */}
+                    <aside className="lg:col-span-4" aria-label="More stories">
+                        <div className="lg:sticky lg:top-16 space-y-10">
+                            {/* Desktop only — on mobile the full-width section below covers it */}
+                            {relatedArticles.length > 0 && (
+                                <div className="hidden lg:block">
+                                    <SectionHead title={`More in ${sectionName}`} to={sectionPath} as="h3" />
+                                    <ul className="divide-y divide-neutral-200 -mt-1">
+                                        {relatedArticles.map(related => (
+                                            <li key={related.id} className="py-4 first:pt-0">
+                                                <CompactStory article={related} />
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             )}
+                            <div>
+                                <SectionHead title="Most Read" as="h3" />
+                                <div className="-mt-3.5">
+                                    <RankedList articles={mostRead} />
+                                </div>
+                            </div>
+                            <NewsletterBox />
                         </div>
-                        <div className="grid md:grid-cols-3 gap-4">
-                            {relatedArticles.map((related) => (
-                                <Link
-                                    key={related.id}
-                                    to={`/article/${related.id}`}
-                                    className="card group"
-                                >
-                                    <div className="relative aspect-16/10 overflow-hidden">
-                                        <img
-                                            src={related.imageUrl}
-                                            alt={related.title}
-                                            loading="lazy"
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                        <div className="absolute top-0 left-0">
-                                            <span className="chip rounded-none">{related.category}</span>
-                                        </div>
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="text-[17px] font-bold text-secondary line-clamp-2 group-hover:text-primary transition-colors leading-snug">
-                                            {related.title}
-                                        </h3>
-                                        <p className="text-neutral-500 text-[13.5px] mt-1.5 line-clamp-2">{related.excerpt}</p>
-                                        <div className="flex items-center gap-3 mt-3 pt-2.5 border-t border-neutral-100 text-[11px] text-neutral-400 font-cond uppercase tracking-wide">
-                                            <span>{related.publishedAt}</span>
-                                            <span className="w-1 h-1 rounded-full bg-neutral-300" />
-                                            <span>{related.readTime}</span>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            {/* More from the section */}
+            {relatedArticles.length > 0 && (
+                <section className="container-page mt-16" aria-label={`More in ${sectionName}`}>
+                    <SectionHead title={`More from ${sectionName}`} to={sectionPath} />
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+                        {relatedArticles.map(related => (
+                            <StandardStory key={related.id} article={related} size="md" excerpt />
+                        ))}
                     </div>
                 </section>
             )}

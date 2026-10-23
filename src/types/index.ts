@@ -7,6 +7,11 @@ export interface Article {
   imageUrl: string;
   imageWidth?: number;
   imageHeight?: number;
+  // Describes what the photo shows (not the headline) — used for alt text and captions.
+  imageAlt?: string;
+  imageCredit?: string;
+  imageSourceUrl?: string;
+  imageLicenseUrl?: string;
   author: string;
   publishedAt: string;
   readTime: string;
@@ -14,14 +19,20 @@ export interface Article {
   isTrending?: boolean;
 }
 
-export type Category = 
-  | 'cricket'
+export type Category =
   | 'politics'
-  | 'health'
-  | 'bollywood'
+  | 'world'
   | 'business'
+  | 'technology'
+  | 'science'
+  | 'health'
+  | 'sports'
+  | 'cricket'
   | 'education'
-  | 'technology';
+  | 'bollywood';
+
+// Editorial desks group sections in navigation and the footer.
+export type Desk = 'News' | 'World' | 'Business' | 'Science & Tech' | 'Sport' | 'Culture';
 
 export interface LiveMatch {
   id: string;
@@ -51,4 +62,6 @@ export interface CategoryInfo {
   name: string;
   slug: string;
   color: string;
+  desk: Desk;
+  description: string;
 }

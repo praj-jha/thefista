@@ -1,34 +1,34 @@
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowLeft, Compass } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Seo from '../seo/Seo';
 import { buildNotFoundSeo } from '../seo/builders';
-import { categories } from '../data/articles';
+import { getActiveCategories } from '../data/articles';
 
 export default function NotFoundPage() {
   const { pathname } = useLocation();
   return (
-    <div className="max-w-2xl mx-auto px-6 py-28 text-center">
+    <div className="container-page max-w-2xl py-20 lg:py-28 text-center">
       <Seo {...buildNotFoundSeo(pathname)} />
-      <span className="inline-flex items-center gap-2 section-eyebrow">
-        <Compass className="w-4 h-4" /> Lost the trail
-      </span>
-      <div className="font-display text-[8rem] leading-none text-primary mt-4">404</div>
-      <h1 className="font-display text-3xl uppercase text-secondary mt-2 mb-3">This page went off the record</h1>
-      <p className="text-neutral-500 mb-8">The page you're looking for doesn't exist or may have been moved.</p>
-      <Link to="/" className="btn-primary inline-flex">
+      <p className="kicker">Error 404</p>
+      <h1 className="text-[2.5rem] sm:text-[3.25rem] font-bold leading-[1.05] mt-4">We couldn’t find that page.</h1>
+      <p className="text-[1.15rem] text-neutral-600 italic mt-4 mb-8">It may have been moved, or the link may be out of date.</p>
+      <Link to="/" className="btn-primary">
         <ArrowLeft className="w-4 h-4" />
-        Back to Home
+        Back to the front page
       </Link>
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
-        {categories.map((cat) => (
-          <Link
-            key={cat.id}
-            to={`/category/${cat.slug}`}
-            className="px-4 py-2 rounded-sm border border-neutral-200 bg-white text-[12px] font-bold uppercase tracking-wide font-cond text-secondary hover:border-neutral-900 hover:bg-neutral-900 hover:text-white transition-all"
-          >
-            {cat.name}
-          </Link>
-        ))}
+      <div className="double-rule mt-12 pt-6">
+        <p className="text-[13px] italic text-neutral-500 mb-3">Or browse a section</p>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {getActiveCategories().map((cat) => (
+            <Link
+              key={cat.id}
+              to={`/category/${cat.slug}`}
+              className="px-3.5 py-1.5 text-[15px] border border-neutral-300 hover:border-secondary hover:bg-secondary hover:text-white transition-colors"
+            >
+              {cat.name}
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

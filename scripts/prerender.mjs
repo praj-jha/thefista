@@ -49,7 +49,9 @@ const urls = getSitemapEntries()
     <loc>${SITE_URL}${e.path === '/' ? '/' : e.path}</loc>
     <lastmod>${isoDate(e.lastmod)}</lastmod>
     <changefreq>${e.changefreq}</changefreq>
-    <priority>${e.priority.toFixed(1)}</priority>
+    <priority>${e.priority.toFixed(1)}</priority>${(e.images || [])
+      .map((src) => `\n    <image:image>\n      <image:loc>${src}</image:loc>\n    </image:image>`)
+      .join('')}
   </url>`
   )
   .join('\n');
@@ -57,7 +59,8 @@ const urls = getSitemapEntries()
 fs.writeFileSync(
   path.join(distDir, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls}
 </urlset>
 `

@@ -1,6 +1,28 @@
 import type { Article, CategoryInfo } from '../types';
 import { SITE, absoluteImage, absoluteUrl, toISODate } from './config';
 import type { SeoData } from './types';
+import { imageSrcSet, imageVariant } from '../lib/images';
+
+// Google recommends 16:9, 4:3 and 1:1 article images (each ≥ 50k pixels).
+function articleImageNodes(article: Article) {
+  const credit = {
+    ...(article.imageAlt ? { caption: article.imageAlt } : {}),
+    ...(article.imageCredit ? { creditText: article.imageCredit } : {}),
+    ...(article.imageLicenseUrl ? { license: article.imageLicenseUrl } : {}),
+    ...(article.imageSourceUrl ? { acquireLicensePage: article.imageSourceUrl } : {}),
+  };
+  const wide = {
+    '@type': 'ImageObject',
+    url: absoluteImage(article.imageUrl),
+    ...(article.imageWidth ? { width: article.imageWidth, height: article.imageHeight } : {}),
+    ...credit,
+  };
+  const extra = (['4x3', '1x1'] as const).flatMap((variant) => {
+    const url = imageVariant(article, variant);
+    return url ? [{ '@type': 'ImageObject', url: absoluteImage(url), ...credit }] : [];
+  });
+  return [wide, ...extra];
+}
 
 // ---- Reusable JSON-LD nodes ---------------------------------------------
 
@@ -77,6 +99,9 @@ export function buildCategorySeo(category: CategoryInfo, articles: Article[]): S
     description,
     canonical: url,
     image: absoluteImage(articles[0]?.imageUrl),
+    imageAlt: articles[0]?.imageAlt,
+    imageWidth: articles[0]?.imageWidth,
+    imageHeight: articles[0]?.imageHeight,
     ogType: 'website',
     keywords: `${category.name} news, India ${category.name.toLowerCase()}, latest ${category.name.toLowerCase()}`,
     jsonLd: [
@@ -123,7 +148,7 @@ export function buildArticleSeo(article: Article, category?: CategoryInfo): SeoD
     '@id': `${url}#article`,
     headline: article.title,
     description: article.excerpt,
-    image: [image],
+    image: articleImageNodes(article),
     datePublished: published,
     dateModified: published,
     articleSection: sectionName,
@@ -147,9 +172,12 @@ export function buildArticleSeo(article: Article, category?: CategoryInfo): SeoD
     description: article.excerpt,
     canonical: url,
     image,
-    imageAlt: article.title,
+    imageAlt: article.imageAlt || article.title,
     imageWidth: article.imageWidth,
     imageHeight: article.imageHeight,
+    preloadImage: article.imageUrl,
+    preloadImageSrcSet: imageSrcSet(article),
+    preloadImageSizes: '(min-width: 1024px) 780px, 100vw',
     ogType: 'article',
     publishedTime: published,
     modifiedTime: published,

@@ -6,7 +6,8 @@ import { SeoCollectorContext } from './seo/Seo';
 import { renderHeadToString } from './seo/head';
 import { buildNotFoundSeo } from './seo/builders';
 import type { SeoCollector } from './seo/types';
-import { articles, categories } from './data/articles';
+import { articles, getActiveCategories } from './data/articles';
+import { absoluteImage } from './seo/config';
 
 export interface RenderResult {
   html: string;
@@ -35,7 +36,7 @@ export function render(url: string): RenderResult {
 export function getRoutes(): string[] {
   return [
     '/',
-    ...categories.map((c) => `/category/${c.slug}`),
+    ...getActiveCategories().map((c) => `/category/${c.slug}`),
     ...articles.map((a) => `/article/${a.id}`),
   ];
 }
@@ -50,10 +51,10 @@ export function getNewsEntries(): { path: string; title: string; publishedAt: st
 }
 
 // Data the sitemap generator needs (path + last-modified display date).
-export function getSitemapEntries(): { path: string; lastmod: string; priority: number; changefreq: string }[] {
+export function getSitemapEntries(): { path: string; lastmod: string; priority: number; changefreq: string; images?: string[] }[] {
   return [
     { path: '/', lastmod: articles[0]?.publishedAt ?? '', priority: 1.0, changefreq: 'hourly' },
-    ...categories.map((c) => ({
+    ...getActiveCategories().map((c) => ({
       path: `/category/${c.slug}`,
       lastmod: articles.find((a) => a.category === c.id)?.publishedAt ?? '',
       priority: 0.8,
@@ -64,6 +65,7 @@ export function getSitemapEntries(): { path: string; lastmod: string; priority: 
       lastmod: a.publishedAt,
       priority: 0.7,
       changefreq: 'weekly',
+      images: [absoluteImage(a.imageUrl)],
     })),
   ];
 }

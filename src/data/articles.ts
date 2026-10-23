@@ -1,13 +1,18 @@
 import type { Article, CategoryInfo, LiveMatch } from '../types';
 
+// Ordered as they appear in navigation. A section only shows up in the nav,
+// sitemap and prerendered routes once it has at least one article.
 export const categories: CategoryInfo[] = [
-  { id: 'cricket', name: 'Cricket', slug: 'cricket', color: '#0F766E' },
-  { id: 'politics', name: 'Politics', slug: 'politics', color: '#1D4ED8' },
-  { id: 'health', name: 'Health', slug: 'health', color: '#DB2777' },
-  { id: 'bollywood', name: 'Bollywood', slug: 'bollywood', color: '#9333EA' },
-  { id: 'business', name: 'Business', slug: 'business', color: '#B45309' },
-  { id: 'education', name: 'Education', slug: 'education', color: '#0891B2' },
-  { id: 'technology', name: 'Technology', slug: 'technology', color: '#EA580C' },
+  { id: 'politics', name: 'Politics', slug: 'politics', color: '#1D4ED8', desk: 'News', description: 'Parliament, elections, policy and the people who shape them.' },
+  { id: 'world', name: 'World', slug: 'world', color: '#0F766E', desk: 'World', description: 'Geopolitics, diplomacy, conflict and global affairs.' },
+  { id: 'business', name: 'Business', slug: 'business', color: '#B45309', desk: 'Business', description: 'Markets, economy, trade and corporate India.' },
+  { id: 'technology', name: 'Technology', slug: 'technology', color: '#EA580C', desk: 'Science & Tech', description: 'AI, space, startups and the digital economy.' },
+  { id: 'science', name: 'Science', slug: 'science', color: '#4338CA', desk: 'Science & Tech', description: 'Research, climate, environment and discovery.' },
+  { id: 'health', name: 'Health', slug: 'health', color: '#DB2777', desk: 'Science & Tech', description: 'Medicine, public health, research and wellbeing.' },
+  { id: 'sports', name: 'Sports', slug: 'sports', color: '#15803D', desk: 'Sport', description: 'Football, tennis, Olympics and the wider sporting world.' },
+  { id: 'cricket', name: 'Cricket', slug: 'cricket', color: '#0F766E', desk: 'Sport', description: 'Scores, analysis and reporting from every format of the game.' },
+  { id: 'education', name: 'Education', slug: 'education', color: '#0891B2', desk: 'News', description: 'Schools, universities, exams and education policy.' },
+  { id: 'bollywood', name: 'Bollywood', slug: 'bollywood', color: '#9333EA', desk: 'Culture', description: 'Film, streaming, music and the people behind them.' },
 ];
 
 export const articles: Article[] = [
@@ -29,9 +34,11 @@ export const articles: Article[] = [
 <p>With The Saurabh Nigam Show, Nigam is entering a space already populated by several established names. Building an audience will inevitably take time, but the first episode establishes one element that could help the show develop its own identity: the host appears interested in understanding his guest rather than simply extracting headlines from them.</p>
 <p>And in the age of viral podcasting, perhaps knowing when to listen could prove just as valuable as knowing what to ask.</p>`,
     category: 'bollywood',
-    imageUrl: '/nigam.jpg',
+    imageUrl: '/images/articles/saurabh-nigam-show-podcast-debut.jpg',
     imageWidth: 1200,
     imageHeight: 675,
+    imageAlt: 'Saurabh Nigam in conversation with Mahamandaleshwar Vaishnavi Maa on the debut episode of The Saurabh Nigam Show',
+    imageCredit: 'The Fista',
     author: 'The Fista Desk',
     publishedAt: 'Oct 23, 2026',
     readTime: '4 min read',
@@ -59,7 +66,12 @@ export const articles: Article[] = [
 <p>The triumph gives India valuable momentum heading into a packed home season and reaffirms the depth of a squad in transition. Selectors will take heart from the way younger players absorbed pressure on the biggest stage in the region.</p>
 <blockquote>"We spoke about staying in the present, ball by ball. The boys were fearless when it mattered — that's what makes this group special." — India Captain, post-match presentation</blockquote>`,
     category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/india-asia-cup-2026-final-win.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Dubai International Cricket Stadium, venue of the Asia Cup final',
+    imageCredit: 'Dave Morton / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Dubai_Stadium_2019.jpg',
     author: 'Rajesh Sharma',
     publishedAt: 'Sep 11, 2026',
     readTime: '5 min read',
@@ -86,7 +98,13 @@ export const articles: Article[] = [
 <h2>The Fiscal Balance</h2>
 <p>Officials acknowledged a short-term hit to collections but argued that wider compliance and stronger demand would offset it over the medium term. Analysts will watch the first full month of data closely for early signals.</p>`,
     category: 'business',
-    imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/gst-2-simplified-slabs-rollout.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'A neighbourhood super mart in Vasai, Mumbai, with sacks of rice and groceries stacked at the entrance',
+    imageCredit: 'Renzilde / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Kirana_shop.jpg',
+    imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
     author: 'Amit Verma',
     publishedAt: 'Sep 11, 2026',
     readTime: '4 min read',
@@ -112,7 +130,13 @@ export const articles: Article[] = [
 <h2>The Crew</h2>
 <p>The astronaut-designates have completed simulator and centrifuge training and are now in mission-specific rehearsals. ISRO said final crew assignment will be announced closer to the uncrewed test.</p>`,
     category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/isro-gaganyaan-crewed-window-confirmed.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Hot test of the System Demonstration Model of the Gaganyaan service module propulsion system at an ISRO test bed',
+    imageCredit: 'ISRO / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:System_Demonstration_Model_(SDM)_at_test_bed.jpg',
+    imageLicenseUrl: 'https://www.data.gov.in/Godl',
     author: 'Dr. Neha Kulkarni',
     publishedAt: 'Sep 11, 2026',
     readTime: '5 min read',
@@ -136,7 +160,13 @@ export const articles: Article[] = [
 <p>Floor leaders said they had used every available instrument to force debates on employment, rural distress and inflation. The government countered that its reform agenda — including this month's tax rationalisation — was already easing pressure on households.</p>
 <p>The Chair thanked members for a largely orderly session and noted a long list of committee referrals would carry the work forward before the Winter Session.</p>`,
     category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/monsoon-session-concludes-2026.jpg',
+    imageWidth: 1385,
+    imageHeight: 779,
+    imageAlt: 'The Lok Sabha chamber in the new Parliament building, New Delhi',
+    imageCredit: 'Ministry of Parliamentary Affairs / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:View_of_Lok_Sabha_chamber_in_the_New_Parliament_building,_New_Delhi.jpg',
+    imageLicenseUrl: 'https://www.data.gov.in/Godl',
     author: 'Priya Nair',
     publishedAt: 'Sep 10, 2026',
     readTime: '4 min read',
@@ -161,7 +191,13 @@ export const articles: Article[] = [
 <h2>Market Reaction</h2>
 <p>Bond yields eased slightly and equities held gains after the announcement, with economists reading the commentary as a signal that rates will stay on hold well into next year barring a shock.</p>`,
     category: 'business',
-    imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/rbi-holds-repo-rate-growth-outlook.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Indian ₹100 and ₹2,000 rupee banknotes',
+    imageCredit: 'Monito / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Indian_100_and_2000_rupee_notes_(32190943222).jpg',
+    imageLicenseUrl: 'https://creativecommons.org/licenses/by/2.0/',
     author: 'Amit Verma',
     publishedAt: 'Sep 10, 2026',
     readTime: '4 min read',
@@ -186,7 +222,13 @@ export const articles: Article[] = [
 <h2>The Bigger Picture</h2>
 <p>Officials framed the agreement as an anchor for supply-chain diversification, positioning India as a trusted manufacturing partner as global firms rebalance away from concentrated sourcing.</p>`,
     category: 'business',
-    imageUrl: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/india-eu-fta-ratified-exports.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Container cranes at Jawaharlal Nehru Port (JNPT), India’s largest container port, near Mumbai',
+    imageCredit: 'Ccmarathe / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:JNPT_Port_container_handling.jpg',
+    imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
     author: 'Sanjay Mehta',
     publishedAt: 'Sep 9, 2026',
     readTime: '4 min read',
@@ -211,7 +253,13 @@ export const articles: Article[] = [
 <h2>Eyes on the Prize</h2>
 <p>The result reinforces India's rise as genuine contenders in a home season packed with marquee fixtures. The captain praised the group's "clarity and calm" and said the bench strength on show was a healthy selection headache.</p>`,
     category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/india-women-series-win-australia.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Players during a match at the Women’s Cricket World Cup',
+    imageCredit: 'Robert Drummond / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:2017_Women%27s_Cricket_World_Cup_IMG_2716_(36007539511).jpg',
+    imageLicenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
     author: 'Rajesh Sharma',
     publishedAt: 'Sep 10, 2026',
     readTime: '4 min read',
@@ -236,7 +284,13 @@ export const articles: Article[] = [
 <h2>The Outlook</h2>
 <p>Officials expect cases to peak over the coming weeks before tapering as temperatures fall, and appealed for continued community participation in weekly "dry day" clean-up efforts.</p>`,
     category: 'health',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/dengue-surveillance-monsoon-2026.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Magnified image of an Aedes aegypti mosquito, the species that spreads dengue, feeding on human skin',
+    imageCredit: 'NIAID / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Magnified_image_of_Aedes_aegypti_mosquito_taking_a_blood_meal.jpg',
+    imageLicenseUrl: 'https://creativecommons.org/licenses/by/2.0/',
     author: 'Dr. Meera Iyer',
     publishedAt: 'Sep 9, 2026',
     readTime: '3 min read',
@@ -261,7 +315,13 @@ export const articles: Article[] = [
 <h2>The Caveat</h2>
 <p>Trade analysts cautioned that quality — not quantity — will decide the season, noting that word of mouth now travels faster than ever and unforgiving audiences reward only the films that deliver.</p>`,
     category: 'bollywood',
-    imageUrl: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/festive-box-office-2026-lineup.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Alka Talkies, a single-screen cinema on Lal Bahadur Shastri Road in Pune',
+    imageCredit: 'DesiBoy101 / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Alka_Talkies_-_an_iconic_single_screen_cinema_in_Pune.jpg',
+    imageLicenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
     author: 'Karan Malhotra',
     publishedAt: 'Sep 10, 2026',
     readTime: '3 min read',
@@ -286,7 +346,13 @@ export const articles: Article[] = [
 <h2>Guardrails</h2>
 <p>The framework pairs access with responsible-use commitments, including safety evaluation, transparency reporting and content-provenance requirements for generative systems.</p>`,
     category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/india-ai-mission-compute-expansion.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Server racks with network cabling inside a data centre',
+    imageCredit: 'Unsplash',
+    imageSourceUrl: 'https://unsplash.com/',
+    imageLicenseUrl: 'https://unsplash.com/license',
     author: 'Dr. Neha Kulkarni',
     publishedAt: 'Sep 9, 2026',
     readTime: '4 min read',
@@ -311,7 +377,13 @@ export const articles: Article[] = [
 <h2>What to Watch</h2>
 <p>Analysts said turnout among first-time voters and women could prove decisive, while the outcome will be read closely as a barometer ahead of the next general election cycle.</p>`,
     category: 'politics',
-    imageUrl: 'https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/assembly-elections-schedule-2026.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Polling officers check the voters’ list alongside electronic voting machines (EVMs) before an Assembly election',
+    imageCredit: 'Election Commission of India / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Polling_officers_going_through_the_voters_list_collected_with_the_Electronic_Voting_Machines_(EVM%E2%80%99s)_and_other_necessary_imputes_required_for_the_Assembly_Election,_in_Assam_on_April_03,_2011.jpg',
+    imageLicenseUrl: 'https://www.data.gov.in/Godl',
     author: 'Priya Nair',
     publishedAt: 'Sep 8, 2026',
     readTime: '4 min read',
@@ -335,7 +407,13 @@ export const articles: Article[] = [
 <h2>What Comes Next</h2>
 <p>The board said it will publish sample papers and a detailed assessment framework, and will review the first cycle's data before extending the model further.</p>`,
     category: 'education',
-    imageUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/board-exam-twice-a-year-reform.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Students and parents outside an examination centre in Howrah, West Bengal',
+    imageCredit: 'Biswarup Ganguly / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:West_Bengal_Joint_Entrance_Examination_-_Howrah_2011-05-22_00280.jpg',
+    imageLicenseUrl: 'https://creativecommons.org/licenses/by/3.0/',
     author: 'Anjali Desai',
     publishedAt: 'Sep 8, 2026',
     readTime: '3 min read',
@@ -360,7 +438,13 @@ export const articles: Article[] = [
 <h2>A Word of Caution</h2>
 <p>Researchers emphasised that lifestyle change complements — but does not replace — screening and prescribed treatment for those with existing conditions or strong family history.</p>`,
     category: 'health',
-    imageUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/indian-heart-health-study-2026.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'People on a morning walk in Lodhi Garden, New Delhi',
+    imageCredit: 'Ravi Kumar / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:Walk_In_The_Park_(76163825).jpeg',
+    imageLicenseUrl: 'https://creativecommons.org/licenses/by/3.0/',
     author: 'Dr. Meera Iyer',
     publishedAt: 'Sep 8, 2026',
     readTime: '4 min read',
@@ -384,7 +468,13 @@ export const articles: Article[] = [
 <h2>Fixtures</h2>
 <p>The tour opens with a white-ball leg before the red-ball series, giving the squad time to acclimatise. The captain welcomed the challenge, calling Australia "the ultimate test of a team's character."</p>`,
     category: 'cricket',
-    imageUrl: 'https://images.unsplash.com/photo-1607734834519-d8576ae60ea6?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/india-squad-australia-tour-2026.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Spectators fill the stands at Wankhede Stadium, Mumbai, during a match',
+    imageCredit: 'Unsplash',
+    imageSourceUrl: 'https://unsplash.com/',
+    imageLicenseUrl: 'https://unsplash.com/license',
     author: 'Rajesh Sharma',
     publishedAt: 'Sep 8, 2026',
     readTime: '3 min read',
@@ -408,7 +498,13 @@ export const articles: Article[] = [
 <h2>The Road Ahead</h2>
 <p>Executives said the next challenge is securing raw materials and recycling capacity, and called for continued policy stability to attract the long-horizon investment the sector demands.</p>`,
     category: 'technology',
-    imageUrl: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/india-ev-battery-gigafactory-2026.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'Cylindrical 18650 and 21700 lithium-ion battery cells of the kind used in electric vehicles',
+    imageCredit: 'Sevenethics / Wikimedia Commons',
+    imageSourceUrl: 'https://commons.wikimedia.org/wiki/File:18650_and_21700_lithium_ion_battery_cell.jpg',
+    imageLicenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
     author: 'Sanjay Mehta',
     publishedAt: 'Sep 9, 2026',
     readTime: '4 min read',
@@ -432,7 +528,13 @@ export const articles: Article[] = [
 <h2>The Takeaway</h2>
 <p>For creators, the trend opens doors long guarded by mainstream gatekeepers. For platforms, it is increasingly the difference between a subscriber who stays and one who cancels.</p>`,
     category: 'bollywood',
-    imageUrl: 'https://images.unsplash.com/photo-1593784991095-a205069470b6?w=1200&auto=format&fit=crop&q=80',
+    imageUrl: '/images/articles/ott-regional-content-surge-2026.jpg',
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: 'A viewer points a remote at a television showing a streaming service',
+    imageCredit: 'Unsplash',
+    imageSourceUrl: 'https://unsplash.com/',
+    imageLicenseUrl: 'https://unsplash.com/license',
     author: 'Karan Malhotra',
     publishedAt: 'Sep 8, 2026',
     readTime: '3 min read',
@@ -562,4 +664,26 @@ export const getTrendingArticles = (): Article[] => {
 
 export const getFeaturedArticles = (): Article[] => {
   return articles.filter(article => article.isFeatured);
+};
+
+// Sections that currently have published articles, in navigation order.
+export const getActiveCategories = (): CategoryInfo[] => {
+  return categories.filter(c => articles.some(a => a.category === c.id));
+};
+
+export const getCategory = (id: string): CategoryInfo | undefined => {
+  return categories.find(c => c.id === id);
+};
+
+// Newest first by publish date; ties keep their order in the articles array.
+export const getLatestArticles = (): Article[] => {
+  return [...articles].sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+};
+
+export const searchArticles = (query: string): Article[] => {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+  return getLatestArticles().filter(a =>
+    `${a.title} ${a.excerpt} ${a.category} ${a.author}`.toLowerCase().includes(q)
+  );
 };

@@ -30,6 +30,7 @@ export function buildMetaTags(data: SeoData): MetaTag[] {
     { name: 'twitter:title', content: data.title },
     { name: 'twitter:description', content: data.description },
     { name: 'twitter:image', content: image },
+    { name: 'twitter:image:alt', content: data.imageAlt || data.title },
   ];
 
   if (data.keywords) tags.push({ name: 'keywords', content: data.keywords });
@@ -58,6 +59,12 @@ export function renderHeadToString(data: SeoData): string {
   const parts: string[] = [];
   parts.push(`<title>${escapeHtml(data.title)}</title>`);
   parts.push(`<link rel="canonical" href="${escapeHtml(data.canonical)}" />`);
+  if (data.preloadImage) {
+    const srcset = data.preloadImageSrcSet
+      ? ` imagesrcset="${escapeHtml(data.preloadImageSrcSet)}" imagesizes="${escapeHtml(data.preloadImageSizes || '100vw')}"`
+      : '';
+    parts.push(`<link rel="preload" as="image" href="${escapeHtml(data.preloadImage)}"${srcset} fetchpriority="high" />`);
+  }
 
   for (const tag of buildMetaTags(data)) {
     const attr = tag.name ? `name="${escapeHtml(tag.name)}"` : `property="${escapeHtml(tag.property!)}"`;
