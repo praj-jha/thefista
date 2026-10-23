@@ -5,6 +5,8 @@ export interface Article {
   content: string;
   category: Category;
   imageUrl: string;
+  imageWidth?: number;
+  imageHeight?: number;
   author: string;
   publishedAt: string;
   readTime: string;

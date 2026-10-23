@@ -14,6 +14,32 @@ const categories = [
   { id: "technology", name: "Technology", slug: "technology", color: "#EA580C" }
 ];
 const articles = [
+  // 0 — Saurabh Nigam Show podcast debut (Featured Hero — Oct 23, 2026)
+  {
+    id: "saurabh-nigam-show-podcast-debut",
+    title: "Saurabh Nigam Makes His Podcast Debut, Lets Sensitivity Do the Talking",
+    excerpt: "The Saurabh Nigam Show opens with Mahamandaleshwar Vaishnavi Maa, with the host’s measured interviewing style emerging as a talking point.",
+    content: `<p><strong>New Delhi:</strong> India’s podcast space has a new entrant. The Saurabh Nigam Show, recently launched on YouTube, has begun its journey with Mahamandaleshwar Vaishnavi Maa as its first guest—and the debut appears to be as much about the host’s approach to conversation as the personality sitting across from him.</p>
+<p>For a first episode, Nigam chose a subject that required a careful balance of curiosity and sensitivity. The conversation touches upon Vaishnavi Maa’s spiritual journey, identity, personal experiences and the realities surrounding the kinnar community.</p>
+<p>What catches attention, however, is Saurabh Nigam’s restrained approach as a host.</p>
+<p>Instead of turning sensitive subjects into provocative questions or repeatedly interrupting his guest in search of a viral moment, Nigam allows the conversation to breathe. His questions are direct, but rarely intrusive, while his follow-ups appear to emerge naturally from what his guest has just said.</p>
+<p>In an increasingly crowded podcast landscape, where louder questions and shorter viral clips can often dictate conversations, Nigam seems to be experimenting with a simpler formula: ask, listen and let the guest tell the story.</p>
+<p>That approach becomes particularly important with Vaishnavi Maa. Conversations around the kinnar community have often been framed through stereotypes or sensationalism. Here, the attempt is to bring the individual behind the identity to the forefront, allowing her to speak about spirituality, struggles, beliefs and lived experiences in her own words.</p>
+<p>Interestingly, Nigam does not appear eager to establish himself as the most important person in the frame. There are moments when he steps back, listens and lets his guest take over—a seemingly small quality that can make a significant difference in long-form conversations.</p>
+<p>His strength, at least from the first episode, may lie less in asking the loudest question and more in knowing how to ask a difficult one without making the guest uncomfortable.</p>
+<p>For a debut, beginning with Mahamandaleshwar Vaishnavi Maa was an unconventional choice. It also offers an early glimpse into the direction Nigam may be planning for the show—bringing personalities from different worlds into conversations that can move between serious, emotional and lighter moments without following a predictable template.</p>
+<p>With The Saurabh Nigam Show, Nigam is entering a space already populated by several established names. Building an audience will inevitably take time, but the first episode establishes one element that could help the show develop its own identity: the host appears interested in understanding his guest rather than simply extracting headlines from them.</p>
+<p>And in the age of viral podcasting, perhaps knowing when to listen could prove just as valuable as knowing what to ask.</p>`,
+    category: "bollywood",
+    imageUrl: "/nigam.jpg",
+    imageWidth: 1200,
+    imageHeight: 675,
+    author: "The Fista Desk",
+    publishedAt: "Oct 23, 2026",
+    readTime: "4 min read",
+    isFeatured: true,
+    isTrending: true
+  },
   // 1 — Asia Cup Final (Featured Hero — Sep 11, 2026)
   {
     id: "india-asia-cup-2026-final-win",
@@ -546,7 +572,7 @@ function Header() {
       ] })
     ] }) }),
     /* @__PURE__ */ jsx("div", { className: `bg-white border-b border-neutral-200 overflow-hidden transition-all duration-300 ${isScrolled ? "max-h-0 opacity-0 border-transparent" : "max-h-24 opacity-100"}`, children: /* @__PURE__ */ jsxs("div", { className: "container-page flex items-center justify-between gap-4 py-3", children: [
-      /* @__PURE__ */ jsx(Link, { to: "/", className: "flex items-center shrink-0", children: /* @__PURE__ */ jsx("img", { src: "/2.png", alt: "The Fista", className: "h-9 md:h-11 w-auto" }) }),
+      /* @__PURE__ */ jsx(Link, { to: "/", className: "flex items-center shrink-0", children: /* @__PURE__ */ jsx("img", { src: "/fistaa.png", alt: "The Fista", className: "h-9 md:h-11 w-auto" }) }),
       /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 shrink-0", children: [
         /* @__PURE__ */ jsxs(
           "a",
@@ -1091,6 +1117,8 @@ function buildMetaTags(data) {
     { property: "og:url", content: data.canonical },
     { property: "og:image", content: image },
     { property: "og:image:alt", content: data.imageAlt || data.title },
+    ...data.imageWidth ? [{ property: "og:image:width", content: String(data.imageWidth) }] : [],
+    ...data.imageHeight ? [{ property: "og:image:height", content: String(data.imageHeight) }] : [],
     // Twitter
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:site", content: SITE.twitter },
@@ -1293,6 +1321,8 @@ function buildArticleSeo(article, category) {
     canonical: url,
     image,
     imageAlt: article.title,
+    imageWidth: article.imageWidth,
+    imageHeight: article.imageHeight,
     ogType: "article",
     publishedTime: published,
     modifiedTime: published,

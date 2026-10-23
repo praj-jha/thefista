@@ -148,6 +148,8 @@ export function buildArticleSeo(article: Article, category?: CategoryInfo): SeoD
     canonical: url,
     image,
     imageAlt: article.title,
+    imageWidth: article.imageWidth,
+    imageHeight: article.imageHeight,
     ogType: 'article',
     publishedTime: published,
     modifiedTime: published,

@@ -10,6 +10,8 @@ export interface SeoData {
   canonical: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   ogType?: 'website' | 'article';
   robots?: string;
   keywords?: string;

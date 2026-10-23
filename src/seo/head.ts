@@ -21,6 +21,8 @@ export function buildMetaTags(data: SeoData): MetaTag[] {
     { property: 'og:url', content: data.canonical },
     { property: 'og:image', content: image },
     { property: 'og:image:alt', content: data.imageAlt || data.title },
+    ...(data.imageWidth ? [{ property: 'og:image:width', content: String(data.imageWidth) }] : []),
+    ...(data.imageHeight ? [{ property: 'og:image:height', content: String(data.imageHeight) }] : []),
 
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
