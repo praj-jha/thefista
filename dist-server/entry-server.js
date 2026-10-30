@@ -17,7 +17,40 @@ const categories = [
   { id: "bollywood", name: "Bollywood", slug: "bollywood", color: "#9333EA", desk: "Culture", description: "Film, streaming, music and the people behind them." }
 ];
 const articles = [
-  // 0 — Saurabh Nigam Show podcast debut (Featured Hero — Oct 23, 2026)
+  // 0 — Rajan Yadav horror episode (Featured Hero — Oct 30, 2026)
+  {
+    id: "rajan-yadav-horror-stories-saurabh-nigam-show",
+    title: "Rajan Yadav Brings Tales of the Unexplained to The Saurabh Nigam Show",
+    excerpt: "Horror storyteller Rajan Yadav takes centre stage in a recent episode of The Saurabh Nigam Show, with the host’s restrained interviewing style leaving the spotlight on the guest.",
+    content: `<p><strong>New Delhi:</strong> Horror storyteller Rajan Yadav takes centre stage in a recent episode of The Saurabh Nigam Show, bringing with him a series of unsettling stories and experiences centred around fear, the paranormal and the unexplained.</p>
+<p>What stands out in the conversation, however, is not only the subject matter but also the manner in which host Saurabh Nigam approaches it.</p>
+<p>At a time when podcast conversations can often see hosts becoming as prominent as their guests, Nigam adopts a noticeably restrained interviewing style. He allows Yadav’s narratives to unfold at length, stepping in primarily with questions that move the conversation forward rather than repeatedly interrupting the flow.</p>
+<p>For a horror-led episode, the approach works particularly well. Suspense depends heavily on timing, pauses and uninterrupted narration, and Yadav is given enough room to establish each story before the conversation moves ahead.</p>
+<h2>Letting the guest own the conversation</h2>
+<p>Saurabh’s hosting style throughout the episode reflects a simple principle — the guest remains the focus.</p>
+<p>There is little attempt to compete for screen time or turn every answer into an exchange of opinions. Instead, Nigam largely assumes the role of an attentive listener, using follow-up questions to explore details that may otherwise have remained unanswered.</p>
+<p>The result is a conversation that feels less like a conventional interview and more like sitting across from a storyteller as he gradually reveals one disturbing experience after another.</p>
+<p>Interestingly, Nigam’s presence is perhaps most noticeable in the moments when he chooses not to intervene.</p>
+<p>His willingness to let silences remain, allow longer answers and resist exaggerated reactions gives Yadav’s storytelling space to create its own impact.</p>
+<h2>A guest-first format</h2>
+<p>As The Saurabh Nigam Show builds its presence in the long-form conversation space, its choice of guests from different backgrounds is beginning to shape the programme’s identity.</p>
+<p>The Rajan Yadav episode also points towards another possible signature for the show — a hosting format where the interviewer facilitates the conversation without necessarily becoming its centre of attention.</p>
+<p>It is an approach that requires a certain confidence. In an increasingly personality-driven podcast ecosystem, allowing the guest to walk away with the episode’s biggest moments can sometimes be the more effective choice.</p>
+<p>With Rajan Yadav, Saurabh Nigam appears content to do precisely that.</p>
+<p>The stories belong to Rajan Yadav. The questions belong to Saurabh Nigam. And for much of the episode, the spotlight remains exactly where it should — on the guest and the story.</p>`,
+    category: "bollywood",
+    imageUrl: "/images/articles/rajan-yadav-horror-stories-saurabh-nigam-show.jpg",
+    imageWidth: 1600,
+    imageHeight: 900,
+    imageAlt: "Horror storyteller Rajan Yadav in conversation with host Saurabh Nigam across studio microphones on The Saurabh Nigam Show",
+    imageCredit: "The Fista",
+    author: "The Fista Desk",
+    publishedAt: "Oct 30, 2026",
+    readTime: "3 min read",
+    isFeatured: true,
+    isTrending: true
+  },
+  // 1 — Saurabh Nigam Show podcast debut (Featured Hero — Oct 23, 2026)
   {
     id: "saurabh-nigam-show-podcast-debut",
     title: "Saurabh Nigam Makes His Podcast Debut, Lets Sensitivity Do the Talking",
@@ -45,7 +78,7 @@ const articles = [
     isFeatured: true,
     isTrending: true
   },
-  // 1 — Asia Cup Final (Featured Hero — Sep 11, 2026)
+  // 2 — Asia Cup Final (Featured Hero — Sep 11, 2026)
   {
     id: "india-asia-cup-2026-final-win",
     title: "India Clinch Asia Cup 2026 Title with Nerveless Chase in Dubai Final",
@@ -76,7 +109,7 @@ const articles = [
     isFeatured: true,
     isTrending: true
   },
-  // 2 — GST 2.0 (Featured — Sep 11)
+  // 3 — GST 2.0 (Featured — Sep 11)
   {
     id: "gst-2-simplified-slabs-rollout",
     title: "GST 2.0 Goes Live: Simplified Two-Slab Structure Cheers Households and Small Business",
@@ -107,7 +140,7 @@ const articles = [
     isFeatured: true,
     isTrending: true
   },
-  // 3 — ISRO Gaganyaan (Sep 11)
+  // 4 — ISRO Gaganyaan (Sep 11)
   {
     id: "isro-gaganyaan-crewed-window-confirmed",
     title: "ISRO Confirms Gaganyaan Crewed Flight Window After Successful Systems Review",
@@ -136,7 +169,7 @@ const articles = [
     readTime: "5 min read",
     isTrending: true
   },
-  // 4 — Monsoon Session concludes (Sep 10)
+  // 5 — Monsoon Session concludes (Sep 10)
   {
     id: "monsoon-session-concludes-2026",
     title: "Monsoon Session Wraps Up: Data Rules, Skilling Push and Jobs Debate Dominate",
@@ -164,7 +197,7 @@ const articles = [
     readTime: "4 min read",
     isTrending: true
   },
-  // 5 — RBI holds repo rate (Sep 10)
+  // 6 — RBI holds repo rate (Sep 10)
   {
     id: "rbi-holds-repo-rate-growth-outlook",
     title: "RBI Holds Repo Rate, Lifts Growth Outlook as Inflation Stays Benign",
@@ -193,7 +226,7 @@ const articles = [
     readTime: "4 min read",
     isTrending: true
   },
-  // 6 — India-EU FTA (Sep 9)
+  // 7 — India-EU FTA (Sep 9)
   {
     id: "india-eu-fta-ratified-exports",
     title: "India–EU Free Trade Agreement Clears Ratification, Set to Boost Exports",
@@ -222,7 +255,7 @@ const articles = [
     readTime: "4 min read",
     isTrending: true
   },
-  // 7 — Women's cricket (Sep 10)
+  // 8 — Women's cricket (Sep 10)
   {
     id: "india-women-series-win-australia",
     title: "India Women Seal ODI Series Against Australia with Dominant Bengaluru Show",
@@ -251,7 +284,7 @@ const articles = [
     readTime: "4 min read",
     isTrending: true
   },
-  // 8 — Health: dengue / monsoon health (Sep 9)
+  // 9 — Health: dengue / monsoon health (Sep 9)
   {
     id: "dengue-surveillance-monsoon-2026",
     title: "Health Ministry Steps Up Dengue Surveillance as Post-Monsoon Cases Rise",
@@ -280,7 +313,7 @@ const articles = [
     readTime: "3 min read",
     isTrending: true
   },
-  // 9 — Bollywood box office (Sep 10)
+  // 10 — Bollywood box office (Sep 10)
   {
     id: "festive-box-office-2026-lineup",
     title: "Bollywood Bets Big on Festive Season with a Blockbuster-Heavy Release Calendar",
@@ -309,7 +342,7 @@ const articles = [
     readTime: "3 min read",
     isTrending: true
   },
-  // 10 — Technology: India AI mission (Sep 9)
+  // 11 — Technology: India AI mission (Sep 9)
   {
     id: "india-ai-mission-compute-expansion",
     title: "India Expands National AI Compute Grid, Opens Access for Startups and Researchers",
@@ -338,7 +371,7 @@ const articles = [
     readTime: "4 min read",
     isTrending: true
   },
-  // 11 — Politics: state polls (Sep 8)
+  // 12 — Politics: state polls (Sep 8)
   {
     id: "assembly-elections-schedule-2026",
     title: "Poll Panel Announces Assembly Election Schedule as Parties Shift Into Campaign Mode",
@@ -366,7 +399,7 @@ const articles = [
     publishedAt: "Sep 8, 2026",
     readTime: "4 min read"
   },
-  // 12 — Education: NEP / exam reform (Sep 8)
+  // 13 — Education: NEP / exam reform (Sep 8)
   {
     id: "board-exam-twice-a-year-reform",
     title: "Twice-a-Year Board Exams Roll Out Nationwide as Reform Push Gathers Pace",
@@ -395,7 +428,7 @@ const articles = [
     readTime: "3 min read",
     isTrending: true
   },
-  // 13 — Health: heart health study (Sep 8)
+  // 14 — Health: heart health study (Sep 8)
   {
     id: "indian-heart-health-study-2026",
     title: "Large Indian Study Links Everyday Habits to Sharp Drop in Heart Risk",
@@ -423,7 +456,7 @@ const articles = [
     publishedAt: "Sep 8, 2026",
     readTime: "4 min read"
   },
-  // 14 — Cricket: Test squad / Australia tour (Sep 8)
+  // 15 — Cricket: Test squad / Australia tour (Sep 8)
   {
     id: "india-squad-australia-tour-2026",
     title: "Selectors Name a Youthful Squad for India's Tour of Australia",
@@ -451,7 +484,7 @@ const articles = [
     publishedAt: "Sep 8, 2026",
     readTime: "3 min read"
   },
-  // 15 — Technology: EV / battery (Sep 9)
+  // 16 — Technology: EV / battery (Sep 9)
   {
     id: "india-ev-battery-gigafactory-2026",
     title: "India's First Large-Scale Cell Gigafactory Begins Commercial Output",
@@ -479,7 +512,7 @@ const articles = [
     publishedAt: "Sep 9, 2026",
     readTime: "4 min read"
   },
-  // 16 — Bollywood: OTT / streaming (Sep 8)
+  // 17 — Bollywood: OTT / streaming (Sep 8)
   {
     id: "ott-regional-content-surge-2026",
     title: "Streaming Platforms Double Down on Regional Originals as Audiences Fragment",
