@@ -16,7 +16,7 @@ export const categories: CategoryInfo[] = [
 ];
 
 export const articles: Article[] = [
-  // 0 — Major Mohammed Ali Shah episode (Featured Hero — Nov 6, 2026)
+  // 0 — Major Mohammed Ali Shah episode (Featured Hero — Nov 5, 2026)
   {
     id: 'major-mohammed-ali-shah-saurabh-nigam-show',
     title: 'Major Mohammed Ali Shah on The Saurabh Nigam Show: From the Indian Army to Bollywood',
@@ -64,7 +64,8 @@ export const articles: Article[] = [
     imageAlt: 'Major Mohammed Ali Shah in uniform cap beside host Saurabh Nigam at the bar counter on the set of The Saurabh Nigam Show',
     imageCredit: 'The Fista',
     author: 'The Fista Desk',
-    publishedAt: 'Nov 6, 2026',
+    publishedAt: 'Nov 5, 2026',
+    publishedTime: '22:00',
     readTime: '5 min read',
     isFeatured: true,
     isTrending: true,

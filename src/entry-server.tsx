@@ -42,11 +42,12 @@ export function getRoutes(): string[] {
 }
 
 // Article metadata for the Google News sitemap.
-export function getNewsEntries(): { path: string; title: string; publishedAt: string }[] {
+export function getNewsEntries(): { path: string; title: string; publishedAt: string; publishedTime?: string }[] {
   return articles.map((a) => ({
     path: `/article/${a.id}`,
     title: a.title,
     publishedAt: a.publishedAt,
+    publishedTime: a.publishedTime,
   }));
 }
 

@@ -17,7 +17,7 @@ const categories = [
   { id: "bollywood", name: "Bollywood", slug: "bollywood", color: "#9333EA", desk: "Culture", description: "Film, streaming, music and the people behind them." }
 ];
 const articles = [
-  // 0 — Major Mohammed Ali Shah episode (Featured Hero — Nov 6, 2026)
+  // 0 — Major Mohammed Ali Shah episode (Featured Hero — Nov 5, 2026)
   {
     id: "major-mohammed-ali-shah-saurabh-nigam-show",
     title: "Major Mohammed Ali Shah on The Saurabh Nigam Show: From the Indian Army to Bollywood",
@@ -64,7 +64,8 @@ const articles = [
     imageAlt: "Major Mohammed Ali Shah in uniform cap beside host Saurabh Nigam at the bar counter on the set of The Saurabh Nigam Show",
     imageCredit: "The Fista",
     author: "The Fista Desk",
-    publishedAt: "Nov 6, 2026",
+    publishedAt: "Nov 5, 2026",
+    publishedTime: "22:00",
     readTime: "5 min read",
     isFeatured: true,
     isTrending: true
@@ -1010,8 +1011,8 @@ function absoluteImage(src) {
   if (src.startsWith("http")) return src;
   return `${SITE.url}${src.startsWith("/") ? src : `/${src}`}`;
 }
-function toISODate(display) {
-  const parsed = /* @__PURE__ */ new Date(`${display} 09:00:00 GMT+0530`);
+function toISODate(display, time = "09:00") {
+  const parsed = /* @__PURE__ */ new Date(`${display} ${time}:00 GMT+0530`);
   if (isNaN(parsed.getTime())) return (/* @__PURE__ */ new Date()).toISOString();
   return parsed.toISOString();
 }
@@ -1333,7 +1334,7 @@ function buildCategorySeo(category, articles2) {
 function buildArticleSeo(article, category) {
   const url = absoluteUrl(`/article/${article.id}`);
   const image = absoluteImage(article.imageUrl);
-  const published = toISODate(article.publishedAt);
+  const published = toISODate(article.publishedAt, article.publishedTime);
   const sectionName = category?.name || article.category;
   const newsArticle = {
     "@context": "https://schema.org",
@@ -1868,7 +1869,8 @@ function getNewsEntries() {
   return articles.map((a) => ({
     path: `/article/${a.id}`,
     title: a.title,
-    publishedAt: a.publishedAt
+    publishedAt: a.publishedAt,
+    publishedTime: a.publishedTime
   }));
 }
 function getSitemapEntries() {

@@ -28,9 +28,10 @@ export function absoluteImage(src?: string): string {
   return `${SITE.url}${src.startsWith('/') ? src : `/${src}`}`;
 }
 
-// Convert a display date ("Sep 11, 2026") into an ISO-8601 timestamp (IST).
-export function toISODate(display: string): string {
-  const parsed = new Date(`${display} 09:00:00 GMT+0530`);
+// Convert a display date ("Sep 11, 2026") plus an optional 24h IST time
+// ("22:00") into an ISO-8601 timestamp.
+export function toISODate(display: string, time = '09:00'): string {
+  const parsed = new Date(`${display} ${time}:00 GMT+0530`);
   if (isNaN(parsed.getTime())) return new Date().toISOString();
   return parsed.toISOString();
 }

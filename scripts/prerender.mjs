@@ -69,9 +69,13 @@ ${urls}
 // ---- 3. news-sitemap.xml (articles published within the last 2 days) -----
 const now = Date.now();
 const TWO_DAYS = 1000 * 60 * 60 * 48;
+// Mirrors toISODate() in src/seo/config.ts so the sitemap and the article's
+// JSON-LD/meta always report the same instant.
+const publishedMs = (a) => new Date(`${a.publishedAt} ${a.publishedTime || '09:00'}:00 GMT+0530`).getTime();
+
 const newsItems = getNewsEntries()
   .filter((a) => {
-    const d = new Date(`${a.publishedAt} 12:00:00`).getTime();
+    const d = publishedMs(a);
     return !isNaN(d) && now - d <= TWO_DAYS;
   })
   .map(
@@ -82,7 +86,7 @@ const newsItems = getNewsEntries()
         <news:name>The Fista</news:name>
         <news:language>en</news:language>
       </news:publication>
-      <news:publication_date>${new Date(`${a.publishedAt} 12:00:00`).toISOString()}</news:publication_date>
+      <news:publication_date>${new Date(publishedMs(a)).toISOString()}</news:publication_date>
       <news:title>${a.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</news:title>
     </news:news>
   </url>`

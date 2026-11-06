@@ -14,6 +14,8 @@ export interface Article {
   imageLicenseUrl?: string;
   author: string;
   publishedAt: string;
+  // Optional 24h IST time of publication, e.g. '22:00'. Defaults to 09:00.
+  publishedTime?: string;
   readTime: string;
   isFeatured?: boolean;
   isTrending?: boolean;

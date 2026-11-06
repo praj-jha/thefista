@@ -139,7 +139,7 @@ export function buildCategorySeo(category: CategoryInfo, articles: Article[]): S
 export function buildArticleSeo(article: Article, category?: CategoryInfo): SeoData {
   const url = absoluteUrl(`/article/${article.id}`);
   const image = absoluteImage(article.imageUrl);
-  const published = toISODate(article.publishedAt);
+  const published = toISODate(article.publishedAt, article.publishedTime);
   const sectionName = category?.name || article.category;
 
   const newsArticle = {
