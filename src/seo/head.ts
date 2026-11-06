@@ -7,6 +7,8 @@ import type { MetaTag, SeoData } from './types';
 export function buildMetaTags(data: SeoData): MetaTag[] {
   const image = data.image || SITE.defaultImage;
   const ogType = data.ogType || 'website';
+  // WhatsApp and some other scrapers prefer an explicit secure URL and MIME type.
+  const imageType = image.endsWith('.png') ? 'image/png' : image.endsWith('.webp') ? 'image/webp' : 'image/jpeg';
 
   const tags: MetaTag[] = [
     { name: 'description', content: data.description },
@@ -20,6 +22,8 @@ export function buildMetaTags(data: SeoData): MetaTag[] {
     { property: 'og:description', content: data.description },
     { property: 'og:url', content: data.canonical },
     { property: 'og:image', content: image },
+    { property: 'og:image:secure_url', content: image },
+    { property: 'og:image:type', content: imageType },
     { property: 'og:image:alt', content: data.imageAlt || data.title },
     ...(data.imageWidth ? [{ property: 'og:image:width', content: String(data.imageWidth) }] : []),
     ...(data.imageHeight ? [{ property: 'og:image:height', content: String(data.imageHeight) }] : []),

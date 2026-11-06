@@ -16,7 +16,61 @@ export const categories: CategoryInfo[] = [
 ];
 
 export const articles: Article[] = [
-  // 0 — Rajan Yadav horror episode (Featured Hero — Oct 30, 2026)
+  // 0 — Major Mohammed Ali Shah episode (Featured Hero — Nov 6, 2026)
+  {
+    id: 'major-mohammed-ali-shah-saurabh-nigam-show',
+    title: 'Major Mohammed Ali Shah on The Saurabh Nigam Show: From the Indian Army to Bollywood',
+    excerpt:
+      'Former Indian Army officer, actor and Naseeruddin Shah’s nephew Major Mohammed Ali Shah joins host Saurabh Nigam for a conversation on courage, discipline and reinvention beyond the uniform.',
+    content: `<p><strong>New Delhi:</strong> The latest episode of The Saurabh Nigam Show, featuring former Indian Army officer, actor and motivational speaker Major Mohammed Ali Shah, brings together two contrasting yet complementary personalities in a conversation about courage, discipline, personal identity and life beyond the uniform.</p>
+<p>While Major Ali Shah’s remarkable transition from the Indian Army to Bollywood provides the narrative, it is host Saurabh Nigam’s calm energy, soft-spoken communication style and striking screen presence that give the episode its distinctive character.</p>
+<p>At a time when Indian podcasts increasingly rely on dramatic exchanges and outspoken personalities, Nigam presents a refreshing alternative. His composed demeanour, measured questions and attentive listening create an atmosphere where meaningful conversations take precedence over unnecessary theatrics.</p>
+<h2>Saurabh Nigam’s calm confidence and distinctive screen presence</h2>
+<p>One of the most noticeable aspects of The Saurabh Nigam Show is its host’s understated approach to presenting.</p>
+<p>Saurabh Nigam demonstrates that commanding attention does not always require dominating a conversation. His naturally gentle voice, thoughtful expressions and unhurried delivery bring a sense of sophistication to the podcast format.</p>
+<p>Equally noteworthy is his camera presence. Nigam carries himself with an effortless confidence, combining a polished appearance with an engaging yet restrained personality.</p>
+<p>Rather than attempting to become the centre of every discussion, he creates space for his guests to share their experiences.</p>
+<p>His ability to listen patiently, ask relevant questions and maintain a comfortable conversational rhythm contributes significantly to the episode’s appeal.</p>
+<p>It is this combination of quiet confidence, understated elegance and natural screen charisma that gives Saurabh Nigam a distinctive identity among emerging Indian podcast hosts.</p>
+<h2>Major Mohammed Ali Shah: from Indian Army officer to Bollywood actor</h2>
+<p>Major Mohammed Ali Shah’s professional journey is an unusual combination of military service, performing arts and public speaking.</p>
+<p>Having served in the Indian Army, including postings in Jammu and Kashmir and Assam, Shah experienced the responsibilities and demanding realities of military life before pursuing a career in entertainment.</p>
+<p>His transition from the armed forces to acting represents a significant personal reinvention, requiring him to navigate an industry far removed from the discipline and structure of military service.</p>
+<p>Over the years, Major Ali Shah has established himself as an actor and motivational speaker, drawing upon his varied experiences to connect with audiences.</p>
+<p>On The Saurabh Nigam Show, his journey provides an opportunity to explore the relationship between discipline, ambition, resilience and the willingness to embrace new professional challenges.</p>
+<h2>Naseeruddin Shah’s nephew with a journey of his own</h2>
+<p>Major Mohammed Ali Shah also comes from a family associated with two distinguished fields: the Indian armed forces and Indian cinema.</p>
+<p>His uncle, Naseeruddin Shah, is among India’s most celebrated actors, known for his contribution to parallel cinema, theatre and mainstream Hindi films.</p>
+<p>Major Ali Shah’s father served as Deputy Chief of the Army Staff, adding another significant dimension to the family’s professional legacy.</p>
+<p>However, beyond these distinguished family connections, Major Ali Shah’s individual journey remains noteworthy.</p>
+<p>His decision to move from military service into acting and public speaking reflects a determination to build a professional identity shaped by personal choices and experiences.</p>
+<h2>A conversation defined by substance rather than spectacle</h2>
+<p>The chemistry between Saurabh Nigam and Major Mohammed Ali Shah is one of the episode’s strengths.</p>
+<p>Shah brings the intensity of a soldier’s experiences and the expressiveness of an actor, while Nigam complements these qualities with a calm temperament and thoughtful questioning.</p>
+<p>The host’s soft-spoken style never diminishes his authority. Instead, it creates a comfortable environment in which the guest’s experiences can take centre stage.</p>
+<p>Nigam’s strong screen presence remains evident throughout, yet it never overshadows the conversation.</p>
+<p>This balance between an engaging host and an accomplished guest gives the episode a refined quality that distinguishes it from more confrontational podcast formats.</p>
+<h2>The Saurabh Nigam Show builds its identity in India’s podcast landscape</h2>
+<p>With conversations featuring personalities from different professional and personal backgrounds, The Saurabh Nigam Show is developing an identity centred on meaningful storytelling and thoughtful interaction.</p>
+<p>The Major Mohammed Ali Shah episode reflects that approach, combining the appeal of a recognised public personality with the host’s increasingly distinctive presentation style.</p>
+<p>For Saurabh Nigam, the strength of his hosting lies not merely in the questions he asks but also in his ability to make guests feel comfortable sharing their stories.</p>
+<p>His composed personality, natural camera appeal and subtle conversational intelligence offer a different interpretation of what makes a compelling podcast host.</p>
+<p>As Indian podcast audiences continue to explore long-form interviews and personality-driven conversations, The Saurabh Nigam Show presents an approach built around authenticity, preparation and understated confidence.</p>
+<p>Ultimately, the episode leaves viewers with two compelling impressions: Major Mohammed Ali Shah’s extraordinary journey from the Indian Army to the world of cinema, and Saurabh Nigam’s quiet charisma, demonstrating that a powerful screen presence can be built not through volume, but through confidence, composure and the art of listening.</p>`,
+    category: 'bollywood',
+    imageUrl: '/images/articles/major-mohammed-ali-shah-saurabh-nigam-show.jpg',
+    imageWidth: 1440,
+    imageHeight: 810,
+    imageAlt: 'Major Mohammed Ali Shah in uniform cap beside host Saurabh Nigam at the bar counter on the set of The Saurabh Nigam Show',
+    imageCredit: 'The Fista',
+    author: 'The Fista Desk',
+    publishedAt: 'Nov 6, 2026',
+    readTime: '5 min read',
+    isFeatured: true,
+    isTrending: true,
+  },
+
+  // 1 — Rajan Yadav horror episode (Featured Hero — Oct 30, 2026)
   {
     id: 'rajan-yadav-horror-stories-saurabh-nigam-show',
     title: 'Rajan Yadav Brings Tales of the Unexplained to The Saurabh Nigam Show',
@@ -51,7 +105,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 1 — Saurabh Nigam Show podcast debut (Featured Hero — Oct 23, 2026)
+  // 2 — Saurabh Nigam Show podcast debut (Featured Hero — Oct 23, 2026)
   {
     id: 'saurabh-nigam-show-podcast-debut',
     title: 'Saurabh Nigam Makes His Podcast Debut, Lets Sensitivity Do the Talking',
@@ -81,7 +135,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 2 — Asia Cup Final (Featured Hero — Sep 11, 2026)
+  // 3 — Asia Cup Final (Featured Hero — Sep 11, 2026)
   {
     id: 'india-asia-cup-2026-final-win',
     title: 'India Clinch Asia Cup 2026 Title with Nerveless Chase in Dubai Final',
@@ -114,7 +168,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 3 — GST 2.0 (Featured — Sep 11)
+  // 4 — GST 2.0 (Featured — Sep 11)
   {
     id: 'gst-2-simplified-slabs-rollout',
     title: 'GST 2.0 Goes Live: Simplified Two-Slab Structure Cheers Households and Small Business',
@@ -147,7 +201,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 4 — ISRO Gaganyaan (Sep 11)
+  // 5 — ISRO Gaganyaan (Sep 11)
   {
     id: 'isro-gaganyaan-crewed-window-confirmed',
     title: 'ISRO Confirms Gaganyaan Crewed Flight Window After Successful Systems Review',
@@ -178,7 +232,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 5 — Monsoon Session concludes (Sep 10)
+  // 6 — Monsoon Session concludes (Sep 10)
   {
     id: 'monsoon-session-concludes-2026',
     title: 'Monsoon Session Wraps Up: Data Rules, Skilling Push and Jobs Debate Dominate',
@@ -208,7 +262,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 6 — RBI holds repo rate (Sep 10)
+  // 7 — RBI holds repo rate (Sep 10)
   {
     id: 'rbi-holds-repo-rate-growth-outlook',
     title: 'RBI Holds Repo Rate, Lifts Growth Outlook as Inflation Stays Benign',
@@ -239,7 +293,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 7 — India-EU FTA (Sep 9)
+  // 8 — India-EU FTA (Sep 9)
   {
     id: 'india-eu-fta-ratified-exports',
     title: 'India–EU Free Trade Agreement Clears Ratification, Set to Boost Exports',
@@ -270,7 +324,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 8 — Women's cricket (Sep 10)
+  // 9 — Women's cricket (Sep 10)
   {
     id: 'india-women-series-win-australia',
     title: 'India Women Seal ODI Series Against Australia with Dominant Bengaluru Show',
@@ -301,7 +355,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 9 — Health: dengue / monsoon health (Sep 9)
+  // 10 — Health: dengue / monsoon health (Sep 9)
   {
     id: 'dengue-surveillance-monsoon-2026',
     title: 'Health Ministry Steps Up Dengue Surveillance as Post-Monsoon Cases Rise',
@@ -332,7 +386,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 10 — Bollywood box office (Sep 10)
+  // 11 — Bollywood box office (Sep 10)
   {
     id: 'festive-box-office-2026-lineup',
     title: 'Bollywood Bets Big on Festive Season with a Blockbuster-Heavy Release Calendar',
@@ -363,7 +417,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 11 — Technology: India AI mission (Sep 9)
+  // 12 — Technology: India AI mission (Sep 9)
   {
     id: 'india-ai-mission-compute-expansion',
     title: 'India Expands National AI Compute Grid, Opens Access for Startups and Researchers',
@@ -394,7 +448,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 12 — Politics: state polls (Sep 8)
+  // 13 — Politics: state polls (Sep 8)
   {
     id: 'assembly-elections-schedule-2026',
     title: 'Poll Panel Announces Assembly Election Schedule as Parties Shift Into Campaign Mode',
@@ -424,7 +478,7 @@ export const articles: Article[] = [
     readTime: '4 min read',
   },
 
-  // 13 — Education: NEP / exam reform (Sep 8)
+  // 14 — Education: NEP / exam reform (Sep 8)
   {
     id: 'board-exam-twice-a-year-reform',
     title: 'Twice-a-Year Board Exams Roll Out Nationwide as Reform Push Gathers Pace',
@@ -455,7 +509,7 @@ export const articles: Article[] = [
     isTrending: true,
   },
 
-  // 14 — Health: heart health study (Sep 8)
+  // 15 — Health: heart health study (Sep 8)
   {
     id: 'indian-heart-health-study-2026',
     title: 'Large Indian Study Links Everyday Habits to Sharp Drop in Heart Risk',
@@ -485,7 +539,7 @@ export const articles: Article[] = [
     readTime: '4 min read',
   },
 
-  // 15 — Cricket: Test squad / Australia tour (Sep 8)
+  // 16 — Cricket: Test squad / Australia tour (Sep 8)
   {
     id: 'india-squad-australia-tour-2026',
     title: 'Selectors Name a Youthful Squad for India\'s Tour of Australia',
@@ -515,7 +569,7 @@ export const articles: Article[] = [
     readTime: '3 min read',
   },
 
-  // 16 — Technology: EV / battery (Sep 9)
+  // 17 — Technology: EV / battery (Sep 9)
   {
     id: 'india-ev-battery-gigafactory-2026',
     title: 'India\'s First Large-Scale Cell Gigafactory Begins Commercial Output',
@@ -545,7 +599,7 @@ export const articles: Article[] = [
     readTime: '4 min read',
   },
 
-  // 17 — Bollywood: OTT / streaming (Sep 8)
+  // 18 — Bollywood: OTT / streaming (Sep 8)
   {
     id: 'ott-regional-content-surge-2026',
     title: 'Streaming Platforms Double Down on Regional Originals as Audiences Fragment',
