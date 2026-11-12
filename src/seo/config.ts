@@ -7,8 +7,11 @@ export const SITE = {
   language: 'en',
   twitter: '@thefista',
   publisher: 'The Fista Media Group',
-  logo: 'https://thefista.in/1.png',
-  defaultImage: 'https://thefista.in/1.png',
+  // Square "Fi" mark — Google shows schema logos and favicons in square/round slots.
+  logo: 'https://thefista.in/icon-512.png',
+  logoSize: 512,
+  // 1200x630 full-wordmark card for link previews when a page has no image.
+  defaultImage: 'https://thefista.in/og-default.png',
   description:
     "The Fista is India's trusted news platform — credible, in-depth coverage of cricket, politics, business, health, Bollywood, education and technology.",
   foundingLocation: 'New Delhi, India',

@@ -35,6 +35,8 @@ function organizationNode() {
     logo: {
       '@type': 'ImageObject',
       url: SITE.logo,
+      width: SITE.logoSize,
+      height: SITE.logoSize,
     },
     sameAs: [
       'https://twitter.com/thefista',
@@ -77,6 +79,8 @@ export function buildHomeSeo(): SeoData {
     description: SITE.description,
     canonical: absoluteUrl('/'),
     image: SITE.defaultImage,
+    imageWidth: 1200,
+    imageHeight: 630,
     ogType: 'website',
     keywords:
       'India news, cricket news, politics, business, health, Bollywood, education, technology, breaking news India',
@@ -162,7 +166,7 @@ export function buildArticleSeo(article: Article, category?: CategoryInfo): SeoD
     publisher: {
       '@type': 'NewsMediaOrganization',
       name: SITE.name,
-      logo: { '@type': 'ImageObject', url: SITE.logo },
+      logo: { '@type': 'ImageObject', url: SITE.logo, width: SITE.logoSize, height: SITE.logoSize },
     },
     isAccessibleForFree: true,
   };

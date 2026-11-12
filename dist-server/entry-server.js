@@ -997,8 +997,11 @@ const SITE = {
   locale: "en_IN",
   language: "en",
   twitter: "@thefista",
-  logo: "https://thefista.in/1.png",
-  defaultImage: "https://thefista.in/1.png",
+  // Square "Fi" mark — Google shows schema logos and favicons in square/round slots.
+  logo: "https://thefista.in/icon-512.png",
+  logoSize: 512,
+  // 1200x630 full-wordmark card for link previews when a page has no image.
+  defaultImage: "https://thefista.in/og-default.png",
   description: "The Fista is India's trusted news platform — credible, in-depth coverage of cricket, politics, business, health, Bollywood, education and technology."
 };
 function absoluteUrl(path = "/") {
@@ -1238,7 +1241,9 @@ function organizationNode() {
     url: `${SITE.url}/`,
     logo: {
       "@type": "ImageObject",
-      url: SITE.logo
+      url: SITE.logo,
+      width: SITE.logoSize,
+      height: SITE.logoSize
     },
     sameAs: [
       "https://twitter.com/thefista",
@@ -1276,6 +1281,8 @@ function buildHomeSeo() {
     description: SITE.description,
     canonical: absoluteUrl("/"),
     image: SITE.defaultImage,
+    imageWidth: 1200,
+    imageHeight: 630,
     ogType: "website",
     keywords: "India news, cricket news, politics, business, health, Bollywood, education, technology, breaking news India",
     jsonLd: [
@@ -1356,7 +1363,7 @@ function buildArticleSeo(article, category) {
     publisher: {
       "@type": "NewsMediaOrganization",
       name: SITE.name,
-      logo: { "@type": "ImageObject", url: SITE.logo }
+      logo: { "@type": "ImageObject", url: SITE.logo, width: SITE.logoSize, height: SITE.logoSize }
     },
     isAccessibleForFree: true
   };
