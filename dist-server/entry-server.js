@@ -17,6 +17,33 @@ const categories = [
   { id: "bollywood", name: "Bollywood", slug: "bollywood", color: "#9333EA", desk: "Culture", description: "Film, streaming, music and the people behind them." }
 ];
 const articles = [
+  // 0 — Kabir Grover episode (Nov 18, 2026)
+  {
+    id: "kabir-grover-saurabh-nigam-show",
+    title: "From Aviation to Fitness: Kabir Grover on The Saurabh Nigam Show",
+    excerpt: "Commercial pilot Kabir Grover, the creator behind Health By Kilo, joins Saurabh Nigam for a conversation about fitness education, nutrition and challenging misleading health advice.",
+    content: `<p><strong>New Delhi:</strong> Commercial aviation and fitness education are an unusual combination on a professional profile. Kabir Grover brings both to the table. The creator behind Health By Kilo, who holds commercial pilot licences in India and the United States, features on The Saurabh Nigam Show in an episode that connects his public awareness work with host Saurabh Nigam's personal interest in health.</p>
+<p>Grover's digital identity centres on helping people understand the information they encounter about their bodies. His Instagram and YouTube content covers exercise, nutrition and supplements, while his stated intention is to challenge misleading fitness advice. The emphasis is on helping viewers develop the confidence to examine a claim and ask how it is supported.</p>
+<p>The subject has a natural connection with Saurabh. His fit physique suggests a personal investment in staying active, and health seems to be a favourite among the many subjects he explores as a host. That interest gives the exchange a sense of ease, with Saurabh's familiarity helping to sustain a more engaged discussion.</p>
+<p>Behind Grover's content is a background that includes ISSA certification in personal training and qualifications in advanced sports nutrition and nutrition. His aviation credentials include licences issued by India's Directorate General of Civil Aviation and the US Federal Aviation Administration. Together, these form the professional foundation of an individual who has pursued interests across two demanding fields.</p>
+<p>The relevance of his awareness work extends to people who may never identify as fitness enthusiasts. A person considering a supplement or trying to understand an exercise recommendation still needs a way to judge the information being offered. Grover's educational approach speaks to that everyday need for clearer explanations.</p>
+<p>For Nigam, the episode provides room to demonstrate a quality that matters in an interview: knowing enough about a subject to recognise where a useful conversation can go. His range as a host is reflected in his willingness to engage seriously with different areas of expertise. Here, that preparation is accompanied by an interest that feels personal.</p>
+<p>His manner gives the discussion its rhythm. Polite and unhurried, Saurabh lets an answer unfold, allowing the audience to follow the guest's thought process. The confidence comes through in his listening as much as in his questions. It is a restrained approach that suits a subject where an explanation often needs time.</p>
+<p>Grover's own achievement lies partly in taking a specialist interest into public conversation. Alongside his qualifications, the development of Health By Kilo gives him a platform to share educational material and draw attention to misinformation. The episode places that work before an audience with varying levels of familiarity with training and nutrition.</p>
+<p>For viewers, the meeting offers a way into the thinking behind fitness content and the person producing it. The pilot's credentials are an unexpected detail in Grover's story; his purpose as an educator gives the conversation its direction. Nigam's informed, quietly assured presence makes space for that purpose to be heard.</p>`,
+    category: "health",
+    imageUrl: "/sa2.png",
+    imageWidth: 1671,
+    imageHeight: 941,
+    imageAlt: "Kabir Grover and Saurabh Nigam during a conversation on fitness and health education",
+    imageCredit: "The Fista",
+    author: "The Fista Desk",
+    publishedAt: "Nov 18, 2026",
+    publishedTime: "11:12",
+    readTime: "4 min read",
+    isFeatured: true,
+    isTrending: true
+  },
   // 0 — Major Mohammed Ali Shah episode (Featured Hero — Nov 5, 2026)
   {
     id: "major-mohammed-ali-shah-saurabh-nigam-show",
