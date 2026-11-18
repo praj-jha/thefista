@@ -33,8 +33,8 @@ const articles = [
 <p>For viewers, the meeting offers a way into the thinking behind fitness content and the person producing it. The pilot's credentials are an unexpected detail in Grover's story; his purpose as an educator gives the conversation its direction. Nigam's informed, quietly assured presence makes space for that purpose to be heard.</p>`,
     category: "health",
     imageUrl: "/sa2.png",
-    imageWidth: 1671,
-    imageHeight: 941,
+    imageWidth: 1200,
+    imageHeight: 630,
     imageAlt: "Kabir Grover and Saurabh Nigam during a conversation on fitness and health education",
     imageCredit: "The Fista",
     author: "The Fista Desk",
@@ -44,7 +44,7 @@ const articles = [
     isFeatured: true,
     isTrending: true
   },
-  // 0 — Major Mohammed Ali Shah episode (Featured Hero — Nov 5, 2026)
+  // 1 — Major Mohammed Ali Shah episode (Featured Hero — Nov 5, 2026)
   {
     id: "major-mohammed-ali-shah-saurabh-nigam-show",
     title: "Major Mohammed Ali Shah on The Saurabh Nigam Show: From the Indian Army to Bollywood",
